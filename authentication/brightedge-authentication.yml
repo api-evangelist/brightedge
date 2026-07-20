@@ -1,0 +1,46 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/brightedge-platform-openapi-original.json
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - cookie
+  - header
+schemes:
+- name: http_basic
+  type: http
+  scheme: basic
+  sources:
+  - openapi/brightedge-platform-openapi-original.json
+- name: forwarded_http_basic
+  type: apiKey
+  in: header
+  parameter: X-Forwarded-Authorization
+  sources:
+  - openapi/brightedge-platform-openapi-original.json
+- name: session_cookie
+  type: apiKey
+  in: cookie
+  parameter: BRIGHTEDGE
+  sources:
+  - openapi/brightedge-platform-openapi-original.json
+- name: session_header
+  type: apiKey
+  in: header
+  parameter: X-BRIGHTEDGE-SESSION
+  sources:
+  - openapi/brightedge-platform-openapi-original.json
+- name: api_token_header
+  type: apiKey
+  in: header
+  parameter: X-Token
+  sources:
+  - openapi/brightedge-platform-openapi-original.json
+- name: bearer_token
+  type: apiKey
+  in: header
+  parameter: Bearer-Token
+  sources:
+  - openapi/brightedge-platform-openapi-original.json
