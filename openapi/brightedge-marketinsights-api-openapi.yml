@@ -1,0 +1,274 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts marketinsights API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: marketinsights
+  description: Operation related to Market Insights
+paths:
+  /5.0/organizations/marketinsights/data/{date_id}:
+    get:
+      tags:
+      - marketinsights
+      summary: Returns the list of reports available for downloading.
+      description: Endpoint returns list of documents available for downloading.
+      operationId: market_insights_data_request_5_0_organizations_marketinsights_data__date_id__get
+      parameters:
+      - description: Date in YYYYMM format
+        required: true
+        schema:
+          type: integer
+          maximum: 204001.0
+          exclusiveMinimum: 202000.0
+          title: Date Id
+          description: Date in YYYYMM format
+        example: 202109
+        name: date_id
+        in: path
+      responses:
+        '200':
+          description: List of reports.
+          content:
+            application/json:
+              schema: {}
+              example:
+                total_reports: 5
+                total_size_bytes: 1249080942
+                reports:
+                - name: customers-000000000000
+                  name_url_encoded: customers-000000000000
+                  size: 160
+                - name: search_volumes-000000000000
+                  name_url_encoded: search_volumes-000000000000
+                  size: 151920182
+                - name: serps-000000000000
+                  name_url_encoded: serps-000000000000
+                  size: 365770017
+                - name: serps-000000000001
+                  name_url_encoded: serps-000000000001
+                  size: 365682375
+                - name: serps-000000000002
+                  name_url_encoded: serps-000000000002
+                  size: 365708208
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              example:
+                status: date_id should be in YYYYMM format. '20210901' was provided
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/organizations/marketinsights/data/{date_id}/{report_name}:
+    get:
+      tags:
+      - marketinsights
+      summary: Returns market insight report in csv format.
+      description: 'Endpoint streams chosen csv report file. File chunks will be compressed using gzip
+
+        if "gzip" is added to "Accept-Encoding" header of the request.'
+      operationId: market_insights_data_request_5_0_organizations_marketinsights_data__date_id___report_name__get
+      parameters:
+      - description: Date in YYYYMM format
+        required: true
+        schema:
+          type: integer
+          maximum: 204001.0
+          exclusiveMinimum: 202000.0
+          title: Date Id
+          description: Date in YYYYMM format
+        example: 202109
+        name: date_id
+        in: path
+      - description: URL encoded report name
+        required: true
+        schema:
+          type: string
+          title: Report Name
+          description: URL encoded report name
+        example: search_volumes-000000000000
+        name: report_name
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+            text/csv:
+              example: 'keyword_local,keyword_language,keyword_country,date,search_volume
+
+                keyword1,English,United Kingdom,20200201,14800
+
+                keyword2,English,United Kingdom,20200201,14800
+
+                keyword3,English,United Kingdom,20200201,135000'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                status: Report 'wrong_report_name' for 202109 was not found
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              example:
+                status: date_id should be in YYYYMM format. '20210901' was provided
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/organizations/marketinsights/data/{date_id}:
+    get:
+      tags:
+      - marketinsights
+      summary: Returns the list of reports available for downloading.
+      description: Endpoint returns list of documents available for downloading.
+      operationId: market_insights_data_request_latest5_organizations_marketinsights_data__date_id__get
+      parameters:
+      - description: Date in YYYYMM format
+        required: true
+        schema:
+          type: integer
+          maximum: 204001.0
+          exclusiveMinimum: 202000.0
+          title: Date Id
+          description: Date in YYYYMM format
+        example: 202109
+        name: date_id
+        in: path
+      responses:
+        '200':
+          description: List of reports.
+          content:
+            application/json:
+              schema: {}
+              example:
+                total_reports: 5
+                total_size_bytes: 1249080942
+                reports:
+                - name: customers-000000000000
+                  name_url_encoded: customers-000000000000
+                  size: 160
+                - name: search_volumes-000000000000
+                  name_url_encoded: search_volumes-000000000000
+                  size: 151920182
+                - name: serps-000000000000
+                  name_url_encoded: serps-000000000000
+                  size: 365770017
+                - name: serps-000000000001
+                  name_url_encoded: serps-000000000001
+                  size: 365682375
+                - name: serps-000000000002
+                  name_url_encoded: serps-000000000002
+                  size: 365708208
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              example:
+                status: date_id should be in YYYYMM format. '20210901' was provided
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/organizations/marketinsights/data/{date_id}/{report_name}:
+    get:
+      tags:
+      - marketinsights
+      summary: Returns market insight report in csv format.
+      description: 'Endpoint streams chosen csv report file. File chunks will be compressed using gzip
+
+        if "gzip" is added to "Accept-Encoding" header of the request.'
+      operationId: market_insights_data_request_latest5_organizations_marketinsights_data__date_id___report_name__get
+      parameters:
+      - description: Date in YYYYMM format
+        required: true
+        schema:
+          type: integer
+          maximum: 204001.0
+          exclusiveMinimum: 202000.0
+          title: Date Id
+          description: Date in YYYYMM format
+        example: 202109
+        name: date_id
+        in: path
+      - description: URL encoded report name
+        required: true
+        schema:
+          type: string
+          title: Report Name
+          description: URL encoded report name
+        example: search_volumes-000000000000
+        name: report_name
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+            text/csv:
+              example: 'keyword_local,keyword_language,keyword_country,date,search_volume
+
+                keyword1,English,United Kingdom,20200201,14800
+
+                keyword2,English,United Kingdom,20200201,14800
+
+                keyword3,English,United Kingdom,20200201,135000'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                status: Report 'wrong_report_name' for 202109 was not found
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              example:
+                status: date_id should be in YYYYMM format. '20210901' was provided
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

@@ -1,0 +1,270 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts web_vitals API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: web_vitals
+paths:
+  /5.0/web_vitals/{account_id}/{device_type}:
+    post:
+      tags:
+      - web_vitals
+      summary: Save Site Info
+      description: This saves the web vitals data for the user
+      operationId: save_site_info_5_0_web_vitals__account_id___device_type__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: string
+          title: Device Type
+        name: device_type
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              title: Payload
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/web_vitals/results/{account_id}/{device_type}:
+    post:
+      tags:
+      - web_vitals
+      summary: Get Site Info
+      description: This returns the web vitals data for the user
+      operationId: get_site_info_5_0_web_vitals_results__account_id___device_type__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: string
+          title: Device Type
+        name: device_type
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetWebVitalsData'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/web_vitals/{account_id}/{device_type}:
+    post:
+      tags:
+      - web_vitals
+      summary: Save Site Info
+      description: This saves the web vitals data for the user
+      operationId: save_site_info_latest5_web_vitals__account_id___device_type__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: string
+          title: Device Type
+        name: device_type
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              title: Payload
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/web_vitals/results/{account_id}/{device_type}:
+    post:
+      tags:
+      - web_vitals
+      summary: Get Site Info
+      description: This returns the web vitals data for the user
+      operationId: get_site_info_latest5_web_vitals_results__account_id___device_type__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: string
+          title: Device Type
+        name: device_type
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetWebVitalsData'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    DateRange:
+      properties:
+        start_date:
+          type: string
+          title: Start Date
+        end_date:
+          type: string
+          title: End Date
+      type: object
+      required:
+      - start_date
+      - end_date
+      title: DateRange
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    GetWebVitalsData:
+      properties:
+        range:
+          $ref: '#/components/schemas/DateRange'
+        domain:
+          type: string
+          title: Domain
+      type: object
+      required:
+      - domain
+      title: GetWebVitalsData
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

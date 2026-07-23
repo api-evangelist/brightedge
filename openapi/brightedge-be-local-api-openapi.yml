@@ -1,0 +1,761 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts be_local API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: be_local
+  description: Operation related to BE Local
+paths:
+  /5.0/objects/be_local/save_multi_edit_changes:
+    post:
+      tags:
+      - be_local
+      summary: This call saves multi edit changes
+      description: 'Changes of the format
+
+        (location_name, field_name, attribute_name, before_value, after_value, task_id, extra_info_json)'
+      operationId: save_multi_edit_changes_5_0_objects_be_local_save_multi_edit_changes_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaveGMBMultiEdit'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BELocalResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/be_local/update_fields:
+    post:
+      tags:
+      - be_local
+      summary: This call fetches all the quick wins tasks for a location
+      operationId: update_fields_5_0_objects_be_local_update_fields_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFieldsGmbConfig'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BELocalResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/be_local/get_accounts_data:
+    post:
+      tags:
+      - be_local
+      summary: This call fetches all the entity data for all location of an account
+      operationId: update_fields_5_0_objects_be_local_get_accounts_data_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetAccountsData'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BELocalResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/be_local/get_location_details_v2:
+    post:
+      tags:
+      - be_local
+      summary: This call fetches all the locations linked to be_account
+      operationId: get_location_details_v2_5_0_objects_be_local_get_location_details_v2_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationDetailConfigV2'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BELocalResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/be_local/get_all_gmb_attributes:
+    post:
+      tags:
+      - be_local
+      summary: This call fetches all the attributes
+      operationId: get_all_gmb_attributes_5_0_objects_be_local_get_all_gmb_attributes_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetAllAttributes'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BELocalResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/be_local/get_all_location_attributes:
+    post:
+      tags:
+      - be_local
+      summary: This call fetches all the location attributes
+      operationId: get_all_location_attributes_5_0_objects_be_local_get_all_location_attributes_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetLocationAttributes'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BELocalResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/be_local/store_updates:
+    post:
+      tags:
+      - be_local
+      summary: Proxy store updates to prod platform-ui-api
+      operationId: store_updates_5_0_objects_be_local_store_updates_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/StoreUpdatesConfig'
+              type: array
+              title: Reqbody
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BELocalResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/be_local/staging/store_updates:
+    post:
+      tags:
+      - be_local
+      summary: Proxy store updates to staging platform-ui-api
+      operationId: store_updates_staging_5_0_objects_be_local_staging_store_updates_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/StoreUpdatesConfig'
+              type: array
+              title: Reqbody
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BELocalResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/be_local/save_multi_edit_changes:
+    post:
+      tags:
+      - be_local
+      summary: This call saves multi edit changes
+      description: 'Changes of the format
+
+        (location_name, field_name, attribute_name, before_value, after_value, task_id, extra_info_json)'
+      operationId: save_multi_edit_changes_latest5_objects_be_local_save_multi_edit_changes_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaveGMBMultiEdit'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BELocalResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/be_local/update_fields:
+    post:
+      tags:
+      - be_local
+      summary: This call fetches all the quick wins tasks for a location
+      operationId: update_fields_latest5_objects_be_local_update_fields_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFieldsGmbConfig'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BELocalResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/be_local/get_accounts_data:
+    post:
+      tags:
+      - be_local
+      summary: This call fetches all the entity data for all location of an account
+      operationId: update_fields_latest5_objects_be_local_get_accounts_data_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetAccountsData'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BELocalResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/be_local/get_location_details_v2:
+    post:
+      tags:
+      - be_local
+      summary: This call fetches all the locations linked to be_account
+      operationId: get_location_details_v2_latest5_objects_be_local_get_location_details_v2_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationDetailConfigV2'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BELocalResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/be_local/get_all_gmb_attributes:
+    post:
+      tags:
+      - be_local
+      summary: This call fetches all the attributes
+      operationId: get_all_gmb_attributes_latest5_objects_be_local_get_all_gmb_attributes_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetAllAttributes'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BELocalResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/be_local/get_all_location_attributes:
+    post:
+      tags:
+      - be_local
+      summary: This call fetches all the location attributes
+      operationId: get_all_location_attributes_latest5_objects_be_local_get_all_location_attributes_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetLocationAttributes'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BELocalResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/be_local/store_updates:
+    post:
+      tags:
+      - be_local
+      summary: Proxy store updates to prod platform-ui-api
+      operationId: store_updates_latest5_objects_be_local_store_updates_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/StoreUpdatesConfig'
+              type: array
+              title: Reqbody
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BELocalResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/be_local/staging/store_updates:
+    post:
+      tags:
+      - be_local
+      summary: Proxy store updates to staging platform-ui-api
+      operationId: store_updates_staging_latest5_objects_be_local_staging_store_updates_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/StoreUpdatesConfig'
+              type: array
+              title: Reqbody
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BELocalResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    StoreUpdatesConfig:
+      properties:
+        be_account_id:
+          type: integer
+          title: Be Account Id
+        store_code:
+          type: string
+          title: Store Code
+        before_value:
+          type: object
+          title: Before Value
+        after_value:
+          type: object
+          title: After Value
+        update_mask:
+          type: string
+          title: Update Mask
+        language_code:
+          type: string
+          title: Language Code
+          default: en
+      type: object
+      required:
+      - be_account_id
+      - store_code
+      title: StoreUpdatesConfig
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    SaveGMBMultiEdit:
+      properties:
+        be_account_id:
+          type: integer
+          title: Be Account Id
+        changes:
+          items:
+            type: object
+          type: array
+          title: Changes
+        multi_edit_id:
+          type: string
+          title: Multi Edit Id
+        batch_attribute_update:
+          type: boolean
+          title: Batch Attribute Update
+          default: false
+      type: object
+      required:
+      - be_account_id
+      - changes
+      - multi_edit_id
+      title: SaveGMBMultiEdit
+    LocationDetailConfigV2:
+      properties:
+        be_account_id:
+          type: integer
+          title: Be Account Id
+        location_name:
+          type: string
+          title: Location Name
+        column_names:
+          items: {}
+          type: array
+          title: Column Names
+        q:
+          type: string
+          title: Q
+        all:
+          type: boolean
+          title: All
+          default: false
+      type: object
+      required:
+      - be_account_id
+      title: LocationDetailConfigV2
+    GetAllAttributes:
+      properties:
+        language_code:
+          type: string
+          title: Language Code
+          default: en
+        region_code:
+          type: string
+          title: Region Code
+          default: US
+        showAll:
+          type: boolean
+          title: Showall
+          default: true
+        do_live_fallback_call:
+          type: boolean
+          title: Do Live Fallback Call
+          default: true
+      type: object
+      title: GetAllAttributes
+    UpdateFieldsGmbConfig:
+      properties:
+        be_account_id:
+          type: integer
+          title: Be Account Id
+        account_name:
+          type: string
+          title: Account Name
+        location_name:
+          type: string
+          title: Location Name
+        before_value:
+          type: object
+          title: Before Value
+        after_value:
+          type: object
+          title: After Value
+        request_body:
+          type: object
+          title: Request Body
+        task_id:
+          type: string
+          title: Task Id
+        update_mask:
+          type: string
+          title: Update Mask
+        attribute_mask:
+          type: string
+          title: Attribute Mask
+        task_status:
+          type: integer
+          title: Task Status
+          default: 2
+      type: object
+      required:
+      - location_name
+      title: UpdateFieldsGmbConfig
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    GetAccountsData:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        external_id:
+          type: string
+          title: External Id
+      type: object
+      required:
+      - account_id
+      title: GetAccountsData
+    GetLocationAttributes:
+      properties:
+        location_name:
+          type: string
+          title: Location Name
+      type: object
+      required:
+      - location_name
+      title: GetLocationAttributes
+    BELocalResponse:
+      properties:
+        status:
+          type: boolean
+          title: Status
+        data:
+          items: {}
+          type: array
+          title: Data
+        message:
+          type: string
+          title: Message
+      type: object
+      required:
+      - status
+      title: BELocalResponse
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

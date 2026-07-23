@@ -1,0 +1,272 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts paa per keyword API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: paa per keyword
+paths:
+  /5.0/marketo/paa_per_keyword:
+    post:
+      tags:
+      - paa per keyword
+      summary: This API retrieves top N(default 4) PAA questions for a given keyword
+      operationId: get_paa_per_keyword_5_0_marketo_paa_per_keyword_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketoPaaRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketoPaaResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/marketo/paa_per_keyword:
+    post:
+      tags:
+      - paa per keyword
+      summary: This API retrieves top N(default 4) PAA questions for a given keyword
+      operationId: get_paa_per_keyword_latest5_marketo_paa_per_keyword_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketoPaaRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketoPaaResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/dataset/paa_per_keyword:
+    post:
+      tags:
+      - paa per keyword
+      summary: This API retrieves top N(default 4) PAA questions for a given keyword
+      operationId: get_paa_per_keyword_5_0_dataset_paa_per_keyword_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketoPaaRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketoPaaResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/dataset/paa_per_keyword:
+    post:
+      tags:
+      - paa per keyword
+      summary: This API retrieves top N(default 4) PAA questions for a given keyword
+      operationId: get_paa_per_keyword_latest5_dataset_paa_per_keyword_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketoPaaRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketoPaaResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    MarketoPaaResponseData:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+        questions:
+          items:
+            $ref: '#/components/schemas/MarketoPaaResponseDataItem'
+          type: array
+          title: Questions
+      type: object
+      title: MarketoPaaResponseData
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    MarketoResponseInfo:
+      properties:
+        version:
+          type: string
+          title: Version
+        timestamp:
+          type: number
+          title: Timestamp
+      type: object
+      required:
+      - version
+      - timestamp
+      title: MarketoResponseInfo
+    MarketoPaaRequest:
+      properties:
+        collector_id:
+          type: integer
+          title: Collector Id
+          default: 34
+        keyword:
+          type: string
+          minLength: 1
+          title: Keyword
+        limit:
+          type: integer
+          maximum: 4.0
+          exclusiveMinimum: 0.0
+          title: Limit
+          default: 4
+      type: object
+      required:
+      - keyword
+      title: MarketoPaaRequest
+    MarketoPaaResponse:
+      properties:
+        status:
+          type: boolean
+          title: Status
+        message:
+          type: string
+          title: Message
+        info:
+          $ref: '#/components/schemas/MarketoResponseInfo'
+        data:
+          $ref: '#/components/schemas/MarketoPaaResponseData'
+      type: object
+      required:
+      - status
+      - message
+      - info
+      - data
+      title: MarketoPaaResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    MarketoPaaResponseDataItem:
+      properties:
+        rank:
+          type: integer
+          title: Rank
+        display_title:
+          type: string
+          title: Display Title
+        answer_text:
+          type: string
+          title: Answer Text
+        landing_url:
+          type: string
+          title: Landing Url
+      type: object
+      title: MarketoPaaResponseDataItem
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

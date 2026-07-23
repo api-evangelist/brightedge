@@ -1,0 +1,816 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts organizations API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: organizations
+  description: Operation related to organizations
+paths:
+  /5.0/objects/organizations/self:
+    get:
+      tags:
+      - organizations
+      summary: This call returns the details of this user's organization
+      operationId: organizations_self_5_0_objects_organizations_self_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationOut'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/organizations/self:
+    get:
+      tags:
+      - organizations
+      summary: This call returns the details of this user's organization
+      operationId: organizations_self_latest5_objects_organizations_self_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationOut'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/organizations/objects/users:
+    get:
+      tags:
+      - organizations
+      summary: This call returns the details of all active users in this organization with their accounts
+      operationId: get_users_5_0_organizations_objects_users_get
+      parameters:
+      - description: The number of users to return per page.
+        required: false
+        schema:
+          type: integer
+          exclusiveMinimum: 0.0
+          title: Limit
+          description: The number of users to return per page.
+          default: 10
+        name: limit
+        in: query
+      - description: The number of users to skip before starting to return.
+        required: false
+        schema:
+          type: integer
+          minimum: 0.0
+          title: Offset
+          description: The number of users to skip before starting to return.
+          default: 0
+        name: offset
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationUsersOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/organizations/objects/accounts:
+    get:
+      tags:
+      - organizations
+      summary: This call returns the details of all accounts in this organization
+      operationId: organizations_bulk_accounts_5_0_organizations_objects_accounts_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/OrgAccountDetailOut'
+                type: array
+                title: Response Organizations Bulk Accounts 5 0 Organizations Objects Accounts Get
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/organizations/objects/users:
+    get:
+      tags:
+      - organizations
+      summary: This call returns the details of all active users in this organization with their accounts
+      operationId: get_users_latest5_organizations_objects_users_get
+      parameters:
+      - description: The number of users to return per page.
+        required: false
+        schema:
+          type: integer
+          exclusiveMinimum: 0.0
+          title: Limit
+          description: The number of users to return per page.
+          default: 10
+        name: limit
+        in: query
+      - description: The number of users to skip before starting to return.
+        required: false
+        schema:
+          type: integer
+          minimum: 0.0
+          title: Offset
+          description: The number of users to skip before starting to return.
+          default: 0
+        name: offset
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationUsersOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/organizations/objects/accounts:
+    get:
+      tags:
+      - organizations
+      summary: This call returns the details of all accounts in this organization
+      operationId: organizations_bulk_accounts_latest5_organizations_objects_accounts_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/OrgAccountDetailOut'
+                type: array
+                title: Response Organizations Bulk Accounts Latest5 Organizations Objects Accounts Get
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/organizations/objects/recommendations:
+    get:
+      tags:
+      - organizations
+      summary: This call returns a list of recommendations for accounts of the user's organization.
+      operationId: get_recommendation_5_0_organizations_objects_recommendations_get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Time Value
+        name: time_value
+        in: query
+      - required: true
+        schema:
+          $ref: '#/components/schemas/GeogorianTimeTimeStringType'
+        name: time_frequency
+        in: query
+      - description: Keyword group names to filter recommendations
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+          title: Kwg Name
+          description: Keyword group names to filter recommendations
+        name: kwg_name
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Limit
+          default: 100
+        name: limit
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+          default: 0
+        name: offset
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RecommendationOut'
+                type: array
+                title: Response Get Recommendation 5 0 Organizations Objects Recommendations Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/organizations/objects/recommendations:
+    get:
+      tags:
+      - organizations
+      summary: This call returns a list of recommendations for accounts of the user's organization.
+      operationId: get_recommendation_latest5_organizations_objects_recommendations_get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Time Value
+        name: time_value
+        in: query
+      - required: true
+        schema:
+          $ref: '#/components/schemas/GeogorianTimeTimeStringType'
+        name: time_frequency
+        in: query
+      - description: Keyword group names to filter recommendations
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+          title: Kwg Name
+          description: Keyword group names to filter recommendations
+        name: kwg_name
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Limit
+          default: 100
+        name: limit
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+          default: 0
+        name: offset
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RecommendationOut'
+                type: array
+                title: Response Get Recommendation Latest5 Organizations Objects Recommendations Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/organizations/objects/site_audit_page_group:
+    post:
+      tags:
+      - organizations
+      summary: This call returns a list of recommendations for accounts of the user's organization.
+      operationId: get_site_audit_page_group_details_5_0_organizations_objects_site_audit_page_group_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SiteAuditPageGroupIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SiteAuditPageGroupOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/organizations/objects/site_audit_crawl_report:
+    post:
+      tags:
+      - organizations
+      summary: This call returns a list of recommendations for accounts of the user's organization.
+      operationId: get_site_audit_crawl_report_5_0_organizations_objects_site_audit_crawl_report_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SiteAuditReportIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SiteAuditReportOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/organizations/objects/site_audit_page_group:
+    post:
+      tags:
+      - organizations
+      summary: This call returns a list of recommendations for accounts of the user's organization.
+      operationId: get_site_audit_page_group_details_latest5_organizations_objects_site_audit_page_group_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SiteAuditPageGroupIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SiteAuditPageGroupOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/organizations/objects/site_audit_crawl_report:
+    post:
+      tags:
+      - organizations
+      summary: This call returns a list of recommendations for accounts of the user's organization.
+      operationId: get_site_audit_crawl_report_latest5_organizations_objects_site_audit_crawl_report_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SiteAuditReportIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SiteAuditReportOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    OrganizationOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+        created_on:
+          type: string
+          format: date-time
+          title: Created On
+        max_accounts:
+          type: integer
+          title: Max Accounts
+        max_competitors:
+          type: integer
+          title: Max Competitors
+      type: object
+      required:
+      - id
+      - name
+      - created_on
+      - max_accounts
+      - max_competitors
+      title: OrganizationOut
+    SiteAuditRulesOut:
+      properties:
+        description:
+          type: string
+          title: Description
+        custom:
+          type: boolean
+          title: Custom
+        value:
+          type: integer
+          title: Value
+      type: object
+      required:
+      - description
+      - custom
+      - value
+      title: SiteAuditRulesOut
+    SiteAuditDimensionsIn:
+      properties:
+        time:
+          type: string
+          title: Time
+      type: object
+      required:
+      - time
+      title: SiteAuditDimensionsIn
+    OrgAccountDetailOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+        created_on_date:
+          type: string
+          format: date-time
+          title: Created On Date
+      type: object
+      required:
+      - id
+      - name
+      - created_on_date
+      title: OrgAccountDetailOut
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    OrganizationUsersOutput:
+      properties:
+        total_pages:
+          type: integer
+          title: Total Pages
+        users:
+          items:
+            $ref: '#/components/schemas/UserOutput'
+          type: array
+          title: Users
+      type: object
+      required:
+      - total_pages
+      - users
+      title: OrganizationUsersOutput
+    SiteAuditReportIn:
+      properties:
+        filters:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Filters
+        offset:
+          items:
+            type: integer
+          type: array
+          title: Offset
+      type: object
+      required:
+      - filters
+      title: SiteAuditReportIn
+    SiteAuditPageGroupIn:
+      properties:
+        filters:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Filters
+        dimensionOptions:
+          $ref: '#/components/schemas/SiteAuditDimensionsIn'
+        order:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Order
+        offset:
+          items:
+            type: integer
+          type: array
+          title: Offset
+      type: object
+      required:
+      - filters
+      - dimensionOptions
+      title: SiteAuditPageGroupIn
+    SiteAuditResultsOut:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        time:
+          type: integer
+          title: Time
+        time_frequency:
+          type: string
+          title: Time Frequency
+        crawl_id:
+          type: integer
+          title: Crawl Id
+        page_type:
+          type: integer
+          title: Page Type
+        preset:
+          type: string
+          title: Preset
+        crawl_completed_date:
+          type: string
+          title: Crawl Completed Date
+        total_pages_crawled:
+          type: integer
+          title: Total Pages Crawled
+        crawl_status:
+          type: integer
+          title: Crawl Status
+        error_code:
+          type: integer
+          title: Error Code
+        rules:
+          items:
+            $ref: '#/components/schemas/SiteAuditRulesOut'
+          type: array
+          title: Rules
+      type: object
+      required:
+      - account_id
+      - time
+      - time_frequency
+      - crawl_id
+      - page_type
+      - preset
+      - crawl_completed_date
+      - total_pages_crawled
+      - crawl_status
+      - error_code
+      - rules
+      title: SiteAuditResultsOut
+    UserOutput:
+      properties:
+        first_name:
+          type: string
+          title: First Name
+        last_name:
+          type: string
+          title: Last Name
+        email:
+          type: string
+          title: Email
+        accounts:
+          items:
+            type: string
+          type: array
+          title: Accounts
+      type: object
+      required:
+      - email
+      - accounts
+      title: UserOutput
+    SiteAuditReportOut:
+      properties:
+        total:
+          type: integer
+          title: Total
+        count:
+          type: integer
+          title: Count
+        results:
+          items:
+            $ref: '#/components/schemas/SiteAuditCrawlReportOut'
+          type: array
+          title: Results
+      type: object
+      required:
+      - total
+      - count
+      - results
+      title: SiteAuditReportOut
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    GeogorianTimeTimeStringType:
+      type: string
+      enum:
+      - daily
+      - weekly
+      - monthly
+      - quarterly
+      - yearly
+      title: GeogorianTimeTimeStringType
+      description: An enumeration.
+    RecommendationOut:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        total_pages:
+          type: integer
+          title: Total Pages
+        rules:
+          items: {}
+          type: array
+          title: Rules
+      type: object
+      required:
+      - account_id
+      - total_pages
+      - rules
+      title: RecommendationOut
+    SiteAuditPageGroupOut:
+      properties:
+        total:
+          type: integer
+          title: Total
+        count:
+          type: integer
+          title: Count
+        results:
+          items:
+            $ref: '#/components/schemas/SiteAuditResultsOut'
+          type: array
+          title: Results
+      type: object
+      required:
+      - total
+      - count
+      - results
+      title: SiteAuditPageGroupOut
+    SiteAuditCrawlReportOut:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        yearweek:
+          type: integer
+          title: Yearweek
+        crawl_id:
+          type: integer
+          title: Crawl Id
+        page_type:
+          type: string
+          title: Page Type
+        preset:
+          type: string
+          title: Preset
+        crawl_completed_date:
+          type: string
+          title: Crawl Completed Date
+        total_pages_crawled:
+          type: integer
+          title: Total Pages Crawled
+        error_code:
+          type: integer
+          title: Error Code
+        crawl_status:
+          type: integer
+          title: Crawl Status
+        page_details:
+          items:
+            type: object
+          type: array
+          title: Page Details
+      type: object
+      required:
+      - account_id
+      - yearweek
+      - crawl_id
+      - page_type
+      - preset
+      - crawl_completed_date
+      - total_pages_crawled
+      - error_code
+      - crawl_status
+      - page_details
+      title: SiteAuditCrawlReportOut
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

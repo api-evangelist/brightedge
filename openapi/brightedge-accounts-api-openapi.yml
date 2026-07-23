@@ -1,0 +1,2580 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: accounts
+  description: Operation related to accounts
+paths:
+  /5.0/objects/accounts:
+    get:
+      tags:
+      - accounts
+      summary: This call returns the list of accounts this user can access
+      operationId: get_all_accounts_5_0_objects_accounts_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AccountOut'
+                type: array
+                title: Response Get All Accounts 5 0 Objects Accounts Get
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/accounts/{account_id}:
+    post:
+      tags:
+      - accounts
+      summary: This call returns the details of an individual account
+      operationId: get_account_5_0_objects_accounts__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountIdIn'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountIdOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/accounts:
+    get:
+      tags:
+      - accounts
+      summary: This call returns the list of accounts this user can access
+      operationId: get_all_accounts_latest5_objects_accounts_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AccountOut'
+                type: array
+                title: Response Get All Accounts Latest5 Objects Accounts Get
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/accounts/{account_id}:
+    post:
+      tags:
+      - accounts
+      summary: This call returns the details of an individual account
+      operationId: get_account_latest5_objects_accounts__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountIdIn'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountIdOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/competitors/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a competitors for given account id
+      operationId: get_account_competitors_5_0_objects_competitors__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CompetitorOut'
+                type: array
+                title: Response Get Account Competitors 5 0 Objects Competitors  Account Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/competitors/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a competitors for given account id
+      operationId: get_account_competitors_latest5_objects_competitors__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CompetitorOut'
+                type: array
+                title: Response Get Account Competitors Latest5 Objects Competitors  Account Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/brandfilters/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a string of bql filters for branded keywords.
+      operationId: get_brand_filters_keywords_for_account_5_0_objects_brandfilters__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: boolean
+          title: Branded
+          default: true
+        name: branded
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandFiltersOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/brandfilters/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a string of bql filters for branded keywords.
+      operationId: get_brand_filters_keywords_for_account_latest5_objects_brandfilters__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: boolean
+          title: Branded
+          default: true
+        name: branded
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandFiltersOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/time/{account_id}/{time_frequency}/{day}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns the time value for a given time frequency and day
+      operationId: get_time_value_5_0_objects_time__account_id___time_frequency___day__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          $ref: '#/components/schemas/TimeTimeStringType'
+        name: time_frequency
+        in: path
+      - required: true
+        schema:
+          type: integer
+          maximum: 99991231.0
+          minimum: 19600101.0
+          title: The day number in YYYYMMDD format
+        name: day
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeFrequencyOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/time/{account_id}/{time_frequency}/{day}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns the time value for a given time frequency and day
+      operationId: get_time_value_latest5_objects_time__account_id___time_frequency___day__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          $ref: '#/components/schemas/TimeTimeStringType'
+        name: time_frequency
+        in: path
+      - required: true
+        schema:
+          type: integer
+          maximum: 99991231.0
+          minimum: 19600101.0
+          title: The day number in YYYYMMDD format
+        name: day
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeFrequencyOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/domains:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a list of primary domains for accounts that the user has access to.
+      operationId: get_user_domains_5_0_objects_domains_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/DomainOut'
+                type: array
+                title: Response Get User Domains 5 0 Objects Domains Get
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/domains/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a primary domain for given account id
+      operationId: get_account_domain_5_0_objects_domains__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/domains:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a list of primary domains for accounts that the user has access to.
+      operationId: get_user_domains_latest5_objects_domains_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/DomainOut'
+                type: array
+                title: Response Get User Domains Latest5 Objects Domains Get
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/domains/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a primary domain for given account id
+      operationId: get_account_domain_latest5_objects_domains__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/keywords/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a list of keywords of the given account
+      operationId: get_account_keywords_5_0_objects_keywords__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/KeywordOut'
+                type: array
+                title: Response Get Account Keywords 5 0 Objects Keywords  Account Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/keywords/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a list of keywords of the given account
+      operationId: get_account_keywords_latest5_objects_keywords__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/KeywordOut'
+                type: array
+                title: Response Get Account Keywords Latest5 Objects Keywords  Account Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/keywordgroups/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a list of keyword groups of the given account
+      operationId: get_account_keywordgroups_5_0_objects_keywordgroups__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/KeywordGroupOut'
+                type: array
+                title: Response Get Account Keywordgroups 5 0 Objects Keywordgroups  Account Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/keywordgroups/{account_id}/{keyword_group_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a list of keywords within the give keyword group
+      operationId: get_account_keywordgroup_detail_5_0_objects_keywordgroups__account_id___keyword_group_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: integer
+          title: Keyword Group Id
+        name: keyword_group_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordGroupDetailOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+    post:
+      tags:
+      - accounts
+      summary: '[WIP] This call adds a list of keywords to the give keyword group'
+      operationId: add_kw_to_kwg_in_account_5_0_objects_keywordgroups__account_id___keyword_group_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: integer
+          title: Keyword Group Id
+        name: keyword_group_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                additionalProperties:
+                  type: string
+                type: object
+              type: array
+              title: Kw List
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/keywordgroups/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a list of keyword groups of the given account
+      operationId: get_account_keywordgroups_latest5_objects_keywordgroups__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/KeywordGroupOut'
+                type: array
+                title: Response Get Account Keywordgroups Latest5 Objects Keywordgroups  Account Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/keywordgroups/{account_id}/{keyword_group_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a list of keywords within the give keyword group
+      operationId: get_account_keywordgroup_detail_latest5_objects_keywordgroups__account_id___keyword_group_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: integer
+          title: Keyword Group Id
+        name: keyword_group_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordGroupDetailOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+    post:
+      tags:
+      - accounts
+      summary: '[WIP] This call adds a list of keywords to the give keyword group'
+      operationId: add_kw_to_kwg_in_account_latest5_objects_keywordgroups__account_id___keyword_group_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: integer
+          title: Keyword Group Id
+        name: keyword_group_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                additionalProperties:
+                  type: string
+                type: object
+              type: array
+              title: Kw List
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/query/{account_id}:
+    post:
+      tags:
+      - accounts
+      summary: '[Work in Progrees]: This call returns data based on submitted BQL (BrightEdge Query Language) request'
+      operationId: get_query_results_5_0_objects_query__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          allOf:
+          - $ref: '#/components/schemas/FeatureName'
+          default: platformapi
+        name: feature_name
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BQLQueryOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/query/{account_id}:
+    post:
+      tags:
+      - accounts
+      summary: '[Work in Progrees]: This call returns data based on submitted BQL (BrightEdge Query Language) request'
+      operationId: get_query_results_latest5_objects_query__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          allOf:
+          - $ref: '#/components/schemas/FeatureName'
+          default: platformapi
+        name: feature_name
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BQLQueryOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/searchengines/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a list of search engines for given account id
+      operationId: get_account_searchengines_5_0_objects_searchengines__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: boolean
+          title: Active
+          default: true
+        name: active
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SearchEngineOut'
+                type: array
+                title: Response Get Account Searchengines 5 0 Objects Searchengines  Account Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/searchengines/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a list of search engines for given account id
+      operationId: get_account_searchengines_latest5_objects_searchengines__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: boolean
+          title: Active
+          default: true
+        name: active
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SearchEngineOut'
+                type: array
+                title: Response Get Account Searchengines Latest5 Objects Searchengines  Account Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/objects/accounts:
+    get:
+      tags:
+      - accounts
+      summary: This call returns the list of accounts this user can access
+      operationId: get_all_accounts_3_0_objects_accounts_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyAccountsListOut'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/objects/accounts/{account_id}:
+    post:
+      tags:
+      - accounts
+      summary: This call returns the details of an individual account
+      operationId: get_account_3_0_objects_accounts__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LegacyAccountIn'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyAccountOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/accounts:
+    get:
+      tags:
+      - accounts
+      summary: This call returns the list of accounts this user can access
+      operationId: get_all_accounts_latest3_objects_accounts_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyAccountsListOut'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/accounts/{account_id}:
+    post:
+      tags:
+      - accounts
+      summary: This call returns the details of an individual account
+      operationId: get_account_latest3_objects_accounts__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LegacyAccountIn'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyAccountOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/objects/keywordgroups/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns the list of keywordgroups an account can access
+      operationId: get_account_keywordgroups_3_0_objects_keywordgroups__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyKeywordGroupOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/objects/keywordgroups/{account_id}/{keyword_group_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a list of keywords within the give keyword group
+      operationId: get_account_keywordgroup_detail_3_0_objects_keywordgroups__account_id___keyword_group_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: integer
+          title: Keyword Group Id
+        name: keyword_group_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyKeywordGroupDetailOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/keywordgroups/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns the list of keywordgroups an account can access
+      operationId: get_account_keywordgroups_latest3_objects_keywordgroups__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyKeywordGroupOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/keywordgroups/{account_id}/{keyword_group_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a list of keywords within the give keyword group
+      operationId: get_account_keywordgroup_detail_latest3_objects_keywordgroups__account_id___keyword_group_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: integer
+          title: Keyword Group Id
+        name: keyword_group_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyKeywordGroupDetailOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/objects/domains:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a list of primary domains for accounts that the user has access to.
+      operationId: get_user_domains_3_0_objects_domains_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyCompetitorDomainOut'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/objects/domains/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a primary domain for given account id
+      operationId: get_account_domain_3_0_objects_domains__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyCompetitorDomainOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/domains:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a list of primary domains for accounts that the user has access to.
+      operationId: get_user_domains_latest3_objects_domains_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyCompetitorDomainOut'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/domains/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a primary domain for given account id
+      operationId: get_account_domain_latest3_objects_domains__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyCompetitorDomainOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/objects/competitors/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a competitors for given account id
+      operationId: get_account_competitors_3_0_objects_competitors__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyCompetitorDomainOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/competitors/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a competitors for given account id
+      operationId: get_account_competitors_latest3_objects_competitors__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyCompetitorDomainOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/objects/keywords/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a list of keywords of the given account
+      operationId: get_account_keywords_3_0_objects_keywords__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+          default: 0
+        name: offset
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Count
+          default: 5000
+        name: count
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyKeywordOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/keywords/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns a list of keywords of the given account
+      operationId: get_account_keywords_latest3_objects_keywords__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+          default: 0
+        name: offset
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Count
+          default: 5000
+        name: count
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyKeywordOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/objects/time/{account_id}/{time_frequency}/{day}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns the time value for a given time frequency and day
+      operationId: get_time_value_3_0_objects_time__account_id___time_frequency___day__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          $ref: '#/components/schemas/TimeTimeStringType'
+        name: time_frequency
+        in: path
+      - required: true
+        schema:
+          type: integer
+          maximum: 99991231.0
+          minimum: 19600101.0
+          title: The day number in YYYYMMDD format
+        name: day
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyTimeFrequencyOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/time/{account_id}/{time_frequency}/{day}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns the time value for a given time frequency and day
+      operationId: get_time_value_latest3_objects_time__account_id___time_frequency___day__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          $ref: '#/components/schemas/TimeTimeStringType'
+        name: time_frequency
+        in: path
+      - required: true
+        schema:
+          type: integer
+          maximum: 99991231.0
+          minimum: 19600101.0
+          title: The day number in YYYYMMDD format
+        name: day
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyTimeFrequencyOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/objects/datacube_searchengines/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns the list of all the datacube search engines for given account_id
+      operationId: get_account_datacube_searchengines_3_0_objects_datacube_searchengines__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyDatacubeSearchenginesOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/datacube_searchengines/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns the list of all the datacube search engines for given account_id
+      operationId: get_account_datacube_searchengines_latest3_objects_datacube_searchengines__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyDatacubeSearchenginesOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/objects/searchengines/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns the list of all the search engines for given account_id
+      operationId: get_account_searchengines_3_0_objects_searchengines__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Active
+          default: 0
+        name: active
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacySearchenginesOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/searchengines/{account_id}:
+    get:
+      tags:
+      - accounts
+      summary: This call returns the list of all the search engines for given account_id
+      operationId: get_account_searchengines_latest3_objects_searchengines__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Active
+          default: 0
+        name: active
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacySearchenginesOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/objects/query/{account_id}:
+    post:
+      tags:
+      - accounts
+      summary: This call returns the BUDD BQL query results (for internal use only)
+      operationId: budd_bql_query_3_0_objects_query__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/query/{account_id}:
+    post:
+      tags:
+      - accounts
+      summary: This call returns the BUDD BQL query results (for internal use only)
+      operationId: budd_bql_query_latest3_objects_query__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/query/{account_id}:
+    post:
+      tags:
+      - accounts
+      summary: This call returns the BUDD BQL query results (for customers)
+      operationId: budd_bql_query_3_0_query__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/query/{account_id}:
+    post:
+      tags:
+      - accounts
+      summary: This call returns the BUDD BQL query results (for customers)
+      operationId: budd_bql_query_latest3_query__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    DomainOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        account_id:
+          type: integer
+          title: Account Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - account_id
+      - name
+      title: DomainOut
+    KeywordOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: KeywordOut
+    TimeFrequencyOut:
+      properties:
+        time_value:
+          type: integer
+          title: Time Value
+        day_value:
+          type: integer
+          title: Day Value
+        time_frequency:
+          $ref: '#/components/schemas/TimeTimeStringType'
+      type: object
+      required:
+      - time_value
+      - day_value
+      - time_frequency
+      title: TimeFrequencyOut
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    LegacyKeywordGroupShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        keywordgroup:
+          type: string
+          title: Keywordgroup
+      type: object
+      required:
+      - id
+      - keywordgroup
+      title: LegacyKeywordGroupShortOut
+    LegacyKeywordGroupDetailKeywordShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: LegacyKeywordGroupDetailKeywordShortOut
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    BQLQueryOut:
+      properties:
+        count:
+          type: integer
+          title: Count
+        offset:
+          type: integer
+          title: Offset
+        total:
+          type: integer
+          title: Total
+        values:
+          items:
+            type: object
+          type: array
+          title: Values
+      type: object
+      required:
+      - count
+      - offset
+      - values
+      title: BQLQueryOut
+    BrandFiltersOut:
+      properties:
+        bql_filters:
+          type: string
+          title: Bql Filters
+        keywords:
+          items:
+            additionalProperties:
+              anyOf:
+              - type: string
+              - type: integer
+              - type: string
+                format: date-time
+            type: object
+          type: array
+          title: Keywords
+      type: object
+      required:
+      - bql_filters
+      - keywords
+      title: BrandFiltersOut
+    LegacyDatacubeSearchenginesShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        country:
+          type: string
+          title: Country
+        location:
+          type: string
+          title: Location
+        device_type:
+          type: string
+          title: Device Type
+        searchengine:
+          type: string
+          title: Searchengine
+        display_name:
+          type: string
+          title: Display Name
+        device_type_id:
+          type: string
+          title: Device Type Id
+        searchengine_group_id:
+          type: string
+          title: Searchengine Group Id
+      type: object
+      required:
+      - id
+      - country
+      - location
+      - device_type
+      - searchengine
+      - display_name
+      - device_type_id
+      - searchengine_group_id
+      title: LegacyDatacubeSearchenginesShortOut
+    LegacyAccountOut:
+      properties:
+        account_name:
+          type: string
+          title: Account Name
+        account_id:
+          type: integer
+          title: Account Id
+        created_on_date:
+          type: string
+          format: date-time
+          title: Created On Date
+        account_primary_domain_tracked:
+          type: string
+          title: Account Primary Domain Tracked
+        GA_integration_setup:
+          type: string
+          title: Ga Integration Setup
+        GSC_integration_setup:
+          type: string
+          title: Gsc Integration Setup
+        GA_integrated_profile_id:
+          type: string
+          title: Ga Integrated Profile Id
+        GSC_integrated_sites:
+          items:
+            type: string
+          type: array
+          title: Gsc Integrated Sites
+        facebook_integration_setup:
+          type: string
+          title: Facebook Integration Setup
+        facebook_fan_page_integrated:
+          type: string
+          title: Facebook Fan Page Integrated
+        number_of_keywords_allocated:
+          type: integer
+          title: Number Of Keywords Allocated
+        number_of_keywords_used:
+          type: integer
+          title: Number Of Keywords Used
+        number_of_unused_keywords:
+          type: integer
+          title: Number Of Unused Keywords
+        number_of_allocated_competitors:
+          type: integer
+          title: Number Of Allocated Competitors
+        number_of_tracked_competitors:
+          type: integer
+          title: Number Of Tracked Competitors
+        number_of_unused_competitors:
+          type: integer
+          title: Number Of Unused Competitors
+        number_of_keywords_with_PLPs_default_SE:
+          type: integer
+          title: Number Of Keywords With Plps Default Se
+        number_of_keywords_with_PLPs_all_tracked_SE:
+          type: integer
+          title: Number Of Keywords With Plps All Tracked Se
+        number_of_page_groups:
+          type: integer
+          title: Number Of Page Groups
+        page_group_names:
+          items:
+            type: string
+          type: array
+          title: Page Group Names
+        last_logged_into_date_for_the_account:
+          type: string
+          format: date-time
+          title: Last Logged Into Date For The Account
+      type: object
+      required:
+      - account_name
+      - account_id
+      - created_on_date
+      - account_primary_domain_tracked
+      - GA_integration_setup
+      - GSC_integration_setup
+      - GA_integrated_profile_id
+      - GSC_integrated_sites
+      - facebook_integration_setup
+      - facebook_fan_page_integrated
+      - number_of_keywords_allocated
+      - number_of_keywords_used
+      - number_of_unused_keywords
+      - number_of_allocated_competitors
+      - number_of_tracked_competitors
+      - number_of_unused_competitors
+      - number_of_keywords_with_PLPs_default_SE
+      - number_of_keywords_with_PLPs_all_tracked_SE
+      - number_of_page_groups
+      - page_group_names
+      title: LegacyAccountOut
+    LegacyKeywordGroupOut:
+      properties:
+        keywordgroups:
+          items:
+            $ref: '#/components/schemas/LegacyKeywordGroupShortOut'
+          type: array
+          title: Keywordgroups
+      type: object
+      required:
+      - keywordgroups
+      title: LegacyKeywordGroupOut
+    CompetitorOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: CompetitorOut
+    SearchEngineOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        country:
+          type: string
+          title: Country
+        location:
+          type: string
+          title: Location
+        device_type:
+          type: string
+          title: Device Type
+        name:
+          type: string
+          title: Name
+        se_group_id:
+          type: string
+          title: Se Group Id
+      type: object
+      required:
+      - id
+      - country
+      - location
+      - device_type
+      - name
+      - se_group_id
+      title: SearchEngineOut
+    LegacyDatacubeSearchenginesOut:
+      properties:
+        searchengines:
+          items:
+            $ref: '#/components/schemas/LegacyDatacubeSearchenginesShortOut'
+          type: array
+          title: Searchengines
+      type: object
+      required:
+      - searchengines
+      title: LegacyDatacubeSearchenginesOut
+    LegacyAccountShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        account:
+          type: string
+          title: Account
+      type: object
+      required:
+      - id
+      - account
+      title: LegacyAccountShortOut
+    TimeTimeStringType:
+      type: string
+      enum:
+      - daily
+      - weekly
+      - monthly
+      - quarterly
+      - yearly
+      - fiscal_weekly
+      - fiscal_monthly
+      - fiscal_quarterly
+      - fiscal_yearly
+      title: TimeTimeStringType
+      description: An enumeration.
+    LegacyKeywordGroupDetailOut:
+      properties:
+        keywordgroups:
+          items:
+            $ref: '#/components/schemas/LegacyKeywordGroupDetailShortOut'
+          type: array
+          title: Keywordgroups
+      type: object
+      required:
+      - keywordgroups
+      title: LegacyKeywordGroupDetailOut
+    LegacyKeywordShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        keyword:
+          type: string
+          title: Keyword
+      type: object
+      required:
+      - id
+      - keyword
+      title: LegacyKeywordShortOut
+    LegacyKeywordGroupDetailShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        keywordgroup:
+          type: string
+          title: Keywordgroup
+        keywords:
+          items:
+            $ref: '#/components/schemas/LegacyKeywordGroupDetailKeywordShortOut'
+          type: array
+          title: Keywords
+      type: object
+      required:
+      - id
+      - keywordgroup
+      - keywords
+      title: LegacyKeywordGroupDetailShortOut
+    AccountIdOut:
+      properties:
+        account_name:
+          type: string
+          title: Account Name
+        account_id:
+          type: integer
+          title: Account Id
+        created_on_date:
+          type: string
+          format: date-time
+          title: Created On Date
+        account_primary_domain_tracked:
+          type: string
+          title: Account Primary Domain Tracked
+        GA_integration_setup:
+          type: boolean
+          title: Ga Integration Setup
+        GSC_integration_setup:
+          type: boolean
+          title: Gsc Integration Setup
+        GA_integrated_profile_id:
+          type: string
+          title: Ga Integrated Profile Id
+        GSC_integrated_sites:
+          items:
+            type: string
+          type: array
+          title: Gsc Integrated Sites
+        facebook_integration_setup:
+          type: boolean
+          title: Facebook Integration Setup
+        facebook_fan_page_integrated:
+          type: string
+          title: Facebook Fan Page Integrated
+        number_of_keywords_allocated:
+          type: integer
+          title: Number Of Keywords Allocated
+        number_of_keywords_used:
+          type: integer
+          title: Number Of Keywords Used
+        number_of_unused_keywords:
+          type: integer
+          title: Number Of Unused Keywords
+        number_of_allocated_competitors:
+          type: integer
+          title: Number Of Allocated Competitors
+        number_of_tracked_competitors:
+          type: integer
+          title: Number Of Tracked Competitors
+        number_of_unused_competitors:
+          type: integer
+          title: Number Of Unused Competitors
+        number_of_keywords_with_PLPs_default_SE:
+          type: integer
+          title: Number Of Keywords With Plps Default Se
+        number_of_keywords_with_PLPs_all_tracked_SE:
+          type: integer
+          title: Number Of Keywords With Plps All Tracked Se
+        last_logged_into_date_for_the_account:
+          type: string
+          format: date-time
+          title: Last Logged Into Date For The Account
+      type: object
+      required:
+      - account_name
+      - account_id
+      - created_on_date
+      - account_primary_domain_tracked
+      - GA_integration_setup
+      - GSC_integration_setup
+      - GA_integrated_profile_id
+      - GSC_integrated_sites
+      - facebook_integration_setup
+      - facebook_fan_page_integrated
+      - number_of_keywords_allocated
+      - number_of_keywords_used
+      - number_of_unused_keywords
+      - number_of_allocated_competitors
+      - number_of_tracked_competitors
+      - number_of_unused_competitors
+      - number_of_keywords_with_PLPs_default_SE
+      - number_of_keywords_with_PLPs_all_tracked_SE
+      title: AccountIdOut
+    AccountOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+        created_on:
+          type: string
+          format: date-time
+          title: Created On
+      type: object
+      required:
+      - id
+      - name
+      - created_on
+      title: AccountOut
+    LegacyKeywordOut:
+      properties:
+        count:
+          type: string
+          title: Count
+        total:
+          type: string
+          title: Total
+        offset:
+          type: string
+          title: Offset
+        keywords:
+          items:
+            $ref: '#/components/schemas/LegacyKeywordShortOut'
+          type: array
+          title: Keywords
+      type: object
+      required:
+      - count
+      - total
+      - offset
+      - keywords
+      title: LegacyKeywordOut
+    LegacyAccountsListOut:
+      properties:
+        accounts:
+          items:
+            $ref: '#/components/schemas/LegacyAccountShortOut'
+          type: array
+          title: Accounts
+      type: object
+      required:
+      - accounts
+      title: LegacyAccountsListOut
+    LegacyTimeFrequencyOut:
+      properties:
+        time_value:
+          type: string
+          title: Time Value
+        day_value:
+          type: string
+          title: Day Value
+        time_frequency:
+          $ref: '#/components/schemas/TimeTimeStringType'
+      type: object
+      required:
+      - time_value
+      - day_value
+      - time_frequency
+      title: LegacyTimeFrequencyOut
+    LegacyDomainShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        domain:
+          type: string
+          title: Domain
+      type: object
+      required:
+      - id
+      - domain
+      title: LegacyDomainShortOut
+    LegacySearchenginesOut:
+      properties:
+        searchengines:
+          items:
+            $ref: '#/components/schemas/LegacySearchenginesShortOut'
+          type: array
+          title: Searchengines
+      type: object
+      required:
+      - searchengines
+      title: LegacySearchenginesOut
+    FeatureName:
+      type: string
+      enum:
+      - platformapi
+      - chromeextension
+      title: FeatureName
+      description: Used to verify feature names for /query feature_name input
+    LegacySearchenginesShortOut:
+      properties:
+        display_name:
+          type: string
+          title: Display Name
+        country:
+          type: string
+          title: Country
+        searchengine:
+          type: string
+          title: Searchengine
+        location:
+          type: string
+          title: Location
+        device_type:
+          type: string
+          title: Device Type
+        device_type_id:
+          type: string
+          title: Device Type Id
+        searchengine_group_id:
+          type: string
+          title: Searchengine Group Id
+        id:
+          type: string
+          title: Id
+      type: object
+      required:
+      - display_name
+      - country
+      - searchengine
+      - location
+      - device_type
+      - device_type_id
+      - searchengine_group_id
+      - id
+      title: LegacySearchenginesShortOut
+    AccountIdIn:
+      properties:
+        excluded_keyword_group_filter:
+          items:
+            type: string
+          type: array
+          title: Excluded Keyword Group Filter
+      type: object
+      title: AccountIdIn
+    LegacyAccountIn:
+      properties:
+        excluded_keyword_group_filter:
+          items:
+            type: string
+          type: array
+          title: Excluded Keyword Group Filter
+      type: object
+      title: LegacyAccountIn
+    LegacyCompetitorDomainOut:
+      properties:
+        domains:
+          items:
+            $ref: '#/components/schemas/LegacyDomainShortOut'
+          type: array
+          title: Domains
+      type: object
+      required:
+      - domains
+      title: LegacyCompetitorDomainOut
+    KeywordGroupOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: KeywordGroupOut
+    KeywordGroupDetailOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+        keywords:
+          items:
+            $ref: '#/components/schemas/KeywordOut'
+          type: array
+          title: Keywords
+      type: object
+      required:
+      - id
+      - name
+      - keywords
+      title: KeywordGroupDetailOut
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

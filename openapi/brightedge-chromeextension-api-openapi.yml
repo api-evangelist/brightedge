@@ -1,0 +1,592 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts chromeextension API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: chromeextension
+  description: Supports ChromeExtension functionality.
+paths:
+  /5.0/chromeextension/keywordgroups/{account_id}:
+    get:
+      tags:
+      - chromeextension
+      summary: This call returns a list of keywordgroups for a given account
+      operationId: get_kw_groups_5_0_chromeextension_keywordgroups__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Limit
+        name: limit
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+        name: offset
+        in: query
+      - required: false
+        schema:
+          type: boolean
+          title: Only Total
+          default: false
+        name: only_total
+        in: query
+      - required: false
+        schema:
+          type: boolean
+          title: Include Total
+          default: false
+        name: include_total
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordGroupOutResp'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/chromeextension/keywords/{account_id}:
+    get:
+      tags:
+      - chromeextension
+      summary: This call returns a list of keywords with kwg_id for a given account
+      operationId: get_account_kw_kwg_id_5_0_chromeextension_keywords__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Limit
+        name: limit
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+        name: offset
+        in: query
+      - required: false
+        schema:
+          type: boolean
+          title: Only Total
+          default: false
+        name: only_total
+        in: query
+      - required: false
+        schema:
+          type: boolean
+          title: Include Total
+          default: false
+        name: include_total
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordOutWithGroupResp'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+    post:
+      tags:
+      - chromeextension
+      summary: This call returns a list of keyword with kwg_id for a given account
+      operationId: get_account_kw_kwg_id_5_0_chromeextension_keywords__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: boolean
+          title: Only Total
+          default: false
+        name: only_total
+        in: query
+      - required: false
+        schema:
+          type: boolean
+          title: Include Total
+          default: false
+        name: include_total
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Limit
+        name: limit
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+        name: offset
+        in: query
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeywordRequestWithGroup'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordOutWithGroupResp'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/chromeextension/keywordgroupactions/{account_id}:
+    post:
+      tags:
+      - chromeextension
+      summary: This call adds keywords to a keyword group
+      operationId: associate_dissociate_keywords_with_group_5_0_chromeextension_keywordgroupactions__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddRemoveKeywordsToGroupRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/chromeextension/keywordgroups/{account_id}:
+    get:
+      tags:
+      - chromeextension
+      summary: This call returns a list of keywordgroups for a given account
+      operationId: get_kw_groups_latest5_chromeextension_keywordgroups__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Limit
+        name: limit
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+        name: offset
+        in: query
+      - required: false
+        schema:
+          type: boolean
+          title: Only Total
+          default: false
+        name: only_total
+        in: query
+      - required: false
+        schema:
+          type: boolean
+          title: Include Total
+          default: false
+        name: include_total
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordGroupOutResp'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/chromeextension/keywords/{account_id}:
+    get:
+      tags:
+      - chromeextension
+      summary: This call returns a list of keywords with kwg_id for a given account
+      operationId: get_account_kw_kwg_id_latest5_chromeextension_keywords__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Limit
+        name: limit
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+        name: offset
+        in: query
+      - required: false
+        schema:
+          type: boolean
+          title: Only Total
+          default: false
+        name: only_total
+        in: query
+      - required: false
+        schema:
+          type: boolean
+          title: Include Total
+          default: false
+        name: include_total
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordOutWithGroupResp'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+    post:
+      tags:
+      - chromeextension
+      summary: This call returns a list of keyword with kwg_id for a given account
+      operationId: get_account_kw_kwg_id_latest5_chromeextension_keywords__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: boolean
+          title: Only Total
+          default: false
+        name: only_total
+        in: query
+      - required: false
+        schema:
+          type: boolean
+          title: Include Total
+          default: false
+        name: include_total
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Limit
+        name: limit
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+        name: offset
+        in: query
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeywordRequestWithGroup'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordOutWithGroupResp'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/chromeextension/keywordgroupactions/{account_id}:
+    post:
+      tags:
+      - chromeextension
+      summary: This call adds keywords to a keyword group
+      operationId: associate_dissociate_keywords_with_group_latest5_chromeextension_keywordgroupactions__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddRemoveKeywordsToGroupRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    AddRemoveKeywordsToGroupRequest:
+      properties:
+        keywords:
+          items:
+            type: string
+          type: array
+          title: Keywords
+        group_id:
+          type: integer
+          title: Group Id
+        action:
+          type: string
+          title: Action
+      type: object
+      required:
+      - keywords
+      - group_id
+      - action
+      title: AddRemoveKeywordsToGroupRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    KeywordGroupOutResp:
+      properties:
+        total:
+          type: integer
+          title: Total
+        groups:
+          items:
+            $ref: '#/components/schemas/KeywordGroupOut'
+          type: array
+          title: Groups
+      type: object
+      required:
+      - total
+      - groups
+      title: KeywordGroupOutResp
+    KeywordRequestWithGroup:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+      type: object
+      required:
+      - keyword
+      title: KeywordRequestWithGroup
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    KeywordOutWithGroup:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+        keyword_group_id:
+          type: integer
+          title: Keyword Group Id
+      type: object
+      required:
+      - id
+      - name
+      - keyword_group_id
+      title: KeywordOutWithGroup
+    KeywordOutWithGroupResp:
+      properties:
+        total:
+          type: integer
+          title: Total
+        keywords:
+          items:
+            $ref: '#/components/schemas/KeywordOutWithGroup'
+          type: array
+          title: Keywords
+      type: object
+      required:
+      - keywords
+      title: KeywordOutWithGroupResp
+    KeywordGroupOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: KeywordGroupOut
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

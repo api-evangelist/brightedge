@@ -1,0 +1,688 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts keywordgroups API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: keywordgroups
+  description: Operation related to keyword groups
+paths:
+  /5.0/objects/keywordgroups/activity/{group_name}:
+    get:
+      tags:
+      - keywordgroups
+      summary: This call returns list of keyword activities per account
+      operationId: get_keywords_activity_5_0_objects_keywordgroups_activity__group_name__get
+      parameters:
+      - required: true
+        schema:
+          type: string
+          title: Group Name
+        name: group_name
+        in: path
+      - required: false
+        schema:
+          type: integer
+          maximum: 202605.0
+          minimum: 202210.0
+          title: Start Year Month
+          default: 202605
+        name: start_year_month
+        in: query
+      - required: false
+        schema:
+          type: integer
+          maximum: 202606.0
+          minimum: 202211.0
+          title: End Year Month
+          default: 202606
+        name: end_year_month
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/KeywordActivityOut'
+                type: array
+                title: Response Get Keywords Activity 5 0 Objects Keywordgroups Activity  Group Name  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/keywordgroups/{account_id}:
+    get:
+      tags:
+      - keywordgroups
+      summary: This call returns a list of keyword groups of the given account
+      operationId: get_account_keywordgroups_5_0_objects_keywordgroups__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/KeywordGroupOut'
+                type: array
+                title: Response Get Account Keywordgroups 5 0 Objects Keywordgroups  Account Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/keywordgroups/{account_id}/{keyword_group_id}:
+    get:
+      tags:
+      - keywordgroups
+      summary: This call returns a list of keywords within the give keyword group
+      operationId: get_account_keywordgroup_detail_5_0_objects_keywordgroups__account_id___keyword_group_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: integer
+          title: Keyword Group Id
+        name: keyword_group_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordGroupDetailOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+    post:
+      tags:
+      - keywordgroups
+      summary: '[WIP] This call adds a list of keywords to the give keyword group'
+      operationId: add_kw_to_kwg_in_account_5_0_objects_keywordgroups__account_id___keyword_group_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: integer
+          title: Keyword Group Id
+        name: keyword_group_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                additionalProperties:
+                  type: string
+                type: object
+              type: array
+              title: Kw List
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/keywordgroups/activity/{group_name}:
+    get:
+      tags:
+      - keywordgroups
+      summary: This call returns list of keyword activities per account
+      operationId: get_keywords_activity_latest5_objects_keywordgroups_activity__group_name__get
+      parameters:
+      - required: true
+        schema:
+          type: string
+          title: Group Name
+        name: group_name
+        in: path
+      - required: false
+        schema:
+          type: integer
+          maximum: 202605.0
+          minimum: 202210.0
+          title: Start Year Month
+          default: 202605
+        name: start_year_month
+        in: query
+      - required: false
+        schema:
+          type: integer
+          maximum: 202606.0
+          minimum: 202211.0
+          title: End Year Month
+          default: 202606
+        name: end_year_month
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/KeywordActivityOut'
+                type: array
+                title: Response Get Keywords Activity Latest5 Objects Keywordgroups Activity  Group Name  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/keywordgroups/{account_id}:
+    get:
+      tags:
+      - keywordgroups
+      summary: This call returns a list of keyword groups of the given account
+      operationId: get_account_keywordgroups_latest5_objects_keywordgroups__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/KeywordGroupOut'
+                type: array
+                title: Response Get Account Keywordgroups Latest5 Objects Keywordgroups  Account Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/keywordgroups/{account_id}/{keyword_group_id}:
+    get:
+      tags:
+      - keywordgroups
+      summary: This call returns a list of keywords within the give keyword group
+      operationId: get_account_keywordgroup_detail_latest5_objects_keywordgroups__account_id___keyword_group_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: integer
+          title: Keyword Group Id
+        name: keyword_group_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordGroupDetailOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+    post:
+      tags:
+      - keywordgroups
+      summary: '[WIP] This call adds a list of keywords to the give keyword group'
+      operationId: add_kw_to_kwg_in_account_latest5_objects_keywordgroups__account_id___keyword_group_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: integer
+          title: Keyword Group Id
+        name: keyword_group_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                additionalProperties:
+                  type: string
+                type: object
+              type: array
+              title: Kw List
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/objects/keywordgroups/{account_id}:
+    get:
+      tags:
+      - keywordgroups
+      summary: This call returns the list of keywordgroups an account can access
+      operationId: get_account_keywordgroups_3_0_objects_keywordgroups__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyKeywordGroupOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/objects/keywordgroups/{account_id}/{keyword_group_id}:
+    get:
+      tags:
+      - keywordgroups
+      summary: This call returns a list of keywords within the give keyword group
+      operationId: get_account_keywordgroup_detail_3_0_objects_keywordgroups__account_id___keyword_group_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: integer
+          title: Keyword Group Id
+        name: keyword_group_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyKeywordGroupDetailOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/keywordgroups/{account_id}:
+    get:
+      tags:
+      - keywordgroups
+      summary: This call returns the list of keywordgroups an account can access
+      operationId: get_account_keywordgroups_latest3_objects_keywordgroups__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyKeywordGroupOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/keywordgroups/{account_id}/{keyword_group_id}:
+    get:
+      tags:
+      - keywordgroups
+      summary: This call returns a list of keywords within the give keyword group
+      operationId: get_account_keywordgroup_detail_latest3_objects_keywordgroups__account_id___keyword_group_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: integer
+          title: Keyword Group Id
+        name: keyword_group_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyKeywordGroupDetailOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    LegacyKeywordGroupOut:
+      properties:
+        keywordgroups:
+          items:
+            $ref: '#/components/schemas/LegacyKeywordGroupShortOut'
+          type: array
+          title: Keywordgroups
+      type: object
+      required:
+      - keywordgroups
+      title: LegacyKeywordGroupOut
+    KeywordOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: KeywordOut
+    LegacyKeywordGroupDetailOut:
+      properties:
+        keywordgroups:
+          items:
+            $ref: '#/components/schemas/LegacyKeywordGroupDetailShortOut'
+          type: array
+          title: Keywordgroups
+      type: object
+      required:
+      - keywordgroups
+      title: LegacyKeywordGroupDetailOut
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    LegacyKeywordGroupDetailShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        keywordgroup:
+          type: string
+          title: Keywordgroup
+        keywords:
+          items:
+            $ref: '#/components/schemas/LegacyKeywordGroupDetailKeywordShortOut'
+          type: array
+          title: Keywords
+      type: object
+      required:
+      - id
+      - keywordgroup
+      - keywords
+      title: LegacyKeywordGroupDetailShortOut
+    KeywordActivityOut:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        keyword_change_rate:
+          type: number
+          title: Keyword Change Rate
+      type: object
+      required:
+      - account_id
+      - keyword_change_rate
+      title: KeywordActivityOut
+    LegacyKeywordGroupShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        keywordgroup:
+          type: string
+          title: Keywordgroup
+      type: object
+      required:
+      - id
+      - keywordgroup
+      title: LegacyKeywordGroupShortOut
+    LegacyKeywordGroupDetailKeywordShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: LegacyKeywordGroupDetailKeywordShortOut
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    KeywordGroupOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: KeywordGroupOut
+    KeywordGroupDetailOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+        keywords:
+          items:
+            $ref: '#/components/schemas/KeywordOut'
+          type: array
+          title: Keywords
+      type: object
+      required:
+      - id
+      - name
+      - keywords
+      title: KeywordGroupDetailOut
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

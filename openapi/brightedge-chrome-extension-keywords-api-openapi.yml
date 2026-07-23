@@ -1,0 +1,313 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts Chrome Extension Keywords API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: Chrome Extension Keywords
+paths:
+  /5.0/chrome_extension/keywords/track_keywords:
+    post:
+      tags:
+      - Chrome Extension Keywords
+      summary: Track Keywords
+      operationId: track_keywords_5_0_chrome_extension_keywords_track_keywords_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrackKeywordsInput'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordGroups'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+  /5.0/chrome_extension/keywords/compare_domains:
+    post:
+      tags:
+      - Chrome Extension Keywords
+      summary: Compare Domains
+      operationId: compare_domains_5_0_chrome_extension_keywords_compare_domains_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DomainComparisonInput'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+  /5.0/chrome_extension/keywords/research_keywords:
+    post:
+      tags:
+      - Chrome Extension Keywords
+      summary: Research Keywords
+      operationId: research_keywords_5_0_chrome_extension_keywords_research_keywords_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResearchKeywordsInput'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+  /latest5/chrome_extension/keywords/track_keywords:
+    post:
+      tags:
+      - Chrome Extension Keywords
+      summary: Track Keywords
+      operationId: track_keywords_latest5_chrome_extension_keywords_track_keywords_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrackKeywordsInput'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordGroups'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+  /latest5/chrome_extension/keywords/compare_domains:
+    post:
+      tags:
+      - Chrome Extension Keywords
+      summary: Compare Domains
+      operationId: compare_domains_latest5_chrome_extension_keywords_compare_domains_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DomainComparisonInput'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+  /latest5/chrome_extension/keywords/research_keywords:
+    post:
+      tags:
+      - Chrome Extension Keywords
+      summary: Research Keywords
+      operationId: research_keywords_latest5_chrome_extension_keywords_research_keywords_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResearchKeywordsInput'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+components:
+  schemas:
+    KeywordGroups:
+      properties:
+        keyword_groups:
+          items:
+            $ref: '#/components/schemas/KeywordGroupDetail'
+          type: array
+          title: Keyword Groups
+      type: object
+      required:
+      - keyword_groups
+      title: KeywordGroups
+    ResearchKeywordsInput:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+        se_group_id:
+          type: string
+          title: Se Group Id
+        account_id:
+          type: integer
+          title: Account Id
+      type: object
+      required:
+      - keyword
+      - se_group_id
+      - account_id
+      title: ResearchKeywordsInput
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    TrackKeywordsInput:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+      type: object
+      required:
+      - account_id
+      title: TrackKeywordsInput
+    KeywordGroupDetail:
+      properties:
+        group_id:
+          type: integer
+          title: Group Id
+        keyword_group_name:
+          type: string
+          title: Keyword Group Name
+      type: object
+      required:
+      - group_id
+      - keyword_group_name
+      title: KeywordGroupDetail
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    DomainComparisonInput:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        base_domain:
+          type: string
+          title: Base Domain
+        compare_domain:
+          type: string
+          title: Compare Domain
+        se_group_id:
+          type: string
+          title: Se Group Id
+      type: object
+      required:
+      - account_id
+      - base_domain
+      - compare_domain
+      - se_group_id
+      title: DomainComparisonInput
+    Pagination:
+      properties:
+        offset:
+          type: integer
+          title: Offset
+          default: 0
+        limit:
+          type: integer
+          title: Limit
+          default: 25
+      type: object
+      title: Pagination
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

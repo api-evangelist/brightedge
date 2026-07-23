@@ -1,0 +1,1679 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts ai_catalyst API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: ai_catalyst
+  description: APIs for ai_catalyst dataset
+paths:
+  /5.0/objects/aicatalyst/accounts:
+    get:
+      tags:
+      - ai_catalyst
+      summary: This call returns the list of accounts where ai catalyst is enabled
+      operationId: get_all_accounts_5_0_objects_aicatalyst_accounts_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AICatalystsAccountOut'
+                type: array
+                title: Response Get All Accounts 5 0 Objects Aicatalyst Accounts Get
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/aicatalyst/get_all_collectors:
+    get:
+      tags:
+      - ai_catalyst
+      summary: This call returns the list of all collectors supported by ai catalyst
+      operationId: get_all_collectors_5_0_objects_aicatalyst_get_all_collectors_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystEnabledCollectors'
+  /5.0/objects/aicatalyst/prompts/{account_id}:
+    get:
+      tags:
+      - ai_catalyst
+      summary: List of prompts set up in the account
+      operationId: get_prompts_list_5_0_objects_aicatalyst_prompts__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+          default: 0
+        name: offset
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Count
+          default: 10000
+        name: count
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystPromptsListOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/aicatalyst/prompt_info/{account_id}/{prompt_id}:
+    get:
+      tags:
+      - ai_catalyst
+      summary: Detailed info about one prompt
+      operationId: get_prompts_list_5_0_objects_aicatalyst_prompt_info__account_id___prompt_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Prompt Id
+        name: prompt_id
+        in: path
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystsPromptInfo'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/aicatalyst/promptgroups/{account_id}:
+    get:
+      tags:
+      - ai_catalyst
+      summary: List of prompt groups set up in the account
+      operationId: get_prompts_list_5_0_objects_aicatalyst_promptgroups__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Count
+          default: 10000
+        name: count
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+          default: 0
+        name: offset
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystsPromptGroupOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/aicatalyst/promptgroups/prompts/{account_id}/{prompt_group_id}:
+    get:
+      tags:
+      - ai_catalyst
+      summary: 'List of prompts tied to the specified prompt group '
+      operationId: get_prompt_group_and_prompt_name_5_0_objects_aicatalyst_promptgroups_prompts__account_id___prompt_group_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: integer
+          title: Prompt Group Id
+        name: prompt_group_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+          default: 0
+        name: offset
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Count
+          default: 10000
+        name: count
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystsPromptGroupPromptsOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/aicatalyst/aiengines/{account_id}:
+    get:
+      tags:
+      - ai_catalyst
+      summary: View all enabled AI engines for the account
+      operationId: get_prompt_group_and_prompt_name_5_0_objects_aicatalyst_aiengines__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+          default: 0
+        name: offset
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Count
+          default: 10000
+        name: count
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystEnabledEngines'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/aicatalyst/enabled_collectors/{account_id}:
+    get:
+      tags:
+      - ai_catalyst
+      summary: View all enabled collectors for the account
+      operationId: get_enabled_collectors_5_0_objects_aicatalyst_enabled_collectors__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+          default: 0
+        name: offset
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Count
+          default: 10000
+        name: count
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystEnabledCollectorsForAccount'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/aicatalyst/list_brand_categories:
+    post:
+      tags:
+      - ai_catalyst
+      summary: Get list of brand categories with filtering and sorting support
+      operationId: list_brand_category_5_0_objects_aicatalyst_list_brand_categories_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AICatalystBrandCategoryRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystPresenceBrandCategory'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/aicatalyst/query:
+    post:
+      tags:
+      - ai_catalyst
+      summary: Get the share of citations or mentions data (legacy format)
+      operationId: share_of_data_5_0_objects_aicatalyst_query_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AICatalystsShareOfDataRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystsShareOfDataResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/aicatalyst/v2/query:
+    post:
+      tags:
+      - ai_catalyst
+      summary: Get the share of citations, mentions, or prompts data with dimensions and measures
+      operationId: share_of_data_v2_5_0_objects_aicatalyst_v2_query_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AICatalystsShareOfDataRequestV2'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystsShareOfDataResponseV2'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/aicatalyst/personas/{account_id}:
+    get:
+      tags:
+      - ai_catalyst
+      summary: View all personas for the account
+      operationId: get_personas_5_0_objects_aicatalyst_personas__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+          default: 0
+        name: offset
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Count
+          default: 10000
+        name: count
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystPersonas'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/aicatalyst/accounts:
+    get:
+      tags:
+      - ai_catalyst
+      summary: This call returns the list of accounts where ai catalyst is enabled
+      operationId: get_all_accounts_latest5_objects_aicatalyst_accounts_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AICatalystsAccountOut'
+                type: array
+                title: Response Get All Accounts Latest5 Objects Aicatalyst Accounts Get
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/aicatalyst/get_all_collectors:
+    get:
+      tags:
+      - ai_catalyst
+      summary: This call returns the list of all collectors supported by ai catalyst
+      operationId: get_all_collectors_latest5_objects_aicatalyst_get_all_collectors_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystEnabledCollectors'
+  /latest5/objects/aicatalyst/prompts/{account_id}:
+    get:
+      tags:
+      - ai_catalyst
+      summary: List of prompts set up in the account
+      operationId: get_prompts_list_latest5_objects_aicatalyst_prompts__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+          default: 0
+        name: offset
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Count
+          default: 10000
+        name: count
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystPromptsListOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/aicatalyst/prompt_info/{account_id}/{prompt_id}:
+    get:
+      tags:
+      - ai_catalyst
+      summary: Detailed info about one prompt
+      operationId: get_prompts_list_latest5_objects_aicatalyst_prompt_info__account_id___prompt_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Prompt Id
+        name: prompt_id
+        in: path
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystsPromptInfo'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/aicatalyst/promptgroups/{account_id}:
+    get:
+      tags:
+      - ai_catalyst
+      summary: List of prompt groups set up in the account
+      operationId: get_prompts_list_latest5_objects_aicatalyst_promptgroups__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Count
+          default: 10000
+        name: count
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+          default: 0
+        name: offset
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystsPromptGroupOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/aicatalyst/promptgroups/prompts/{account_id}/{prompt_group_id}:
+    get:
+      tags:
+      - ai_catalyst
+      summary: 'List of prompts tied to the specified prompt group '
+      operationId: get_prompt_group_and_prompt_name_latest5_objects_aicatalyst_promptgroups_prompts__account_id___prompt_group_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: integer
+          title: Prompt Group Id
+        name: prompt_group_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+          default: 0
+        name: offset
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Count
+          default: 10000
+        name: count
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystsPromptGroupPromptsOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/aicatalyst/aiengines/{account_id}:
+    get:
+      tags:
+      - ai_catalyst
+      summary: View all enabled AI engines for the account
+      operationId: get_prompt_group_and_prompt_name_latest5_objects_aicatalyst_aiengines__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+          default: 0
+        name: offset
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Count
+          default: 10000
+        name: count
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystEnabledEngines'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/aicatalyst/enabled_collectors/{account_id}:
+    get:
+      tags:
+      - ai_catalyst
+      summary: View all enabled collectors for the account
+      operationId: get_enabled_collectors_latest5_objects_aicatalyst_enabled_collectors__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+          default: 0
+        name: offset
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Count
+          default: 10000
+        name: count
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystEnabledCollectorsForAccount'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/aicatalyst/list_brand_categories:
+    post:
+      tags:
+      - ai_catalyst
+      summary: Get list of brand categories with filtering and sorting support
+      operationId: list_brand_category_latest5_objects_aicatalyst_list_brand_categories_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AICatalystBrandCategoryRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystPresenceBrandCategory'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/aicatalyst/query:
+    post:
+      tags:
+      - ai_catalyst
+      summary: Get the share of citations or mentions data (legacy format)
+      operationId: share_of_data_latest5_objects_aicatalyst_query_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AICatalystsShareOfDataRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystsShareOfDataResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/aicatalyst/v2/query:
+    post:
+      tags:
+      - ai_catalyst
+      summary: Get the share of citations, mentions, or prompts data with dimensions and measures
+      operationId: share_of_data_v2_latest5_objects_aicatalyst_v2_query_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AICatalystsShareOfDataRequestV2'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystsShareOfDataResponseV2'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/aicatalyst/personas/{account_id}:
+    get:
+      tags:
+      - ai_catalyst
+      summary: View all personas for the account
+      operationId: get_personas_latest5_objects_aicatalyst_personas__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+          default: 0
+        name: offset
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Count
+          default: 10000
+        name: count
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AICatalystPersonas'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    CollectorInfo:
+      properties:
+        collector_id:
+          type: integer
+          title: Collector Id
+        engine_id:
+          type: integer
+          title: Engine Id
+        locale:
+          type: string
+          title: Locale
+        location:
+          type: string
+          title: Location
+        language:
+          type: string
+          title: Language
+        engine_name:
+          type: string
+          title: Engine Name
+        status:
+          type: integer
+          title: Status
+      type: object
+      required:
+      - collector_id
+      - engine_id
+      - locale
+      - location
+      - language
+      - engine_name
+      - status
+      title: CollectorInfo
+    AICatalystsAccountOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: AICatalystsAccountOut
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    AICatalystPresenceBrandCategory:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        data:
+          items:
+            type: object
+          type: array
+          title: Data
+      type: object
+      required:
+      - success
+      - message
+      title: AICatalystPresenceBrandCategory
+    AICatalystsPromptGroupPrompt:
+      properties:
+        prompt_id:
+          type: integer
+          title: Prompt Id
+        prompt:
+          type: string
+          title: Prompt
+      type: object
+      required:
+      - prompt_id
+      - prompt
+      title: AICatalystsPromptGroupPrompt
+    AICatalystPersona:
+      properties:
+        persona_id:
+          type: integer
+          title: Persona Id
+        name:
+          type: string
+          title: Name
+        description:
+          type: string
+          title: Description
+        updated_by:
+          $ref: '#/components/schemas/AIBUser'
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
+        is_default:
+          type: boolean
+          title: Is Default
+        date_updated:
+          type: string
+          format: date-time
+          title: Date Updated
+      type: object
+      required:
+      - persona_id
+      - name
+      - description
+      title: AICatalystPersona
+    AICatalystsShareOfDataResponse:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        dataset:
+          $ref: '#/components/schemas/AIBDatasetType'
+        data:
+          title: Data
+      type: object
+      required:
+      - success
+      - message
+      - dataset
+      title: AICatalystsShareOfDataResponse
+    AICatalystPersonas:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        personas:
+          items:
+            $ref: '#/components/schemas/AICatalystPersona'
+          type: array
+          title: Personas
+      type: object
+      required:
+      - success
+      - message
+      - personas
+      title: AICatalystPersonas
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    AICatalystPromptsListOut:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        prompt_groups:
+          items:
+            $ref: '#/components/schemas/AICatalystPromptsList'
+          type: array
+          title: Prompt Groups
+      type: object
+      required:
+      - account_id
+      - success
+      - message
+      - prompt_groups
+      title: AICatalystPromptsListOut
+    DimensionOptionsMetadata:
+      properties:
+        time_type:
+          type: string
+          title: Time Type
+        time_value:
+          type: integer
+          title: Time Value
+        collector_ids:
+          items:
+            type: integer
+          type: array
+          title: Collector Ids
+        brand_category_id_list:
+          items:
+            type: integer
+          type: array
+          title: Brand Category Id List
+        personality_id_list:
+          items:
+            type: integer
+          type: array
+          title: Personality Id List
+        topic_id_list:
+          items:
+            type: integer
+          type: array
+          title: Topic Id List
+        brand_domain:
+          type: string
+          title: Brand Domain
+        domain:
+          type: string
+          title: Domain
+        by_domain:
+          type: boolean
+          title: By Domain
+      type: object
+      title: DimensionOptionsMetadata
+      description: Metadata for dimension options applied to the query
+    AICatalystPromptsList:
+      properties:
+        prompt_id:
+          type: integer
+          title: Prompt Id
+        prompt_name:
+          type: string
+          title: Prompt Name
+        collector_ids:
+          items:
+            type: integer
+          type: array
+          title: Collector Ids
+        intent:
+          items:
+            type: string
+          type: array
+          title: Intent
+      type: object
+      required:
+      - prompt_id
+      - prompt_name
+      - collector_ids
+      - intent
+      title: AICatalystPromptsList
+    AICatalystsShareOfDataResponseV2:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        dataset:
+          $ref: '#/components/schemas/AIBDatasetType'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        data:
+          title: Data
+      type: object
+      required:
+      - success
+      - message
+      - dataset
+      title: AICatalystsShareOfDataResponseV2
+      description: V2 response format with metadata
+    AICatalystEnabledCollectors:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        collectors:
+          items:
+            $ref: '#/components/schemas/CollectorInfo'
+          type: array
+          title: Collectors
+      type: object
+      required:
+      - success
+      - message
+      - collectors
+      title: AICatalystEnabledCollectors
+    AIBDatasetType:
+      type: string
+      enum:
+      - mentions
+      - citations
+      - prompts
+      title: AIBDatasetType
+      description: Dataset type for AI Brand Presence data requests
+    AIBUser:
+      properties:
+        user_id:
+          type: integer
+          title: User Id
+        first_name:
+          type: string
+          title: First Name
+        last_name:
+          type: string
+          title: Last Name
+        email:
+          type: string
+          title: Email
+      type: object
+      required:
+      - user_id
+      - first_name
+      - last_name
+      - email
+      title: AIBUser
+    AICatalystEnabledCollectorsForAccount:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        account_id:
+          type: integer
+          title: Account Id
+        collectors:
+          items:
+            $ref: '#/components/schemas/CollectorInfo'
+          type: array
+          title: Collectors
+      type: object
+      required:
+      - success
+      - message
+      - account_id
+      - collectors
+      title: AICatalystEnabledCollectorsForAccount
+    AICatalystsPromptGroupOut:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        prompt_groups:
+          items:
+            $ref: '#/components/schemas/AICatalystsPromptGroup'
+          type: array
+          title: Prompt Groups
+      type: object
+      required:
+      - account_id
+      - success
+      - message
+      - prompt_groups
+      title: AICatalystsPromptGroupOut
+    OutputType:
+      type: string
+      enum:
+      - parsed
+      - raw
+      - summary_only
+      title: OutputType
+      description: Output type for data requests
+    AICatalystsPromptGroup:
+      properties:
+        prompt_group_id:
+          type: integer
+          title: Prompt Group Id
+        prompt_group:
+          type: string
+          title: Prompt Group
+        number_of_prompts:
+          type: integer
+          title: Number Of Prompts
+        created_on:
+          type: string
+          format: date-time
+          title: Created On
+        last_updated_on:
+          type: string
+          format: date-time
+          title: Last Updated On
+        collector_ids:
+          items:
+            type: integer
+          type: array
+          title: Collector Ids
+          default: []
+        personality_ids:
+          items:
+            type: integer
+          type: array
+          title: Personality Ids
+          default: []
+      type: object
+      required:
+      - prompt_group_id
+      - prompt_group
+      - number_of_prompts
+      - created_on
+      - last_updated_on
+      title: AICatalystsPromptGroup
+    AICatalystsPromptInfo:
+      properties:
+        prompt_id:
+          type: integer
+          title: Prompt Id
+        prompt_name:
+          type: string
+          title: Prompt Name
+        intents:
+          type: string
+          title: Intents
+        prompt_groups:
+          type: string
+          title: Prompt Groups
+        collector_ids:
+          items:
+            type: integer
+          type: array
+          title: Collector Ids
+        country:
+          type: string
+          title: Country
+        created_on:
+          type: string
+          format: date-time
+          title: Created On
+        last_updated_on:
+          type: string
+          format: date-time
+          title: Last Updated On
+      type: object
+      required:
+      - prompt_id
+      - prompt_name
+      - created_on
+      - last_updated_on
+      title: AICatalystsPromptInfo
+    AICatalystBrandCategoryRequest:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        domain:
+          type: string
+          title: Domain
+        monitored:
+          type: boolean
+          title: Monitored
+        filters:
+          items:
+            items:
+              type: string
+            type: array
+          type: array
+          title: Filters
+        sort:
+          items:
+            items:
+              type: string
+            type: array
+          type: array
+          title: Sort
+          default:
+          - - brand_domain
+            - asc
+        count:
+          type: integer
+          title: Count
+          default: 10000
+        offset:
+          type: integer
+          title: Offset
+          default: 0
+      type: object
+      required:
+      - account_id
+      - domain
+      title: AICatalystBrandCategoryRequest
+    ResponseMetadata:
+      properties:
+        dimensionOptions:
+          $ref: '#/components/schemas/DimensionOptionsMetadata'
+        dimensions:
+          items:
+            type: string
+          type: array
+          title: Dimensions
+        measures:
+          items:
+            type: string
+          type: array
+          title: Measures
+      type: object
+      title: ResponseMetadata
+      description: Metadata included in V2 response
+    AICatalystsShareOfDataRequestV2:
+      properties:
+        dataset:
+          $ref: '#/components/schemas/AIBDatasetType'
+        account_id:
+          type: integer
+          title: Account Id
+        dimensions:
+          items:
+            type: string
+          type: array
+          title: Dimensions
+        dimensionOptions:
+          type: object
+          title: Dimensionoptions
+        measures:
+          items:
+            type: string
+          type: array
+          title: Measures
+        additional_measures:
+          items:
+            type: string
+          type: array
+          title: Additional Measures
+        filters:
+          items:
+            items:
+              type: string
+            type: array
+          type: array
+          title: Filters
+        offset:
+          type: integer
+          title: Offset
+          default: 0
+        count:
+          type: integer
+          title: Count
+          default: 10000
+        sort:
+          items: {}
+          type: array
+          title: Sort
+          default: []
+        output_type:
+          allOf:
+          - $ref: '#/components/schemas/OutputType'
+          default: parsed
+        use_cache:
+          type: boolean
+          title: Use Cache
+          default: false
+      type: object
+      required:
+      - dataset
+      - account_id
+      title: AICatalystsShareOfDataRequestV2
+      description: 'New V2 request format with dimensions, measures, and filter triplets.
+
+        Supports datasets: mentions, citations, prompts'
+    AICatalystsPromptGroupPromptsOut:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        prompt_groups:
+          items:
+            $ref: '#/components/schemas/AICatalystsPromptGroupPrompts'
+          type: array
+          title: Prompt Groups
+      type: object
+      required:
+      - account_id
+      - success
+      - message
+      - prompt_groups
+      title: AICatalystsPromptGroupPromptsOut
+    AICatalystEnabledEngines:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        account_id:
+          type: integer
+          title: Account Id
+        engines:
+          items:
+            type: string
+          type: array
+          title: Engines
+      type: object
+      required:
+      - success
+      - message
+      - account_id
+      - engines
+      title: AICatalystEnabledEngines
+    AICatalystsPromptGroupPrompts:
+      properties:
+        prompt_group_id:
+          type: integer
+          title: Prompt Group Id
+        prompt_group:
+          type: string
+          title: Prompt Group
+        prompts:
+          items:
+            $ref: '#/components/schemas/AICatalystsPromptGroupPrompt'
+          type: array
+          title: Prompts
+      type: object
+      required:
+      - prompt_group_id
+      - prompt_group
+      - prompts
+      title: AICatalystsPromptGroupPrompts
+    AICatalystsShareOfDataRequest:
+      properties:
+        dataset:
+          allOf:
+          - $ref: '#/components/schemas/AIBDatasetType'
+          description: 'Dataset type: ''mentions'' or ''citations'' or ''report'''
+        account_id:
+          type: integer
+          title: Account Id
+        time_range:
+          items:
+            type: integer
+          type: array
+          title: Time Range
+        time_range_type:
+          type: string
+          title: Time Range Type
+        collector_ids:
+          items:
+            type: integer
+          type: array
+          title: Collector Ids
+          default: []
+        personality_id_list:
+          items:
+            type: integer
+          type: array
+          title: Personality Id List
+          default: []
+        topic_id_list:
+          items:
+            type: integer
+          type: array
+          title: Topic Id List
+          default: []
+        use_cache:
+          type: boolean
+          title: Use Cache
+          default: false
+        offset:
+          type: integer
+          title: Offset
+          default: 0
+        count:
+          type: integer
+          title: Count
+          default: 10000
+        sort:
+          items: {}
+          type: array
+          title: Sort
+          default: []
+        filters:
+          items: {}
+          type: array
+          title: Filters
+          default: []
+        brand_category_id_list:
+          items:
+            type: integer
+          type: array
+          title: Brand Category Id List
+          default: []
+        prompt_type:
+          type: integer
+          title: Prompt Type
+        by_domain:
+          type: boolean
+          title: By Domain
+          default: true
+        output_type:
+          allOf:
+          - $ref: '#/components/schemas/OutputType'
+          default: parsed
+      type: object
+      required:
+      - dataset
+      - account_id
+      - time_range
+      - time_range_type
+      title: AICatalystsShareOfDataRequest
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

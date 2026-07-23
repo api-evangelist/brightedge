@@ -1,0 +1,232 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts Pages API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: Pages
+paths:
+  /5.0/pages/keywords/primary_secondary:
+    get:
+      summary: Get Primary/Secondary Keywords
+      operationId: keywords_5_0_pages_keywords_primary_secondary_get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: query
+      - required: true
+        schema:
+          type: string
+          title: Url
+        name: url
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PSKeywords'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      tags:
+      - Pages
+  /5.0/pages/details:
+    get:
+      summary: Get Page Details
+      operationId: pages_5_0_pages_details_get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: query
+      - required: true
+        schema:
+          type: string
+          title: Url
+        name: url
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageDetails'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      tags:
+      - Pages
+    post:
+      summary: Update Page Details
+      operationId: pages_5_0_pages_details_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PageDetailsInput'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: boolean
+                title: Response Pages 5 0 Pages Details Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      tags:
+      - Pages
+components:
+  schemas:
+    PageDetails:
+      properties:
+        url:
+          type: string
+          maxLength: 2083
+          minLength: 1
+          format: uri
+          title: Url
+        canonical_url:
+          type: string
+          maxLength: 2083
+          minLength: 1
+          format: uri
+          title: Canonical Url
+        title:
+          type: string
+          title: Title
+        meta_description:
+          type: string
+          title: Meta Description
+        yearweek:
+          type: integer
+          title: Yearweek
+      type: object
+      required:
+      - url
+      - canonical_url
+      - title
+      - yearweek
+      title: PageDetails
+    PageDetailsInput:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        url:
+          type: string
+          maxLength: 2083
+          minLength: 1
+          format: uri
+          title: Url
+        title:
+          type: string
+          title: Title
+          default: ''
+        meta_description:
+          type: string
+          title: Meta Description
+          default: ''
+      type: object
+      required:
+      - account_id
+      - url
+      title: PageDetailsInput
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    PSKeywords:
+      properties:
+        primary_keyword:
+          type: string
+          title: Primary Keyword
+        secondary_keywords:
+          type: string
+          title: Secondary Keywords
+      type: object
+      title: PSKeywords
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

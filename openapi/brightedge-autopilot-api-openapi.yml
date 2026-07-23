@@ -1,0 +1,246 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts autopilot API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: autopilot
+paths:
+  /5.0/autopilot/foundations/1.0/update_certificate:
+    post:
+      tags:
+      - autopilot
+      summary: This method allows customer to manually their SSL certificate.
+      description: This endpoint allows customer to manually update their SSL certificate.
+      operationId: apf_update_certificate_5_0_autopilot_foundations_1_0_update_certificate_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutoPilotFoundationsCertificate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/autopilot/foundations/1.0/update_certificate:
+    post:
+      tags:
+      - autopilot
+      summary: This method allows customer to manually their SSL certificate.
+      description: This endpoint allows customer to manually update their SSL certificate.
+      operationId: apf_update_certificate_latest5_autopilot_foundations_1_0_update_certificate_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutoPilotFoundationsCertificate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /ap/1.0/apm/refresh_cache:
+    post:
+      tags:
+      - autopilot
+      summary: This method allows cached image(s) given a given image URL or folder to be refreshed.
+      description: 'This method delegates to marvel-admin''s marveltool-api (running in tomcat) to refresh cached image(s) given image URL or folder.
+
+        For urlType ''folder'', only top-level images will be refreshed, images on sub-folder(s) remains.'
+      operationId: apm_clear_cache_ap_1_0_apm_refresh_cache_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutoPilotCacheClearIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /ap/1.0/apm/invalidate_cache:
+    post:
+      tags:
+      - autopilot
+      summary: This method allows cached image(s) to be invalidated from CDN cache.
+      description: 'This method delegates to marvel-admin''s marveltool-api (running in tomcat) to invalidate ALL cached image(s) for the entire account.
+
+
+        @type  request: HttpRequest
+
+        @param request: request to the view
+
+        @rtype:         HTTPResponse
+
+        @return:        response for the view'
+      operationId: apm_invalidate_cache_ap_1_0_apm_invalidate_cache_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutoPilotCacheInvalidateIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    AutoPilotCacheInvalidateIn:
+      properties:
+        customerId:
+          type: string
+          title: Customerid
+        paths:
+          items:
+            type: string
+          type: array
+          title: Paths
+      type: object
+      required:
+      - customerId
+      title: AutoPilotCacheInvalidateIn
+    AutoPilotFoundationsCertificate:
+      properties:
+        certificate:
+          type: string
+          title: Certificate
+        ceritificateKey:
+          type: string
+          title: Ceritificatekey
+      type: object
+      required:
+      - certificate
+      - ceritificateKey
+      title: AutoPilotFoundationsCertificate
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    AutoPilotCacheClearIn:
+      properties:
+        customerId:
+          type: string
+          title: Customerid
+        url:
+          type: string
+          title: Url
+        urlType:
+          type: string
+          title: Urltype
+      type: object
+      required:
+      - customerId
+      - url
+      title: AutoPilotCacheClearIn
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

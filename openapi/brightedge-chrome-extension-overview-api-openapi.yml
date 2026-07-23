@@ -1,0 +1,334 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts Chrome Extension Overview API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: Chrome Extension Overview
+paths:
+  /5.0/chrome_extension/overview/images:
+    post:
+      tags:
+      - Chrome Extension Overview
+      summary: Get Image tags Alt texts
+      operationId: images_5_0_chrome_extension_overview_images_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImagesInput'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+                title: Response Images 5 0 Chrome Extension Overview Images Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+  /5.0/chrome_extension/overview/content:
+    post:
+      tags:
+      - Chrome Extension Overview
+      summary: Get Page Contents
+      operationId: content_5_0_chrome_extension_overview_content_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentInput'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Content'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+  /5.0/chrome_extension/overview/web_vitals:
+    get:
+      tags:
+      - Chrome Extension Overview
+      summary: Get Web Vitals
+      operationId: web_vitals_5_0_chrome_extension_overview_web_vitals_get
+      parameters:
+      - required: true
+        schema:
+          type: string
+          title: Url
+        name: url
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebVitals'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+  /latest5/chrome_extension/overview/images:
+    post:
+      tags:
+      - Chrome Extension Overview
+      summary: Get Image tags Alt texts
+      operationId: images_latest5_chrome_extension_overview_images_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImagesInput'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+                title: Response Images Latest5 Chrome Extension Overview Images Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+  /latest5/chrome_extension/overview/content:
+    post:
+      tags:
+      - Chrome Extension Overview
+      summary: Get Page Contents
+      operationId: content_latest5_chrome_extension_overview_content_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentInput'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Content'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+  /latest5/chrome_extension/overview/web_vitals:
+    get:
+      tags:
+      - Chrome Extension Overview
+      summary: Get Web Vitals
+      operationId: web_vitals_latest5_chrome_extension_overview_web_vitals_get
+      parameters:
+      - required: true
+        schema:
+          type: string
+          title: Url
+        name: url
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebVitals'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+components:
+  schemas:
+    Content:
+      properties:
+        word_count:
+          type: integer
+          title: Word Count
+        headings:
+          $ref: '#/components/schemas/Headings'
+      type: object
+      required:
+      - word_count
+      - headings
+      title: Content
+    ContentInput:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        se_group_id:
+          type: integer
+          title: Se Group Id
+        url:
+          type: string
+          title: Url
+      type: object
+      required:
+      - account_id
+      - se_group_id
+      - url
+      title: ContentInput
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    Headings:
+      properties:
+        H1:
+          items:
+            type: string
+          type: array
+          title: H1
+          default: []
+        H2:
+          items:
+            type: string
+          type: array
+          title: H2
+          default: []
+      type: object
+      title: Headings
+    WebVitals:
+      properties:
+        lcp:
+          type: string
+          title: Lcp
+          default: ''
+        fid:
+          type: string
+          title: Fid
+          default: ''
+        cls:
+          type: string
+          title: Cls
+          default: ''
+        inp:
+          type: string
+          title: Inp
+          default: ''
+      type: object
+      title: WebVitals
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ImagesInput:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        se_group_id:
+          type: integer
+          title: Se Group Id
+        url:
+          type: string
+          title: Url
+      type: object
+      required:
+      - account_id
+      - se_group_id
+      - url
+      title: ImagesInput
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

@@ -1,0 +1,751 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts dataset API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: dataset
+  description: APIs for brightedge dataset
+paths:
+  /5.0/dataset/ping:
+    get:
+      tags:
+      - dataset
+      summary: This is simple ping api
+      operationId: ping_5_0_dataset_ping_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /5.0/dataset/page_cache:
+    post:
+      tags:
+      - dataset
+      summary: This API retrieves page html cache from gcs for a given url
+      operationId: get_page_cache_5_0_dataset_page_cache_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketoCacheRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/dataset/page_crawl:
+    post:
+      tags:
+      - dataset
+      summary: This API retrieves page html by crawling a given url
+      operationId: crawl_page_content_5_0_dataset_page_crawl_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketoCacheRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/dataset/top_pages:
+    post:
+      tags:
+      - dataset
+      summary: This API retrieves top N(default 1000) pages for a given base domain
+      operationId: get_top_pages_5_0_dataset_top_pages_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketoTopPagesRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketoTopPagesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/dataset/top_keywords_per_page:
+    post:
+      tags:
+      - dataset
+      summary: This API retrieves top N(default 5) keywords for a given page
+      operationId: get_top_keywords_per_page_5_0_dataset_top_keywords_per_page_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketoTopKeywordsPerPageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketoTopKeywordsPerPageResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/dataset/top_keywords:
+    post:
+      tags:
+      - dataset
+      summary: This API retrieves top N(default 100) keywords for a given domain
+      operationId: get_top_keywords_per_domain_5_0_dataset_top_keywords_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketoTopKeywordsPerDomainRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketoTopKeywordsPerDomainResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/dataset/paa_per_keyword:
+    post:
+      tags:
+      - dataset
+      summary: This API retrieves top N(default 4) PAA questions for a given keyword
+      operationId: get_paa_per_keyword_5_0_dataset_paa_per_keyword_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketoPaaRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketoPaaResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/dataset/ping:
+    get:
+      tags:
+      - dataset
+      summary: This is simple ping api
+      operationId: ping_latest5_dataset_ping_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /latest5/dataset/page_cache:
+    post:
+      tags:
+      - dataset
+      summary: This API retrieves page html cache from gcs for a given url
+      operationId: get_page_cache_latest5_dataset_page_cache_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketoCacheRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/dataset/page_crawl:
+    post:
+      tags:
+      - dataset
+      summary: This API retrieves page html by crawling a given url
+      operationId: crawl_page_content_latest5_dataset_page_crawl_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketoCacheRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/dataset/top_pages:
+    post:
+      tags:
+      - dataset
+      summary: This API retrieves top N(default 1000) pages for a given base domain
+      operationId: get_top_pages_latest5_dataset_top_pages_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketoTopPagesRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketoTopPagesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/dataset/top_keywords_per_page:
+    post:
+      tags:
+      - dataset
+      summary: This API retrieves top N(default 5) keywords for a given page
+      operationId: get_top_keywords_per_page_latest5_dataset_top_keywords_per_page_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketoTopKeywordsPerPageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketoTopKeywordsPerPageResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/dataset/top_keywords:
+    post:
+      tags:
+      - dataset
+      summary: This API retrieves top N(default 100) keywords for a given domain
+      operationId: get_top_keywords_per_domain_latest5_dataset_top_keywords_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketoTopKeywordsPerDomainRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketoTopKeywordsPerDomainResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/dataset/paa_per_keyword:
+    post:
+      tags:
+      - dataset
+      summary: This API retrieves top N(default 4) PAA questions for a given keyword
+      operationId: get_paa_per_keyword_latest5_dataset_paa_per_keyword_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketoPaaRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketoPaaResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    MarketoTopKeywordsPerPageResponseDataItem:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+        volume:
+          type: integer
+          title: Volume
+        blended_rank:
+          type: integer
+          title: Blended Rank
+      type: object
+      title: MarketoTopKeywordsPerPageResponseDataItem
+    MarketoTopPagesResponseData:
+      properties:
+        pages:
+          items:
+            $ref: '#/components/schemas/MarketoTopPagesResponseDataItem'
+          type: array
+          title: Pages
+      type: object
+      title: MarketoTopPagesResponseData
+    MarketoTopKeywordsPerDomainResponse:
+      properties:
+        status:
+          type: boolean
+          title: Status
+        message:
+          type: string
+          title: Message
+        info:
+          $ref: '#/components/schemas/MarketoResponseInfo'
+        data:
+          $ref: '#/components/schemas/MarketoTopKeywordsPerDomainResponseData'
+      type: object
+      required:
+      - status
+      - message
+      - info
+      - data
+      title: MarketoTopKeywordsPerDomainResponse
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    MarketoTopKeywordsPerDomainResponseData:
+      properties:
+        keywords:
+          items:
+            $ref: '#/components/schemas/MarketoTopKeywordsPerDomainResponseDataItem'
+          type: array
+          title: Keywords
+      type: object
+      title: MarketoTopKeywordsPerDomainResponseData
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    MarketoTopKeywordsPerPageResponseData:
+      properties:
+        keywords:
+          items:
+            $ref: '#/components/schemas/MarketoTopKeywordsPerPageResponseDataItem'
+          type: array
+          title: Keywords
+      type: object
+      title: MarketoTopKeywordsPerPageResponseData
+    MarketoTopPagesResponseDataItem:
+      properties:
+        url:
+          type: string
+          title: Url
+        search_vol:
+          type: integer
+          title: Search Vol
+        average_rank:
+          type: integer
+          title: Average Rank
+        est_visits:
+          type: integer
+          title: Est Visits
+      type: object
+      title: MarketoTopPagesResponseDataItem
+    MarketoResponseInfo:
+      properties:
+        version:
+          type: string
+          title: Version
+        timestamp:
+          type: number
+          title: Timestamp
+      type: object
+      required:
+      - version
+      - timestamp
+      title: MarketoResponseInfo
+    MarketoTopKeywordsPerPageResponse:
+      properties:
+        status:
+          type: boolean
+          title: Status
+        message:
+          type: string
+          title: Message
+        info:
+          $ref: '#/components/schemas/MarketoResponseInfo'
+        data:
+          $ref: '#/components/schemas/MarketoTopKeywordsPerPageResponseData'
+      type: object
+      required:
+      - status
+      - message
+      - info
+      - data
+      title: MarketoTopKeywordsPerPageResponse
+    MarketoTopPagesRequest:
+      properties:
+        collector_id:
+          type: integer
+          title: Collector Id
+          default: 34
+        domain:
+          type: string
+          minLength: 1
+          title: Domain
+        limit:
+          type: integer
+          maximum: 1000.0
+          exclusiveMinimum: 0.0
+          title: Limit
+          default: 1000
+      type: object
+      required:
+      - domain
+      title: MarketoTopPagesRequest
+    MarketoPaaResponse:
+      properties:
+        status:
+          type: boolean
+          title: Status
+        message:
+          type: string
+          title: Message
+        info:
+          $ref: '#/components/schemas/MarketoResponseInfo'
+        data:
+          $ref: '#/components/schemas/MarketoPaaResponseData'
+      type: object
+      required:
+      - status
+      - message
+      - info
+      - data
+      title: MarketoPaaResponse
+    MarketoPaaRequest:
+      properties:
+        collector_id:
+          type: integer
+          title: Collector Id
+          default: 34
+        keyword:
+          type: string
+          minLength: 1
+          title: Keyword
+        limit:
+          type: integer
+          maximum: 4.0
+          exclusiveMinimum: 0.0
+          title: Limit
+          default: 4
+      type: object
+      required:
+      - keyword
+      title: MarketoPaaRequest
+    MarketoTopKeywordsPerDomainRequest:
+      properties:
+        collector_id:
+          type: integer
+          title: Collector Id
+          default: 34
+        domain:
+          type: string
+          minLength: 1
+          title: Domain
+        limit:
+          type: integer
+          maximum: 1000.0
+          exclusiveMinimum: 0.0
+          title: Limit
+          default: 100
+      type: object
+      required:
+      - domain
+      title: MarketoTopKeywordsPerDomainRequest
+    MarketoPaaResponseDataItem:
+      properties:
+        rank:
+          type: integer
+          title: Rank
+        display_title:
+          type: string
+          title: Display Title
+        answer_text:
+          type: string
+          title: Answer Text
+        landing_url:
+          type: string
+          title: Landing Url
+      type: object
+      title: MarketoPaaResponseDataItem
+    MarketoPaaResponseData:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+        questions:
+          items:
+            $ref: '#/components/schemas/MarketoPaaResponseDataItem'
+          type: array
+          title: Questions
+      type: object
+      title: MarketoPaaResponseData
+    MarketoTopKeywordsPerPageRequest:
+      properties:
+        collector_id:
+          type: integer
+          title: Collector Id
+          default: 34
+        page:
+          type: string
+          minLength: 1
+          title: Page
+        limit:
+          type: integer
+          maximum: 5.0
+          exclusiveMinimum: 0.0
+          title: Limit
+          default: 5
+      type: object
+      required:
+      - page
+      title: MarketoTopKeywordsPerPageRequest
+    MarketoCacheRequest:
+      properties:
+        url:
+          type: string
+          minLength: 1
+          title: Url
+      type: object
+      required:
+      - url
+      title: MarketoCacheRequest
+    MarketoTopKeywordsPerDomainResponseDataItem:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+        volume:
+          type: integer
+          title: Volume
+        blended_rank:
+          type: integer
+          title: Blended Rank
+        est_visits:
+          type: integer
+          title: Est Visits
+        top_url:
+          type: string
+          title: Top Url
+      type: object
+      title: MarketoTopKeywordsPerDomainResponseDataItem
+    MarketoTopPagesResponse:
+      properties:
+        status:
+          type: boolean
+          title: Status
+        message:
+          type: string
+          title: Message
+        info:
+          $ref: '#/components/schemas/MarketoResponseInfo'
+        data:
+          $ref: '#/components/schemas/MarketoTopPagesResponseData'
+      type: object
+      required:
+      - status
+      - message
+      - info
+      - data
+      title: MarketoTopPagesResponse
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

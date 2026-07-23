@@ -1,0 +1,178 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts datacube_searchengines API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: datacube_searchengines
+paths:
+  /3.0/objects/datacube_searchengines/{account_id}:
+    get:
+      tags:
+      - datacube_searchengines
+      summary: This call returns the list of all the datacube search engines for given account_id
+      operationId: get_account_datacube_searchengines_3_0_objects_datacube_searchengines__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyDatacubeSearchenginesOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/datacube_searchengines/{account_id}:
+    get:
+      tags:
+      - datacube_searchengines
+      summary: This call returns the list of all the datacube search engines for given account_id
+      operationId: get_account_datacube_searchengines_latest3_objects_datacube_searchengines__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacyDatacubeSearchenginesOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    LegacyDatacubeSearchenginesOut:
+      properties:
+        searchengines:
+          items:
+            $ref: '#/components/schemas/LegacyDatacubeSearchenginesShortOut'
+          type: array
+          title: Searchengines
+      type: object
+      required:
+      - searchengines
+      title: LegacyDatacubeSearchenginesOut
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    LegacyDatacubeSearchenginesShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        country:
+          type: string
+          title: Country
+        location:
+          type: string
+          title: Location
+        device_type:
+          type: string
+          title: Device Type
+        searchengine:
+          type: string
+          title: Searchengine
+        display_name:
+          type: string
+          title: Display Name
+        device_type_id:
+          type: string
+          title: Device Type Id
+        searchengine_group_id:
+          type: string
+          title: Searchengine Group Id
+      type: object
+      required:
+      - id
+      - country
+      - location
+      - device_type
+      - searchengine
+      - display_name
+      - device_type_id
+      - searchengine_group_id
+      title: LegacyDatacubeSearchenginesShortOut
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

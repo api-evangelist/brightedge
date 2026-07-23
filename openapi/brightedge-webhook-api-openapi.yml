@@ -1,0 +1,142 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts webhook API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: webhook
+paths:
+  /5.0/instant/webhook/{provider}/kw_ideas/{request_id}:
+    post:
+      tags:
+      - webhook
+      summary: Process Webhook
+      description: This endpoint handle webhook from oxylabs
+      operationId: process_webhook_5_0_instant_webhook__provider__kw_ideas__request_id__post
+      parameters:
+      - required: true
+        schema:
+          type: string
+          title: Provider
+        name: provider
+        in: path
+      - required: true
+        schema:
+          type: string
+          title: Request Id
+        name: request_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              title: Payload
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /latest5/instant/webhook/{provider}/kw_ideas/{request_id}:
+    post:
+      tags:
+      - webhook
+      summary: Process Webhook
+      description: This endpoint handle webhook from oxylabs
+      operationId: process_webhook_latest5_instant_webhook__provider__kw_ideas__request_id__post
+      parameters:
+      - required: true
+        schema:
+          type: string
+          title: Provider
+        name: provider
+        in: path
+      - required: true
+        schema:
+          type: string
+          title: Request Id
+        name: request_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              title: Payload
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

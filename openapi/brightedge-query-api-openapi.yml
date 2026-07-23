@@ -1,0 +1,302 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts query API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: query
+  description: Retrieving data with BQL queries
+paths:
+  /5.0/objects/query/{account_id}:
+    post:
+      tags:
+      - query
+      summary: '[Work in Progrees]: This call returns data based on submitted BQL (BrightEdge Query Language) request'
+      operationId: get_query_results_5_0_objects_query__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          allOf:
+          - $ref: '#/components/schemas/FeatureName'
+          default: platformapi
+        name: feature_name
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BQLQueryOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/query/{account_id}:
+    post:
+      tags:
+      - query
+      summary: '[Work in Progrees]: This call returns data based on submitted BQL (BrightEdge Query Language) request'
+      operationId: get_query_results_latest5_objects_query__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          allOf:
+          - $ref: '#/components/schemas/FeatureName'
+          default: platformapi
+        name: feature_name
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BQLQueryOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/objects/query/{account_id}:
+    post:
+      tags:
+      - query
+      summary: This call returns the BUDD BQL query results (for internal use only)
+      operationId: budd_bql_query_3_0_objects_query__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/query/{account_id}:
+    post:
+      tags:
+      - query
+      summary: This call returns the BUDD BQL query results (for internal use only)
+      operationId: budd_bql_query_latest3_objects_query__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/query/{account_id}:
+    post:
+      tags:
+      - query
+      summary: This call returns the BUDD BQL query results (for customers)
+      operationId: budd_bql_query_3_0_query__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/query/{account_id}:
+    post:
+      tags:
+      - query
+      summary: This call returns the BUDD BQL query results (for customers)
+      operationId: budd_bql_query_latest3_query__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    BQLQueryOut:
+      properties:
+        count:
+          type: integer
+          title: Count
+        offset:
+          type: integer
+          title: Offset
+        total:
+          type: integer
+          title: Total
+        values:
+          items:
+            type: object
+          type: array
+          title: Values
+      type: object
+      required:
+      - count
+      - offset
+      - values
+      title: BQLQueryOut
+    FeatureName:
+      type: string
+      enum:
+      - platformapi
+      - chromeextension
+      title: FeatureName
+      description: Used to verify feature names for /query feature_name input
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

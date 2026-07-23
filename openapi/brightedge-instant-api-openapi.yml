@@ -1,0 +1,356 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts instant API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: instant
+paths:
+  /5.0/instant/keywordIdeas/{organization_id}/{request_id}:
+    post:
+      tags:
+      - instant
+      summary: Get Kw Ideas Result
+      description: This endpoint return result
+      operationId: get_kw_ideas_result_5_0_instant_keywordIdeas__organization_id___request_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Organization Id
+        name: organization_id
+        in: path
+      - required: true
+        schema:
+          type: string
+          title: Request Id
+        name: request_id
+        in: path
+      - required: false
+        schema:
+          type: boolean
+          title: Only Total
+          default: false
+        name: only_total
+        in: query
+      - required: false
+        schema:
+          type: boolean
+          title: Include Total
+          default: false
+        name: include_total
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KwIdeasHistoryOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/instant/keywordIdeas/{organization_id}:
+    post:
+      tags:
+      - instant
+      summary: Submit Kw For Ideas
+      description: This endpoint receive keywords for ideas
+      operationId: submit_kw_for_ideas_5_0_instant_keywordIdeas__organization_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Organization Id
+        name: organization_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/instant/webhook/{provider}/kw_ideas/{request_id}:
+    post:
+      tags:
+      - instant
+      summary: Process Webhook
+      description: This endpoint handle webhook from oxylabs
+      operationId: process_webhook_5_0_instant_webhook__provider__kw_ideas__request_id__post
+      parameters:
+      - required: true
+        schema:
+          type: string
+          title: Provider
+        name: provider
+        in: path
+      - required: true
+        schema:
+          type: string
+          title: Request Id
+        name: request_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              title: Payload
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /latest5/instant/keywordIdeas/{organization_id}/{request_id}:
+    post:
+      tags:
+      - instant
+      summary: Get Kw Ideas Result
+      description: This endpoint return result
+      operationId: get_kw_ideas_result_latest5_instant_keywordIdeas__organization_id___request_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Organization Id
+        name: organization_id
+        in: path
+      - required: true
+        schema:
+          type: string
+          title: Request Id
+        name: request_id
+        in: path
+      - required: false
+        schema:
+          type: boolean
+          title: Only Total
+          default: false
+        name: only_total
+        in: query
+      - required: false
+        schema:
+          type: boolean
+          title: Include Total
+          default: false
+        name: include_total
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KwIdeasHistoryOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/instant/keywordIdeas/{organization_id}:
+    post:
+      tags:
+      - instant
+      summary: Submit Kw For Ideas
+      description: This endpoint receive keywords for ideas
+      operationId: submit_kw_for_ideas_latest5_instant_keywordIdeas__organization_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Organization Id
+        name: organization_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/instant/webhook/{provider}/kw_ideas/{request_id}:
+    post:
+      tags:
+      - instant
+      summary: Process Webhook
+      description: This endpoint handle webhook from oxylabs
+      operationId: process_webhook_latest5_instant_webhook__provider__kw_ideas__request_id__post
+      parameters:
+      - required: true
+        schema:
+          type: string
+          title: Provider
+        name: provider
+        in: path
+      - required: true
+        schema:
+          type: string
+          title: Request Id
+        name: request_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              title: Payload
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    KwIdeasHistoryOut:
+      properties:
+        total:
+          type: integer
+          title: Total
+        count:
+          type: integer
+          title: Count
+        offset:
+          type: integer
+          title: Offset
+        values:
+          items:
+            $ref: '#/components/schemas/KwValue'
+          type: array
+          title: Values
+      type: object
+      title: KwIdeasHistoryOut
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    KwValue:
+      properties:
+        search_volume:
+          type: integer
+          title: Search Volume
+        suggested_bid:
+          type: number
+          title: Suggested Bid
+        num_words:
+          type: integer
+          title: Num Words
+        competition:
+          type: string
+          title: Competition
+        keyword:
+          type: string
+          title: Keyword
+      type: object
+      required:
+      - num_words
+      - keyword
+      title: KwValue
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

@@ -1,0 +1,188 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts core API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: core
+paths:
+  /5.0/info:
+    get:
+      tags:
+      - core
+      summary: Api Info
+      operationId: api_info_5_0_info_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /5.0/high-latency-handle/{msec}:
+    get:
+      tags:
+      - core
+      summary: This call is used for concurrency load test
+      operationId: high_latency_handle_5_0_high_latency_handle__msec__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Msec
+        name: msec
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /5.0/async-high-latency-handle/{msec}:
+    get:
+      tags:
+      - core
+      summary: This call is used for concurrency load test
+      operationId: async_high_latency_handle_5_0_async_high_latency_handle__msec__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Msec
+        name: msec
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /latest5/info:
+    get:
+      tags:
+      - core
+      summary: Api Info
+      operationId: api_info_latest5_info_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /latest5/high-latency-handle/{msec}:
+    get:
+      tags:
+      - core
+      summary: This call is used for concurrency load test
+      operationId: high_latency_handle_latest5_high_latency_handle__msec__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Msec
+        name: msec
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /latest5/async-high-latency-handle/{msec}:
+    get:
+      tags:
+      - core
+      summary: This call is used for concurrency load test
+      operationId: async_high_latency_handle_latest5_async_high_latency_handle__msec__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Msec
+        name: msec
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

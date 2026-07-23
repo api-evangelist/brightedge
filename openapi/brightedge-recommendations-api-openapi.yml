@@ -1,0 +1,395 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts recommendations API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: recommendations
+paths:
+  /5.0/organizations/objects/pbr_page_keyword_pop_up/{account_id}:
+    post:
+      tags:
+      - recommendations
+      summary: This call returns details of keyword recommendation
+      operationId: get_keyword_recommendation_details_5_0_organizations_objects_pbr_page_keyword_pop_up__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Limit
+        name: limit
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+        name: offset
+        in: query
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecommendationKwListRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecommendationKwListResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/organizations/objects/pbr_keywords/{account_id}:
+    post:
+      tags:
+      - recommendations
+      summary: This endpoint allows change priority of keywords
+      operationId: change_keyword_priority_5_0_organizations_objects_pbr_keywords__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecommendationKwChangePriorityRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/organizations/objects/get_tracked_pages/{account_id}:
+    get:
+      tags:
+      - recommendations
+      summary: This call returns list of tracked pages
+      operationId: get_tracked_pages_5_0_organizations_objects_get_tracked_pages__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/organizations/objects/pbr_page_keyword_pop_up/{account_id}:
+    post:
+      tags:
+      - recommendations
+      summary: This call returns details of keyword recommendation
+      operationId: get_keyword_recommendation_details_latest5_organizations_objects_pbr_page_keyword_pop_up__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Limit
+        name: limit
+        in: query
+      - required: false
+        schema:
+          type: integer
+          title: Offset
+        name: offset
+        in: query
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecommendationKwListRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecommendationKwListResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/organizations/objects/pbr_keywords/{account_id}:
+    post:
+      tags:
+      - recommendations
+      summary: This endpoint allows change priority of keywords
+      operationId: change_keyword_priority_latest5_organizations_objects_pbr_keywords__account_id__post
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecommendationKwChangePriorityRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/organizations/objects/get_tracked_pages/{account_id}:
+    get:
+      tags:
+      - recommendations
+      summary: This call returns list of tracked pages
+      operationId: get_tracked_pages_latest5_organizations_objects_get_tracked_pages__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    RecommendationKwChangePriorityRequest:
+      properties:
+        plp_url_id:
+          type: string
+          title: Plp Url Id
+        keywords:
+          items:
+            $ref: '#/components/schemas/RecommendationKwPriority'
+          type: array
+          title: Keywords
+      type: object
+      required:
+      - plp_url_id
+      - keywords
+      title: RecommendationKwChangePriorityRequest
+    RecommendationKwPriority:
+      properties:
+        keyword_id:
+          type: integer
+          title: Keyword Id
+        position:
+          type: integer
+          title: Position
+      type: object
+      required:
+      - keyword_id
+      - position
+      title: RecommendationKwPriority
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    RecommendationKwListRequest:
+      properties:
+        page_url:
+          type: string
+          title: Page Url
+        page_url_id:
+          type: integer
+          title: Page Url Id
+      type: object
+      title: RecommendationKwListRequest
+    RecommendationKw:
+      properties:
+        keyword_id:
+          type: integer
+          title: Keyword Id
+        name:
+          type: string
+          title: Name
+        search_volume:
+          type: integer
+          title: Search Volume
+        position:
+          type: integer
+          title: Position
+        plp_url:
+          type: string
+          title: Plp Url
+        plp_url_id:
+          type: string
+          title: Plp Url Id
+      type: object
+      required:
+      - keyword_id
+      - name
+      - position
+      - plp_url
+      - plp_url_id
+      title: RecommendationKw
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    RecommendationKwListResponse:
+      properties:
+        page_url_id:
+          type: integer
+          title: Page Url Id
+        page_url_name:
+          type: string
+          title: Page Url Name
+        active_keywords:
+          items:
+            $ref: '#/components/schemas/RecommendationKw'
+          type: array
+          title: Active Keywords
+        inactive_keywords:
+          items:
+            $ref: '#/components/schemas/RecommendationKw'
+          type: array
+          title: Inactive Keywords
+      type: object
+      required:
+      - active_keywords
+      - inactive_keywords
+      title: RecommendationKwListResponse
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

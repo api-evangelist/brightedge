@@ -1,0 +1,308 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts searchengines API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: searchengines
+  description: Operation related to search engines
+paths:
+  /5.0/objects/searchengines/{account_id}:
+    get:
+      tags:
+      - searchengines
+      summary: This call returns a list of search engines for given account id
+      operationId: get_account_searchengines_5_0_objects_searchengines__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: boolean
+          title: Active
+          default: true
+        name: active
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SearchEngineOut'
+                type: array
+                title: Response Get Account Searchengines 5 0 Objects Searchengines  Account Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/searchengines/{account_id}:
+    get:
+      tags:
+      - searchengines
+      summary: This call returns a list of search engines for given account id
+      operationId: get_account_searchengines_latest5_objects_searchengines__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: boolean
+          title: Active
+          default: true
+        name: active
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SearchEngineOut'
+                type: array
+                title: Response Get Account Searchengines Latest5 Objects Searchengines  Account Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /3.0/objects/searchengines/{account_id}:
+    get:
+      tags:
+      - searchengines
+      summary: This call returns the list of all the search engines for given account_id
+      operationId: get_account_searchengines_3_0_objects_searchengines__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Active
+          default: 0
+        name: active
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacySearchenginesOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest3/objects/searchengines/{account_id}:
+    get:
+      tags:
+      - searchengines
+      summary: This call returns the list of all the search engines for given account_id
+      operationId: get_account_searchengines_latest3_objects_searchengines__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - required: false
+        schema:
+          type: integer
+          title: Active
+          default: 0
+        name: active
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LegacySearchenginesOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    SearchEngineOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        country:
+          type: string
+          title: Country
+        location:
+          type: string
+          title: Location
+        device_type:
+          type: string
+          title: Device Type
+        name:
+          type: string
+          title: Name
+        se_group_id:
+          type: string
+          title: Se Group Id
+      type: object
+      required:
+      - id
+      - country
+      - location
+      - device_type
+      - name
+      - se_group_id
+      title: SearchEngineOut
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    LegacySearchenginesOut:
+      properties:
+        searchengines:
+          items:
+            $ref: '#/components/schemas/LegacySearchenginesShortOut'
+          type: array
+          title: Searchengines
+      type: object
+      required:
+      - searchengines
+      title: LegacySearchenginesOut
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    LegacySearchenginesShortOut:
+      properties:
+        display_name:
+          type: string
+          title: Display Name
+        country:
+          type: string
+          title: Country
+        searchengine:
+          type: string
+          title: Searchengine
+        location:
+          type: string
+          title: Location
+        device_type:
+          type: string
+          title: Device Type
+        device_type_id:
+          type: string
+          title: Device Type Id
+        searchengine_group_id:
+          type: string
+          title: Searchengine Group Id
+        id:
+          type: string
+          title: Id
+      type: object
+      required:
+      - display_name
+      - country
+      - searchengine
+      - location
+      - device_type
+      - device_type_id
+      - searchengine_group_id
+      - id
+      title: LegacySearchenginesShortOut
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

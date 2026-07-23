@@ -1,0 +1,190 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts backlinks API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: backlinks
+  description: Operation related to backlinks
+paths:
+  /5.0/objects/backlinks/{account_id}:
+    get:
+      tags:
+      - backlinks
+      summary: This call returns backlinks url and page authority score for given account id
+      operationId: get_backlink_url_score_5_0_objects_backlinks__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - description: The number of backlinks to return per page.
+        required: false
+        schema:
+          type: integer
+          exclusiveMinimum: 0.0
+          title: Limit
+          description: The number of backlinks to return per page.
+          default: 5000
+        name: limit
+        in: query
+      - description: The number of backlinks to skip before starting to return.
+        required: false
+        schema:
+          type: integer
+          minimum: 0.0
+          title: Offset
+          description: The number of backlinks to skip before starting to return.
+          default: 0
+        name: offset
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BacklinksOut'
+                type: array
+                title: Response Get Backlink Url Score 5 0 Objects Backlinks  Account Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/backlinks/{account_id}:
+    get:
+      tags:
+      - backlinks
+      summary: This call returns backlinks url and page authority score for given account id
+      operationId: get_backlink_url_score_latest5_objects_backlinks__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      - description: The number of backlinks to return per page.
+        required: false
+        schema:
+          type: integer
+          exclusiveMinimum: 0.0
+          title: Limit
+          description: The number of backlinks to return per page.
+          default: 5000
+        name: limit
+        in: query
+      - description: The number of backlinks to skip before starting to return.
+        required: false
+        schema:
+          type: integer
+          minimum: 0.0
+          title: Offset
+          description: The number of backlinks to skip before starting to return.
+          default: 0
+        name: offset
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BacklinksOut'
+                type: array
+                title: Response Get Backlink Url Score Latest5 Objects Backlinks  Account Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    BacklinksOut:
+      properties:
+        url:
+          type: string
+          title: Url
+        page_authority:
+          type: string
+          title: Page Authority
+      type: object
+      required:
+      - url
+      - page_authority
+      title: BacklinksOut
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

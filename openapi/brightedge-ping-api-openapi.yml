@@ -1,0 +1,81 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts ping API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: ping
+paths:
+  /5.0/marketo/ping:
+    get:
+      tags:
+      - ping
+      summary: This is simple ping api
+      operationId: ping_5_0_marketo_ping_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /latest5/marketo/ping:
+    get:
+      tags:
+      - ping
+      summary: This is simple ping api
+      operationId: ping_latest5_marketo_ping_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /5.0/dataset/ping:
+    get:
+      tags:
+      - ping
+      summary: This is simple ping api
+      operationId: ping_5_0_dataset_ping_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /latest5/dataset/ping:
+    get:
+      tags:
+      - ping
+      summary: This is simple ping api
+      operationId: ping_latest5_dataset_ping_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+components:
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

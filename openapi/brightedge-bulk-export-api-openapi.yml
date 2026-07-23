@@ -1,0 +1,502 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts bulk_export API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: bulk_export
+paths:
+  /5.0/jobs:
+    post:
+      tags:
+      - bulk_export
+      summary: Create bulk export job(s)
+      description: 'Create bulk export job(s) and store them in the database.
+
+
+        - **pod**: Pod number for the job
+
+        - **account_id**: Account ID or list of account IDs for the job(s)
+
+        - **time_value**: Time value string or list of time values for the export
+
+        - **time_cadence**: Time cadence (weekly, monthly, quarterly)
+
+        - **query_type**: Type of query to run (keyword_join, keyword_only)
+
+        - **user_id**: User ID creating the job
+
+        - **path**: Google Cloud Storage path for the export
+
+        - **destination**: Destination for export (default: "gcs")
+
+        - **device_id**: Device ID filter (default: "*")
+
+        - **group_id**: Group ID filter (default: "*")
+
+        - **job_id**: Optional batch job ID (auto-generated if not provided)
+
+
+        If multiple account IDs are provided, separate jobs will be created for each account.
+
+        If multiple time values are provided, separate jobs will be created for each time value.
+
+        The combination of account IDs and time values will create multiple jobs as needed.'
+      operationId: create_bulk_export_job_5_0_jobs_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkExportJobCreateRequest'
+        required: true
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkExportJobCreateResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/jobs/{job_id}:
+    get:
+      tags:
+      - bulk_export
+      summary: Get all bulk export jobs by batch job ID
+      description: 'Get all bulk export jobs that share the same batch job ID.
+
+
+        - **job_id**: Batch job ID (UUID) that groups multiple individual jobs'
+      operationId: get_bulk_export_jobs_by_batch_id_5_0_jobs__job_id__get
+      parameters:
+      - required: true
+        schema:
+          type: string
+          title: Job Id
+        name: job_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BulkExportJobResponse'
+                type: array
+                title: Response Get Bulk Export Jobs By Batch Id 5 0 Jobs  Job Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/jobs/account/{account_id}:
+    get:
+      tags:
+      - bulk_export
+      summary: Get all bulk export jobs for an account
+      description: 'Get all bulk export jobs for a specific account.
+
+
+        - **account_id**: Account ID to get jobs for'
+      operationId: get_account_bulk_export_jobs_5_0_jobs_account__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BulkExportJobResponse'
+                type: array
+                title: Response Get Account Bulk Export Jobs 5 0 Jobs Account  Account Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/jobs:
+    post:
+      tags:
+      - bulk_export
+      summary: Create bulk export job(s)
+      description: 'Create bulk export job(s) and store them in the database.
+
+
+        - **pod**: Pod number for the job
+
+        - **account_id**: Account ID or list of account IDs for the job(s)
+
+        - **time_value**: Time value string or list of time values for the export
+
+        - **time_cadence**: Time cadence (weekly, monthly, quarterly)
+
+        - **query_type**: Type of query to run (keyword_join, keyword_only)
+
+        - **user_id**: User ID creating the job
+
+        - **path**: Google Cloud Storage path for the export
+
+        - **destination**: Destination for export (default: "gcs")
+
+        - **device_id**: Device ID filter (default: "*")
+
+        - **group_id**: Group ID filter (default: "*")
+
+        - **job_id**: Optional batch job ID (auto-generated if not provided)
+
+
+        If multiple account IDs are provided, separate jobs will be created for each account.
+
+        If multiple time values are provided, separate jobs will be created for each time value.
+
+        The combination of account IDs and time values will create multiple jobs as needed.'
+      operationId: create_bulk_export_job_latest5_jobs_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkExportJobCreateRequest'
+        required: true
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkExportJobCreateResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/jobs/{job_id}:
+    get:
+      tags:
+      - bulk_export
+      summary: Get all bulk export jobs by batch job ID
+      description: 'Get all bulk export jobs that share the same batch job ID.
+
+
+        - **job_id**: Batch job ID (UUID) that groups multiple individual jobs'
+      operationId: get_bulk_export_jobs_by_batch_id_latest5_jobs__job_id__get
+      parameters:
+      - required: true
+        schema:
+          type: string
+          title: Job Id
+        name: job_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BulkExportJobResponse'
+                type: array
+                title: Response Get Bulk Export Jobs By Batch Id Latest5 Jobs  Job Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/jobs/account/{account_id}:
+    get:
+      tags:
+      - bulk_export
+      summary: Get all bulk export jobs for an account
+      description: 'Get all bulk export jobs for a specific account.
+
+
+        - **account_id**: Account ID to get jobs for'
+      operationId: get_account_bulk_export_jobs_latest5_jobs_account__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: integer
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BulkExportJobResponse'
+                type: array
+                title: Response Get Account Bulk Export Jobs Latest5 Jobs Account  Account Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    BulkExportJobResponse:
+      properties:
+        id:
+          type: string
+          title: Id
+        job_id:
+          type: string
+          title: Job Id
+        pod:
+          type: integer
+          title: Pod
+        account_id:
+          type: integer
+          title: Account Id
+        time_value:
+          type: string
+          title: Time Value
+        time_cadence:
+          type: string
+          title: Time Cadence
+        query_type:
+          type: string
+          title: Query Type
+        user_id:
+          type: integer
+          title: User Id
+        status:
+          type: integer
+          title: Status
+        job_create_at:
+          type: string
+          format: date-time
+          title: Job Create At
+        job_start_at:
+          type: string
+          format: date-time
+          title: Job Start At
+        job_finish_at:
+          type: string
+          format: date-time
+          title: Job Finish At
+        job_exception:
+          type: string
+          title: Job Exception
+        path:
+          type: string
+          title: Path
+        retry_count:
+          type: integer
+          title: Retry Count
+          default: 0
+        destination:
+          type: string
+          title: Destination
+          default: gcs
+        device_id:
+          type: string
+          title: Device Id
+          default: '*'
+        group_id:
+          type: string
+          title: Group Id
+          default: '*'
+      type: object
+      required:
+      - id
+      - job_id
+      - pod
+      - account_id
+      - time_value
+      - time_cadence
+      - query_type
+      - user_id
+      - status
+      - job_create_at
+      title: BulkExportJobResponse
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    BulkExportJobCreateResponse:
+      properties:
+        jobs:
+          items:
+            $ref: '#/components/schemas/BulkExportJobResponse'
+          type: array
+          title: Jobs
+        total_jobs_created:
+          type: integer
+          title: Total Jobs Created
+        message:
+          type: string
+          title: Message
+      type: object
+      required:
+      - jobs
+      - total_jobs_created
+      - message
+      title: BulkExportJobCreateResponse
+      description: Response model for bulk job creation (handles multiple jobs)
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    BulkExportJobCreateRequest:
+      properties:
+        pod:
+          type: integer
+          title: Pod
+        account_id:
+          anyOf:
+          - type: integer
+          - items:
+              type: integer
+            type: array
+          title: Account Id
+        time_value:
+          anyOf:
+          - type: string
+          - items:
+              type: string
+            type: array
+          title: Time Value
+        time_cadence:
+          type: string
+          title: Time Cadence
+        query_type:
+          type: string
+          title: Query Type
+        user_id:
+          type: integer
+          title: User Id
+        path:
+          type: string
+          title: Path
+        destination:
+          type: string
+          title: Destination
+          default: gcs
+        job_id:
+          type: string
+          title: Job Id
+        device_id:
+          type: string
+          title: Device Id
+          default: '*'
+        group_id:
+          type: string
+          title: Group Id
+          default: '*'
+      type: object
+      required:
+      - pod
+      - account_id
+      - time_value
+      - time_cadence
+      - query_type
+      - user_id
+      - path
+      title: BulkExportJobCreateRequest
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

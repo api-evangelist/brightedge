@@ -1,0 +1,799 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts users API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: users
+  description: Operation related to users
+paths:
+  /5.0/objects/users/create:
+    post:
+      tags:
+      - users
+      summary: Create a new user
+      description: 'Create a new user.
+
+        Mandatory fields: org_id, account_id, login'
+      operationId: create_user_route_5_0_objects_users_create_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserCreateResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/users/update:
+    post:
+      tags:
+      - users
+      summary: Update user details
+      description: 'Update existing user.
+
+        Mandatory field: login'
+      operationId: update_user_5_0_objects_users_update_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserUpdateResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/users/{login}:
+    delete:
+      tags:
+      - users
+      summary: Delete a user
+      description: 'Delete existing user.
+
+        Mandatory field: login'
+      operationId: delete_user_5_0_objects_users__login__delete
+      parameters:
+      - required: true
+        schema:
+          type: string
+          format: email
+          title: Login
+        name: login
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDeleteResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/users/grant_account_access:
+    post:
+      tags:
+      - users
+      summary: Grant account access to user
+      description: 'Grant access to multiple accounts for a user.
+
+        Creates or updates user_accounts rows for each account_id provided.'
+      operationId: grant_user_account_access_5_0_objects_users_grant_account_access_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAccountAccessRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserAccountAccessResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/users/revoke_account_access:
+    post:
+      tags:
+      - users
+      summary: Revoke account access from user
+      description: 'Grant access to multiple accounts for a user.
+
+        Creates or updates user_accounts rows for each account_id provided.'
+      operationId: revoke_user_account_access_5_0_objects_users_revoke_account_access_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAccountAccessRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserAccountAccessResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/users/bulk-create:
+    post:
+      tags:
+      - users
+      summary: Bulk create users
+      operationId: bulk_create_users_5_0_objects_users_bulk_create_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkCreateUserRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/users/bulk-update:
+    post:
+      tags:
+      - users
+      summary: Bulk update users
+      operationId: bulk_update_users_5_0_objects_users_bulk_update_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkUpdateUserRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/users/bulk-delete:
+    post:
+      tags:
+      - users
+      summary: Bulk delete users
+      operationId: bulk_delete_users_5_0_objects_users_bulk_delete_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkDeleteUserRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/users/create:
+    post:
+      tags:
+      - users
+      summary: Create a new user
+      description: 'Create a new user.
+
+        Mandatory fields: org_id, account_id, login'
+      operationId: create_user_route_latest5_objects_users_create_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserCreateResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/users/update:
+    post:
+      tags:
+      - users
+      summary: Update user details
+      description: 'Update existing user.
+
+        Mandatory field: login'
+      operationId: update_user_latest5_objects_users_update_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserUpdateResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/users/{login}:
+    delete:
+      tags:
+      - users
+      summary: Delete a user
+      description: 'Delete existing user.
+
+        Mandatory field: login'
+      operationId: delete_user_latest5_objects_users__login__delete
+      parameters:
+      - required: true
+        schema:
+          type: string
+          format: email
+          title: Login
+        name: login
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDeleteResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/users/grant_account_access:
+    post:
+      tags:
+      - users
+      summary: Grant account access to user
+      description: 'Grant access to multiple accounts for a user.
+
+        Creates or updates user_accounts rows for each account_id provided.'
+      operationId: grant_user_account_access_latest5_objects_users_grant_account_access_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAccountAccessRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserAccountAccessResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/users/revoke_account_access:
+    post:
+      tags:
+      - users
+      summary: Revoke account access from user
+      description: 'Grant access to multiple accounts for a user.
+
+        Creates or updates user_accounts rows for each account_id provided.'
+      operationId: revoke_user_account_access_latest5_objects_users_revoke_account_access_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAccountAccessRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserAccountAccessResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/users/bulk-create:
+    post:
+      tags:
+      - users
+      summary: Bulk create users
+      operationId: bulk_create_users_latest5_objects_users_bulk_create_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkCreateUserRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/users/bulk-update:
+    post:
+      tags:
+      - users
+      summary: Bulk update users
+      operationId: bulk_update_users_latest5_objects_users_bulk_update_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkUpdateUserRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/users/bulk-delete:
+    post:
+      tags:
+      - users
+      summary: Bulk delete users
+      operationId: bulk_delete_users_latest5_objects_users_bulk_delete_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkDeleteUserRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    BulkCreateUserRequest:
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/CreateUserRequest'
+          type: array
+          title: Users
+      type: object
+      required:
+      - users
+      title: BulkCreateUserRequest
+    UserAccountAccessRequest:
+      properties:
+        login:
+          type: string
+          format: email
+          title: Login
+          description: User login/email
+        account_ids:
+          items:
+            type: integer
+          type: array
+          title: Account Ids
+          description: List of account IDs to change access
+      type: object
+      required:
+      - login
+      - account_ids
+      title: UserAccountAccessRequest
+    CreateUserRequest:
+      properties:
+        org_id:
+          type: integer
+          title: Org Id
+          description: Organization ID
+        account_id:
+          type: integer
+          title: Account Id
+          description: Account ID
+        login:
+          type: string
+          format: email
+          title: Login
+          description: User login/email
+        user_type:
+          type: integer
+          title: User Type
+          description: User type
+          default: 1
+        role:
+          type: integer
+          title: Role
+          description: User role
+          default: 1
+        additional_user_account_id_list:
+          items:
+            type: integer
+          type: array
+          title: Additional User Account Id List
+          description: Additional account IDs for the user
+        first_name:
+          type: string
+          title: First Name
+          description: User's first name
+        last_name:
+          type: string
+          title: Last Name
+          description: User's last name
+      type: object
+      required:
+      - org_id
+      - account_id
+      - login
+      title: CreateUserRequest
+    UserAccountAccessResponse:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        access_modified_account_ids:
+          items:
+            type: integer
+          type: array
+          title: Access Modified Account Ids
+          description: List of account IDs access changed
+      type: object
+      required:
+      - success
+      - message
+      title: UserAccountAccessResponse
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    UserDeleteResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+      type: object
+      required:
+      - message
+      title: UserDeleteResponse
+    BulkDeleteUserRequest:
+      properties:
+        logins:
+          items:
+            type: string
+            format: email
+          type: array
+          title: Logins
+      type: object
+      required:
+      - logins
+      title: BulkDeleteUserRequest
+    UserCreateResponse:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+      type: object
+      required:
+      - success
+      - message
+      title: UserCreateResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    BulkUpdateUserRequest:
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/UpdateUserRequest'
+          type: array
+          title: Users
+      type: object
+      required:
+      - users
+      title: BulkUpdateUserRequest
+    UpdateUserRequest:
+      properties:
+        login:
+          type: string
+          format: email
+          title: Login
+          description: User login/email
+        firstname:
+          type: string
+          title: Firstname
+          description: User's first name
+        lastname:
+          type: string
+          title: Lastname
+          description: User's last name
+        email:
+          type: string
+          format: email
+          title: Email
+          description: User's email
+        title:
+          type: string
+          title: Title
+          description: User's title
+        phone:
+          type: string
+          title: Phone
+          description: User's phone number
+        locale:
+          type: string
+          title: Locale
+          description: User's locale
+        profile:
+          type: integer
+          title: Profile
+          description: Users's profile
+        address:
+          type: string
+          title: Address
+      type: object
+      required:
+      - login
+      title: UpdateUserRequest
+    UserUpdateResponse:
+      properties:
+        status:
+          type: boolean
+          title: Status
+        message:
+          type: string
+          title: Message
+      type: object
+      required:
+      - status
+      - message
+      title: UserUpdateResponse
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

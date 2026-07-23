@@ -1,0 +1,204 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts user_settings API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: user_settings
+paths:
+  /5.0/user_settings/recommendations/{account_id}:
+    get:
+      tags:
+      - user_settings
+      summary: This call return the user settings for recommendations
+      operationId: get_siteaudit_settings_5_0_user_settings_recommendations__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: string
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/user_settings/seteaudit/{account_id}/{preset_id}:
+    get:
+      tags:
+      - user_settings
+      summary: This call return the user settings for site audit
+      operationId: get_siteaudit_settings_5_0_user_settings_seteaudit__account_id___preset_id__get
+      parameters:
+      - required: true
+        schema:
+          type: string
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: string
+          title: Preset Id
+        name: preset_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/user_settings/recommendations/{account_id}:
+    get:
+      tags:
+      - user_settings
+      summary: This call return the user settings for recommendations
+      operationId: get_siteaudit_settings_latest5_user_settings_recommendations__account_id__get
+      parameters:
+      - required: true
+        schema:
+          type: string
+          title: Account Id
+        name: account_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/user_settings/seteaudit/{account_id}/{preset_id}:
+    get:
+      tags:
+      - user_settings
+      summary: This call return the user settings for site audit
+      operationId: get_siteaudit_settings_latest5_user_settings_seteaudit__account_id___preset_id__get
+      parameters:
+      - required: true
+        schema:
+          type: string
+          title: Account Id
+        name: account_id
+        in: path
+      - required: true
+        schema:
+          type: string
+          title: Preset Id
+        name: preset_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token

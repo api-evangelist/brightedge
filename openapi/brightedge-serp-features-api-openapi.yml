@@ -1,0 +1,500 @@
+openapi: 3.1.0
+info:
+  title: BrightEdge Platform accounts Serp Features API
+  description: This API provides the ability to integrate with BrightEdge Platform
+  version: 5.0.0
+tags:
+- name: Serp Features
+  description: Operation related to Serp features like People Also Ask etc
+paths:
+  /5.0/objects/serp_features/people_also_ask_historical:
+    post:
+      tags:
+      - Serp Features
+      summary: This call returns a list of questions asked for the keyword historically for the past n-weeks
+      operationId: get_keyword_linked_questions_5_0_objects_serp_features_people_also_ask_historical_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PeopleAlsoAskHistoricalIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PeopleAlsoAskHistoricalOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/serp_features/people_also_ask_live:
+    post:
+      tags:
+      - Serp Features
+      summary: This call returns a list of questions asked for the keyword as a live call
+      operationId: get_live_questions_5_0_objects_serp_features_people_also_ask_live_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PeopleAlsoAskLiveIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PeopleAlsoAskLiveOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/serp_features/people_also_ask_chatgpt:
+    post:
+      tags:
+      - Serp Features
+      summary: This call returns a list of questions asked for the keyword via chatgpt
+      operationId: get_live_questions_5_0_objects_serp_features_people_also_ask_chatgpt_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PeopleAlsoAskChatgptIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PeopleAlsoAskChatgptOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /5.0/objects/serp_features/people_also_ask:
+    post:
+      tags:
+      - Serp Features
+      summary: This call returns a list of questions asked optionally via historic means, on demand live call and via chatgpt
+      operationId: get_live_questions_5_0_objects_serp_features_people_also_ask_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PeopleAlsoAskIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PeopleAlsoAskOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/serp_features/people_also_ask_historical:
+    post:
+      tags:
+      - Serp Features
+      summary: This call returns a list of questions asked for the keyword historically for the past n-weeks
+      operationId: get_keyword_linked_questions_latest5_objects_serp_features_people_also_ask_historical_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PeopleAlsoAskHistoricalIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PeopleAlsoAskHistoricalOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/serp_features/people_also_ask_live:
+    post:
+      tags:
+      - Serp Features
+      summary: This call returns a list of questions asked for the keyword as a live call
+      operationId: get_live_questions_latest5_objects_serp_features_people_also_ask_live_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PeopleAlsoAskLiveIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PeopleAlsoAskLiveOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/serp_features/people_also_ask_chatgpt:
+    post:
+      tags:
+      - Serp Features
+      summary: This call returns a list of questions asked for the keyword via chatgpt
+      operationId: get_live_questions_latest5_objects_serp_features_people_also_ask_chatgpt_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PeopleAlsoAskChatgptIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PeopleAlsoAskChatgptOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+  /latest5/objects/serp_features/people_also_ask:
+    post:
+      tags:
+      - Serp Features
+      summary: This call returns a list of questions asked optionally via historic means, on demand live call and via chatgpt
+      operationId: get_live_questions_latest5_objects_serp_features_people_also_ask_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PeopleAlsoAskIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PeopleAlsoAskOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - http_basic: []
+      - forwarded_http_basic: []
+      - session_cookie: []
+      - session_header: []
+      - api_token_header: []
+      - bearer_token: []
+components:
+  schemas:
+    PeopleAlsoAskIn:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+        collector_id:
+          type: integer
+          title: Collector Id
+        live:
+          type: boolean
+          title: Live
+        historical:
+          type: boolean
+          title: Historical
+        chatgpt:
+          type: boolean
+          title: Chatgpt
+        click_depth:
+          type: integer
+          title: Click Depth
+        num_of_weeks_back:
+          type: integer
+          title: Num Of Weeks Back
+        max_num_of_results:
+          type: integer
+          title: Max Num Of Results
+      type: object
+      required:
+      - keyword
+      - collector_id
+      title: PeopleAlsoAskIn
+    PeopleAlsoAskHistoricalIn:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+        collector_id:
+          type: integer
+          title: Collector Id
+        num_of_weeks_back:
+          type: integer
+          title: Num Of Weeks Back
+      type: object
+      required:
+      - keyword
+      - collector_id
+      title: PeopleAlsoAskHistoricalIn
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    PeopleAlsoAskQuestions:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+        collector_id:
+          type: integer
+          title: Collector Id
+        display_title:
+          type: string
+          title: Display Title
+        answer_text:
+          type: string
+          title: Answer Text
+        landing_url_title:
+          type: string
+          title: Landing Url Title
+        landing_url:
+          type: string
+          title: Landing Url
+      type: object
+      required:
+      - keyword
+      - collector_id
+      title: PeopleAlsoAskQuestions
+    PeopleAlsoAskQuestionsLive:
+      properties:
+        title:
+          type: string
+          title: Title
+        answer_text:
+          type: string
+          title: Answer Text
+        description:
+          type: string
+          title: Description
+        url:
+          type: string
+          title: Url
+      type: object
+      title: PeopleAlsoAskQuestionsLive
+    PeopleAlsoAskOut:
+      properties:
+        questions_live:
+          items:
+            $ref: '#/components/schemas/PeopleAlsoAskQuestionsLive'
+          type: array
+          title: Questions Live
+        questions_historical:
+          items:
+            $ref: '#/components/schemas/PeopleAlsoAskQuestionsLive'
+          type: array
+          title: Questions Historical
+        questions_chatgpt:
+          items:
+            $ref: '#/components/schemas/PeopleAlsoAskQuestionsChatgpt'
+          type: array
+          title: Questions Chatgpt
+      type: object
+      required:
+      - questions_live
+      - questions_historical
+      - questions_chatgpt
+      title: PeopleAlsoAskOut
+    PeopleAlsoAskLiveIn:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+        collector_id:
+          type: integer
+          title: Collector Id
+        click_depth:
+          type: integer
+          title: Click Depth
+      type: object
+      required:
+      - keyword
+      - collector_id
+      title: PeopleAlsoAskLiveIn
+    PeopleAlsoAskChatgptOut:
+      properties:
+        questions:
+          items:
+            $ref: '#/components/schemas/PeopleAlsoAskQuestionsChatgpt'
+          type: array
+          title: Questions
+        assistant:
+          type: string
+          title: Assistant
+      type: object
+      required:
+      - questions
+      title: PeopleAlsoAskChatgptOut
+    PeopleAlsoAskHistoricalOut:
+      properties:
+        questions:
+          items:
+            $ref: '#/components/schemas/PeopleAlsoAskQuestions'
+          type: array
+          title: Questions
+      type: object
+      required:
+      - questions
+      title: PeopleAlsoAskHistoricalOut
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    PeopleAlsoAskChatgptIn:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+      type: object
+      required:
+      - keyword
+      title: PeopleAlsoAskChatgptIn
+    PeopleAlsoAskLiveOut:
+      properties:
+        questions:
+          items:
+            $ref: '#/components/schemas/PeopleAlsoAskQuestionsLive'
+          type: array
+          title: Questions
+      type: object
+      required:
+      - questions
+      title: PeopleAlsoAskLiveOut
+    PeopleAlsoAskQuestionsChatgpt:
+      properties:
+        title:
+          type: string
+          title: Title
+      type: object
+      title: PeopleAlsoAskQuestionsChatgpt
+  securitySchemes:
+    http_basic:
+      type: http
+      scheme: basic
+    forwarded_http_basic:
+      type: apiKey
+      in: header
+      name: X-Forwarded-Authorization
+    session_cookie:
+      type: apiKey
+      in: cookie
+      name: BRIGHTEDGE
+    session_header:
+      type: apiKey
+      in: header
+      name: X-BRIGHTEDGE-SESSION
+    api_token_header:
+      type: apiKey
+      in: header
+      name: X-Token
+    bearer_token:
+      type: apiKey
+      in: header
+      name: Bearer-Token
