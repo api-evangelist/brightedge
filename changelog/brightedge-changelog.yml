@@ -1,0 +1,10 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.brightedge.com/resources/product-releases
+scheme: product-releases
+current_api_version: '5.0'
+api_version_docs: https://api.brightedge.com/portal
+note: BrightEdge publishes dated product release information rather than a per-operation
+  API changelog. The API itself is versioned in the URI path (/5.0/ pinned, /latest5/
+  rolling).
+entries: []

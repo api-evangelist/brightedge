@@ -1,0 +1,27 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/brightedge-platform-openapi-original.json
+format: json
+note: BrightEdge Platform API is FastAPI-based; validation errors return HTTP 422
+  with a detail[] array of {loc,msg,type} (schema HTTPValidationError/ValidationError).
+  Not RFC 9457 problem+json.
+error_envelope:
+  schema: HTTPValidationError
+  fields:
+    detail: array of ValidationError {loc, msg, type}
+problems:
+- status: 400
+  title: Bad Request
+  occurrences: 2
+  content_type:
+  - application/json
+  remediation: Check request path/query parameters and body for malformed values.
+  source_operation: openapi/brightedge-platform-openapi-original.json#market_insights_data_request_5_0_organizations_marketinsights_data__date_id___report_name__get
+- status: 422
+  title: Unprocessable Entity (validation error)
+  occurrences: 226
+  content_type:
+  - application/json
+  remediation: Fix the fields flagged in the FastAPI-style detail[] array (loc/msg/type)
+    and resubmit.
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_account_5_0_objects_accounts__account_id__post

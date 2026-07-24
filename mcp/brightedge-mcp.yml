@@ -1,0 +1,175 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/brightedge-platform-openapi-original.json
+note: Candidate MCP tool list derived from BrightEdge Platform API v5.0 GET operations
+  (read surface). No official BrightEdge MCP server was found as of this pass.
+server:
+  name: brightedge
+  transport: stdio
+tool_count: 40
+tools:
+- name: get_all_accounts_5_0_objects_accounts_get
+  description: This call returns the list of accounts this user can access
+  tag: accounts
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_all_accounts_5_0_objects_accounts_get
+- name: get_account_competitors_5_0_objects_competitors__account_id__get
+  description: This call returns a competitors for given account id
+  tag: domains
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_account_competitors_5_0_objects_competitors__account_id__get
+- name: get_brand_filters_keywords_for_account_5_0_objects_brandfilters__account_id__get
+  description: This call returns a string of bql filters for branded keywords.
+  tag: keywords
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_brand_filters_keywords_for_account_5_0_objects_brandfilters__account_id__get
+- name: api_info_5_0_info_get
+  description: Api Info
+  tag: core
+  source_operation: openapi/brightedge-platform-openapi-original.json#api_info_5_0_info_get
+- name: high_latency_handle_5_0_high_latency_handle__msec__get
+  description: This call is used for concurrency load test
+  tag: core
+  source_operation: openapi/brightedge-platform-openapi-original.json#high_latency_handle_5_0_high_latency_handle__msec__get
+- name: get_time_value_5_0_objects_time__account_id___time_frequency___day__get
+  description: This call returns the time value for a given time frequency and day
+  tag: time
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_time_value_5_0_objects_time__account_id___time_frequency___day__get
+- name: get_kw_groups_5_0_chromeextension_keywordgroups__account_id__get
+  description: This call returns a list of keywordgroups for a given account
+  tag: chromeextension
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_kw_groups_5_0_chromeextension_keywordgroups__account_id__get
+- name: get_account_kw_kwg_id_5_0_chromeextension_keywords__account_id__get
+  description: This call returns a list of keywords with kwg_id for a given account
+  tag: chromeextension
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_account_kw_kwg_id_5_0_chromeextension_keywords__account_id__get
+- name: get_user_domains_5_0_objects_domains_get
+  description: This call returns a list of primary domains for accounts that the user
+    has access to.
+  tag: domains
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_user_domains_5_0_objects_domains_get
+- name: get_account_domain_5_0_objects_domains__account_id__get
+  description: This call returns a primary domain for given account id
+  tag: domains
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_account_domain_5_0_objects_domains__account_id__get
+- name: get_account_keywords_5_0_objects_keywords__account_id__get
+  description: This call returns a list of keywords of the given account
+  tag: keywords
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_account_keywords_5_0_objects_keywords__account_id__get
+- name: get_keywords_activity_5_0_objects_keywordgroups_activity__group_name__get
+  description: This call returns list of keyword activities per account
+  tag: keywordgroups
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_keywords_activity_5_0_objects_keywordgroups_activity__group_name__get
+- name: get_account_keywordgroups_5_0_objects_keywordgroups__account_id__get
+  description: This call returns a list of keyword groups of the given account
+  tag: keywordgroups
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_account_keywordgroups_5_0_objects_keywordgroups__account_id__get
+- name: get_account_keywordgroup_detail_5_0_objects_keywordgroups__account_id___keyword_group_id__get
+  description: This call returns a list of keywords within the give keyword group
+  tag: keywords
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_account_keywordgroup_detail_5_0_objects_keywordgroups__account_id___keyword_group_id__get
+- name: organizations_self_5_0_objects_organizations_self_get
+  description: This call returns the details of this user's organization
+  tag: organizations
+  source_operation: openapi/brightedge-platform-openapi-original.json#organizations_self_5_0_objects_organizations_self_get
+- name: get_users_5_0_organizations_objects_users_get
+  description: This call returns the details of all active users in this organization
+    with their accounts
+  tag: organizations
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_users_5_0_organizations_objects_users_get
+- name: organizations_bulk_accounts_5_0_organizations_objects_accounts_get
+  description: This call returns the details of all accounts in this organization
+  tag: organizations
+  source_operation: openapi/brightedge-platform-openapi-original.json#organizations_bulk_accounts_5_0_organizations_objects_accounts_get
+- name: market_insights_data_request_5_0_organizations_marketinsights_data__date_id__get
+  description: Returns the list of reports available for downloading.
+  tag: marketinsights
+  source_operation: openapi/brightedge-platform-openapi-original.json#market_insights_data_request_5_0_organizations_marketinsights_data__date_id__get
+- name: market_insights_data_request_5_0_organizations_marketinsights_data__date_id___report_name__get
+  description: Returns market insight report in csv format.
+  tag: marketinsights
+  source_operation: openapi/brightedge-platform-openapi-original.json#market_insights_data_request_5_0_organizations_marketinsights_data__date_id___report_name__get
+- name: get_account_searchengines_5_0_objects_searchengines__account_id__get
+  description: This call returns a list of search engines for given account id
+  tag: searchengines
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_account_searchengines_5_0_objects_searchengines__account_id__get
+- name: get_recommendation_5_0_organizations_objects_recommendations_get
+  description: This call returns a list of recommendations for accounts of the user's
+    organization.
+  tag: organizations
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_recommendation_5_0_organizations_objects_recommendations_get
+- name: get_tracked_pages_5_0_organizations_objects_get_tracked_pages__account_id__get
+  description: This call returns list of tracked pages
+  tag: recommendations
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_tracked_pages_5_0_organizations_objects_get_tracked_pages__account_id__get
+- name: get_siteaudit_settings_5_0_user_settings_recommendations__account_id__get
+  description: This call return the user settings for recommendations
+  tag: user_settings
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_siteaudit_settings_5_0_user_settings_recommendations__account_id__get
+- name: get_siteaudit_settings_5_0_user_settings_seteaudit__account_id___preset_id__get
+  description: This call return the user settings for site audit
+  tag: user_settings
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_siteaudit_settings_5_0_user_settings_seteaudit__account_id___preset_id__get
+- name: web_vitals_5_0_chrome_extension_overview_web_vitals_get
+  description: Get Web Vitals
+  tag: chrome_extension
+  source_operation: openapi/brightedge-platform-openapi-original.json#web_vitals_5_0_chrome_extension_overview_web_vitals_get
+- name: get_backlink_url_score_5_0_objects_backlinks__account_id__get
+  description: This call returns backlinks url and page authority score for given
+    account id
+  tag: backlinks
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_backlink_url_score_5_0_objects_backlinks__account_id__get
+- name: ping_5_0_marketo_ping_get
+  description: This is simple ping api
+  tag: marketo
+  source_operation: openapi/brightedge-platform-openapi-original.json#ping_5_0_marketo_ping_get
+- name: get_bulk_export_jobs_by_batch_id_5_0_jobs__job_id__get
+  description: Get all bulk export jobs by batch job ID
+  tag: bulk_export
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_bulk_export_jobs_by_batch_id_5_0_jobs__job_id__get
+- name: get_account_bulk_export_jobs_5_0_jobs_account__account_id__get
+  description: Get all bulk export jobs for an account
+  tag: bulk_export
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_account_bulk_export_jobs_5_0_jobs_account__account_id__get
+- name: get_all_accounts_5_0_objects_aicatalyst_accounts_get
+  description: This call returns the list of accounts where ai catalyst is enabled
+  tag: ai_catalyst
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_all_accounts_5_0_objects_aicatalyst_accounts_get
+- name: get_all_collectors_5_0_objects_aicatalyst_get_all_collectors_get
+  description: This call returns the list of all collectors supported by ai catalyst
+  tag: ai_catalyst
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_all_collectors_5_0_objects_aicatalyst_get_all_collectors_get
+- name: get_prompts_list_5_0_objects_aicatalyst_prompts__account_id__get
+  description: List of prompts set up in the account
+  tag: ai_catalyst
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_prompts_list_5_0_objects_aicatalyst_prompts__account_id__get
+- name: get_prompts_list_5_0_objects_aicatalyst_prompt_info__account_id___prompt_id__get
+  description: Detailed info about one prompt
+  tag: ai_catalyst
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_prompts_list_5_0_objects_aicatalyst_prompt_info__account_id___prompt_id__get
+- name: get_prompts_list_5_0_objects_aicatalyst_promptgroups__account_id__get
+  description: List of prompt groups set up in the account
+  tag: ai_catalyst
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_prompts_list_5_0_objects_aicatalyst_promptgroups__account_id__get
+- name: get_prompt_group_and_prompt_name_5_0_objects_aicatalyst_promptgroups_prompts__account_id___prompt_group_id__get
+  description: 'List of prompts tied to the specified prompt group '
+  tag: ai_catalyst
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_prompt_group_and_prompt_name_5_0_objects_aicatalyst_promptgroups_prompts__account_id___prompt_group_id__get
+- name: get_prompt_group_and_prompt_name_5_0_objects_aicatalyst_aiengines__account_id__get
+  description: View all enabled AI engines for the account
+  tag: ai_catalyst
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_prompt_group_and_prompt_name_5_0_objects_aicatalyst_aiengines__account_id__get
+- name: get_enabled_collectors_5_0_objects_aicatalyst_enabled_collectors__account_id__get
+  description: View all enabled collectors for the account
+  tag: ai_catalyst
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_enabled_collectors_5_0_objects_aicatalyst_enabled_collectors__account_id__get
+- name: get_personas_5_0_objects_aicatalyst_personas__account_id__get
+  description: View all personas for the account
+  tag: ai_catalyst
+  source_operation: openapi/brightedge-platform-openapi-original.json#get_personas_5_0_objects_aicatalyst_personas__account_id__get
+- name: keywords_5_0_pages_keywords_primary_secondary_get
+  description: Get Primary/Secondary Keywords
+  tag: core
+  source_operation: openapi/brightedge-platform-openapi-original.json#keywords_5_0_pages_keywords_primary_secondary_get
+- name: pages_5_0_pages_details_get
+  description: Get Page Details
+  tag: core
+  source_operation: openapi/brightedge-platform-openapi-original.json#pages_5_0_pages_details_get

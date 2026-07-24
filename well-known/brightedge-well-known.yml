@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: searched
+note: No /.well-known/ discovery documents were served (api host returns 404, marketing
+  host bot-blocks with 403). Recorded for auditability; no WellKnown pointer wired.
+hosts:
+- host: https://api.brightedge.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://www.brightedge.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /llms.txt
+    status: 403

@@ -1,8 +1,17 @@
 aid: brightedge
 name: BrightEdge
-description: BrightEdge is a company surfaced as a portfolio company of insight-partners and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  BrightEdge is an enterprise SEO and content performance platform, founded in
+  2007 and headquartered in Silicon Valley, used by thousands of brands and a
+  majority of the Fortune 100. Its products include the DataCube keyword and
+  content data repository, ContentIQ site auditing, Autopilot, Copilot, and the
+  DataMind AI engine plus AI Catalyst for generative-search visibility. The
+  BrightEdge Platform API (v5.0) is a REST API published at api.brightedge.com
+  that exposes accounts, keywords, keyword groups, competitors, domains, pages,
+  backlinks, the DataCube dataset, recommendations, People-Also-Ask, SERP
+  features, Core Web Vitals, bulk export, and user/organization management, so
+  teams can integrate BrightEdge search and content intelligence into their own
+  reporting, analytics, and data-warehouse workflows.
 url: https://raw.githubusercontent.com/api-evangelist/brightedge/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,17 +19,1138 @@ x-backed-by:
 - insight-partners
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://www.brightedge.com/themes/custom/brightedge/logo.svg
 tags:
 - Company
-apis: []
+- SEO
+- Search
+- Content
+- Marketing
+- Analytics
+- Keywords
+- Enterprise
+- AI Search
+apis:
+- aid: brightedge:brightedge-accounts-api
+  name: BrightEdge accounts API
+  description: Operation related to accounts
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-accounts-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-ai-catalyst-api
+  name: BrightEdge ai_catalyst API
+  description: APIs for ai_catalyst dataset
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - ai_catalyst
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-ai-catalyst-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-autopilot-api
+  name: BrightEdge autopilot API
+  description: The autopilot API from BrightEdge — 4 operation(s) for autopilot.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - autopilot
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-autopilot-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-backlinks-api
+  name: BrightEdge backlinks API
+  description: Operation related to backlinks
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - backlinks
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-backlinks-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-be-local-api
+  name: BrightEdge be_local API
+  description: Operation related to BE Local
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - be_local
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-be-local-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-budd-api
+  name: BrightEdge budd API
+  description: The budd API from BrightEdge — 2 operation(s) for budd.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - budd
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-budd-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-bulk-export-api
+  name: BrightEdge bulk_export API
+  description: The bulk_export API from BrightEdge — 6 operation(s) for bulk_export.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - bulk_export
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-bulk-export-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-chrome-extension-api
+  name: BrightEdge chrome_extension API
+  description: The chrome_extension API from BrightEdge — 12 operation(s) for chrome_extension.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - chrome_extension
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-chrome-extension-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-chrome-extension-keywords-api
+  name: BrightEdge Chrome Extension Keywords API
+  description: >-
+    The Chrome Extension Keywords API from BrightEdge — 6 operation(s) for chrome extension keywords.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - Chrome Extension Keywords
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-chrome-extension-keywords-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-chrome-extension-overview-api
+  name: BrightEdge Chrome Extension Overview API
+  description: >-
+    The Chrome Extension Overview API from BrightEdge — 6 operation(s) for chrome extension overview.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - Chrome Extension Overview
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-chrome-extension-overview-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-chromeextension-api
+  name: BrightEdge chromeextension API
+  description: Supports ChromeExtension functionality.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - chromeextension
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-chromeextension-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-competitors-api
+  name: BrightEdge competitors API
+  description: The competitors API from BrightEdge — 4 operation(s) for competitors.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - competitors
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-competitors-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-core-api
+  name: BrightEdge core API
+  description: The core API from BrightEdge — 6 operation(s) for core.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - core
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-core-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-datacube-searchengines-api
+  name: BrightEdge datacube_searchengines API
+  description: >-
+    The datacube_searchengines API from BrightEdge — 2 operation(s) for datacube_searchengines.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - datacube_searchengines
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-datacube-searchengines-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-dataset-api
+  name: BrightEdge dataset API
+  description: APIs for brightedge dataset
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - dataset
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-dataset-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-domains-api
+  name: BrightEdge domains API
+  description: Operation related to domains
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - domains
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-domains-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-instant-api
+  name: BrightEdge instant API
+  description: The instant API from BrightEdge — 6 operation(s) for instant.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - instant
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-instant-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-keywordgroups-api
+  name: BrightEdge keywordgroups API
+  description: Operation related to keyword groups
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - keywordgroups
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-keywordgroups-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-keywords-api
+  name: BrightEdge keywords API
+  description: Operation related to keywords
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - keywords
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-keywords-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-latest5-api
+  name: BrightEdge Latest5 API
+  description: The Latest5 API from BrightEdge — 2 operation(s) for latest5.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - Latest5
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-latest5-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-legacy-api
+  name: BrightEdge legacy API
+  description: Operation ported over from legacy API
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - legacy
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-legacy-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-marketinsights-api
+  name: BrightEdge marketinsights API
+  description: Operation related to Market Insights
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - marketinsights
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-marketinsights-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-marketo-api
+  name: BrightEdge marketo API
+  description: APIs for marketo
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - marketo
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-marketo-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-organizations-api
+  name: BrightEdge organizations API
+  description: Operation related to organizations
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-organizations-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-paa-per-keyword-api
+  name: BrightEdge paa per keyword API
+  description: The paa per keyword API from BrightEdge — 4 operation(s) for paa per keyword.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - paa per keyword
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-paa-per-keyword-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-page-cache-api
+  name: BrightEdge page cache API
+  description: The page cache API from BrightEdge — 4 operation(s) for page cache.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - page cache
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-page-cache-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-page-crawl-api
+  name: BrightEdge page crawl API
+  description: The page crawl API from BrightEdge — 4 operation(s) for page crawl.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - page crawl
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-page-crawl-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-pages-api
+  name: BrightEdge Pages API
+  description: The Pages API from BrightEdge — 2 operation(s) for pages.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - Pages
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-pages-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-people-also-ask-api
+  name: BrightEdge people_also_ask API
+  description: The people_also_ask API from BrightEdge — 8 operation(s) for people_also_ask.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - people_also_ask
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-people-also-ask-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-ping-api
+  name: BrightEdge ping API
+  description: The ping API from BrightEdge — 4 operation(s) for ping.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - ping
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-ping-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-product-grid-api
+  name: BrightEdge product_grid API
+  description: APIs for product grid
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - product_grid
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-product-grid-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-qa-api
+  name: BrightEdge qa API
+  description: The qa API from BrightEdge — 2 operation(s) for qa.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - qa
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-qa-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-query-api
+  name: BrightEdge query API
+  description: Retrieving data with BQL queries
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - query
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-query-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-recommendations-api
+  name: BrightEdge recommendations API
+  description: The recommendations API from BrightEdge — 6 operation(s) for recommendations.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - recommendations
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-recommendations-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-searchengines-api
+  name: BrightEdge searchengines API
+  description: Operation related to search engines
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - searchengines
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-searchengines-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-serp-features-api
+  name: BrightEdge Serp Features API
+  description: Operation related to Serp features like People Also Ask etc
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - Serp Features
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-serp-features-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-time-api
+  name: BrightEdge time API
+  description: Operation related to time
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - time
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-time-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-top-keywords-for-a-domain-api
+  name: BrightEdge top keywords for a domain API
+  description: >-
+    The top keywords for a domain API from BrightEdge — 4 operation(s) for top keywords for a domain.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - top keywords for a domain
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-top-keywords-for-a-domain-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-top-keywords-per-page-api
+  name: BrightEdge top keywords per page API
+  description: >-
+    The top keywords per page API from BrightEdge — 4 operation(s) for top keywords per page.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - top keywords per page
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-top-keywords-per-page-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-top-pages-api
+  name: BrightEdge top pages API
+  description: The top pages API from BrightEdge — 4 operation(s) for top pages.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - top pages
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-top-pages-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-user-settings-api
+  name: BrightEdge user_settings API
+  description: The user_settings API from BrightEdge — 4 operation(s) for user_settings.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - user_settings
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-user-settings-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-users-api
+  name: BrightEdge users API
+  description: Operation related to users
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - users
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-users-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-web-vitals-api
+  name: BrightEdge web_vitals API
+  description: The web_vitals API from BrightEdge — 4 operation(s) for web_vitals.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - web_vitals
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-web-vitals-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-webhook-api
+  name: BrightEdge webhook API
+  description: The webhook API from BrightEdge — 2 operation(s) for webhook.
+  humanURL: https://api.brightedge.com/portal
+  baseURL: https://api.brightedge.com
+  tags:
+  - webhook
+  properties:
+  - type: OpenAPI
+    url: openapi/brightedge-webhook-api-openapi.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: ErrorCatalog
+    url: errors/brightedge-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/brightedge-lifecycle.yml
+  - type: DataModel
+    url: data-model/brightedge-data-model.yml
+  - type: Conformance
+    url: conformance/brightedge-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/brightedge-agentic-access.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: TrustCenter
+  url: security/brightedge-trust-center.yml
+- type: DomainSecurity
+  url: security/brightedge-domain-security.yml
 - type: Website
   url: http://www.brightedge.com/
+- type: DeveloperPortal
+  url: https://api.brightedge.com/portal
+- type: Documentation
+  url: https://api.brightedge.com/portal
+- type: APIReference
+  url: https://api.brightedge.com/portal
+- type: SignUp
+  url: https://www.brightedge.com/secure/login
+- type: Login
+  url: https://www.brightedge.com/secure/login
+- type: Pricing
+  url: https://www.brightedge.com/products/product-pricing
+- type: Support
+  url: https://support.brightedge.com/
+- type: HelpCenter
+  url: https://support.brightedge.com/
+- type: Blog
+  url: https://www.brightedge.com/blog
+- type: TermsOfService
+  url: https://www.brightedge.com/legal
+- type: PrivacyPolicy
+  url: https://www.brightedge.com/privacy
+- type: GitHubOrganization
+  url: https://github.com/brightedge-seo
+- type: ChangeLog
+  url: https://www.brightedge.com/resources/product-releases
+- type: Compliance
+  url: https://www.brightedge.com/trust
+- type: LLMsTxt
+  url: llms/brightedge-llms.txt
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

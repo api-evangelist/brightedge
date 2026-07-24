@@ -1,0 +1,30 @@
+# BrightEdge
+
+> BrightEdge is an enterprise SEO and content performance platform (founded 2007, Silicon Valley) whose products include the DataCube data repository, ContentIQ site auditing, Autopilot, Copilot, the DataMind AI engine, and AI Catalyst. The BrightEdge Platform API (v5.0) is a REST API at api.brightedge.com exposing accounts, keywords, keyword groups, competitors, domains, pages, backlinks, the DataCube dataset, recommendations, People-Also-Ask, SERP features, Core Web Vitals, bulk export, and user/organization management.
+
+## APIs
+- [BrightEdge Platform API portal](https://api.brightedge.com/portal): Swagger UI for the v5.0 REST API
+- [OpenAPI 3.1 spec](https://api.brightedge.com/portal/openapi.json): machine-readable definition (248 operations)
+
+## Specs
+- [OpenAPI (original)](openapi/brightedge-platform-openapi-original.json)
+- [Authentication profile](authentication/brightedge-authentication.yml)
+- [API conventions](conventions/brightedge-conventions.yml)
+- [Error catalog](errors/brightedge-problem-types.yml)
+- [Lifecycle](lifecycle/brightedge-lifecycle.yml)
+- [Data model](data-model/brightedge-data-model.yml)
+- [Conformance](conformance/brightedge-conformance.yml)
+- [Agentic access](agentic-access/brightedge-agentic-access.yml)
+- [MCP server (candidate)](mcp/brightedge-mcp.yml)
+- [Agent Skills](skills/_index.yml)
+
+## Docs
+- [Connect API overview](https://www.brightedge.com/technology/integration/connect-api)
+- [Support / Help Center](https://support.brightedge.com/)
+- [Product releases](https://www.brightedge.com/resources/product-releases)
+- [Trust & security](https://www.brightedge.com/trust)
+- [Privacy policy](https://www.brightedge.com/privacy)
+- [Legal / terms](https://www.brightedge.com/legal)
+
+## Auth
+- HTTP Basic, X-Token header, Bearer-Token header, or BrightEdge session (X-BRIGHTEDGE-SESSION header / BRIGHTEDGE cookie). No OAuth2.

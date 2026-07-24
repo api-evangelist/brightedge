@@ -1,0 +1,3361 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/brightedge-platform-openapi-original.json
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 248
+  by_action_class:
+    connected: 104
+    acting: 144
+  by_consequence:
+    read: 104
+    write: 142
+    safety-critical: 2
+  human_in_the_loop_required: 2
+operations:
+- path: /5.0/objects/accounts
+  method: get
+  operationId: get_all_accounts_5_0_objects_accounts_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/accounts/{account_id}
+  method: post
+  operationId: get_account_5_0_objects_accounts__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/accounts
+  method: get
+  operationId: get_all_accounts_latest5_objects_accounts_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/accounts/{account_id}
+  method: post
+  operationId: get_account_latest5_objects_accounts__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/be_local/save_multi_edit_changes
+  method: post
+  operationId: save_multi_edit_changes_5_0_objects_be_local_save_multi_edit_changes_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/be_local/update_fields
+  method: post
+  operationId: update_fields_5_0_objects_be_local_update_fields_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/be_local/get_accounts_data
+  method: post
+  operationId: update_fields_5_0_objects_be_local_get_accounts_data_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/be_local/get_location_details_v2
+  method: post
+  operationId: get_location_details_v2_5_0_objects_be_local_get_location_details_v2_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/be_local/get_all_gmb_attributes
+  method: post
+  operationId: get_all_gmb_attributes_5_0_objects_be_local_get_all_gmb_attributes_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/be_local/get_all_location_attributes
+  method: post
+  operationId: get_all_location_attributes_5_0_objects_be_local_get_all_location_attributes_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/be_local/store_updates
+  method: post
+  operationId: store_updates_5_0_objects_be_local_store_updates_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/be_local/staging/store_updates
+  method: post
+  operationId: store_updates_staging_5_0_objects_be_local_staging_store_updates_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/be_local/save_multi_edit_changes
+  method: post
+  operationId: save_multi_edit_changes_latest5_objects_be_local_save_multi_edit_changes_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/be_local/update_fields
+  method: post
+  operationId: update_fields_latest5_objects_be_local_update_fields_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/be_local/get_accounts_data
+  method: post
+  operationId: update_fields_latest5_objects_be_local_get_accounts_data_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/be_local/get_location_details_v2
+  method: post
+  operationId: get_location_details_v2_latest5_objects_be_local_get_location_details_v2_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/be_local/get_all_gmb_attributes
+  method: post
+  operationId: get_all_gmb_attributes_latest5_objects_be_local_get_all_gmb_attributes_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/be_local/get_all_location_attributes
+  method: post
+  operationId: get_all_location_attributes_latest5_objects_be_local_get_all_location_attributes_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/be_local/store_updates
+  method: post
+  operationId: store_updates_latest5_objects_be_local_store_updates_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/be_local/staging/store_updates
+  method: post
+  operationId: store_updates_staging_latest5_objects_be_local_staging_store_updates_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/competitors/{account_id}
+  method: get
+  operationId: get_account_competitors_5_0_objects_competitors__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/competitors/{account_id}
+  method: get
+  operationId: get_account_competitors_latest5_objects_competitors__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/brandfilters/{account_id}
+  method: get
+  operationId: get_brand_filters_keywords_for_account_5_0_objects_brandfilters__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/brandfilters/{account_id}
+  method: get
+  operationId: get_brand_filters_keywords_for_account_latest5_objects_brandfilters__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/info
+  method: get
+  operationId: api_info_5_0_info_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/high-latency-handle/{msec}
+  method: get
+  operationId: high_latency_handle_5_0_high_latency_handle__msec__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/async-high-latency-handle/{msec}
+  method: get
+  operationId: async_high_latency_handle_5_0_async_high_latency_handle__msec__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/time/{account_id}/{time_frequency}/{day}
+  method: get
+  operationId: get_time_value_5_0_objects_time__account_id___time_frequency___day__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/info
+  method: get
+  operationId: api_info_latest5_info_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/high-latency-handle/{msec}
+  method: get
+  operationId: high_latency_handle_latest5_high_latency_handle__msec__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/async-high-latency-handle/{msec}
+  method: get
+  operationId: async_high_latency_handle_latest5_async_high_latency_handle__msec__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/time/{account_id}/{time_frequency}/{day}
+  method: get
+  operationId: get_time_value_latest5_objects_time__account_id___time_frequency___day__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/chromeextension/keywordgroups/{account_id}
+  method: get
+  operationId: get_kw_groups_5_0_chromeextension_keywordgroups__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/chromeextension/keywords/{account_id}
+  method: get
+  operationId: get_account_kw_kwg_id_5_0_chromeextension_keywords__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/chromeextension/keywords/{account_id}
+  method: post
+  operationId: get_account_kw_kwg_id_5_0_chromeextension_keywords__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/chromeextension/keywordgroupactions/{account_id}
+  method: post
+  operationId: associate_dissociate_keywords_with_group_5_0_chromeextension_keywordgroupactions__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/chromeextension/keywordgroups/{account_id}
+  method: get
+  operationId: get_kw_groups_latest5_chromeextension_keywordgroups__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/chromeextension/keywords/{account_id}
+  method: get
+  operationId: get_account_kw_kwg_id_latest5_chromeextension_keywords__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/chromeextension/keywords/{account_id}
+  method: post
+  operationId: get_account_kw_kwg_id_latest5_chromeextension_keywords__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/chromeextension/keywordgroupactions/{account_id}
+  method: post
+  operationId: associate_dissociate_keywords_with_group_latest5_chromeextension_keywordgroupactions__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/domains
+  method: get
+  operationId: get_user_domains_5_0_objects_domains_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/domains/{account_id}
+  method: get
+  operationId: get_account_domain_5_0_objects_domains__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/domains
+  method: get
+  operationId: get_user_domains_latest5_objects_domains_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/domains/{account_id}
+  method: get
+  operationId: get_account_domain_latest5_objects_domains__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/keywords/{account_id}
+  method: get
+  operationId: get_account_keywords_5_0_objects_keywords__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/keywords/{account_id}
+  method: get
+  operationId: get_account_keywords_latest5_objects_keywords__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/keywordgroups/activity/{group_name}
+  method: get
+  operationId: get_keywords_activity_5_0_objects_keywordgroups_activity__group_name__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/keywordgroups/{account_id}
+  method: get
+  operationId: get_account_keywordgroups_5_0_objects_keywordgroups__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/keywordgroups/{account_id}/{keyword_group_id}
+  method: get
+  operationId: get_account_keywordgroup_detail_5_0_objects_keywordgroups__account_id___keyword_group_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/keywordgroups/{account_id}/{keyword_group_id}
+  method: post
+  operationId: add_kw_to_kwg_in_account_5_0_objects_keywordgroups__account_id___keyword_group_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/keywordgroups/activity/{group_name}
+  method: get
+  operationId: get_keywords_activity_latest5_objects_keywordgroups_activity__group_name__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/keywordgroups/{account_id}
+  method: get
+  operationId: get_account_keywordgroups_latest5_objects_keywordgroups__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/keywordgroups/{account_id}/{keyword_group_id}
+  method: get
+  operationId: get_account_keywordgroup_detail_latest5_objects_keywordgroups__account_id___keyword_group_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/keywordgroups/{account_id}/{keyword_group_id}
+  method: post
+  operationId: add_kw_to_kwg_in_account_latest5_objects_keywordgroups__account_id___keyword_group_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/organizations/self
+  method: get
+  operationId: organizations_self_5_0_objects_organizations_self_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/organizations/self
+  method: get
+  operationId: organizations_self_latest5_objects_organizations_self_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/organizations/objects/users
+  method: get
+  operationId: get_users_5_0_organizations_objects_users_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/organizations/objects/accounts
+  method: get
+  operationId: organizations_bulk_accounts_5_0_organizations_objects_accounts_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/organizations/objects/users
+  method: get
+  operationId: get_users_latest5_organizations_objects_users_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/organizations/objects/accounts
+  method: get
+  operationId: organizations_bulk_accounts_latest5_organizations_objects_accounts_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/organizations/marketinsights/data/{date_id}
+  method: get
+  operationId: market_insights_data_request_5_0_organizations_marketinsights_data__date_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/organizations/marketinsights/data/{date_id}/{report_name}
+  method: get
+  operationId: market_insights_data_request_5_0_organizations_marketinsights_data__date_id___report_name__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/organizations/marketinsights/data/{date_id}
+  method: get
+  operationId: market_insights_data_request_latest5_organizations_marketinsights_data__date_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/organizations/marketinsights/data/{date_id}/{report_name}
+  method: get
+  operationId: market_insights_data_request_latest5_organizations_marketinsights_data__date_id___report_name__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/query/{account_id}
+  method: post
+  operationId: get_query_results_5_0_objects_query__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/query/{account_id}
+  method: post
+  operationId: get_query_results_latest5_objects_query__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/searchengines/{account_id}
+  method: get
+  operationId: get_account_searchengines_5_0_objects_searchengines__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/searchengines/{account_id}
+  method: get
+  operationId: get_account_searchengines_latest5_objects_searchengines__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /3.0/objects/accounts
+  method: get
+  operationId: get_all_accounts_3_0_objects_accounts_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /3.0/objects/accounts/{account_id}
+  method: post
+  operationId: get_account_3_0_objects_accounts__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest3/objects/accounts
+  method: get
+  operationId: get_all_accounts_latest3_objects_accounts_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest3/objects/accounts/{account_id}
+  method: post
+  operationId: get_account_latest3_objects_accounts__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /3.0/objects/keywordgroups/{account_id}
+  method: get
+  operationId: get_account_keywordgroups_3_0_objects_keywordgroups__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /3.0/objects/keywordgroups/{account_id}/{keyword_group_id}
+  method: get
+  operationId: get_account_keywordgroup_detail_3_0_objects_keywordgroups__account_id___keyword_group_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest3/objects/keywordgroups/{account_id}
+  method: get
+  operationId: get_account_keywordgroups_latest3_objects_keywordgroups__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest3/objects/keywordgroups/{account_id}/{keyword_group_id}
+  method: get
+  operationId: get_account_keywordgroup_detail_latest3_objects_keywordgroups__account_id___keyword_group_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /3.0/objects/domains
+  method: get
+  operationId: get_user_domains_3_0_objects_domains_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /3.0/objects/domains/{account_id}
+  method: get
+  operationId: get_account_domain_3_0_objects_domains__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest3/objects/domains
+  method: get
+  operationId: get_user_domains_latest3_objects_domains_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest3/objects/domains/{account_id}
+  method: get
+  operationId: get_account_domain_latest3_objects_domains__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /3.0/objects/competitors/{account_id}
+  method: get
+  operationId: get_account_competitors_3_0_objects_competitors__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest3/objects/competitors/{account_id}
+  method: get
+  operationId: get_account_competitors_latest3_objects_competitors__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /3.0/objects/keywords/{account_id}
+  method: get
+  operationId: get_account_keywords_3_0_objects_keywords__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest3/objects/keywords/{account_id}
+  method: get
+  operationId: get_account_keywords_latest3_objects_keywords__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /3.0/objects/time/{account_id}/{time_frequency}/{day}
+  method: get
+  operationId: get_time_value_3_0_objects_time__account_id___time_frequency___day__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest3/objects/time/{account_id}/{time_frequency}/{day}
+  method: get
+  operationId: get_time_value_latest3_objects_time__account_id___time_frequency___day__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /3.0/objects/datacube_searchengines/{account_id}
+  method: get
+  operationId: get_account_datacube_searchengines_3_0_objects_datacube_searchengines__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest3/objects/datacube_searchengines/{account_id}
+  method: get
+  operationId: get_account_datacube_searchengines_latest3_objects_datacube_searchengines__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /3.0/objects/searchengines/{account_id}
+  method: get
+  operationId: get_account_searchengines_3_0_objects_searchengines__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest3/objects/searchengines/{account_id}
+  method: get
+  operationId: get_account_searchengines_latest3_objects_searchengines__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /3.0/objects/query/{account_id}
+  method: post
+  operationId: budd_bql_query_3_0_objects_query__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest3/objects/query/{account_id}
+  method: post
+  operationId: budd_bql_query_latest3_objects_query__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /3.0/query/{account_id}
+  method: post
+  operationId: budd_bql_query_3_0_query__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest3/query/{account_id}
+  method: post
+  operationId: budd_bql_query_latest3_query__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /3.0/objects/qa_query/{account_id}
+  method: post
+  operationId: budd_bql_query_qa_3_0_objects_qa_query__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest3/objects/qa_query/{account_id}
+  method: post
+  operationId: budd_bql_query_qa_latest3_objects_qa_query__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/organizations/objects/recommendations
+  method: get
+  operationId: get_recommendation_5_0_organizations_objects_recommendations_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/organizations/objects/pbr_page_keyword_pop_up/{account_id}
+  method: post
+  operationId: get_keyword_recommendation_details_5_0_organizations_objects_pbr_page_keyword_pop_up__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/organizations/objects/pbr_keywords/{account_id}
+  method: post
+  operationId: change_keyword_priority_5_0_organizations_objects_pbr_keywords__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/organizations/objects/get_tracked_pages/{account_id}
+  method: get
+  operationId: get_tracked_pages_5_0_organizations_objects_get_tracked_pages__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/organizations/objects/recommendations
+  method: get
+  operationId: get_recommendation_latest5_organizations_objects_recommendations_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/organizations/objects/pbr_page_keyword_pop_up/{account_id}
+  method: post
+  operationId: get_keyword_recommendation_details_latest5_organizations_objects_pbr_page_keyword_pop_up__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/organizations/objects/pbr_keywords/{account_id}
+  method: post
+  operationId: change_keyword_priority_latest5_organizations_objects_pbr_keywords__account_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/organizations/objects/get_tracked_pages/{account_id}
+  method: get
+  operationId: get_tracked_pages_latest5_organizations_objects_get_tracked_pages__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/serp_features/people_also_ask_historical
+  method: post
+  operationId: get_keyword_linked_questions_5_0_objects_serp_features_people_also_ask_historical_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/serp_features/people_also_ask_live
+  method: post
+  operationId: get_live_questions_5_0_objects_serp_features_people_also_ask_live_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/serp_features/people_also_ask_chatgpt
+  method: post
+  operationId: get_live_questions_5_0_objects_serp_features_people_also_ask_chatgpt_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/serp_features/people_also_ask
+  method: post
+  operationId: get_live_questions_5_0_objects_serp_features_people_also_ask_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/serp_features/people_also_ask_historical
+  method: post
+  operationId: get_keyword_linked_questions_latest5_objects_serp_features_people_also_ask_historical_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/serp_features/people_also_ask_live
+  method: post
+  operationId: get_live_questions_latest5_objects_serp_features_people_also_ask_live_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/serp_features/people_also_ask_chatgpt
+  method: post
+  operationId: get_live_questions_latest5_objects_serp_features_people_also_ask_chatgpt_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/serp_features/people_also_ask
+  method: post
+  operationId: get_live_questions_latest5_objects_serp_features_people_also_ask_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/organizations/objects/site_audit_page_group
+  method: post
+  operationId: get_site_audit_page_group_details_5_0_organizations_objects_site_audit_page_group_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/organizations/objects/site_audit_crawl_report
+  method: post
+  operationId: get_site_audit_crawl_report_5_0_organizations_objects_site_audit_crawl_report_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/organizations/objects/site_audit_page_group
+  method: post
+  operationId: get_site_audit_page_group_details_latest5_organizations_objects_site_audit_page_group_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/organizations/objects/site_audit_crawl_report
+  method: post
+  operationId: get_site_audit_crawl_report_latest5_organizations_objects_site_audit_crawl_report_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/instant/keywordIdeas/{organization_id}/{request_id}
+  method: post
+  operationId: get_kw_ideas_result_5_0_instant_keywordIdeas__organization_id___request_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/instant/keywordIdeas/{organization_id}
+  method: post
+  operationId: submit_kw_for_ideas_5_0_instant_keywordIdeas__organization_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/instant/webhook/{provider}/kw_ideas/{request_id}
+  method: post
+  operationId: process_webhook_5_0_instant_webhook__provider__kw_ideas__request_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/instant/keywordIdeas/{organization_id}/{request_id}
+  method: post
+  operationId: get_kw_ideas_result_latest5_instant_keywordIdeas__organization_id___request_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/instant/keywordIdeas/{organization_id}
+  method: post
+  operationId: submit_kw_for_ideas_latest5_instant_keywordIdeas__organization_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/instant/webhook/{provider}/kw_ideas/{request_id}
+  method: post
+  operationId: process_webhook_latest5_instant_webhook__provider__kw_ideas__request_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/web_vitals/{account_id}/{device_type}
+  method: post
+  operationId: save_site_info_5_0_web_vitals__account_id___device_type__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/web_vitals/results/{account_id}/{device_type}
+  method: post
+  operationId: get_site_info_5_0_web_vitals_results__account_id___device_type__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/web_vitals/{account_id}/{device_type}
+  method: post
+  operationId: save_site_info_latest5_web_vitals__account_id___device_type__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/web_vitals/results/{account_id}/{device_type}
+  method: post
+  operationId: get_site_info_latest5_web_vitals_results__account_id___device_type__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/user_settings/recommendations/{account_id}
+  method: get
+  operationId: get_siteaudit_settings_5_0_user_settings_recommendations__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/user_settings/seteaudit/{account_id}/{preset_id}
+  method: get
+  operationId: get_siteaudit_settings_5_0_user_settings_seteaudit__account_id___preset_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/user_settings/recommendations/{account_id}
+  method: get
+  operationId: get_siteaudit_settings_latest5_user_settings_recommendations__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/user_settings/seteaudit/{account_id}/{preset_id}
+  method: get
+  operationId: get_siteaudit_settings_latest5_user_settings_seteaudit__account_id___preset_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/autopilot/foundations/1.0/update_certificate
+  method: post
+  operationId: apf_update_certificate_5_0_autopilot_foundations_1_0_update_certificate_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/autopilot/foundations/1.0/update_certificate
+  method: post
+  operationId: apf_update_certificate_latest5_autopilot_foundations_1_0_update_certificate_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ap/1.0/apm/refresh_cache
+  method: post
+  operationId: apm_clear_cache_ap_1_0_apm_refresh_cache_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ap/1.0/apm/invalidate_cache
+  method: post
+  operationId: apm_invalidate_cache_ap_1_0_apm_invalidate_cache_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/chrome_extension/overview/images
+  method: post
+  operationId: images_5_0_chrome_extension_overview_images_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/chrome_extension/overview/content
+  method: post
+  operationId: content_5_0_chrome_extension_overview_content_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/chrome_extension/overview/web_vitals
+  method: get
+  operationId: web_vitals_5_0_chrome_extension_overview_web_vitals_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/chrome_extension/keywords/track_keywords
+  method: post
+  operationId: track_keywords_5_0_chrome_extension_keywords_track_keywords_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/chrome_extension/keywords/compare_domains
+  method: post
+  operationId: compare_domains_5_0_chrome_extension_keywords_compare_domains_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/chrome_extension/keywords/research_keywords
+  method: post
+  operationId: research_keywords_5_0_chrome_extension_keywords_research_keywords_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/chrome_extension/overview/images
+  method: post
+  operationId: images_latest5_chrome_extension_overview_images_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/chrome_extension/overview/content
+  method: post
+  operationId: content_latest5_chrome_extension_overview_content_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/chrome_extension/overview/web_vitals
+  method: get
+  operationId: web_vitals_latest5_chrome_extension_overview_web_vitals_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/chrome_extension/keywords/track_keywords
+  method: post
+  operationId: track_keywords_latest5_chrome_extension_keywords_track_keywords_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/chrome_extension/keywords/compare_domains
+  method: post
+  operationId: compare_domains_latest5_chrome_extension_keywords_compare_domains_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/chrome_extension/keywords/research_keywords
+  method: post
+  operationId: research_keywords_latest5_chrome_extension_keywords_research_keywords_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/backlinks/{account_id}
+  method: get
+  operationId: get_backlink_url_score_5_0_objects_backlinks__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/backlinks/{account_id}
+  method: get
+  operationId: get_backlink_url_score_latest5_objects_backlinks__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/marketo/ping
+  method: get
+  operationId: ping_5_0_marketo_ping_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/marketo/page_cache
+  method: post
+  operationId: get_page_cache_5_0_marketo_page_cache_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/marketo/page_crawl
+  method: post
+  operationId: crawl_page_content_5_0_marketo_page_crawl_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/marketo/top_pages
+  method: post
+  operationId: get_top_pages_5_0_marketo_top_pages_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/marketo/top_keywords_per_page
+  method: post
+  operationId: get_top_keywords_per_page_5_0_marketo_top_keywords_per_page_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/marketo/top_keywords
+  method: post
+  operationId: get_top_keywords_per_domain_5_0_marketo_top_keywords_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/marketo/paa_per_keyword
+  method: post
+  operationId: get_paa_per_keyword_5_0_marketo_paa_per_keyword_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/marketo/ping
+  method: get
+  operationId: ping_latest5_marketo_ping_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/marketo/page_cache
+  method: post
+  operationId: get_page_cache_latest5_marketo_page_cache_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/marketo/page_crawl
+  method: post
+  operationId: crawl_page_content_latest5_marketo_page_crawl_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/marketo/top_pages
+  method: post
+  operationId: get_top_pages_latest5_marketo_top_pages_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/marketo/top_keywords_per_page
+  method: post
+  operationId: get_top_keywords_per_page_latest5_marketo_top_keywords_per_page_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/marketo/top_keywords
+  method: post
+  operationId: get_top_keywords_per_domain_latest5_marketo_top_keywords_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/marketo/paa_per_keyword
+  method: post
+  operationId: get_paa_per_keyword_latest5_marketo_paa_per_keyword_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/dataset/ping
+  method: get
+  operationId: ping_5_0_dataset_ping_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/dataset/page_cache
+  method: post
+  operationId: get_page_cache_5_0_dataset_page_cache_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/dataset/page_crawl
+  method: post
+  operationId: crawl_page_content_5_0_dataset_page_crawl_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/dataset/top_pages
+  method: post
+  operationId: get_top_pages_5_0_dataset_top_pages_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/dataset/top_keywords_per_page
+  method: post
+  operationId: get_top_keywords_per_page_5_0_dataset_top_keywords_per_page_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/dataset/top_keywords
+  method: post
+  operationId: get_top_keywords_per_domain_5_0_dataset_top_keywords_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/dataset/paa_per_keyword
+  method: post
+  operationId: get_paa_per_keyword_5_0_dataset_paa_per_keyword_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/dataset/ping
+  method: get
+  operationId: ping_latest5_dataset_ping_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/dataset/page_cache
+  method: post
+  operationId: get_page_cache_latest5_dataset_page_cache_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/dataset/page_crawl
+  method: post
+  operationId: crawl_page_content_latest5_dataset_page_crawl_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/dataset/top_pages
+  method: post
+  operationId: get_top_pages_latest5_dataset_top_pages_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/dataset/top_keywords_per_page
+  method: post
+  operationId: get_top_keywords_per_page_latest5_dataset_top_keywords_per_page_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/dataset/top_keywords
+  method: post
+  operationId: get_top_keywords_per_domain_latest5_dataset_top_keywords_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/dataset/paa_per_keyword
+  method: post
+  operationId: get_paa_per_keyword_latest5_dataset_paa_per_keyword_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/jobs
+  method: post
+  operationId: create_bulk_export_job_5_0_jobs_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/jobs/{job_id}
+  method: get
+  operationId: get_bulk_export_jobs_by_batch_id_5_0_jobs__job_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/jobs/account/{account_id}
+  method: get
+  operationId: get_account_bulk_export_jobs_5_0_jobs_account__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/jobs
+  method: post
+  operationId: create_bulk_export_job_latest5_jobs_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/jobs/{job_id}
+  method: get
+  operationId: get_bulk_export_jobs_by_batch_id_latest5_jobs__job_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/jobs/account/{account_id}
+  method: get
+  operationId: get_account_bulk_export_jobs_latest5_jobs_account__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/aicatalyst/accounts
+  method: get
+  operationId: get_all_accounts_5_0_objects_aicatalyst_accounts_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/aicatalyst/get_all_collectors
+  method: get
+  operationId: get_all_collectors_5_0_objects_aicatalyst_get_all_collectors_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/aicatalyst/prompts/{account_id}
+  method: get
+  operationId: get_prompts_list_5_0_objects_aicatalyst_prompts__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/aicatalyst/prompt_info/{account_id}/{prompt_id}
+  method: get
+  operationId: get_prompts_list_5_0_objects_aicatalyst_prompt_info__account_id___prompt_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/aicatalyst/promptgroups/{account_id}
+  method: get
+  operationId: get_prompts_list_5_0_objects_aicatalyst_promptgroups__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/aicatalyst/promptgroups/prompts/{account_id}/{prompt_group_id}
+  method: get
+  operationId: get_prompt_group_and_prompt_name_5_0_objects_aicatalyst_promptgroups_prompts__account_id___prompt_group_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/aicatalyst/aiengines/{account_id}
+  method: get
+  operationId: get_prompt_group_and_prompt_name_5_0_objects_aicatalyst_aiengines__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/aicatalyst/enabled_collectors/{account_id}
+  method: get
+  operationId: get_enabled_collectors_5_0_objects_aicatalyst_enabled_collectors__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/objects/aicatalyst/list_brand_categories
+  method: post
+  operationId: list_brand_category_5_0_objects_aicatalyst_list_brand_categories_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/aicatalyst/query
+  method: post
+  operationId: share_of_data_5_0_objects_aicatalyst_query_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/aicatalyst/v2/query
+  method: post
+  operationId: share_of_data_v2_5_0_objects_aicatalyst_v2_query_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/aicatalyst/personas/{account_id}
+  method: get
+  operationId: get_personas_5_0_objects_aicatalyst_personas__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/aicatalyst/accounts
+  method: get
+  operationId: get_all_accounts_latest5_objects_aicatalyst_accounts_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/aicatalyst/get_all_collectors
+  method: get
+  operationId: get_all_collectors_latest5_objects_aicatalyst_get_all_collectors_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/aicatalyst/prompts/{account_id}
+  method: get
+  operationId: get_prompts_list_latest5_objects_aicatalyst_prompts__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/aicatalyst/prompt_info/{account_id}/{prompt_id}
+  method: get
+  operationId: get_prompts_list_latest5_objects_aicatalyst_prompt_info__account_id___prompt_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/aicatalyst/promptgroups/{account_id}
+  method: get
+  operationId: get_prompts_list_latest5_objects_aicatalyst_promptgroups__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/aicatalyst/promptgroups/prompts/{account_id}/{prompt_group_id}
+  method: get
+  operationId: get_prompt_group_and_prompt_name_latest5_objects_aicatalyst_promptgroups_prompts__account_id___prompt_group_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/aicatalyst/aiengines/{account_id}
+  method: get
+  operationId: get_prompt_group_and_prompt_name_latest5_objects_aicatalyst_aiengines__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/aicatalyst/enabled_collectors/{account_id}
+  method: get
+  operationId: get_enabled_collectors_latest5_objects_aicatalyst_enabled_collectors__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/objects/aicatalyst/list_brand_categories
+  method: post
+  operationId: list_brand_category_latest5_objects_aicatalyst_list_brand_categories_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/aicatalyst/query
+  method: post
+  operationId: share_of_data_latest5_objects_aicatalyst_query_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/aicatalyst/v2/query
+  method: post
+  operationId: share_of_data_v2_latest5_objects_aicatalyst_v2_query_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/aicatalyst/personas/{account_id}
+  method: get
+  operationId: get_personas_latest5_objects_aicatalyst_personas__account_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/productgrid/info
+  method: post
+  operationId: info_5_0_productgrid_info_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/productgrid/keywords
+  method: post
+  operationId: get_keyword_metrics_5_0_productgrid_keywords_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/productgrid/keyword_groups
+  method: post
+  operationId: get_keyword_group_metrics_5_0_productgrid_keyword_groups_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/productgrid/top_sellers/trend_chart
+  method: post
+  operationId: get_top_sellers_trend_chart_5_0_productgrid_top_sellers_trend_chart_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/productgrid/presence/trend_chart
+  method: post
+  operationId: get_product_grid_presence_trend_chart_5_0_productgrid_presence_trend_chart_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/productgrid/grid_types/trend_chart
+  method: post
+  operationId: get_grid_types_trend_chart_5_0_productgrid_grid_types_trend_chart_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/productgrid/top_products/trend_chart
+  method: post
+  operationId: get_top_products_trend_chart_5_0_productgrid_top_products_trend_chart_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/productgrid/keywords_with_product_grid_presence
+  method: post
+  operationId: get_keywords_with_product_grid_presence_5_0_productgrid_keywords_with_product_grid_presence_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/productgrid/keywords/export
+  method: post
+  operationId: export_keyword_metrics_csv_5_0_productgrid_keywords_export_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/productgrid/keyword_groups/export
+  method: post
+  operationId: export_keyword_group_metrics_csv_5_0_productgrid_keyword_groups_export_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/productgrid/info
+  method: post
+  operationId: info_latest5_productgrid_info_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/productgrid/keywords
+  method: post
+  operationId: get_keyword_metrics_latest5_productgrid_keywords_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/productgrid/keyword_groups
+  method: post
+  operationId: get_keyword_group_metrics_latest5_productgrid_keyword_groups_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/productgrid/top_sellers/trend_chart
+  method: post
+  operationId: get_top_sellers_trend_chart_latest5_productgrid_top_sellers_trend_chart_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/productgrid/presence/trend_chart
+  method: post
+  operationId: get_product_grid_presence_trend_chart_latest5_productgrid_presence_trend_chart_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/productgrid/grid_types/trend_chart
+  method: post
+  operationId: get_grid_types_trend_chart_latest5_productgrid_grid_types_trend_chart_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/productgrid/top_products/trend_chart
+  method: post
+  operationId: get_top_products_trend_chart_latest5_productgrid_top_products_trend_chart_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/productgrid/keywords_with_product_grid_presence
+  method: post
+  operationId: get_keywords_with_product_grid_presence_latest5_productgrid_keywords_with_product_grid_presence_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/productgrid/keywords/export
+  method: post
+  operationId: export_keyword_metrics_csv_latest5_productgrid_keywords_export_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/productgrid/keyword_groups/export
+  method: post
+  operationId: export_keyword_group_metrics_csv_latest5_productgrid_keyword_groups_export_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/users/create
+  method: post
+  operationId: create_user_route_5_0_objects_users_create_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/users/update
+  method: post
+  operationId: update_user_5_0_objects_users_update_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/users/{login}
+  method: delete
+  operationId: delete_user_5_0_objects_users__login__delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/users/grant_account_access
+  method: post
+  operationId: grant_user_account_access_5_0_objects_users_grant_account_access_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/users/revoke_account_access
+  method: post
+  operationId: revoke_user_account_access_5_0_objects_users_revoke_account_access_post
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /5.0/objects/users/bulk-create
+  method: post
+  operationId: bulk_create_users_5_0_objects_users_bulk_create_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/users/bulk-update
+  method: post
+  operationId: bulk_update_users_5_0_objects_users_bulk_update_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/objects/users/bulk-delete
+  method: post
+  operationId: bulk_delete_users_5_0_objects_users_bulk_delete_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/users/create
+  method: post
+  operationId: create_user_route_latest5_objects_users_create_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/users/update
+  method: post
+  operationId: update_user_latest5_objects_users_update_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/users/{login}
+  method: delete
+  operationId: delete_user_latest5_objects_users__login__delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/users/grant_account_access
+  method: post
+  operationId: grant_user_account_access_latest5_objects_users_grant_account_access_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/users/revoke_account_access
+  method: post
+  operationId: revoke_user_account_access_latest5_objects_users_revoke_account_access_post
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /latest5/objects/users/bulk-create
+  method: post
+  operationId: bulk_create_users_latest5_objects_users_bulk_create_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/users/bulk-update
+  method: post
+  operationId: bulk_update_users_latest5_objects_users_bulk_update_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/objects/users/bulk-delete
+  method: post
+  operationId: bulk_delete_users_latest5_objects_users_bulk_delete_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /5.0/pages/keywords/primary_secondary
+  method: get
+  operationId: keywords_5_0_pages_keywords_primary_secondary_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/pages/details
+  method: get
+  operationId: pages_5_0_pages_details_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /5.0/pages/details
+  method: post
+  operationId: pages_5_0_pages_details_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /latest5/pages/keywords/primary_secondary
+  method: get
+  operationId: keywords_latest5_pages_keywords_primary_secondary_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/pages/details
+  method: get
+  operationId: pages_latest5_pages_details_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /latest5/pages/details
+  method: post
+  operationId: pages_latest5_pages_details_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required

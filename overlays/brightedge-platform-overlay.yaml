@@ -1,0 +1,23 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for BrightEdge Platform API
+  version: 1.0.0
+extends: openapi/brightedge-platform-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-18'
+    x-apievangelist-artifacts:
+    - authentication
+    - conventions
+    - errors
+    - lifecycle
+    - data-model
+    - conformance
+    - mcp
+    - agentic-access
+    - skills
+- target: $.info
+  update:
+    x-api-provider: BrightEdge
+    x-api-category: SEO / Content Intelligence

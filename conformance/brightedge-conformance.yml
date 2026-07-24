@@ -1,0 +1,39 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/brightedge-platform-openapi-original.json
+compliance_page: https://www.brightedge.com/trust
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: spec is openapi 3.1.0 (api.brightedge.com/portal/openapi.json)
+- id: http-basic-auth
+  conforms: true
+  evidence: securityScheme http_basic (type http, scheme basic)
+- id: api-key-auth
+  conforms: true
+  evidence: 'apiKey schemes: X-Token, Bearer-Token, X-BRIGHTEDGE-SESSION header, BRIGHTEDGE
+    cookie'
+- id: oauth2
+  conforms: false
+  evidence: no oauth2 securityScheme declared
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: errors use FastAPI HTTPValidationError (422 detail[]), not application/problem+json
+- id: offset-limit-pagination
+  conforms: true
+  evidence: offset/limit/count query parameters across list operations
+- id: idempotency-keys
+  conforms: false
+  evidence: no Idempotency-Key header/parameter documented in spec
+- id: soc2
+  conforms: true
+  evidence: https://www.brightedge.com/trust
+- id: iso-27001
+  conforms: true
+  evidence: https://www.brightedge.com/trust
+- id: gdpr
+  conforms: true
+  evidence: https://www.brightedge.com/trust ; https://www.brightedge.com/privacy
+- id: nist-csf
+  conforms: true
+  evidence: BrightEdge information security program conforms to NIST CSF (trust page)

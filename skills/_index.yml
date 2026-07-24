@@ -1,0 +1,29 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/brightedge-platform-openapi-original.json
+skills:
+- file: brightedge-pull-keyword-rankings.md
+  name: Pull keyword rankings for an account
+  api: openapi/brightedge-platform-openapi-original.json
+  operations:
+  - get_all_accounts_5_0_objects_accounts_get
+  - get_account_5_0_objects_accounts__account_id__post
+  - get_account_keywords_5_0_objects_keywords__account_id__get
+  - get_account_keywordgroups_5_0_objects_keywordgroups__account_id__get
+  - get_account_keywordgroup_detail_5_0_objects_keywordgroups__account_id___keyword_group_id__get
+- file: brightedge-query-datacube.md
+  name: Query the DataCube for top pages and keywords
+  api: openapi/brightedge-platform-openapi-original.json
+  operations:
+  - ping_5_0_dataset_ping_get
+  - get_top_pages_5_0_dataset_top_pages_post
+  - get_top_keywords_per_domain_5_0_dataset_top_keywords_post
+  - get_top_keywords_per_page_5_0_dataset_top_keywords_per_page_post
+  - crawl_page_content_5_0_dataset_page_crawl_post
+- file: brightedge-bulk-export.md
+  name: Create and retrieve a bulk export job
+  api: openapi/brightedge-platform-openapi-original.json
+  operations:
+  - create_bulk_export_job_5_0_jobs_post
+  - get_bulk_export_jobs_by_batch_id_5_0_jobs__job_id__get
+  - get_account_bulk_export_jobs_5_0_jobs_account__account_id__get

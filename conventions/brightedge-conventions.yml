@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: searched
+source: openapi + https://api.brightedge.com/portal
+authentication:
+  styles:
+  - http-basic
+  - api-key-header (X-Token)
+  - bearer-token-header (Bearer-Token)
+  - session (X-BRIGHTEDGE-SESSION header / BRIGHTEDGE cookie)
+  ref: authentication/brightedge-authentication.yml
+pagination:
+  style: offset-limit
+  params:
+  - offset
+  - limit
+  - count
+  modifiers:
+  - only_total
+  - include_total
+  note: List endpoints page with offset + limit (or count); only_total/include_total
+    control whether a total count is returned.
+idempotency:
+  supported: false
+  note: No Idempotency-Key contract documented in the spec.
+versioning:
+  style: uri-path
+  current: '5.0'
+  rolling_alias: latest5
+  ref: lifecycle/brightedge-lifecycle.yml
+error_envelope:
+  style: fastapi
+  shape: HTTP 422 with detail[] of {loc,msg,type}
+  ref: errors/brightedge-problem-types.yml
+content_types:
+- application/json
+- text/csv (bulk export)
+request_tracing:
+  note: request_id path parameter appears on async/instant and webhook operations.
+rate_limiting:
+  note: No rate-limit headers documented in the public spec.

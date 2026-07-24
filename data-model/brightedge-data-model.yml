@@ -1,0 +1,123 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/brightedge-platform-openapi-original.json
+note: Entity graph derived from OpenAPI tags and id-reference path/query parameters.
+  account_id is the primary tenant key threading nearly every resource.
+primary_key: account_id
+entities:
+- accounts
+- ai_catalyst
+- backlinks
+- budd
+- bulk_export
+- chromeextension
+- core
+- domains
+- instant
+- keywordgroups
+- keywords
+- legacy
+- marketinsights
+- recommendations
+- searchengines
+- time
+- user_settings
+- web_vitals
+schema_count: 180
+relationships:
+- from: accounts
+  to: account
+  type: belongs_to
+  via: account_id
+- from: ai_catalyst
+  to: account
+  type: belongs_to
+  via: account_id
+- from: ai_catalyst
+  to: prompt_group
+  type: belongs_to
+  via: prompt_group_id
+- from: ai_catalyst
+  to: prompt
+  type: belongs_to
+  via: prompt_id
+- from: backlinks
+  to: account
+  type: belongs_to
+  via: account_id
+- from: budd
+  to: account
+  type: belongs_to
+  via: account_id
+- from: bulk_export
+  to: account
+  type: belongs_to
+  via: account_id
+- from: bulk_export
+  to: job
+  type: belongs_to
+  via: job_id
+- from: chromeextension
+  to: account
+  type: belongs_to
+  via: account_id
+- from: core
+  to: account
+  type: belongs_to
+  via: account_id
+- from: domains
+  to: account
+  type: belongs_to
+  via: account_id
+- from: instant
+  to: organization
+  type: belongs_to
+  via: organization_id
+- from: keywordgroups
+  to: account
+  type: belongs_to
+  via: account_id
+- from: keywords
+  to: account
+  type: belongs_to
+  via: account_id
+- from: keywords
+  to: keyword_group
+  type: belongs_to
+  via: keyword_group_id
+- from: legacy
+  to: account
+  type: belongs_to
+  via: account_id
+- from: legacy
+  to: keyword_group
+  type: belongs_to
+  via: keyword_group_id
+- from: marketinsights
+  to: date
+  type: belongs_to
+  via: date_id
+- from: recommendations
+  to: account
+  type: belongs_to
+  via: account_id
+- from: searchengines
+  to: account
+  type: belongs_to
+  via: account_id
+- from: time
+  to: account
+  type: belongs_to
+  via: account_id
+- from: user_settings
+  to: account
+  type: belongs_to
+  via: account_id
+- from: user_settings
+  to: preset
+  type: belongs_to
+  via: preset_id
+- from: web_vitals
+  to: account
+  type: belongs_to
+  via: account_id

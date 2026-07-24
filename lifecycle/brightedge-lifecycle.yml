@@ -1,0 +1,50 @@
+generated: '2026-07-18'
+method: searched
+source: https://api.brightedge.com/portal ; https://www.brightedge.com/resources/product-releases
+versioning:
+  scheme: uri-path
+  current: '5.0'
+  aliases:
+  - latest5
+  note: Each operation is exposed under both a pinned /5.0/ path and a rolling /latest5/
+    path.
+  docs: https://api.brightedge.com/portal
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No public deprecation policy or RFC 8594 Sunset/Deprecation header support
+    found. A legacy tag exists in the spec for older operations.
+release_notes: https://www.brightedge.com/resources/product-releases
+status_page: null
+sla:
+  url: null
+  note: No public status page or SLA document found; support via https://support.brightedge.com/
+deprecated_operations:
+- openapi/brightedge-platform-openapi-original.json#get_all_accounts_3_0_objects_accounts_get
+- openapi/brightedge-platform-openapi-original.json#get_account_3_0_objects_accounts__account_id__post
+- openapi/brightedge-platform-openapi-original.json#get_all_accounts_latest3_objects_accounts_get
+- openapi/brightedge-platform-openapi-original.json#get_account_latest3_objects_accounts__account_id__post
+- openapi/brightedge-platform-openapi-original.json#get_account_keywordgroups_3_0_objects_keywordgroups__account_id__get
+- openapi/brightedge-platform-openapi-original.json#get_account_keywordgroup_detail_3_0_objects_keywordgroups__account_id___keyword_group_id__get
+- openapi/brightedge-platform-openapi-original.json#get_account_keywordgroups_latest3_objects_keywordgroups__account_id__get
+- openapi/brightedge-platform-openapi-original.json#get_account_keywordgroup_detail_latest3_objects_keywordgroups__account_id___keyword_group_id__get
+- openapi/brightedge-platform-openapi-original.json#get_user_domains_3_0_objects_domains_get
+- openapi/brightedge-platform-openapi-original.json#get_account_domain_3_0_objects_domains__account_id__get
+- openapi/brightedge-platform-openapi-original.json#get_user_domains_latest3_objects_domains_get
+- openapi/brightedge-platform-openapi-original.json#get_account_domain_latest3_objects_domains__account_id__get
+- openapi/brightedge-platform-openapi-original.json#get_account_competitors_3_0_objects_competitors__account_id__get
+- openapi/brightedge-platform-openapi-original.json#get_account_competitors_latest3_objects_competitors__account_id__get
+- openapi/brightedge-platform-openapi-original.json#get_account_keywords_3_0_objects_keywords__account_id__get
+- openapi/brightedge-platform-openapi-original.json#get_account_keywords_latest3_objects_keywords__account_id__get
+- openapi/brightedge-platform-openapi-original.json#get_time_value_3_0_objects_time__account_id___time_frequency___day__get
+- openapi/brightedge-platform-openapi-original.json#get_time_value_latest3_objects_time__account_id___time_frequency___day__get
+- openapi/brightedge-platform-openapi-original.json#get_account_datacube_searchengines_3_0_objects_datacube_searchengines__account_id__get
+- openapi/brightedge-platform-openapi-original.json#get_account_datacube_searchengines_latest3_objects_datacube_searchengines__account_id__get
+- openapi/brightedge-platform-openapi-original.json#get_account_searchengines_3_0_objects_searchengines__account_id__get
+- openapi/brightedge-platform-openapi-original.json#get_account_searchengines_latest3_objects_searchengines__account_id__get
+- openapi/brightedge-platform-openapi-original.json#budd_bql_query_3_0_objects_query__account_id__post
+- openapi/brightedge-platform-openapi-original.json#budd_bql_query_latest3_objects_query__account_id__post
+- openapi/brightedge-platform-openapi-original.json#budd_bql_query_3_0_query__account_id__post
+- openapi/brightedge-platform-openapi-original.json#budd_bql_query_latest3_query__account_id__post
+- openapi/brightedge-platform-openapi-original.json#budd_bql_query_qa_3_0_objects_qa_query__account_id__post
+- openapi/brightedge-platform-openapi-original.json#budd_bql_query_qa_latest3_objects_qa_query__account_id__post
