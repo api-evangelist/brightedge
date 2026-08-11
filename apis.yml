@@ -1113,6 +1113,12 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgentSkill
+  url: skills/brightedge-bulk-export.md
+- type: MCPServer
+  url: mcp/brightedge-mcp.yml
+- type: Overlay
+  url: overlays/brightedge-platform-overlay.yaml
 - type: TrustCenter
   url: security/brightedge-trust-center.yml
 - type: DomainSecurity
