@@ -33,7 +33,7 @@ accessModel:
   method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-18'
+modified: '2026-08-13'
 image: https://www.brightedge.com/themes/custom/brightedge/logo.svg
 tags:
 - Company
@@ -1107,6 +1107,39 @@ apis:
     url: conformance/brightedge-conformance.yml
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
+- aid: brightedge:brightedge-mcp-server
+  name: BrightEdge MCP Server
+  description: >-
+    BrightEdge's hosted, remote Model Context Protocol server. An MCP client POSTs to
+    https://mcp2.brightedge.com/mcp (or the SSE endpoint https://mcp2-sse.brightedge.com/sse) and,
+    after an OAuth 2.0 authorization-code + PKCE flow fronted by Auth0, can query the customer's
+    BrightEdge data live in natural language. The provider states the server is read-only and pulls
+    data at query time. Published data domains are DataCube X, AI HyperCube, Keyword Reporting,
+    Share of Voice, Analytics Reporting, Google Search Console, AI Catalyst, Recommendations and AI
+    Agent Insights. Setup guides are published for ChatGPT, Claude, Gemini Enterprise, Lovable,
+    Manus, Microsoft Copilot, n8n, OpenClaw, Relevance AI and Slack.
+  humanURL: https://www.brightedge.com/brightedge-mcp
+  baseURL: https://mcp2.brightedge.com/mcp
+  tags:
+  - mcp
+  - agents
+  - seo
+  - aeo
+  properties:
+  - type: MCPServer
+    url: mcp/brightedge-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/brightedge-tool-crosswalk.yml
+  - type: Authentication
+    url: authentication/brightedge-authentication.yml
+  - type: OAuthScopes
+    url: scopes/brightedge-scopes.yml
+  - type: WellKnown
+    url: well-known/brightedge-well-known.yml
+  - type: Conventions
+    url: conventions/brightedge-conventions.yml
+  - type: Documentation
+    url: https://www.brightedge.com/brightedge-mcp
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -1131,6 +1164,12 @@ common:
   url: https://api.brightedge.com/portal
 - type: APIReference
   url: https://api.brightedge.com/portal
+- type: GettingStarted
+  url: https://www.brightedge.com/brightedge-mcp
+  name: BrightEdge MCP setup guides (10 step-by-step platform walkthroughs)
+- type: MCPServer
+  url: https://www.brightedge.com/brightedge-mcp
+  name: BrightEdge MCP product page
 - type: SignUp
   url: https://www.brightedge.com/secure/login
 - type: Login
@@ -1155,8 +1194,48 @@ common:
   url: https://www.brightedge.com/trust
 - type: LLMsTxt
   url: llms/brightedge-llms.txt
+  name: BrightEdge llms.txt (provider-published, verbatim)
+- type: LLMsTxt
+  url: llms/brightedge-api-llms.txt
+  name: BrightEdge API surface llms.txt (API Evangelist generated companion)
+- type: ToolCrosswalk
+  url: mcp/brightedge-tool-crosswalk.yml
+- type: WellKnown
+  url: well-known/brightedge-well-known.yml
+- type: Authentication
+  url: authentication/brightedge-authentication.yml
+- type: OAuthScopes
+  url: scopes/brightedge-scopes.yml
+- type: Conventions
+  url: conventions/brightedge-conventions.yml
+- type: ErrorCatalog
+  url: errors/brightedge-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/brightedge-lifecycle.yml
+- type: DataModel
+  url: data-model/brightedge-data-model.yml
+- type: Conformance
+  url: conformance/brightedge-conformance.yml
+- type: AgenticAccess
+  url: agentic-access/brightedge-agentic-access.yml
+- type: Packages
+  url: packages/brightedge-packages.yml
+- type: Plans
+  url: plans/brightedge-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/brightedge-rate-limits.yml
+- type: ChangeLog
+  url: changelog/brightedge-changelog.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: AgentSkill
+  url: skills/brightedge-connect-mcp.md
+- type: AgentSkill
+  url: skills/brightedge-pull-keyword-rankings.md
+- type: AgentSkill
+  url: skills/brightedge-query-datacube.md
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 13
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence
