@@ -1,0 +1,120 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts user_settings API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "user_settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "This call return the user settings for recommendations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/user_settings/recommendations/:account_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call return the user settings for recommendations"
+        },
+        {
+          "info": {
+            "name": "This call return the user settings for site audit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/user_settings/seteaudit/:account_id/:preset_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "preset_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call return the user settings for site audit"
+        },
+        {
+          "info": {
+            "name": "This call return the user settings for recommendations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/user_settings/recommendations/:account_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call return the user settings for recommendations"
+        },
+        {
+          "info": {
+            "name": "This call return the user settings for site audit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/user_settings/seteaudit/:account_id/:preset_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "preset_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call return the user settings for site audit"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

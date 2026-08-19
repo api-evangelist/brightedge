@@ -1,0 +1,67 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.brightedge.com/brightedge-mcp
+probe: true
+docs: https://www.brightedge.com/brightedge-mcp
+note: >-
+  The REST Platform API v5.0 declares NO oauth2 securityScheme — it is key/basic/session auth only,
+  so it has no scope surface. The OAuth surface belongs entirely to the BrightEdge MCP server, whose
+  RFC 8414 / RFC 9728 / OIDC discovery documents were fetched anonymously (all HTTP 200) and whose
+  setup guides publish the scope string clients must request. Scopes below are exactly what those
+  documents and pages state; none were inferred.
+schemes:
+- name: brightedge-mcp-oauth
+  type: oauth2
+  source: https://mcp2.brightedge.com/.well-known/oauth-authorization-server
+  identity_provider: Auth0 (mrkt-0365.us.auth0.com)
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://mcp2.brightedge.com/authorize
+    tokenUrl: https://mcp2.brightedge.com/token
+    pkce: S256
+    token_endpoint_auth_methods_supported: [none]
+- name: brightedge-mcp-marketplace-oauth
+  type: oauth2
+  source: https://mcp.brightedge.com/.well-known/oauth-authorization-server
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://mcp.brightedge.com/authorize
+    tokenUrl: https://mcp.brightedge.com/token
+    pkce: S256
+scopes:
+- scope: openid
+  description: OpenID Connect subject identity; the only scope the protected-resource metadata
+    advertises as supported for the MCP resource.
+  flows: [authorizationCode]
+  sources:
+  - https://mcp2.brightedge.com/.well-known/oauth-protected-resource
+  - https://mcp2.brightedge.com/.well-known/oauth-authorization-server
+  - https://mcp.brightedge.com/.well-known/oauth-protected-resource
+  - https://mcp2-sse.brightedge.com/.well-known/oauth-protected-resource
+- scope: profile
+  description: Auth0 profile claims. Documented as part of the scope string clients send when
+    registering the BrightEdge MCP connector (Gemini Enterprise, Microsoft Copilot Studio,
+    Relevance AI setup guides all state "Scope openid profile email").
+  flows: [authorizationCode]
+  sources:
+  - https://www.brightedge.com/brightedge-mcp
+  - https://mcp2.brightedge.com/.well-known/openid-configuration
+- scope: email
+  description: Auth0 email claim. Same source as profile.
+  flows: [authorizationCode]
+  sources:
+  - https://www.brightedge.com/brightedge-mcp
+  - https://mcp2.brightedge.com/.well-known/openid-configuration
+authorization_server_scopes_supported:
+  note: The Auth0-backed OIDC discovery document advertises the standard Auth0 claim scope set.
+    These are identity claims, not BrightEdge data permissions — BrightEdge publishes no
+    per-tool or per-dataset scope vocabulary.
+  source: well-known/brightedge-mcp2-openid-configuration.json
+  scopes: [openid, profile, offline_access, name, given_name, family_name, nickname, email,
+    email_verified, picture, created_at, identities, phone, address]
+gaps:
+- No BrightEdge-specific data scopes (e.g. read:keywords, read:datacube) are published; the MCP
+  server is described as read-only for the whole connected account rather than scoped per dataset.
+- Client credentials are not self-serve. The OAuth Client ID/Secret must be requested from a
+  BrightEdge Customer Success Manager or integrations@brightedge.com, and redirect URLs must be
+  allowlisted by BrightEdge before a connector will authenticate.

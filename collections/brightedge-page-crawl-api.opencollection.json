@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts page crawl API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "page crawl",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "This API retrieves page html by crawling a given url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/marketo/page_crawl",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves page html by crawling a given url"
+        },
+        {
+          "info": {
+            "name": "This API retrieves page html by crawling a given url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/marketo/page_crawl",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves page html by crawling a given url"
+        },
+        {
+          "info": {
+            "name": "This API retrieves page html by crawling a given url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/dataset/page_crawl",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves page html by crawling a given url"
+        },
+        {
+          "info": {
+            "name": "This API retrieves page html by crawling a given url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/dataset/page_crawl",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves page html by crawling a given url"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

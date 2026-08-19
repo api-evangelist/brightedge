@@ -1,0 +1,882 @@
+{
+  "item": [
+    {
+      "id": "536c3bef-e2f5-4845-bdcc-6bac1f9cb761",
+      "name": "marketinsights",
+      "description": {
+        "content": "Operation related to Market Insights",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "90a50320-b844-403c-ac2c-ed510b61eea9",
+          "name": "Returns the list of reports available for downloading.",
+          "request": {
+            "name": "Returns the list of reports available for downloading.",
+            "description": {
+              "content": "Endpoint returns list of documents available for downloading.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "5.0",
+                "organizations",
+                "marketinsights",
+                "data",
+                ":date_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "date_id",
+                  "description": "(Required) Date in YYYYMM format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2c559ad9-e79a-4b94-b28c-9dcd5510987d",
+              "name": "List of reports.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "5.0",
+                    "organizations",
+                    "marketinsights",
+                    "data",
+                    ":date_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "date_id",
+                      "description": "(Required) Date in YYYYMM format"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_reports\": 5,\n  \"total_size_bytes\": 1249080942,\n  \"reports\": [\n    {\n      \"name\": \"customers-000000000000\",\n      \"name_url_encoded\": \"customers-000000000000\",\n      \"size\": 160\n    },\n    {\n      \"name\": \"search_volumes-000000000000\",\n      \"name_url_encoded\": \"search_volumes-000000000000\",\n      \"size\": 151920182\n    },\n    {\n      \"name\": \"serps-000000000000\",\n      \"name_url_encoded\": \"serps-000000000000\",\n      \"size\": 365770017\n    },\n    {\n      \"name\": \"serps-000000000001\",\n      \"name_url_encoded\": \"serps-000000000001\",\n      \"size\": 365682375\n    },\n    {\n      \"name\": \"serps-000000000002\",\n      \"name_url_encoded\": \"serps-000000000002\",\n      \"size\": 365708208\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a39f827-e6f4-4e0b-a91f-ac640f937639",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "5.0",
+                    "organizations",
+                    "marketinsights",
+                    "data",
+                    ":date_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "date_id",
+                      "description": "(Required) Date in YYYYMM format"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"date_id should be in YYYYMM format. '20210901' was provided\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8b842eb-b6c0-4cbe-93f7-307649e4de9a",
+          "name": "Returns market insight report in csv format.",
+          "request": {
+            "name": "Returns market insight report in csv format.",
+            "description": {
+              "content": "Endpoint streams chosen csv report file. File chunks will be compressed using gzip\nif \"gzip\" is added to \"Accept-Encoding\" header of the request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "5.0",
+                "organizations",
+                "marketinsights",
+                "data",
+                ":date_id",
+                ":report_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "date_id",
+                  "description": "(Required) Date in YYYYMM format"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "report_name",
+                  "description": "(Required) URL encoded report name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "82318449-de03-41e7-9679-ae2b61a28ef5",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "5.0",
+                    "organizations",
+                    "marketinsights",
+                    "data",
+                    ":date_id",
+                    ":report_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "date_id",
+                      "description": "(Required) Date in YYYYMM format"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "report_name",
+                      "description": "(Required) URL encoded report name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8698f478-1200-4ba7-85e6-564e5dc56413",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "5.0",
+                    "organizations",
+                    "marketinsights",
+                    "data",
+                    ":date_id",
+                    ":report_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "date_id",
+                      "description": "(Required) Date in YYYYMM format"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "report_name",
+                      "description": "(Required) URL encoded report name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"Report 'wrong_report_name' for 202109 was not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e08aa61a-9a8a-4262-90e4-b9ea2ae644b7",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "5.0",
+                    "organizations",
+                    "marketinsights",
+                    "data",
+                    ":date_id",
+                    ":report_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "date_id",
+                      "description": "(Required) Date in YYYYMM format"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "report_name",
+                      "description": "(Required) URL encoded report name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"date_id should be in YYYYMM format. '20210901' was provided\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6661c326-0665-421f-8419-fbb02ba401bd",
+          "name": "Returns the list of reports available for downloading.",
+          "request": {
+            "name": "Returns the list of reports available for downloading.",
+            "description": {
+              "content": "Endpoint returns list of documents available for downloading.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "latest5",
+                "organizations",
+                "marketinsights",
+                "data",
+                ":date_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "date_id",
+                  "description": "(Required) Date in YYYYMM format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cf25b974-3dac-47cc-bc1b-3fd760dbcb8d",
+              "name": "List of reports.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "latest5",
+                    "organizations",
+                    "marketinsights",
+                    "data",
+                    ":date_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "date_id",
+                      "description": "(Required) Date in YYYYMM format"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_reports\": 5,\n  \"total_size_bytes\": 1249080942,\n  \"reports\": [\n    {\n      \"name\": \"customers-000000000000\",\n      \"name_url_encoded\": \"customers-000000000000\",\n      \"size\": 160\n    },\n    {\n      \"name\": \"search_volumes-000000000000\",\n      \"name_url_encoded\": \"search_volumes-000000000000\",\n      \"size\": 151920182\n    },\n    {\n      \"name\": \"serps-000000000000\",\n      \"name_url_encoded\": \"serps-000000000000\",\n      \"size\": 365770017\n    },\n    {\n      \"name\": \"serps-000000000001\",\n      \"name_url_encoded\": \"serps-000000000001\",\n      \"size\": 365682375\n    },\n    {\n      \"name\": \"serps-000000000002\",\n      \"name_url_encoded\": \"serps-000000000002\",\n      \"size\": 365708208\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6c29641-2529-4d6e-aa68-872e3d493a8a",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "latest5",
+                    "organizations",
+                    "marketinsights",
+                    "data",
+                    ":date_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "date_id",
+                      "description": "(Required) Date in YYYYMM format"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"date_id should be in YYYYMM format. '20210901' was provided\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61fc16a4-caac-4be8-a2c6-7c2a1a980d91",
+          "name": "Returns market insight report in csv format.",
+          "request": {
+            "name": "Returns market insight report in csv format.",
+            "description": {
+              "content": "Endpoint streams chosen csv report file. File chunks will be compressed using gzip\nif \"gzip\" is added to \"Accept-Encoding\" header of the request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "latest5",
+                "organizations",
+                "marketinsights",
+                "data",
+                ":date_id",
+                ":report_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "date_id",
+                  "description": "(Required) Date in YYYYMM format"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "report_name",
+                  "description": "(Required) URL encoded report name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8aec8677-8292-4c6e-a287-72920a63d6db",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "latest5",
+                    "organizations",
+                    "marketinsights",
+                    "data",
+                    ":date_id",
+                    ":report_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "date_id",
+                      "description": "(Required) Date in YYYYMM format"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "report_name",
+                      "description": "(Required) URL encoded report name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "74161b3c-43f5-4d44-ab60-0519d39ef234",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "latest5",
+                    "organizations",
+                    "marketinsights",
+                    "data",
+                    ":date_id",
+                    ":report_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "date_id",
+                      "description": "(Required) Date in YYYYMM format"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "report_name",
+                      "description": "(Required) URL encoded report name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"Report 'wrong_report_name' for 202109 was not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e7b3a5d-1424-408f-bf33-17c0bcab8499",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "latest5",
+                    "organizations",
+                    "marketinsights",
+                    "data",
+                    ":date_id",
+                    ":report_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "date_id",
+                      "description": "(Required) Date in YYYYMM format"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "report_name",
+                      "description": "(Required) URL encoded report name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"date_id should be in YYYYMM format. '20210901' was provided\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5c3c72b0-c94f-49f6-b3eb-52a50453b308",
+    "name": "BrightEdge Platform accounts marketinsights API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API provides the ability to integrate with BrightEdge Platform",
+      "type": "text/plain"
+    }
+  }
+}

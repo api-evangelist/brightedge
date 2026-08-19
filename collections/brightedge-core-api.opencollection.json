@@ -1,0 +1,112 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts core API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "core",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Api Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/info"
+          },
+          "docs": "Api Info"
+        },
+        {
+          "info": {
+            "name": "This call is used for concurrency load test",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/high-latency-handle/:msec",
+            "params": [
+              {
+                "name": "msec",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This call is used for concurrency load test"
+        },
+        {
+          "info": {
+            "name": "This call is used for concurrency load test",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/async-high-latency-handle/:msec",
+            "params": [
+              {
+                "name": "msec",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This call is used for concurrency load test"
+        },
+        {
+          "info": {
+            "name": "Api Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/info"
+          },
+          "docs": "Api Info"
+        },
+        {
+          "info": {
+            "name": "This call is used for concurrency load test",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/high-latency-handle/:msec",
+            "params": [
+              {
+                "name": "msec",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This call is used for concurrency load test"
+        },
+        {
+          "info": {
+            "name": "This call is used for concurrency load test",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/async-high-latency-handle/:msec",
+            "params": [
+              {
+                "name": "msec",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This call is used for concurrency load test"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

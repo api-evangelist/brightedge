@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts backlinks API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "backlinks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "This call returns backlinks url and page authority score for given account id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/objects/backlinks/:account_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of backlinks to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of backlinks to skip before starting to return."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns backlinks url and page authority score for given account id"
+        },
+        {
+          "info": {
+            "name": "This call returns backlinks url and page authority score for given account id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/objects/backlinks/:account_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of backlinks to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of backlinks to skip before starting to return."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns backlinks url and page authority score for given account id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

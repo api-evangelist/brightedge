@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts ping API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ping",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "This is simple ping api",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/marketo/ping"
+          },
+          "docs": "This is simple ping api"
+        },
+        {
+          "info": {
+            "name": "This is simple ping api",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/marketo/ping"
+          },
+          "docs": "This is simple ping api"
+        },
+        {
+          "info": {
+            "name": "This is simple ping api",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/dataset/ping"
+          },
+          "docs": "This is simple ping api"
+        },
+        {
+          "info": {
+            "name": "This is simple ping api",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/dataset/ping"
+          },
+          "docs": "This is simple ping api"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

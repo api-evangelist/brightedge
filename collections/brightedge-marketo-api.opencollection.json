@@ -1,0 +1,280 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts marketo API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "marketo",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "This is simple ping api",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/marketo/ping"
+          },
+          "docs": "This is simple ping api"
+        },
+        {
+          "info": {
+            "name": "This API retrieves page html cache from gcs for a given url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/marketo/page_cache",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves page html cache from gcs for a given url"
+        },
+        {
+          "info": {
+            "name": "This API retrieves page html by crawling a given url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/marketo/page_crawl",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves page html by crawling a given url"
+        },
+        {
+          "info": {
+            "name": "This API retrieves top N(default 1000) pages for a given base domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/marketo/top_pages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves top N(default 1000) pages for a given base domain"
+        },
+        {
+          "info": {
+            "name": "This API retrieves top N(default 5) keywords for a given page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/marketo/top_keywords_per_page",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves top N(default 5) keywords for a given page"
+        },
+        {
+          "info": {
+            "name": "This API retrieves top N(default 100) keywords for a given domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/marketo/top_keywords",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves top N(default 100) keywords for a given domain"
+        },
+        {
+          "info": {
+            "name": "This API retrieves top N(default 4) PAA questions for a given keyword",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/marketo/paa_per_keyword",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves top N(default 4) PAA questions for a given keyword"
+        },
+        {
+          "info": {
+            "name": "This is simple ping api",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/marketo/ping"
+          },
+          "docs": "This is simple ping api"
+        },
+        {
+          "info": {
+            "name": "This API retrieves page html cache from gcs for a given url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/marketo/page_cache",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves page html cache from gcs for a given url"
+        },
+        {
+          "info": {
+            "name": "This API retrieves page html by crawling a given url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/marketo/page_crawl",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves page html by crawling a given url"
+        },
+        {
+          "info": {
+            "name": "This API retrieves top N(default 1000) pages for a given base domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/marketo/top_pages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves top N(default 1000) pages for a given base domain"
+        },
+        {
+          "info": {
+            "name": "This API retrieves top N(default 5) keywords for a given page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/marketo/top_keywords_per_page",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves top N(default 5) keywords for a given page"
+        },
+        {
+          "info": {
+            "name": "This API retrieves top N(default 100) keywords for a given domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/marketo/top_keywords",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves top N(default 100) keywords for a given domain"
+        },
+        {
+          "info": {
+            "name": "This API retrieves top N(default 4) PAA questions for a given keyword",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/marketo/paa_per_keyword",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves top N(default 4) PAA questions for a given keyword"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

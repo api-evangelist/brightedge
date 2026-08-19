@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts page cache API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "page cache",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "This API retrieves page html cache from gcs for a given url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/marketo/page_cache",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves page html cache from gcs for a given url"
+        },
+        {
+          "info": {
+            "name": "This API retrieves page html cache from gcs for a given url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/marketo/page_cache",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves page html cache from gcs for a given url"
+        },
+        {
+          "info": {
+            "name": "This API retrieves page html cache from gcs for a given url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/dataset/page_cache",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves page html cache from gcs for a given url"
+        },
+        {
+          "info": {
+            "name": "This API retrieves page html cache from gcs for a given url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/dataset/page_cache",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves page html cache from gcs for a given url"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

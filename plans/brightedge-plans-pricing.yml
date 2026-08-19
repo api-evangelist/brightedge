@@ -1,0 +1,29 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.brightedge.com/products/product-pricing
+plan_count: 0
+pricing_model: enterprise-quote
+self_serve: false
+free_tier: false
+trial: false
+note: >-
+  BrightEdge publishes no priced plans, tiers, quotas or overage schedule. The product-pricing page
+  (HTTP 200) is a contact-sales form: "The BrightEdge S3 platform is used by companies of all
+  sizes... We would be more than happy to discuss our product and pricing with you. Please get in
+  touch with us using the form to the right, or over the phone at 800-578-8023." There is no
+  machine-readable pricing or catalog endpoint. API access is not separately priced in public —
+  the API and the MCP server are entitlements of a BrightEdge subscription, enabled per user by a
+  BrightEdge representative.
+plans: []
+evidence:
+- url: https://www.brightedge.com/products/product-pricing
+  status: 200
+  finding: contact-sales form only; no tier names, prices, currencies, billing periods or quotas
+- url: https://www.brightedge.com/brightedge-mcp
+  status: 200
+  finding: '"All BrightEdge customers with a valid set of BrightEdge login credentials... can
+    connect to the MCP server" — MCP is bundled with a subscription, not sold separately'
+contact:
+  sales_phone: 800-578-8023
+  form: https://www.brightedge.com/contact
+  integrations: integrations@brightedge.com

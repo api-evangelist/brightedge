@@ -1,0 +1,150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts bulk_export API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bulk_export",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create bulk export job(s)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/jobs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Create bulk export job(s) and store them in the database.\n\n- **pod**: Pod number for the job\n- **account_id**: Account ID or list of account IDs for the job(s)\n- **time_value**: Time value string or list of time values for the export\n- **time_cadence**: Time cadence (weekly, monthly, quarterly)\n- **query_type**: Type of query to run (keyword_join, keyword_only)\n- **user_id**: User ID creating the job\n- **path**: Google Cloud Storage path for the export\n- **destination**: Destination for export ("
+        },
+        {
+          "info": {
+            "name": "Get all bulk export jobs by batch job ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/jobs/:job_id",
+            "params": [
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get all bulk export jobs that share the same batch job ID.\n\n- **job_id**: Batch job ID (UUID) that groups multiple individual jobs"
+        },
+        {
+          "info": {
+            "name": "Get all bulk export jobs for an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/jobs/account/:account_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get all bulk export jobs for a specific account.\n\n- **account_id**: Account ID to get jobs for"
+        },
+        {
+          "info": {
+            "name": "Create bulk export job(s)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/jobs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Create bulk export job(s) and store them in the database.\n\n- **pod**: Pod number for the job\n- **account_id**: Account ID or list of account IDs for the job(s)\n- **time_value**: Time value string or list of time values for the export\n- **time_cadence**: Time cadence (weekly, monthly, quarterly)\n- **query_type**: Type of query to run (keyword_join, keyword_only)\n- **user_id**: User ID creating the job\n- **path**: Google Cloud Storage path for the export\n- **destination**: Destination for export ("
+        },
+        {
+          "info": {
+            "name": "Get all bulk export jobs by batch job ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/jobs/:job_id",
+            "params": [
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get all bulk export jobs that share the same batch job ID.\n\n- **job_id**: Batch job ID (UUID) that groups multiple individual jobs"
+        },
+        {
+          "info": {
+            "name": "Get all bulk export jobs for an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/jobs/account/:account_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get all bulk export jobs for a specific account.\n\n- **account_id**: Account ID to get jobs for"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

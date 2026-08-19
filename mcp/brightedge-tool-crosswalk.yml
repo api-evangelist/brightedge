@@ -1,0 +1,145 @@
+generated: '2026-08-13'
+method: derived
+source: mcp/brightedge-mcp.yml ; openapi/_original/brightedge-platform-openapi-original.json
+  ; https://www.brightedge.com/brightedge-mcp
+note: >-
+  BrightEdge runs two machine surfaces: the REST Platform API v5.0 (248 operations, OpenAPI 3.1,
+  api.brightedge.com) and a hosted MCP server (mcp2.brightedge.com/mcp). They are NOT the same
+  projection of the data core, and the divergence is recorded here rather than papered over.
+  crosswalk[] is deliberately EMPTY: an anonymous POST tools/list against the MCP endpoint returns
+  HTTP 401 invalid_token, and the setup page publishes the DATA DOMAINS the server exposes but not
+  the tool names or their inputSchemas. Binding a tool to an operationId therefore cannot be done
+  without authenticated introspection, and naming tools we have not observed would fabricate the
+  provider's agent surface. What CAN be bound honestly is the published domain -> REST-capability
+  mapping, recorded under domain_crosswalk[] at low/medium confidence.
+surfaces:
+  openapi:
+    path: openapi/_original/brightedge-platform-openapi-original.json
+    refined: openapi/ (44 per-tag documents)
+    spec_version: 3.1.0
+    operations: 248
+    base_url: https://api.brightedge.com
+    gated: false
+    note: spec was harvested from https://api.brightedge.com/portal/openapi.json; the portal now
+      answers non-browser clients with HTTP 403, so re-harvest requires a browser context.
+  mcp:
+    url: https://mcp2.brightedge.com/mcp
+    sse_url: https://mcp2-sse.brightedge.com/sse
+    gated: true
+    gate: OAuth 2.0 (Auth0); anonymous tools/list -> 401 invalid_token
+    discovery: well-known/brightedge-well-known.yml
+  graphql:
+    present: false
+    note: no /graphql surface answered on api.brightedge.com, www.brightedge.com or the MCP hosts.
+crosswalk: []
+domain_crosswalk:
+- domain: DataCube X
+  source: https://www.brightedge.com/brightedge-mcp
+  rest_tags: [dataset, top pages, top keywords per page, top keywords for a domain, page crawl,
+    datacube_searchengines]
+  rest_examples: [get_top_pages_5_0_dataset_top_pages_post, get_top_keywords_per_domain_5_0_dataset_top_keywords_post,
+    get_top_keywords_per_page_5_0_dataset_top_keywords_per_page_post]
+  binding: rest
+  confidence: medium
+  note: domain-level match on published product name and REST tag; individual MCP tool names are gated.
+- domain: Keyword Reporting
+  source: https://www.brightedge.com/brightedge-mcp
+  rest_tags: [keywords, keywordgroups, paa per keyword, people_also_ask]
+  rest_examples: [get_account_keywords_5_0_objects_keywords__account_id__get, get_account_keywordgroups_5_0_objects_keywordgroups__account_id__get]
+  binding: rest
+  confidence: medium
+- domain: AI Catalyst
+  source: https://www.brightedge.com/brightedge-mcp
+  rest_tags: [ai_catalyst]
+  binding: rest
+  confidence: medium
+- domain: Recommendations
+  source: https://www.brightedge.com/brightedge-mcp
+  rest_tags: [recommendations]
+  binding: rest
+  confidence: medium
+- domain: Analytics Reporting
+  source: https://www.brightedge.com/brightedge-mcp
+  rest_tags: [query, budd, qa, bulk_export]
+  binding: rest
+  confidence: low
+  note: BQL query + bulk export are the REST reporting path; the MCP server may compose these
+    server-side rather than expose them 1:1.
+- domain: AI HyperCube
+  source: https://www.brightedge.com/brightedge-mcp
+  rest_tags: []
+  binding: none
+  confidence: low
+  note: no REST tag or operation in the v5.0 OpenAPI names AI HyperCube — MCP-side capability with
+    no observed public REST equivalent.
+- domain: Share of Voice
+  source: https://www.brightedge.com/brightedge-mcp
+  rest_tags: []
+  binding: none
+  confidence: low
+  note: no REST operation names share-of-voice in the v5.0 OpenAPI.
+- domain: Google Search Console
+  source: https://www.brightedge.com/brightedge-mcp
+  rest_tags: []
+  binding: none
+  confidence: low
+  note: the MCP server pulls GSC data alongside BrightEdge data; no REST operation exposes it.
+- domain: AI Agent Insights
+  source: https://www.brightedge.com/brightedge-mcp
+  rest_tags: []
+  binding: none
+  confidence: low
+  note: AI bot/agent traffic analytics — product page https://www.brightedge.com/ai-agent-insights ;
+    no REST operation in the v5.0 OpenAPI.
+mcp_only:
+- domain: AI HyperCube
+  reason: no public REST operation; product postdates the v5.0 REST surface
+- domain: Share of Voice
+  reason: no public REST operation
+- domain: Google Search Console
+  reason: third-party data federated by the MCP server, not exposed by the BrightEdge REST API
+- domain: AI Agent Insights
+  reason: no public REST operation
+rest_only:
+- capability: Account, user, organization and settings management
+  rest_tags: [accounts, users, organizations, user_settings]
+  operations: 84
+  note: the MCP server is read-only, so the write side of the REST surface has no tool equivalent.
+- capability: Product grid / commerce SERP data
+  rest_tags: [product_grid]
+  operations: 40
+- capability: Legacy v3.0 compatibility surface
+  rest_tags: [legacy]
+  operations: 28
+- capability: BE Local (local SEO)
+  rest_tags: [be_local]
+  operations: 26
+- capability: Marketo integration
+  rest_tags: [marketo]
+  operations: 14
+- capability: Chrome extension surfaces
+  rest_tags: [chrome_extension, chromeextension, Chrome Extension Overview, Chrome Extension Keywords]
+  operations: 32
+- capability: Domains, competitors, search engines, time dimensions
+  rest_tags: [domains, competitors, searchengines, time, datacube_searchengines]
+  operations: 26
+- capability: SERP features, backlinks, web vitals, page cache, market insights, autopilot
+  rest_tags: [Serp Features, backlinks, web_vitals, page cache, marketinsights, autopilot]
+  operations: 24
+- capability: Async instant keyword-ideas flow + inbound provider callback
+  rest_tags: [instant, webhook]
+  operations: 8
+  note: /5.0/instant/webhook/{provider}/kw_ideas/{request_id} is an INBOUND callback BrightEdge
+    receives from its upstream data provider (Oxylabs), not a customer-subscribable event surface.
+- capability: Service health / metadata
+  rest_tags: [core, ping]
+  operations: 10
+coverage:
+  mcp_tools_named: 0
+  mcp_tools_bound: 0
+  mcp_data_domains_published: 9
+  mcp_domains_bound_to_rest: 5
+  mcp_only_domains: 4
+  rest_operations_total: 248
+  rest_operations_with_a_tool: 0
+  reason_unbound: mcp tools/list is OAuth-gated (401 invalid_token); tool names unpublished

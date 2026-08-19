@@ -1,0 +1,178 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts people_also_ask API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "people_also_ask",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "This call returns a list of questions asked for the keyword historically for the past n-weeks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/objects/serp_features/people_also_ask_historical",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns a list of questions asked for the keyword historically for the past n-weeks"
+        },
+        {
+          "info": {
+            "name": "This call returns a list of questions asked for the keyword as a live call",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/objects/serp_features/people_also_ask_live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns a list of questions asked for the keyword as a live call"
+        },
+        {
+          "info": {
+            "name": "This call returns a list of questions asked for the keyword via chatgpt",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/objects/serp_features/people_also_ask_chatgpt",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns a list of questions asked for the keyword via chatgpt"
+        },
+        {
+          "info": {
+            "name": "This call returns a list of questions asked optionally via historic means, on demand live call and via chatgpt",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/objects/serp_features/people_also_ask",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns a list of questions asked optionally via historic means, on demand live call and via chatgpt"
+        },
+        {
+          "info": {
+            "name": "This call returns a list of questions asked for the keyword historically for the past n-weeks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/objects/serp_features/people_also_ask_historical",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns a list of questions asked for the keyword historically for the past n-weeks"
+        },
+        {
+          "info": {
+            "name": "This call returns a list of questions asked for the keyword as a live call",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/objects/serp_features/people_also_ask_live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns a list of questions asked for the keyword as a live call"
+        },
+        {
+          "info": {
+            "name": "This call returns a list of questions asked for the keyword via chatgpt",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/objects/serp_features/people_also_ask_chatgpt",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns a list of questions asked for the keyword via chatgpt"
+        },
+        {
+          "info": {
+            "name": "This call returns a list of questions asked optionally via historic means, on demand live call and via chatgpt",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/objects/serp_features/people_also_ask",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns a list of questions asked optionally via historic means, on demand live call and via chatgpt"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

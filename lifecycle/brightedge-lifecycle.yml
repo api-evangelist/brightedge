@@ -1,24 +1,24 @@
-generated: '2026-07-18'
+generated: '2026-08-13'
 method: searched
-source: https://api.brightedge.com/portal ; https://www.brightedge.com/resources/product-releases
+source: https://api.brightedge.com/portal ; https://www.brightedge.com/resources/product-releases ; https://www.brightedge.com/brightedge-mcp
 versioning:
   scheme: uri-path
   current: '5.0'
   aliases:
   - latest5
-  note: Each operation is exposed under both a pinned /5.0/ path and a rolling /latest5/
-    path.
+  note: Each operation is exposed under both a pinned /5.0/ path and a rolling /latest5/ path.
   docs: https://api.brightedge.com/portal
 deprecation:
   policy_url: null
   sunset_header: false
-  note: No public deprecation policy or RFC 8594 Sunset/Deprecation header support
-    found. A legacy tag exists in the spec for older operations.
+  note: No public deprecation policy or RFC 8594 Sunset/Deprecation header support found. A legacy tag
+    exists in the spec for older operations.
 release_notes: https://www.brightedge.com/resources/product-releases
 status_page: null
 sla:
   url: null
-  note: No public status page or SLA document found; support via https://support.brightedge.com/
+  note: No public status page or SLA document found; support via https://support.brightedge.com/ (403
+    to non-browser clients). No StatusPage or Deprecation pointer is wired, because neither exists.
 deprecated_operations:
 - openapi/brightedge-platform-openapi-original.json#get_all_accounts_3_0_objects_accounts_get
 - openapi/brightedge-platform-openapi-original.json#get_account_3_0_objects_accounts__account_id__post
@@ -48,3 +48,29 @@ deprecated_operations:
 - openapi/brightedge-platform-openapi-original.json#budd_bql_query_latest3_query__account_id__post
 - openapi/brightedge-platform-openapi-original.json#budd_bql_query_qa_3_0_objects_qa_query__account_id__post
 - openapi/brightedge-platform-openapi-original.json#budd_bql_query_qa_latest3_objects_qa_query__account_id__post
+surfaces:
+  rest:
+    versioning: uri-path (/5.0/ pinned, /latest5/ rolling)
+    current: '5.0'
+    legacy: 3.0 / latest3 (28 operations tagged legacy)
+  mcp:
+    versioning: host-based
+    current: https://mcp2.brightedge.com/mcp
+    superseded: https://mcp.brightedge.com/marketplace/v2
+    note: The provider states the OpenAI-marketplace plugin "is currently up to date, future updates require
+      further review and OpenAI approval" and recommends a custom connector against mcp2 which "would
+      always reference the most up-to-date tools" — an explicit, self-declared lag between the two MCP
+      endpoints.
+    source: https://www.brightedge.com/brightedge-mcp
+status_page_probe:
+- url: https://status.brightedge.com/
+  status: DNS NXDOMAIN
+- url: https://trust.brightedge.com/
+  status: DNS NXDOMAIN
+- url: https://www.brightedge.com/trust
+  status: 200
+  finding: no status page or uptime/SLA commitment on the trust page
+changelog:
+  url: https://www.brightedge.com/resources/product-releases
+  note: Page returns HTTP 200 but carries no dated release entries and no API changelog — it is a resource
+    hub, not release notes.

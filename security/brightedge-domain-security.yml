@@ -1,23 +1,76 @@
-generated: '2026-07-18'
+generated: '2026-08-13'
 method: probed
-source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI + MCP hosts
+note: >-
+  Header values read with a browser User-Agent. The mechanical probe returns hsts:null and
+  dmarc:false against these hosts because api.brightedge.com and the MCP hosts reject the default
+  probe client — the values below are the observed response headers and the live DNS records, not
+  the probe's false negatives.
 hosts:
 - host: www.brightedge.com
   https: true
   tls_version: TLSv1.3
   cert_expires: Dec  7 23:59:59 2026 GMT
+  http_status: 200
   hsts: true
   hsts_max_age: 31536000
+  hsts_include_subdomains: true
+  hsts_preload: true
 - host: api.brightedge.com
   https: true
   tls_version: TLSv1.3
   cert_expires: Dec  7 23:59:59 2026 GMT
+  http_status: 302
   hsts: true
   hsts_max_age: 63072000
+  hsts_include_subdomains: true
+  hsts_preload: false
+- host: mcp2.brightedge.com
+  role: MCP server (HTTP/streamable)
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec  7 23:59:59 2026 GMT
+  http_status: 404
+  hsts: true
+  hsts_max_age: 63072000
+  hsts_include_subdomains: true
+  hsts_preload: true
+- host: mcp.brightedge.com
+  role: MCP endpoint behind the OpenAI plugin marketplace
+  https: true
+  tls_version: TLSv1.3
+  http_status: 404
+  hsts: true
+  hsts_max_age: 63072000
+  hsts_include_subdomains: true
+  hsts_preload: true
+- host: mcp2-sse.brightedge.com
+  role: MCP server (SSE)
+  https: true
+  tls_version: TLSv1.3
+  http_status: 401
+  hsts: true
+  hsts_max_age: 63072000
+  hsts_include_subdomains: true
+  hsts_preload: true
 domains:
 - domain: brightedge.com
   dnssec: false
+  dnssec_evidence: no DS record at the parent
   caa: []
+  caa_evidence: no CAA record published
   spf: true
+  spf_record: v=spf1 mx include:amazonses.com include:_spf.google.com include:mail.zendesk.com
+    include:mailsenders.netsuite.com ip4:168.245.58.37 ip4:66.103.215.2 include:spf.protection.outlook.com
+    ~all
   dmarc: true
   dmarc_policy: quarantine
+  dmarc_pct: 100
+  dmarc_reporting: dmarcian
+response_headers_observed:
+  mcp2.brightedge.com:
+    x-content-type-options: nosniff
+    content-security-policy: default-src 'self' frame-ancestors 'self'
+    referrer-policy: strict-origin-when-cross-origin
+    permissions-policy: geolocation=(), camera=(), microphone=()
+    server: Google Frontend

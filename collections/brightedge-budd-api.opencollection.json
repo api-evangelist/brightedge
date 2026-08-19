@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts budd API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "budd",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "[Work in Progrees]: This call returns data based on submitted BQL (BrightEdge Query Language) request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/objects/query/:account_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "feature_name",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "[Work in Progrees]: This call returns data based on submitted BQL (BrightEdge Query Language) request"
+        },
+        {
+          "info": {
+            "name": "[Work in Progrees]: This call returns data based on submitted BQL (BrightEdge Query Language) request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/objects/query/:account_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "feature_name",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "[Work in Progrees]: This call returns data based on submitted BQL (BrightEdge Query Language) request"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

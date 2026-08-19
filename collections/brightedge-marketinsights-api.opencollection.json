@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts marketinsights API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "marketinsights",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns the list of reports available for downloading.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/organizations/marketinsights/data/:date_id",
+            "params": [
+              {
+                "name": "date_id",
+                "value": "202109",
+                "type": "path",
+                "description": "Date in YYYYMM format"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Endpoint returns list of documents available for downloading."
+        },
+        {
+          "info": {
+            "name": "Returns market insight report in csv format.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/organizations/marketinsights/data/:date_id/:report_name",
+            "params": [
+              {
+                "name": "date_id",
+                "value": "202109",
+                "type": "path",
+                "description": "Date in YYYYMM format"
+              },
+              {
+                "name": "report_name",
+                "value": "search_volumes-000000000000",
+                "type": "path",
+                "description": "URL encoded report name"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Endpoint streams chosen csv report file. File chunks will be compressed using gzip\nif \"gzip\" is added to \"Accept-Encoding\" header of the request."
+        },
+        {
+          "info": {
+            "name": "Returns the list of reports available for downloading.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/organizations/marketinsights/data/:date_id",
+            "params": [
+              {
+                "name": "date_id",
+                "value": "202109",
+                "type": "path",
+                "description": "Date in YYYYMM format"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Endpoint returns list of documents available for downloading."
+        },
+        {
+          "info": {
+            "name": "Returns market insight report in csv format.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/organizations/marketinsights/data/:date_id/:report_name",
+            "params": [
+              {
+                "name": "date_id",
+                "value": "202109",
+                "type": "path",
+                "description": "Date in YYYYMM format"
+              },
+              {
+                "name": "report_name",
+                "value": "search_volumes-000000000000",
+                "type": "path",
+                "description": "URL encoded report name"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Endpoint streams chosen csv report file. File chunks will be compressed using gzip\nif \"gzip\" is added to \"Accept-Encoding\" header of the request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

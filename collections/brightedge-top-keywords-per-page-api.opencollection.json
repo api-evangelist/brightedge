@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts top keywords per page API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "top keywords per page",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "This API retrieves top N(default 5) keywords for a given page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/marketo/top_keywords_per_page",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves top N(default 5) keywords for a given page"
+        },
+        {
+          "info": {
+            "name": "This API retrieves top N(default 5) keywords for a given page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/marketo/top_keywords_per_page",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves top N(default 5) keywords for a given page"
+        },
+        {
+          "info": {
+            "name": "This API retrieves top N(default 5) keywords for a given page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/dataset/top_keywords_per_page",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves top N(default 5) keywords for a given page"
+        },
+        {
+          "info": {
+            "name": "This API retrieves top N(default 5) keywords for a given page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/dataset/top_keywords_per_page",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This API retrieves top N(default 5) keywords for a given page"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

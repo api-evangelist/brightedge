@@ -1,39 +1,97 @@
-generated: '2026-07-18'
-method: derived
-source: openapi/brightedge-platform-openapi-original.json
+generated: '2026-08-13'
+method: searched
+source: openapi/_original/brightedge-platform-openapi-original.json ; https://www.brightedge.com/trust
+  ; https://www.brightedge.com/brightedge-mcp ; anonymous /.well-known/ probes of mcp2.brightedge.com
 compliance_page: https://www.brightedge.com/trust
+note: >-
+  Two surfaces with different conformance profiles. The REST Platform API v5.0 is a FastAPI-shaped
+  key/basic-auth API with no OAuth and no RFC 9457 problem details. The MCP server is a standards-
+  conformant OAuth 2.1-style resource: it serves RFC 8414 authorization-server metadata, RFC 9728
+  protected-resource metadata, OIDC discovery, and challenges anonymous calls with a correct
+  WWW-Authenticate Bearer header naming its resource metadata URL.
 standards:
 - id: openapi-3.1
   conforms: true
-  evidence: spec is openapi 3.1.0 (api.brightedge.com/portal/openapi.json)
+  evidence: spec is openapi 3.1.0, harvested from api.brightedge.com/portal/openapi.json
 - id: http-basic-auth
   conforms: true
   evidence: securityScheme http_basic (type http, scheme basic)
 - id: api-key-auth
   conforms: true
-  evidence: 'apiKey schemes: X-Token, Bearer-Token, X-BRIGHTEDGE-SESSION header, BRIGHTEDGE
-    cookie'
+  evidence: 'apiKey schemes: X-Token, Bearer-Token, X-BRIGHTEDGE-SESSION header, BRIGHTEDGE cookie'
 - id: oauth2
+  conforms: true
+  surface: mcp
+  evidence: authorization-code + PKCE (S256) at https://mcp2.brightedge.com/authorize and /token,
+    fronted by Auth0 (mrkt-0365.us.auth0.com). NOT present on the REST surface.
+- id: oauth2-rest-surface
   conforms: false
-  evidence: no oauth2 securityScheme declared
+  evidence: the v5.0 OpenAPI declares no oauth2 securityScheme
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: true
+  evidence: https://mcp2.brightedge.com/.well-known/oauth-authorization-server -> HTTP 200 JSON
+- id: rfc9728-oauth-protected-resource-metadata
+  conforms: true
+  evidence: https://mcp2.brightedge.com/.well-known/oauth-protected-resource -> HTTP 200 JSON; also
+    served per-resource at /.well-known/oauth-protected-resource/mcp
+- id: openid-connect-discovery
+  conforms: true
+  evidence: https://mcp2.brightedge.com/.well-known/openid-configuration -> HTTP 200 JSON
+- id: rfc6750-bearer-token-usage
+  conforms: true
+  evidence: anonymous POST /mcp returns 401 with WWW-Authenticate Bearer error="invalid_token"
+    and a resource_metadata parameter
+- id: mcp
+  conforms: true
+  evidence: hosted remote MCP server at https://mcp2.brightedge.com/mcp (HTTP/streamable) and
+    https://mcp2-sse.brightedge.com/sse (SSE); documented at https://www.brightedge.com/brightedge-mcp
+- id: a2a-agent-card
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json return 404 on every
+    BrightEdge host probed (api, www, mcp2)
 - id: rfc9457-problem-details
   conforms: false
   evidence: errors use FastAPI HTTPValidationError (422 detail[]), not application/problem+json
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on api, www, support and mcp2 hosts
 - id: offset-limit-pagination
   conforms: true
   evidence: offset/limit/count query parameters across list operations
 - id: idempotency-keys
   conforms: false
   evidence: no Idempotency-Key header/parameter documented in spec
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: no Sunset/Deprecation header support or published deprecation policy
+- id: llms-txt
+  conforms: true
+  evidence: https://www.brightedge.com/llms.txt -> HTTP 200 text/plain, saved verbatim to
+    llms/brightedge-llms.txt
 - id: soc2
   conforms: true
   evidence: https://www.brightedge.com/trust
 - id: iso-27001
   conforms: true
-  evidence: https://www.brightedge.com/trust
+  evidence: 'https://www.brightedge.com/trust — ISO/IEC 27001:2022 ISMS'
+- id: iso-27701
+  conforms: true
+  evidence: 'https://www.brightedge.com/trust — ISO/IEC 27701:2019 PIMS'
+- id: iso-42001
+  conforms: true
+  evidence: 'https://www.brightedge.com/trust — ISO/IEC 42001:2023 AI Management System'
 - id: gdpr
   conforms: true
   evidence: https://www.brightedge.com/trust ; https://www.brightedge.com/privacy
+- id: ccpa
+  conforms: true
+  evidence: https://www.brightedge.com/trust
+- id: eu-us-data-privacy-framework
+  conforms: true
+  evidence: https://www.brightedge.com/trust — audited annually
 - id: nist-csf
   conforms: true
   evidence: BrightEdge information security program conforms to NIST CSF (trust page)
+- id: nist-ai-rmf
+  conforms: true
+  evidence: https://www.brightedge.com/trust

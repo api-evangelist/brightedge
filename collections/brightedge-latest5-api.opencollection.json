@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts Latest5 API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Latest5",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Primary/Secondary Keywords",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/pages/keywords/primary_secondary",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "url",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get Primary/Secondary Keywords"
+        },
+        {
+          "info": {
+            "name": "Get Page Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/pages/details",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "url",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get Page Details"
+        },
+        {
+          "info": {
+            "name": "Update Page Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/pages/details",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Update Page Details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

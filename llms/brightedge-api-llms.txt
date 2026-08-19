@@ -1,0 +1,49 @@
+# BrightEdge — API surface
+
+> API Evangelist generated companion to the provider's own llms.txt (saved verbatim at
+> llms/brightedge-llms.txt, fetched from https://www.brightedge.com/llms.txt). BrightEdge is an
+> enterprise SEO / AEO and content performance platform (founded 2007, Silicon Valley). Its machine
+> surfaces are the BrightEdge Platform REST API v5.0 at api.brightedge.com (248 operations) and the
+> BrightEdge MCP server at https://mcp2.brightedge.com/mcp (OAuth 2.0 via Auth0, read-only).
+
+## APIs
+- [BrightEdge Platform API portal](https://api.brightedge.com/portal): Swagger UI for the v5.0 REST API
+- [BrightEdge MCP](https://www.brightedge.com/brightedge-mcp): hosted remote MCP server + setup guides for ChatGPT, Claude, Gemini Enterprise, Lovable, Manus, Microsoft Copilot, n8n, OpenClaw, Relevance AI and Slack
+- MCP endpoint (HTTP/streamable): https://mcp2.brightedge.com/mcp
+- MCP endpoint (SSE): https://mcp2-sse.brightedge.com/sse
+- MCP endpoint (OpenAI plugin marketplace): https://mcp.brightedge.com/marketplace/v2
+
+## Specs
+- [OpenAPI 3.1 (original)](openapi/brightedge-platform-openapi-original.json)
+- [Authentication profile](authentication/brightedge-authentication.yml)
+- [OAuth scopes](scopes/brightedge-scopes.yml)
+- [API conventions](conventions/brightedge-conventions.yml)
+- [Error catalog](errors/brightedge-problem-types.yml)
+- [Lifecycle](lifecycle/brightedge-lifecycle.yml)
+- [Data model](data-model/brightedge-data-model.yml)
+- [Conformance](conformance/brightedge-conformance.yml)
+- [Agentic access](agentic-access/brightedge-agentic-access.yml)
+- [MCP server](mcp/brightedge-mcp.yml)
+- [MCP ↔ REST tool crosswalk](mcp/brightedge-tool-crosswalk.yml)
+- [Well-known discovery documents](well-known/brightedge-well-known.yml)
+- [Agent Skills](skills/_index.yml)
+- [Plans / pricing](plans/brightedge-plans-pricing.yml)
+- [Rate limits](rate-limits/brightedge-rate-limits.yml)
+- [Packages / SDKs](packages/brightedge-packages.yml)
+
+## Docs
+- [BrightEdge MCP](https://www.brightedge.com/brightedge-mcp)
+- [Connect API overview](https://www.brightedge.com/technology/integration/connect-api)
+- [Integrations](https://www.brightedge.com/products/integrations)
+- [Support / Help Center](https://support.brightedge.com/)
+- [Product releases](https://www.brightedge.com/resources/product-releases)
+- [Trust & security](https://www.brightedge.com/trust)
+- [Privacy policy](https://www.brightedge.com/privacy)
+- [Legal / terms](https://www.brightedge.com/legal)
+
+## Auth
+- REST Platform API: HTTP Basic, X-Token header, Bearer-Token header, or a BrightEdge session
+  (X-BRIGHTEDGE-SESSION header / BRIGHTEDGE cookie). No OAuth on the REST surface.
+- MCP: OAuth 2.0 authorization-code + PKCE (S256), Auth0 tenant mrkt-0365.us.auth0.com. The OAuth
+  Client ID/Secret are not self-serve — customers request them from their Customer Success Manager
+  or integrations@brightedge.com.

@@ -1,0 +1,64 @@
+generated: '2026-08-13'
+method: searched
+source: registry searches (npm, PyPI, RubyGems, crates.io) + https://github.com/brightedge
+  + https://api.brightedge.com/api/current/ + https://www.brightedge.com/brightedge-mcp
+package_count: 0
+official_package_count: 0
+note: >-
+  No first-party BrightEdge client library is published to any public package registry, and no
+  first-party SDK source repository is public. The API host itself says the SDK is a private
+  deliverable: GET https://api.brightedge.com/ (302 -> /api/current/, HTTP 200) returns
+  "This is the BrightEdge API endpoint, please refer to the Software Development Kit that was
+  provided for documentation and usage of this service." — i.e. the SDK is handed to customers,
+  not distributed. No SDKs pointer is wired for BrightEdge because there is no official client
+  library to point at.
+packages: []
+registry_searches:
+- registry: npm
+  query: https://registry.npmjs.org/-/v1/search?text=brightedge
+  status: 200
+  results: 0
+  version: null
+  published: null
+- registry: pypi
+  query: https://pypi.org/pypi/brightedge/json
+  status: 404
+  results: 0
+  version: null
+  published: null
+- registry: rubygems
+  query: https://rubygems.org/api/v1/search.json?query=brightedge
+  status: 200
+  results: 0
+  version: null
+  published: null
+- registry: crates.io
+  query: https://crates.io/api/v1/crates?q=brightedge
+  status: 200
+  results: 0
+  version: null
+  published: null
+source_repositories:
+- url: https://github.com/brightedge
+  org_name: BrightEdge Technologies
+  created: '2017-12-08'
+  public_repos: 0
+  note: verified as BrightEdge by its `blog` field (https://www.brightedge.com/); ships nothing
+    publicly.
+- url: https://github.com/brightedge-seo
+  org_name: BrightEdge SEO - Enterprise SEO Platform and Content Intelligence Software
+  created: '2026-05-26'
+  public_repos: 1
+  note: single `.github` profile repo, marketing copy only; contact email support@brightedge.com.
+    No code, no SDK.
+third_party_tooling:
+- name: mcporter
+  registry: npm
+  install: npm install -g mcporter
+  official: false
+  version: null
+  published: null
+  note: NOT a BrightEdge package. A third-party MCP bridge CLI that the BrightEdge MCP setup guide
+    instructs OpenClaw users to install. Recorded because the provider's own docs name it, and
+    marked official:false so it is never counted as a BrightEdge SDK. Version not pinned by the
+    docs, so an install floats to latest.

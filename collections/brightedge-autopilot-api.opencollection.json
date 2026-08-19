@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts autopilot API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "autopilot",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "This method allows customer to manually their SSL certificate.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/autopilot/foundations/1.0/update_certificate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint allows customer to manually update their SSL certificate."
+        },
+        {
+          "info": {
+            "name": "This method allows customer to manually their SSL certificate.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/autopilot/foundations/1.0/update_certificate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint allows customer to manually update their SSL certificate."
+        },
+        {
+          "info": {
+            "name": "This method allows cached image(s) given a given image URL or folder to be refreshed.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ap/1.0/apm/refresh_cache",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This method delegates to marvel-admin's marveltool-api (running in tomcat) to refresh cached image(s) given image URL or folder.\nFor urlType 'folder', only top-level images will be refreshed, images on sub-folder(s) remains."
+        },
+        {
+          "info": {
+            "name": "This method allows cached image(s) to be invalidated from CDN cache.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ap/1.0/apm/invalidate_cache",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This method delegates to marvel-admin's marveltool-api (running in tomcat) to invalidate ALL cached image(s) for the entire account.\n\n@type  request: HttpRequest\n@param request: request to the view\n@rtype:         HTTPResponse\n@return:        response for the view"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

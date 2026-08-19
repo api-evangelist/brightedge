@@ -1,0 +1,338 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts be_local API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "be_local",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "This call saves multi edit changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/objects/be_local/save_multi_edit_changes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Changes of the format\n(location_name, field_name, attribute_name, before_value, after_value, task_id, extra_info_json)"
+        },
+        {
+          "info": {
+            "name": "This call fetches all the quick wins tasks for a location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/objects/be_local/update_fields",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call fetches all the quick wins tasks for a location"
+        },
+        {
+          "info": {
+            "name": "This call fetches all the entity data for all location of an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/objects/be_local/get_accounts_data",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call fetches all the entity data for all location of an account"
+        },
+        {
+          "info": {
+            "name": "This call fetches all the locations linked to be_account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/objects/be_local/get_location_details_v2",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call fetches all the locations linked to be_account"
+        },
+        {
+          "info": {
+            "name": "This call fetches all the attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/objects/be_local/get_all_gmb_attributes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call fetches all the attributes"
+        },
+        {
+          "info": {
+            "name": "This call fetches all the location attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/objects/be_local/get_all_location_attributes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call fetches all the location attributes"
+        },
+        {
+          "info": {
+            "name": "Proxy store updates to prod platform-ui-api",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/objects/be_local/store_updates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Proxy store updates to prod platform-ui-api"
+        },
+        {
+          "info": {
+            "name": "Proxy store updates to staging platform-ui-api",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/objects/be_local/staging/store_updates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Proxy store updates to staging platform-ui-api"
+        },
+        {
+          "info": {
+            "name": "This call saves multi edit changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/objects/be_local/save_multi_edit_changes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Changes of the format\n(location_name, field_name, attribute_name, before_value, after_value, task_id, extra_info_json)"
+        },
+        {
+          "info": {
+            "name": "This call fetches all the quick wins tasks for a location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/objects/be_local/update_fields",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call fetches all the quick wins tasks for a location"
+        },
+        {
+          "info": {
+            "name": "This call fetches all the entity data for all location of an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/objects/be_local/get_accounts_data",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call fetches all the entity data for all location of an account"
+        },
+        {
+          "info": {
+            "name": "This call fetches all the locations linked to be_account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/objects/be_local/get_location_details_v2",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call fetches all the locations linked to be_account"
+        },
+        {
+          "info": {
+            "name": "This call fetches all the attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/objects/be_local/get_all_gmb_attributes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call fetches all the attributes"
+        },
+        {
+          "info": {
+            "name": "This call fetches all the location attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/objects/be_local/get_all_location_attributes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call fetches all the location attributes"
+        },
+        {
+          "info": {
+            "name": "Proxy store updates to prod platform-ui-api",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/objects/be_local/store_updates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Proxy store updates to prod platform-ui-api"
+        },
+        {
+          "info": {
+            "name": "Proxy store updates to staging platform-ui-api",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/objects/be_local/staging/store_updates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Proxy store updates to staging platform-ui-api"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

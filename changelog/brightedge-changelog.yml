@@ -1,10 +1,24 @@
-generated: '2026-07-18'
+generated: '2026-08-13'
 method: searched
-source: https://www.brightedge.com/resources/product-releases
+source: https://www.brightedge.com/resources/product-releases ; https://www.brightedge.com/brightedge-mcp
 scheme: product-releases
 current_api_version: '5.0'
 api_version_docs: https://api.brightedge.com/portal
-note: BrightEdge publishes dated product release information rather than a per-operation
-  API changelog. The API itself is versioned in the URI path (/5.0/ pinned, /latest5/
-  rolling).
+note: >-
+  BrightEdge publishes no dated API changelog. The product-releases page returns HTTP 200 but
+  carries no dated release entries — it is a resource hub linking to an overview poster and two
+  content items, with no mention of API changes, webhooks or version history. The API itself is
+  versioned in the URI path (/5.0/ pinned, /latest5/ rolling, /3.0/ + /latest3/ retained as
+  `legacy`), and the MCP surface is versioned by hostname (mcp2 current; mcp/marketplace/v2
+  self-declared as lagging behind it pending OpenAI review). entries[] stays empty rather than
+  being back-filled from marketing pages.
 entries: []
+evidence:
+- url: https://www.brightedge.com/resources/product-releases
+  status: 200
+  finding: no dated entries, no API changelog, no version history
+- url: https://www.brightedge.com/brightedge-mcp
+  status: 200
+  finding: 'documents a version relationship between the two MCP endpoints but no dated releases:
+    "While the BrightEdge Plugin is currently up to date, future updates require further review and
+    OpenAI approval... a custom plugin... would always reference the most up-to-date tools."'

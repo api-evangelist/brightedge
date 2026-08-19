@@ -1,12 +1,24 @@
-generated: '2026-07-18'
+generated: '2026-08-13'
 method: searched
-source: openapi + https://api.brightedge.com/portal
+source: openapi/_original/brightedge-platform-openapi-original.json ; https://api.brightedge.com/portal
+  ; https://www.brightedge.com/brightedge-mcp
+surfaces:
+- id: rest
+  name: BrightEdge Platform API v5.0
+  base_url: https://api.brightedge.com
+  operations: 248
+- id: mcp
+  name: BrightEdge MCP server
+  endpoint: https://mcp2.brightedge.com/mcp
+  read_only: true
+  ref: mcp/brightedge-mcp.yml
 authentication:
   styles:
   - http-basic
   - api-key-header (X-Token)
   - bearer-token-header (Bearer-Token)
   - session (X-BRIGHTEDGE-SESSION header / BRIGHTEDGE cookie)
+  - oauth2-authorization-code-pkce (MCP surface only, via Auth0)
   ref: authentication/brightedge-authentication.yml
 pagination:
   style: offset-limit
@@ -17,24 +29,56 @@ pagination:
   modifiers:
   - only_total
   - include_total
-  note: List endpoints page with offset + limit (or count); only_total/include_total
-    control whether a total count is returned.
+  note: List endpoints page with offset + limit (or count); only_total/include_total control whether
+    a total count is returned.
 idempotency:
   supported: false
-  note: No Idempotency-Key contract documented in the spec.
+  note: No Idempotency-Key contract documented in the spec or the docs. No `Idempotency` pointer is
+    wired in apis.yml, because there is no idempotency contract to point at.
 versioning:
   style: uri-path
   current: '5.0'
   rolling_alias: latest5
+  legacy: '3.0 / latest3 (tagged `legacy`, 28 operations)'
+  mcp_versioning:
+    note: the MCP surface is versioned by hostname, not path — mcp2.brightedge.com is the current
+      server; mcp.brightedge.com/marketplace/v2 backs the pre-built OpenAI plugin and lags, since
+      "future updates require further review and OpenAI approval".
   ref: lifecycle/brightedge-lifecycle.yml
 error_envelope:
   style: fastapi
   shape: HTTP 422 with detail[] of {loc,msg,type}
+  declared_status_codes: [200, 201, 400, 422]
+  note: no 5xx and no 429 are declared anywhere in the 248-operation spec.
   ref: errors/brightedge-problem-types.yml
 content_types:
 - application/json
 - text/csv (bulk export)
 request_tracing:
-  note: request_id path parameter appears on async/instant and webhook operations.
+  note: request_id path parameter appears on the async/instant and callback operations; no
+    correlation/request-id response header is documented.
+async_and_callbacks:
+  pattern: submit-then-poll
+  submit: submit_kw_for_ideas_5_0_instant_keywordIdeas__organization_id__post
+  fetch: get_kw_ideas_result_5_0_instant_keywordIdeas__organization_id___request_id__post
+  batch_jobs: [create_bulk_export_job_5_0_jobs_post, get_bulk_export_jobs_by_batch_id_5_0_jobs__job_id__get,
+    get_account_bulk_export_jobs_5_0_jobs_account__account_id__get]
+  inbound_webhook:
+    path: /5.0/instant/webhook/{provider}/kw_ideas/{request_id}
+    operation_id: process_webhook_5_0_instant_webhook__provider__kw_ideas__request_id__post
+    direction: inbound
+    note: >-
+      This is BrightEdge RECEIVING a callback from its upstream data provider — the spec's own
+      description is "This endpoint handle webhook from oxylabs". It is NOT a customer-subscribable
+      event surface, so no `Webhooks` or `AsyncAPI` pointer is wired. BrightEdge publishes no
+      outbound event catalog, no event schemas and no webhook subscription management.
+  customer_subscribable_events: false
 rate_limiting:
-  note: No rate-limit headers documented in the public spec.
+  documented: false
+  note: no rate-limit headers, no 429 response, no published quota on either surface.
+  ref: rate-limits/brightedge-rate-limits.yml
+agent_access:
+  mcp_read_only: true
+  note: the provider states MCP tools retrieve data only and never modify the account, which is a
+    stronger agent-safety posture than the REST surface (which has 100+ write operations).
+  ref: agentic-access/brightedge-agentic-access.yml

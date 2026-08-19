@@ -1,0 +1,310 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts organizations API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "This call returns the details of this user's organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/objects/organizations/self",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns the details of this user's organization"
+        },
+        {
+          "info": {
+            "name": "This call returns the details of this user's organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/objects/organizations/self",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns the details of this user's organization"
+        },
+        {
+          "info": {
+            "name": "This call returns the details of all active users in this organization with their accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/organizations/objects/users",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of users to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of users to skip before starting to return."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns the details of all active users in this organization with their accounts"
+        },
+        {
+          "info": {
+            "name": "This call returns the details of all accounts in this organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/organizations/objects/accounts",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns the details of all accounts in this organization"
+        },
+        {
+          "info": {
+            "name": "This call returns the details of all active users in this organization with their accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/organizations/objects/users",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of users to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of users to skip before starting to return."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns the details of all active users in this organization with their accounts"
+        },
+        {
+          "info": {
+            "name": "This call returns the details of all accounts in this organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/organizations/objects/accounts",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns the details of all accounts in this organization"
+        },
+        {
+          "info": {
+            "name": "This call returns a list of recommendations for accounts of the user's organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/5.0/organizations/objects/recommendations",
+            "params": [
+              {
+                "name": "time_value",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "time_frequency",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "kwg_name",
+                "value": "",
+                "type": "query",
+                "description": "Keyword group names to filter recommendations"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns a list of recommendations for accounts of the user's organization."
+        },
+        {
+          "info": {
+            "name": "This call returns a list of recommendations for accounts of the user's organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/latest5/organizations/objects/recommendations",
+            "params": [
+              {
+                "name": "time_value",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "time_frequency",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "kwg_name",
+                "value": "",
+                "type": "query",
+                "description": "Keyword group names to filter recommendations"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns a list of recommendations for accounts of the user's organization."
+        },
+        {
+          "info": {
+            "name": "This call returns a list of recommendations for accounts of the user's organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/organizations/objects/site_audit_page_group",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns a list of recommendations for accounts of the user's organization."
+        },
+        {
+          "info": {
+            "name": "This call returns a list of recommendations for accounts of the user's organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/organizations/objects/site_audit_crawl_report",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns a list of recommendations for accounts of the user's organization."
+        },
+        {
+          "info": {
+            "name": "This call returns a list of recommendations for accounts of the user's organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/organizations/objects/site_audit_page_group",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns a list of recommendations for accounts of the user's organization."
+        },
+        {
+          "info": {
+            "name": "This call returns a list of recommendations for accounts of the user's organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/organizations/objects/site_audit_crawl_report",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns a list of recommendations for accounts of the user's organization."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

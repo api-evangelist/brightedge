@@ -1,9 +1,72 @@
-generated: '2026-07-18'
+generated: '2026-08-13'
 method: searched
-note: No /.well-known/ discovery documents were served (api host returns 404, marketing
-  host bot-blocks with 403). Recorded for auditability; no WellKnown pointer wired.
+source: live GET probes of every BrightEdge host in apis.yml + the MCP hosts published
+  at https://www.brightedge.com/brightedge-mcp
+note: >-
+  The BrightEdge MCP hosts (mcp2.brightedge.com, mcp.brightedge.com,
+  mcp2-sse.brightedge.com) serve real RFC 8414 / RFC 9728 / OIDC discovery
+  documents. The marketing host (www.brightedge.com) and the REST API host
+  (api.brightedge.com) serve no /.well-known/ documents; the marketing host
+  answers every /.well-known/* path with its 404 HTML page (117KB SPA/Drupal
+  shell), which is a miss, not a document. www.brightedge.com/llms.txt IS a real
+  200 text/plain document and is saved verbatim under llms/.
 hosts:
+- host: https://mcp2.brightedge.com
+  role: MCP server (HTTP/streamable transport)
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: brightedge-mcp2-oauth-authorization-server.json
+    spec: RFC 8414
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: application/json
+    file: brightedge-mcp2-oauth-protected-resource.json
+    spec: RFC 9728
+  - path: /.well-known/oauth-protected-resource/mcp
+    status: 200
+    content_type: application/json
+    note: per-resource variant advertised in the 401 WWW-Authenticate challenge from
+      POST /mcp; identical body to the root document
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: brightedge-mcp2-openid-configuration.json
+    spec: OpenID Connect Discovery 1.0
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://mcp.brightedge.com
+  role: MCP endpoint published in the OpenAI plugin marketplace (/marketplace/v2)
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: brightedge-mcp-oauth-authorization-server.json
+    spec: RFC 8414
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: application/json
+    file: brightedge-mcp-oauth-protected-resource.json
+    spec: RFC 9728
+- host: https://mcp2-sse.brightedge.com
+  role: MCP server (SSE transport)
+  documents:
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: application/json
+    file: brightedge-mcp2-sse-oauth-protected-resource.json
+    spec: RFC 9728
 - host: https://api.brightedge.com
+  role: REST Platform API v5.0
   documents:
   - path: /.well-known/security.txt
     status: 404
@@ -11,15 +74,50 @@ hosts:
     status: 404
   - path: /.well-known/oauth-authorization-server
     status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
   - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
     status: 404
   - path: /llms.txt
     status: 404
 - host: https://www.brightedge.com
+  role: marketing site / product documentation
   documents:
   - path: /.well-known/security.txt
-    status: 403
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+    note: 404 body is the 117KB site HTML shell, not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    note: 404 body is the 117KB site HTML shell, not a document
+  - path: /.well-known/api-catalog
+    status: 404
   - path: /.well-known/ai-plugin.json
-    status: 403
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
   - path: /llms.txt
+    status: 200
+    content_type: text/plain
+    file: ../llms/brightedge-llms.txt
+    note: real llms.txt served by the provider; saved verbatim under llms/
+  - path: /llms-full.txt
+    status: 404
+  - path: /robots.txt
+    status: 200
+    note: standard Drupal robots.txt; no AI-agent-specific directives
+- host: https://support.brightedge.com
+  role: help center
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /
     status: 403
+    note: help center bot-blocks unauthenticated non-browser clients

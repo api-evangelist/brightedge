@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts qa API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "qa",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "This call returns the BUDD BQL query results only for QA",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/3.0/objects/qa_query/:account_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns the BUDD BQL query results only for QA"
+        },
+        {
+          "info": {
+            "name": "This call returns the BUDD BQL query results only for QA",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest3/objects/qa_query/:account_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This call returns the BUDD BQL query results only for QA"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

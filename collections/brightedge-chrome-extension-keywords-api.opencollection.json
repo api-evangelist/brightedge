@@ -1,0 +1,138 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BrightEdge Platform accounts Chrome Extension Keywords API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Chrome Extension Keywords",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Track Keywords",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/chrome_extension/keywords/track_keywords",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Track Keywords"
+        },
+        {
+          "info": {
+            "name": "Compare Domains",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/chrome_extension/keywords/compare_domains",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Compare Domains"
+        },
+        {
+          "info": {
+            "name": "Research Keywords",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/5.0/chrome_extension/keywords/research_keywords",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Research Keywords"
+        },
+        {
+          "info": {
+            "name": "Track Keywords",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/chrome_extension/keywords/track_keywords",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Track Keywords"
+        },
+        {
+          "info": {
+            "name": "Compare Domains",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/chrome_extension/keywords/compare_domains",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Compare Domains"
+        },
+        {
+          "info": {
+            "name": "Research Keywords",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/latest5/chrome_extension/keywords/research_keywords",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Research Keywords"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

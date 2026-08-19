@@ -1,0 +1,34 @@
+generated: '2026-08-13'
+method: searched
+source: openapi/_original/brightedge-platform-openapi-original.json ; https://api.brightedge.com/portal
+  ; https://www.brightedge.com/technology/integration/connect-api ; https://www.brightedge.com/brightedge-mcp
+limit_count: 0
+headers_documented: false
+note: >-
+  BrightEdge publishes no rate limits for either surface. The v5.0 OpenAPI (248 operations)
+  declares only 200/201/400/422 responses — there is no 429 anywhere in the document, and the
+  strings X-RateLimit, RateLimit, Retry-After, throttle and quota appear zero times in the whole
+  spec. The MCP setup page states no per-account or per-tool quota. The developer portal
+  (api.brightedge.com/portal) now answers non-browser clients with HTTP 403, so it could not be
+  re-read for a limits page in this pass; the harvested spec is the authority used here. An agent
+  integrating BrightEdge therefore has no published runtime backoff signal and must treat
+  exhaustion behaviour as unknown.
+limits: []
+response_headers: []
+exhaustion_status_code: null
+evidence:
+- source: openapi/_original/brightedge-platform-openapi-original.json
+  finding: 'declared response codes across all 248 operations: 200, 201, 400, 422. No 429.'
+- source: openapi/_original/brightedge-platform-openapi-original.json
+  finding: zero occurrences of X-RateLimit / RateLimit / Retry-After / throttl / quota
+- url: https://api.brightedge.com/portal
+  status: 403
+  finding: Swagger UI portal bot-blocks non-browser clients; not re-readable this pass
+- url: https://www.brightedge.com/brightedge-mcp
+  status: 200
+  finding: no rate limit, quota or concurrency guidance for the MCP server
+related:
+  concurrency_probe_endpoint: /5.0/high_latency_handle/{msec}
+  concurrency_probe_note: the spec exposes high_latency_handle_5_0_high_latency_handle__msec__get,
+    described as "This call is used for concurrency load test" — a load-testing helper, not a
+    published limit.

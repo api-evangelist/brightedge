@@ -1,46 +1,94 @@
-generated: '2026-07-18'
-method: derived
-source: openapi/brightedge-platform-openapi-original.json
+generated: '2026-08-13'
+method: searched
+source: openapi/_original/brightedge-platform-openapi-original.json ; https://www.brightedge.com/brightedge-mcp
+  ; https://mcp2.brightedge.com/.well-known/oauth-authorization-server
+docs: https://www.brightedge.com/brightedge-mcp
+note: >-
+  BrightEdge runs two authentication models on two surfaces. The REST Platform API v5.0 uses
+  key/basic/session auth (six securitySchemes in its own OpenAPI, no OAuth). The MCP server uses
+  OAuth 2.0 authorization-code + PKCE fronted by Auth0. The OAuth half was read from the provider's
+  published setup page and from anonymously-fetched RFC 8414 / RFC 9728 / OIDC discovery documents
+  (all HTTP 200), not inferred.
 summary:
-  types:
-  - apiKey
-  - http
-  api_key_in:
-  - cookie
-  - header
+  types: [apiKey, http, oauth2]
+  api_key_in: [cookie, header]
+  oauth2_flows: [authorizationCode]
+  surfaces:
+    rest: [http_basic, forwarded_http_basic, session_cookie, session_header, api_token_header, bearer_token]
+    mcp: [brightedge-mcp-oauth]
+  self_serve_credentials: false
+  credential_issuance: BrightEdge account credentials with API permission are enabled by a
+    BrightEdge representative; MCP OAuth client credentials are issued by a Customer Success
+    Manager or integrations@brightedge.com.
 schemes:
 - name: http_basic
   type: http
   scheme: basic
+  surface: rest
   sources:
-  - openapi/brightedge-platform-openapi-original.json
+  - openapi/_original/brightedge-platform-openapi-original.json
 - name: forwarded_http_basic
   type: apiKey
   in: header
   parameter: X-Forwarded-Authorization
+  surface: rest
   sources:
-  - openapi/brightedge-platform-openapi-original.json
+  - openapi/_original/brightedge-platform-openapi-original.json
 - name: session_cookie
   type: apiKey
   in: cookie
   parameter: BRIGHTEDGE
+  surface: rest
   sources:
-  - openapi/brightedge-platform-openapi-original.json
+  - openapi/_original/brightedge-platform-openapi-original.json
 - name: session_header
   type: apiKey
   in: header
   parameter: X-BRIGHTEDGE-SESSION
+  surface: rest
   sources:
-  - openapi/brightedge-platform-openapi-original.json
+  - openapi/_original/brightedge-platform-openapi-original.json
 - name: api_token_header
   type: apiKey
   in: header
   parameter: X-Token
+  surface: rest
   sources:
-  - openapi/brightedge-platform-openapi-original.json
+  - openapi/_original/brightedge-platform-openapi-original.json
 - name: bearer_token
   type: apiKey
   in: header
   parameter: Bearer-Token
+  surface: rest
   sources:
-  - openapi/brightedge-platform-openapi-original.json
+  - openapi/_original/brightedge-platform-openapi-original.json
+- name: brightedge-mcp-oauth
+  type: oauth2
+  surface: mcp
+  identity_provider: Auth0 (mrkt-0365.us.auth0.com)
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://mcp2.brightedge.com/authorize
+    tokenUrl: https://mcp2.brightedge.com/token
+    pkce: S256
+    scopes: [openid, profile, email]
+  bearer_alternative:
+    note: >-
+      The Manus setup guide documents a static Authorization header carrying a bearer
+      BrightEdge token against the SSE endpoint, instead of the interactive OAuth flow.
+    endpoint: https://mcp2-sse.brightedge.com/sse
+  ref: scopes/brightedge-scopes.yml
+  sources:
+  - https://www.brightedge.com/brightedge-mcp
+  - well-known/brightedge-mcp2-oauth-authorization-server.json
+  - well-known/brightedge-mcp2-oauth-protected-resource.json
+  - well-known/brightedge-mcp2-openid-configuration.json
+discovery:
+- url: https://mcp2.brightedge.com/.well-known/oauth-authorization-server
+  status: 200
+- url: https://mcp2.brightedge.com/.well-known/oauth-protected-resource
+  status: 200
+- url: https://mcp2.brightedge.com/.well-known/openid-configuration
+  status: 200
+- url: https://api.brightedge.com/.well-known/oauth-authorization-server
+  status: 404

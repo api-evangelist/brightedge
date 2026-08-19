@@ -1,17 +1,51 @@
-generated: '2026-07-18'
+generated: '2026-08-13'
 method: searched
 probe: true
 source: https://www.brightedge.com/trust
 url: https://www.brightedge.com/trust
 certifications:
 - SOC 2
-- ISO 27001
+- ISO/IEC 27001:2022
+- ISO/IEC 27701:2019
+- ISO/IEC 42001:2023
 - GDPR
+- CCPA
+- EU-U.S. Data Privacy Framework
+frameworks:
+- NIST Cybersecurity Framework (CSF)
+- NIST AI Risk Management Framework
+details:
+- id: iso-42001
+  claim: BrightEdge is ISO/IEC 42001 certified (AI Management Systems)
+  note: an AI-management-system certification is unusual in this catalog and is the strongest
+    signal on the page given BrightEdge's AI product line.
+- id: iso-27001
+  claim: maintains an ISMS aligned to ISO/IEC 27001:2022
+- id: iso-27701
+  claim: supports a Privacy Information Management System per ISO/IEC 27701:2019
+- id: soc2
+  claim: SOC 2 — controls for security, availability, processing integrity, confidentiality and
+    privacy
+- id: gdpr
+  claim: BrightEdge is GDPR compliant
+- id: ccpa
+  claim: internal process based on privacy principles that comply with CCPA
+- id: eu-us-dpf
+  claim: compliant with the Data Privacy Framework and audited annually
+- id: nist-csf
+  claim: information security program conforms to the NIST Cybersecurity Framework
+- id: nist-ai-rmf
+  claim: used to incorporate trustworthiness into design, development, use and evaluation of AI
+    products
+not_published:
+- vulnerability disclosure / responsible disclosure policy
+- bug bounty program (no HackerOne or Bugcrowd program — hackerone.com/programs/search?query=handle:brightedge
+  returns 0 results)
+- security contact email or /.well-known/security.txt
+- public status page or uptime/SLA commitment
+- sub-processor list
 evidence:
 - source: https://www.brightedge.com/trust
-  keywords:
-  - soc 2
-  - soc2
-  - iso 27001
-  - iso/iec 27001
-  - gdpr
+  status: 200
+  keywords: [soc 2, iso/iec 27001, iso/iec 27701, iso/iec 42001, gdpr, ccpa, data privacy framework,
+    nist csf, nist ai rmf]
