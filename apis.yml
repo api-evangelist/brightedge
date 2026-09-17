@@ -262,32 +262,6 @@ apis:
     url: conformance/brightedge-conformance.yml
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
-- aid: brightedge:brightedge-chromeextension-api
-  name: BrightEdge chromeextension API
-  description: Supports ChromeExtension functionality.
-  humanURL: https://api.brightedge.com/portal
-  baseURL: https://api.brightedge.com
-  tags:
-  - Chrome Extension
-  tags_raw:
-  - chromeextension
-  properties:
-  - type: OpenAPI
-    url: openapi/brightedge-chromeextension-api-openapi.yml
-  - type: Authentication
-    url: authentication/brightedge-authentication.yml
-  - type: Conventions
-    url: conventions/brightedge-conventions.yml
-  - type: ErrorCatalog
-    url: errors/brightedge-problem-types.yml
-  - type: Lifecycle
-    url: lifecycle/brightedge-lifecycle.yml
-  - type: DataModel
-    url: data-model/brightedge-data-model.yml
-  - type: Conformance
-    url: conformance/brightedge-conformance.yml
-  - type: AgenticAccess
-    url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-core-api
   name: BrightEdge core API
   description: The core API from BrightEdge — 6 operation(s) for core.
