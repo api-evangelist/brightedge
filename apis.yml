@@ -294,7 +294,7 @@ apis:
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
   tags:
-  - Dataset
+  - Datasets
   tags_raw:
   - dataset
   properties:
