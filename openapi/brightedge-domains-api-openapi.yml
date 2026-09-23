@@ -1,16 +1,16 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: BrightEdge Platform accounts domains API
+  title: BrightEdge Platform Domains API
   description: This API provides the ability to integrate with BrightEdge Platform
   version: 5.0.0
 tags:
-- name: domains
+- name: Domains
   description: Operation related to domains
 paths:
   /5.0/objects/competitors/{account_id}:
     get:
       tags:
-      - domains
+      - Domains
       summary: This call returns a competitors for given account id
       operationId: get_account_competitors_5_0_objects_competitors__account_id__get
       parameters:
@@ -46,7 +46,7 @@ paths:
   /latest5/objects/competitors/{account_id}:
     get:
       tags:
-      - domains
+      - Domains
       summary: This call returns a competitors for given account id
       operationId: get_account_competitors_latest5_objects_competitors__account_id__get
       parameters:
@@ -82,8 +82,8 @@ paths:
   /5.0/objects/domains:
     get:
       tags:
-      - domains
-      summary: This call returns a list of primary domains for accounts that the user has access to.
+      - Domains
+      summary: This call returns a list of primary domains for accounts that the user has…
       operationId: get_user_domains_5_0_objects_domains_get
       responses:
         '200':
@@ -105,7 +105,7 @@ paths:
   /5.0/objects/domains/{account_id}:
     get:
       tags:
-      - domains
+      - Domains
       summary: This call returns a primary domain for given account id
       operationId: get_account_domain_5_0_objects_domains__account_id__get
       parameters:
@@ -138,8 +138,8 @@ paths:
   /latest5/objects/domains:
     get:
       tags:
-      - domains
-      summary: This call returns a list of primary domains for accounts that the user has access to.
+      - Domains
+      summary: This call returns a list of primary domains for accounts that the user has…
       operationId: get_user_domains_latest5_objects_domains_get
       responses:
         '200':
@@ -161,7 +161,7 @@ paths:
   /latest5/objects/domains/{account_id}:
     get:
       tags:
-      - domains
+      - Domains
       summary: This call returns a primary domain for given account id
       operationId: get_account_domain_latest5_objects_domains__account_id__get
       parameters:
@@ -191,210 +191,8 @@ paths:
       - session_header: []
       - api_token_header: []
       - bearer_token: []
-  /3.0/objects/domains:
-    get:
-      tags:
-      - domains
-      summary: This call returns a list of primary domains for accounts that the user has access to.
-      operationId: get_user_domains_3_0_objects_domains_get
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LegacyCompetitorDomainOut'
-      security:
-      - http_basic: []
-      - forwarded_http_basic: []
-      - session_cookie: []
-      - session_header: []
-      - api_token_header: []
-      - bearer_token: []
-  /3.0/objects/domains/{account_id}:
-    get:
-      tags:
-      - domains
-      summary: This call returns a primary domain for given account id
-      operationId: get_account_domain_3_0_objects_domains__account_id__get
-      parameters:
-      - required: true
-        schema:
-          type: integer
-          title: Account Id
-        name: account_id
-        in: path
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LegacyCompetitorDomainOut'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-      - http_basic: []
-      - forwarded_http_basic: []
-      - session_cookie: []
-      - session_header: []
-      - api_token_header: []
-      - bearer_token: []
-  /latest3/objects/domains:
-    get:
-      tags:
-      - domains
-      summary: This call returns a list of primary domains for accounts that the user has access to.
-      operationId: get_user_domains_latest3_objects_domains_get
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LegacyCompetitorDomainOut'
-      security:
-      - http_basic: []
-      - forwarded_http_basic: []
-      - session_cookie: []
-      - session_header: []
-      - api_token_header: []
-      - bearer_token: []
-  /latest3/objects/domains/{account_id}:
-    get:
-      tags:
-      - domains
-      summary: This call returns a primary domain for given account id
-      operationId: get_account_domain_latest3_objects_domains__account_id__get
-      parameters:
-      - required: true
-        schema:
-          type: integer
-          title: Account Id
-        name: account_id
-        in: path
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LegacyCompetitorDomainOut'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-      - http_basic: []
-      - forwarded_http_basic: []
-      - session_cookie: []
-      - session_header: []
-      - api_token_header: []
-      - bearer_token: []
-  /3.0/objects/competitors/{account_id}:
-    get:
-      tags:
-      - domains
-      summary: This call returns a competitors for given account id
-      operationId: get_account_competitors_3_0_objects_competitors__account_id__get
-      parameters:
-      - required: true
-        schema:
-          type: integer
-          title: Account Id
-        name: account_id
-        in: path
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LegacyCompetitorDomainOut'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-      - http_basic: []
-      - forwarded_http_basic: []
-      - session_cookie: []
-      - session_header: []
-      - api_token_header: []
-      - bearer_token: []
-  /latest3/objects/competitors/{account_id}:
-    get:
-      tags:
-      - domains
-      summary: This call returns a competitors for given account id
-      operationId: get_account_competitors_latest3_objects_competitors__account_id__get
-      parameters:
-      - required: true
-        schema:
-          type: integer
-          title: Account Id
-        name: account_id
-        in: path
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LegacyCompetitorDomainOut'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-      - http_basic: []
-      - forwarded_http_basic: []
-      - session_cookie: []
-      - session_header: []
-      - api_token_header: []
-      - bearer_token: []
 components:
   schemas:
-    CompetitorOut:
-      properties:
-        id:
-          type: integer
-          title: Id
-        name:
-          type: string
-          title: Name
-      type: object
-      required:
-      - id
-      - name
-      title: CompetitorOut
-    DomainOut:
-      properties:
-        id:
-          type: integer
-          title: Id
-        account_id:
-          type: integer
-          title: Account Id
-        name:
-          type: string
-          title: Name
-      type: object
-      required:
-      - id
-      - account_id
-      - name
-      title: DomainOut
     ValidationError:
       properties:
         loc:
@@ -416,30 +214,23 @@ components:
       - msg
       - type
       title: ValidationError
-    LegacyCompetitorDomainOut:
-      properties:
-        domains:
-          items:
-            $ref: '#/components/schemas/LegacyDomainShortOut'
-          type: array
-          title: Domains
-      type: object
-      required:
-      - domains
-      title: LegacyCompetitorDomainOut
-    LegacyDomainShortOut:
+    DomainOut:
       properties:
         id:
-          type: string
+          type: integer
           title: Id
-        domain:
+        account_id:
+          type: integer
+          title: Account Id
+        name:
           type: string
-          title: Domain
+          title: Name
       type: object
       required:
       - id
-      - domain
-      title: LegacyDomainShortOut
+      - account_id
+      - name
+      title: DomainOut
     HTTPValidationError:
       properties:
         detail:
@@ -449,6 +240,19 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    CompetitorOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: CompetitorOut
   securitySchemes:
     http_basic:
       type: http

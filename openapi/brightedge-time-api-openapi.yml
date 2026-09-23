@@ -1,16 +1,16 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: BrightEdge Platform accounts time API
+  title: BrightEdge Platform Time API
   description: This API provides the ability to integrate with BrightEdge Platform
   version: 5.0.0
 tags:
-- name: time
+- name: Time
   description: Operation related to time
 paths:
   /5.0/objects/time/{account_id}/{time_frequency}/{day}:
     get:
       tags:
-      - time
+      - Time
       summary: This call returns the time value for a given time frequency and day
       operationId: get_time_value_5_0_objects_time__account_id___time_frequency___day__get
       parameters:
@@ -56,7 +56,7 @@ paths:
   /latest5/objects/time/{account_id}/{time_frequency}/{day}:
     get:
       tags:
-      - time
+      - Time
       summary: This call returns the time value for a given time frequency and day
       operationId: get_time_value_latest5_objects_time__account_id___time_frequency___day__get
       parameters:
@@ -99,130 +99,8 @@ paths:
       - session_header: []
       - api_token_header: []
       - bearer_token: []
-  /3.0/objects/time/{account_id}/{time_frequency}/{day}:
-    get:
-      tags:
-      - time
-      summary: This call returns the time value for a given time frequency and day
-      operationId: get_time_value_3_0_objects_time__account_id___time_frequency___day__get
-      parameters:
-      - required: true
-        schema:
-          type: integer
-          title: Account Id
-        name: account_id
-        in: path
-      - required: true
-        schema:
-          $ref: '#/components/schemas/TimeTimeStringType'
-        name: time_frequency
-        in: path
-      - required: true
-        schema:
-          type: integer
-          maximum: 99991231.0
-          minimum: 19600101.0
-          title: The day number in YYYYMMDD format
-        name: day
-        in: path
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LegacyTimeFrequencyOut'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-      - http_basic: []
-      - forwarded_http_basic: []
-      - session_cookie: []
-      - session_header: []
-      - api_token_header: []
-      - bearer_token: []
-  /latest3/objects/time/{account_id}/{time_frequency}/{day}:
-    get:
-      tags:
-      - time
-      summary: This call returns the time value for a given time frequency and day
-      operationId: get_time_value_latest3_objects_time__account_id___time_frequency___day__get
-      parameters:
-      - required: true
-        schema:
-          type: integer
-          title: Account Id
-        name: account_id
-        in: path
-      - required: true
-        schema:
-          $ref: '#/components/schemas/TimeTimeStringType'
-        name: time_frequency
-        in: path
-      - required: true
-        schema:
-          type: integer
-          maximum: 99991231.0
-          minimum: 19600101.0
-          title: The day number in YYYYMMDD format
-        name: day
-        in: path
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LegacyTimeFrequencyOut'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-      - http_basic: []
-      - forwarded_http_basic: []
-      - session_cookie: []
-      - session_header: []
-      - api_token_header: []
-      - bearer_token: []
 components:
   schemas:
-    TimeFrequencyOut:
-      properties:
-        time_value:
-          type: integer
-          title: Time Value
-        day_value:
-          type: integer
-          title: Day Value
-        time_frequency:
-          $ref: '#/components/schemas/TimeTimeStringType'
-      type: object
-      required:
-      - time_value
-      - day_value
-      - time_frequency
-      title: TimeFrequencyOut
-    TimeTimeStringType:
-      type: string
-      enum:
-      - daily
-      - weekly
-      - monthly
-      - quarterly
-      - yearly
-      - fiscal_weekly
-      - fiscal_monthly
-      - fiscal_quarterly
-      - fiscal_yearly
-      title: TimeTimeStringType
-      description: An enumeration.
     ValidationError:
       properties:
         loc:
@@ -244,13 +122,27 @@ components:
       - msg
       - type
       title: ValidationError
-    LegacyTimeFrequencyOut:
+    TimeTimeStringType:
+      type: string
+      enum:
+      - daily
+      - weekly
+      - monthly
+      - quarterly
+      - yearly
+      - fiscal_weekly
+      - fiscal_monthly
+      - fiscal_quarterly
+      - fiscal_yearly
+      title: TimeTimeStringType
+      description: An enumeration.
+    TimeFrequencyOut:
       properties:
         time_value:
-          type: string
+          type: integer
           title: Time Value
         day_value:
-          type: string
+          type: integer
           title: Day Value
         time_frequency:
           $ref: '#/components/schemas/TimeTimeStringType'
@@ -259,7 +151,7 @@ components:
       - time_value
       - day_value
       - time_frequency
-      title: LegacyTimeFrequencyOut
+      title: TimeFrequencyOut
     HTTPValidationError:
       properties:
         detail:

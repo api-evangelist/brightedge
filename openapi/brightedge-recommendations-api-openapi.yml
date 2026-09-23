@@ -1,15 +1,15 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: BrightEdge Platform accounts recommendations API
+  title: BrightEdge Platform Recommendations API
   description: This API provides the ability to integrate with BrightEdge Platform
   version: 5.0.0
 tags:
-- name: recommendations
+- name: Recommendations
 paths:
   /5.0/organizations/objects/pbr_page_keyword_pop_up/{account_id}:
     post:
       tags:
-      - recommendations
+      - Recommendations
       summary: This call returns details of keyword recommendation
       operationId: get_keyword_recommendation_details_5_0_organizations_objects_pbr_page_keyword_pop_up__account_id__post
       parameters:
@@ -60,7 +60,7 @@ paths:
   /5.0/organizations/objects/pbr_keywords/{account_id}:
     post:
       tags:
-      - recommendations
+      - Recommendations
       summary: This endpoint allows change priority of keywords
       operationId: change_keyword_priority_5_0_organizations_objects_pbr_keywords__account_id__post
       parameters:
@@ -98,7 +98,7 @@ paths:
   /5.0/organizations/objects/get_tracked_pages/{account_id}:
     get:
       tags:
-      - recommendations
+      - Recommendations
       summary: This call returns list of tracked pages
       operationId: get_tracked_pages_5_0_organizations_objects_get_tracked_pages__account_id__get
       parameters:
@@ -130,7 +130,7 @@ paths:
   /latest5/organizations/objects/pbr_page_keyword_pop_up/{account_id}:
     post:
       tags:
-      - recommendations
+      - Recommendations
       summary: This call returns details of keyword recommendation
       operationId: get_keyword_recommendation_details_latest5_organizations_objects_pbr_page_keyword_pop_up__account_id__post
       parameters:
@@ -181,7 +181,7 @@ paths:
   /latest5/organizations/objects/pbr_keywords/{account_id}:
     post:
       tags:
-      - recommendations
+      - Recommendations
       summary: This endpoint allows change priority of keywords
       operationId: change_keyword_priority_latest5_organizations_objects_pbr_keywords__account_id__post
       parameters:
@@ -219,7 +219,7 @@ paths:
   /latest5/organizations/objects/get_tracked_pages/{account_id}:
     get:
       tags:
-      - recommendations
+      - Recommendations
       summary: This call returns list of tracked pages
       operationId: get_tracked_pages_latest5_organizations_objects_get_tracked_pages__account_id__get
       parameters:
@@ -265,6 +265,29 @@ components:
       - plp_url_id
       - keywords
       title: RecommendationKwChangePriorityRequest
+    RecommendationKwListResponse:
+      properties:
+        page_url_id:
+          type: integer
+          title: Page Url Id
+        page_url_name:
+          type: string
+          title: Page Url Name
+        active_keywords:
+          items:
+            $ref: '#/components/schemas/RecommendationKw'
+          type: array
+          title: Active Keywords
+        inactive_keywords:
+          items:
+            $ref: '#/components/schemas/RecommendationKw'
+          type: array
+          title: Inactive Keywords
+      type: object
+      required:
+      - active_keywords
+      - inactive_keywords
+      title: RecommendationKwListResponse
     RecommendationKwPriority:
       properties:
         keyword_id:
@@ -278,6 +301,16 @@ components:
       - keyword_id
       - position
       title: RecommendationKwPriority
+    RecommendationKwListRequest:
+      properties:
+        page_url:
+          type: string
+          title: Page Url
+        page_url_id:
+          type: integer
+          title: Page Url Id
+      type: object
+      title: RecommendationKwListRequest
     ValidationError:
       properties:
         loc:
@@ -299,16 +332,6 @@ components:
       - msg
       - type
       title: ValidationError
-    RecommendationKwListRequest:
-      properties:
-        page_url:
-          type: string
-          title: Page Url
-        page_url_id:
-          type: integer
-          title: Page Url Id
-      type: object
-      title: RecommendationKwListRequest
     RecommendationKw:
       properties:
         keyword_id:
@@ -346,29 +369,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    RecommendationKwListResponse:
-      properties:
-        page_url_id:
-          type: integer
-          title: Page Url Id
-        page_url_name:
-          type: string
-          title: Page Url Name
-        active_keywords:
-          items:
-            $ref: '#/components/schemas/RecommendationKw'
-          type: array
-          title: Active Keywords
-        inactive_keywords:
-          items:
-            $ref: '#/components/schemas/RecommendationKw'
-          type: array
-          title: Inactive Keywords
-      type: object
-      required:
-      - active_keywords
-      - inactive_keywords
-      title: RecommendationKwListResponse
   securitySchemes:
     http_basic:
       type: http

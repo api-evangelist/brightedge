@@ -1,16 +1,16 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: BrightEdge Platform accounts organizations API
+  title: BrightEdge Platform Organizations API
   description: This API provides the ability to integrate with BrightEdge Platform
   version: 5.0.0
 tags:
-- name: organizations
+- name: Organizations
   description: Operation related to organizations
 paths:
   /5.0/objects/organizations/self:
     get:
       tags:
-      - organizations
+      - Organizations
       summary: This call returns the details of this user's organization
       operationId: organizations_self_5_0_objects_organizations_self_get
       responses:
@@ -30,7 +30,7 @@ paths:
   /latest5/objects/organizations/self:
     get:
       tags:
-      - organizations
+      - Organizations
       summary: This call returns the details of this user's organization
       operationId: organizations_self_latest5_objects_organizations_self_get
       responses:
@@ -50,8 +50,8 @@ paths:
   /5.0/organizations/objects/users:
     get:
       tags:
-      - organizations
-      summary: This call returns the details of all active users in this organization with their accounts
+      - Organizations
+      summary: This call returns the details of all active users in this organization with…
       operationId: get_users_5_0_organizations_objects_users_get
       parameters:
       - description: The number of users to return per page.
@@ -97,7 +97,7 @@ paths:
   /5.0/organizations/objects/accounts:
     get:
       tags:
-      - organizations
+      - Organizations
       summary: This call returns the details of all accounts in this organization
       operationId: organizations_bulk_accounts_5_0_organizations_objects_accounts_get
       responses:
@@ -120,8 +120,8 @@ paths:
   /latest5/organizations/objects/users:
     get:
       tags:
-      - organizations
-      summary: This call returns the details of all active users in this organization with their accounts
+      - Organizations
+      summary: This call returns the details of all active users in this organization with…
       operationId: get_users_latest5_organizations_objects_users_get
       parameters:
       - description: The number of users to return per page.
@@ -167,7 +167,7 @@ paths:
   /latest5/organizations/objects/accounts:
     get:
       tags:
-      - organizations
+      - Organizations
       summary: This call returns the details of all accounts in this organization
       operationId: organizations_bulk_accounts_latest5_organizations_objects_accounts_get
       responses:
@@ -190,8 +190,8 @@ paths:
   /5.0/organizations/objects/recommendations:
     get:
       tags:
-      - organizations
-      summary: This call returns a list of recommendations for accounts of the user's organization.
+      - Organizations
+      summary: This call returns a list of recommendations for accounts of the user's…
       operationId: get_recommendation_5_0_organizations_objects_recommendations_get
       parameters:
       - required: true
@@ -255,8 +255,8 @@ paths:
   /latest5/organizations/objects/recommendations:
     get:
       tags:
-      - organizations
-      summary: This call returns a list of recommendations for accounts of the user's organization.
+      - Organizations
+      summary: This call returns a list of recommendations for accounts of the user's…
       operationId: get_recommendation_latest5_organizations_objects_recommendations_get
       parameters:
       - required: true
@@ -320,8 +320,8 @@ paths:
   /5.0/organizations/objects/site_audit_page_group:
     post:
       tags:
-      - organizations
-      summary: This call returns a list of recommendations for accounts of the user's organization.
+      - Organizations
+      summary: This call returns a list of recommendations for accounts of the user's…
       operationId: get_site_audit_page_group_details_5_0_organizations_objects_site_audit_page_group_post
       requestBody:
         content:
@@ -352,8 +352,8 @@ paths:
   /5.0/organizations/objects/site_audit_crawl_report:
     post:
       tags:
-      - organizations
-      summary: This call returns a list of recommendations for accounts of the user's organization.
+      - Organizations
+      summary: This call returns a list of recommendations for accounts of the user's…
       operationId: get_site_audit_crawl_report_5_0_organizations_objects_site_audit_crawl_report_post
       requestBody:
         content:
@@ -384,8 +384,8 @@ paths:
   /latest5/organizations/objects/site_audit_page_group:
     post:
       tags:
-      - organizations
-      summary: This call returns a list of recommendations for accounts of the user's organization.
+      - Organizations
+      summary: This call returns a list of recommendations for accounts of the user's…
       operationId: get_site_audit_page_group_details_latest5_organizations_objects_site_audit_page_group_post
       requestBody:
         content:
@@ -416,8 +416,8 @@ paths:
   /latest5/organizations/objects/site_audit_crawl_report:
     post:
       tags:
-      - organizations
-      summary: This call returns a list of recommendations for accounts of the user's organization.
+      - Organizations
+      summary: This call returns a list of recommendations for accounts of the user's…
       operationId: get_site_audit_crawl_report_latest5_organizations_objects_site_audit_crawl_report_post
       requestBody:
         content:
@@ -447,129 +447,6 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    OrganizationOut:
-      properties:
-        id:
-          type: integer
-          title: Id
-        name:
-          type: string
-          title: Name
-        created_on:
-          type: string
-          format: date-time
-          title: Created On
-        max_accounts:
-          type: integer
-          title: Max Accounts
-        max_competitors:
-          type: integer
-          title: Max Competitors
-      type: object
-      required:
-      - id
-      - name
-      - created_on
-      - max_accounts
-      - max_competitors
-      title: OrganizationOut
-    SiteAuditRulesOut:
-      properties:
-        description:
-          type: string
-          title: Description
-        custom:
-          type: boolean
-          title: Custom
-        value:
-          type: integer
-          title: Value
-      type: object
-      required:
-      - description
-      - custom
-      - value
-      title: SiteAuditRulesOut
-    SiteAuditDimensionsIn:
-      properties:
-        time:
-          type: string
-          title: Time
-      type: object
-      required:
-      - time
-      title: SiteAuditDimensionsIn
-    OrgAccountDetailOut:
-      properties:
-        id:
-          type: integer
-          title: Id
-        name:
-          type: string
-          title: Name
-        created_on_date:
-          type: string
-          format: date-time
-          title: Created On Date
-      type: object
-      required:
-      - id
-      - name
-      - created_on_date
-      title: OrgAccountDetailOut
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    OrganizationUsersOutput:
-      properties:
-        total_pages:
-          type: integer
-          title: Total Pages
-        users:
-          items:
-            $ref: '#/components/schemas/UserOutput'
-          type: array
-          title: Users
-      type: object
-      required:
-      - total_pages
-      - users
-      title: OrganizationUsersOutput
-    SiteAuditReportIn:
-      properties:
-        filters:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Filters
-        offset:
-          items:
-            type: integer
-          type: array
-          title: Offset
-      type: object
-      required:
-      - filters
-      title: SiteAuditReportIn
     SiteAuditPageGroupIn:
       properties:
         filters:
@@ -596,6 +473,34 @@ components:
       - filters
       - dimensionOptions
       title: SiteAuditPageGroupIn
+    SiteAuditReportOut:
+      properties:
+        total:
+          type: integer
+          title: Total
+        count:
+          type: integer
+          title: Count
+        results:
+          items:
+            $ref: '#/components/schemas/SiteAuditCrawlReportOut'
+          type: array
+          title: Results
+      type: object
+      required:
+      - total
+      - count
+      - results
+      title: SiteAuditReportOut
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     SiteAuditResultsOut:
       properties:
         account_id:
@@ -647,6 +552,44 @@ components:
       - error_code
       - rules
       title: SiteAuditResultsOut
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    SiteAuditRulesOut:
+      properties:
+        description:
+          type: string
+          title: Description
+        custom:
+          type: boolean
+          title: Custom
+        value:
+          type: integer
+          title: Value
+      type: object
+      required:
+      - description
+      - custom
+      - value
+      title: SiteAuditRulesOut
     UserOutput:
       properties:
         first_name:
@@ -668,34 +611,6 @@ components:
       - email
       - accounts
       title: UserOutput
-    SiteAuditReportOut:
-      properties:
-        total:
-          type: integer
-          title: Total
-        count:
-          type: integer
-          title: Count
-        results:
-          items:
-            $ref: '#/components/schemas/SiteAuditCrawlReportOut'
-          type: array
-          title: Results
-      type: object
-      required:
-      - total
-      - count
-      - results
-      title: SiteAuditReportOut
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     GeogorianTimeTimeStringType:
       type: string
       enum:
@@ -706,43 +621,32 @@ components:
       - yearly
       title: GeogorianTimeTimeStringType
       description: An enumeration.
-    RecommendationOut:
+    OrganizationOut:
       properties:
-        account_id:
+        id:
           type: integer
-          title: Account Id
-        total_pages:
+          title: Id
+        name:
+          type: string
+          title: Name
+        created_on:
+          type: string
+          format: date-time
+          title: Created On
+        max_accounts:
           type: integer
-          title: Total Pages
-        rules:
-          items: {}
-          type: array
-          title: Rules
+          title: Max Accounts
+        max_competitors:
+          type: integer
+          title: Max Competitors
       type: object
       required:
-      - account_id
-      - total_pages
-      - rules
-      title: RecommendationOut
-    SiteAuditPageGroupOut:
-      properties:
-        total:
-          type: integer
-          title: Total
-        count:
-          type: integer
-          title: Count
-        results:
-          items:
-            $ref: '#/components/schemas/SiteAuditResultsOut'
-          type: array
-          title: Results
-      type: object
-      required:
-      - total
-      - count
-      - results
-      title: SiteAuditPageGroupOut
+      - id
+      - name
+      - created_on
+      - max_accounts
+      - max_competitors
+      title: OrganizationOut
     SiteAuditCrawlReportOut:
       properties:
         account_id:
@@ -790,6 +694,102 @@ components:
       - crawl_status
       - page_details
       title: SiteAuditCrawlReportOut
+    SiteAuditReportIn:
+      properties:
+        filters:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Filters
+        offset:
+          items:
+            type: integer
+          type: array
+          title: Offset
+      type: object
+      required:
+      - filters
+      title: SiteAuditReportIn
+    OrganizationUsersOutput:
+      properties:
+        total_pages:
+          type: integer
+          title: Total Pages
+        users:
+          items:
+            $ref: '#/components/schemas/UserOutput'
+          type: array
+          title: Users
+      type: object
+      required:
+      - total_pages
+      - users
+      title: OrganizationUsersOutput
+    RecommendationOut:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        total_pages:
+          type: integer
+          title: Total Pages
+        rules:
+          items: {}
+          type: array
+          title: Rules
+      type: object
+      required:
+      - account_id
+      - total_pages
+      - rules
+      title: RecommendationOut
+    SiteAuditPageGroupOut:
+      properties:
+        total:
+          type: integer
+          title: Total
+        count:
+          type: integer
+          title: Count
+        results:
+          items:
+            $ref: '#/components/schemas/SiteAuditResultsOut'
+          type: array
+          title: Results
+      type: object
+      required:
+      - total
+      - count
+      - results
+      title: SiteAuditPageGroupOut
+    SiteAuditDimensionsIn:
+      properties:
+        time:
+          type: string
+          title: Time
+      type: object
+      required:
+      - time
+      title: SiteAuditDimensionsIn
+    OrgAccountDetailOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+        created_on_date:
+          type: string
+          format: date-time
+          title: Created On Date
+      type: object
+      required:
+      - id
+      - name
+      - created_on_date
+      title: OrgAccountDetailOut
   securitySchemes:
     http_basic:
       type: http

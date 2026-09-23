@@ -1,16 +1,16 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: BrightEdge Platform accounts backlinks API
+  title: BrightEdge Platform Backlinks API
   description: This API provides the ability to integrate with BrightEdge Platform
   version: 5.0.0
 tags:
-- name: backlinks
+- name: Backlinks
   description: Operation related to backlinks
 paths:
   /5.0/objects/backlinks/{account_id}:
     get:
       tags:
-      - backlinks
+      - Backlinks
       summary: This call returns backlinks url and page authority score for given account id
       operationId: get_backlink_url_score_5_0_objects_backlinks__account_id__get
       parameters:
@@ -66,7 +66,7 @@ paths:
   /latest5/objects/backlinks/{account_id}:
     get:
       tags:
-      - backlinks
+      - Backlinks
       summary: This call returns backlinks url and page authority score for given account id
       operationId: get_backlink_url_score_latest5_objects_backlinks__account_id__get
       parameters:

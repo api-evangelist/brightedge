@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: BrightEdge Platform accounts product_grid API
+  title: BrightEdge Platform Product Grid API
   description: This API provides the ability to integrate with BrightEdge Platform
   version: 5.0.0
 tags:
@@ -611,41 +611,140 @@ paths:
       - session_header: []
 components:
   schemas:
-    ValidationError:
+    PresenceTrendChartItem:
       properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
+        time:
+          type: integer
+          title: Time
+        product_grid_presence:
+          type: integer
+          title: Product Grid Presence
+        only_product_grid:
+          type: integer
+          title: Only Product Grid
+        regular_presence:
+          type: integer
+          title: Regular Presence
+        all_presence:
+          type: integer
+          title: All Presence
+        absent:
+          type: integer
+          title: Absent
+        total_keywords:
+          type: integer
+          title: Total Keywords
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    CSVKeywordGroupMetricsExportRequest:
+      - time
+      - product_grid_presence
+      - only_product_grid
+      - regular_presence
+      - all_presence
+      - absent
+      title: PresenceTrendChartItem
+      description: Keywords with product grid presence item model.
+    TopSellersTrendChartInputModel:
       properties:
-        body:
-          $ref: '#/components/schemas/KeywordGroupMetricsInputModel'
-        columns:
+        account_id:
+          type: integer
+          title: Account Id
+        domain_id:
+          type: integer
+          title: Domain Id
+        time_frequency:
+          type: string
+          title: Time Frequency
+        compare_time_range:
           items:
-            $ref: '#/components/schemas/ColumnConfig'
+            type: integer
           type: array
-          title: Columns
+          title: Compare Time Range
+        search_engine:
+          items: {}
+          type: array
+          title: Search Engine
+          description: search engine
+        filters:
+          items:
+            items:
+              anyOf:
+              - type: string
+              - items:
+                  type: integer
+                type: array
+              - items: {}
+                type: array
+            type: array
+          type: array
+          title: Filters
+          description: filters
+        pagination:
+          allOf:
+          - $ref: '#/components/schemas/PaginationInput'
+          title: Pagination
+          description: Pagination
+        sort_by:
+          type: string
+          title: Sort By
+          description: Sort by
+        order:
+          type: string
+          title: Order
+          description: Sort order
+        current_domain_filter:
+          type: boolean
+          title: Current Domain Filter
+          description: Current domain filter
+        is_branded:
+          type: boolean
+          title: Is Branded
+          description: If the query should filter by branded keywords.
+        keyword_groups:
+          items:
+            type: integer
+          type: array
+          title: Keyword Groups
+          description: Keyword group
+        presence_filter:
+          items:
+            type: integer
+          type: array
+          title: Presence Filter
+          description: Domain presence filter
+        domain_presence_filter:
+          items:
+            type: integer
+          type: array
+          title: Domain Presence Filter
+          description: Domain presence filter
+        product_grid_presence_filter:
+          type: integer
+          title: Product Grid Presence Filter
+          description: Product grid presence filter
+        time_value:
+          items:
+            type: integer
+          type: array
+          maxItems: 2
+          minItems: 2
+          title: Time Value
+        is_lr_enhancement_enabled:
+          type: boolean
+          title: Is Lr Enhancement Enabled
+          description: Enable LR enhancement features
+          default: false
+        page_num:
+          type: integer
+          title: Page Num
+          description: Page num 1 results
       type: object
       required:
-      - body
-      - columns
-      title: CSVKeywordGroupMetricsExportRequest
+      - account_id
+      - time_frequency
+      - search_engine
+      title: TopSellersTrendChartInputModel
+      description: Input model for top sellers trend chart.
     KeywordsWithProductGridPresenceResult:
       properties:
         data:
@@ -658,6 +757,151 @@ components:
       - data
       title: KeywordsWithProductGridPresenceResult
       description: Keywords with product grid presence item model.
+    GridTypesTrendChartResult:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/GridTypesTrendChartTypeItem'
+          type: array
+          title: Data
+        total:
+          type: integer
+          title: Total
+      type: object
+      required:
+      - data
+      - total
+      title: GridTypesTrendChartResult
+      description: Grid types trend chart result model.
+    KeywordMetricsItem:
+      properties:
+        id:
+          type: integer
+          title: Id
+        keyword:
+          type: string
+          title: Keyword
+        group_titles:
+          items:
+            type: string
+          type: array
+          title: Group Titles
+        stores:
+          items:
+            type: string
+          type: array
+          title: Stores
+        search_volume:
+          type: integer
+          title: Search Volume
+        search_volume_diff:
+          type: integer
+          title: Search Volume Diff
+        search_volume_diffpercent:
+          type: number
+          title: Search Volume Diffpercent
+        clicks:
+          type: integer
+          title: Clicks
+        clicks_diff:
+          type: integer
+          title: Clicks Diff
+        clicks_diffpercent:
+          type: number
+          title: Clicks Diffpercent
+        blended_rank:
+          type: number
+          title: Blended Rank
+        blended_rank_diff:
+          type: number
+          title: Blended Rank Diff
+        blended_rank_diffpercent:
+          type: number
+          title: Blended Rank Diffpercent
+        tile_rank:
+          type: number
+          title: Tile Rank
+        tile_rank_diff:
+          type: number
+          title: Tile Rank Diff
+        tile_rank_diffpercent:
+          type: number
+          title: Tile Rank Diffpercent
+        domain_presence_product_grids_count:
+          type: integer
+          title: Domain Presence Product Grids Count
+        total_product_grid_presence_count:
+          type: integer
+          title: Total Product Grid Presence Count
+        domain_presence_top_grid_rank:
+          type: integer
+          title: Domain Presence Top Grid Rank
+        domain_presence_top_grid_rank_diff:
+          type: integer
+          title: Domain Presence Top Grid Rank Diff
+        domain_presence_top_grid_rank_prev:
+          type: integer
+          title: Domain Presence Top Grid Rank Prev
+        grid_presence_ratio:
+          type: number
+          title: Grid Presence Ratio
+      type: object
+      required:
+      - id
+      - keyword
+      - group_titles
+      - stores
+      - search_volume
+      - search_volume_diff
+      - search_volume_diffpercent
+      - clicks
+      - clicks_diff
+      - clicks_diffpercent
+      - blended_rank
+      - blended_rank_diff
+      - blended_rank_diffpercent
+      - tile_rank
+      - tile_rank_diff
+      - tile_rank_diffpercent
+      - domain_presence_product_grids_count
+      - total_product_grid_presence_count
+      - domain_presence_top_grid_rank
+      - domain_presence_top_grid_rank_diff
+      - domain_presence_top_grid_rank_prev
+      - grid_presence_ratio
+      title: KeywordMetricsItem
+      description: Keyword metrics item model.
+    KeywordMetricsResult:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/KeywordMetricsItem'
+          type: array
+          title: Data
+        total:
+          type: integer
+          title: Total
+        branded_keywords:
+          type: integer
+          title: Branded Keywords
+        non_branded_keywords:
+          type: integer
+          title: Non Branded Keywords
+      type: object
+      required:
+      - data
+      - total
+      title: KeywordMetricsResult
+    AccountInputModel:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+      type: object
+      required:
+      - account_id
+      title: AccountInputModel
+      description: Account input model.
     PresenceTrendChartResult:
       properties:
         data:
@@ -674,60 +918,34 @@ components:
       - total
       title: PresenceTrendChartResult
       description: Presence trend chart result model.
-    GridTypesTrendChartTimeItem:
+    CSVKeywordMetricsExportRequest:
       properties:
-        time:
-          type: integer
-          title: Time
-        keywords:
-          type: integer
-          title: Keywords
+        body:
+          $ref: '#/components/schemas/KeywordsMetricsInputModel'
+        columns:
+          items:
+            $ref: '#/components/schemas/ColumnConfig'
+          type: array
+          title: Columns
       type: object
       required:
-      - time
-      - keywords
-      title: GridTypesTrendChartTimeItem
-      description: Grid types trend chart time item model.
-    HTTPValidationError:
+      - body
+      - columns
+      title: CSVKeywordMetricsExportRequest
+    CSVKeywordGroupMetricsExportRequest:
       properties:
-        detail:
+        body:
+          $ref: '#/components/schemas/KeywordGroupMetricsInputModel'
+        columns:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: '#/components/schemas/ColumnConfig'
           type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    GridTypesTrendChartTypeItem:
-      properties:
-        group_title:
-          type: string
-          title: Group Title
-        results:
-          items:
-            $ref: '#/components/schemas/GridTypesTrendChartTimeItem'
-          type: array
-          title: Results
+          title: Columns
       type: object
       required:
-      - group_title
-      - results
-      title: GridTypesTrendChartTypeItem
-      description: Grid types trend chart type item model.
-    TopSellersTrendChartResult:
-      properties:
-        data:
-          items:
-            type: object
-          type: array
-          title: Data
-        total:
-          type: integer
-          title: Total
-      type: object
-      required:
-      - data
-      - total
-      title: TopSellersTrendChartResult
+      - body
+      - columns
+      title: CSVKeywordGroupMetricsExportRequest
     KeywordGroupMetricsItem:
       properties:
         keywordgroup:
@@ -929,20 +1147,20 @@ components:
       - search_volume_with_domain_presence_prev
       - avg_grid_count_with_domain_presence
       title: KeywordGroupMetricsItem
-    CSVKeywordMetricsExportRequest:
+    GridTypesTrendChartTimeItem:
       properties:
-        body:
-          $ref: '#/components/schemas/KeywordsMetricsInputModel'
-        columns:
-          items:
-            $ref: '#/components/schemas/ColumnConfig'
-          type: array
-          title: Columns
+        time:
+          type: integer
+          title: Time
+        keywords:
+          type: integer
+          title: Keywords
       type: object
       required:
-      - body
-      - columns
-      title: CSVKeywordMetricsExportRequest
+      - time
+      - keywords
+      title: GridTypesTrendChartTimeItem
+      description: Grid types trend chart time item model.
     ColumnConfig:
       properties:
         field:
@@ -960,6 +1178,42 @@ components:
       - title
       - type
       title: ColumnConfig
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    TopProductsTrendChartResult:
+      properties:
+        data:
+          items:
+            type: object
+          type: array
+          title: Data
+        total:
+          type: integer
+          title: Total
+      type: object
+      required:
+      - data
+      - total
+      title: TopProductsTrendChartResult
     KeywordsMetricsInputModel:
       properties:
         account_id:
@@ -1083,50 +1337,6 @@ components:
       - data
       - total
       title: KeywordGroupMetricsResult
-    PaginationInput:
-      properties:
-        limit:
-          type: integer
-          title: Limit
-          default: 30000
-        offset:
-          type: integer
-          title: Offset
-          default: 0
-      type: object
-      title: PaginationInput
-      description: Pagination input model.
-    AccountInputModel:
-      properties:
-        account_id:
-          type: integer
-          title: Account Id
-      type: object
-      required:
-      - account_id
-      title: AccountInputModel
-      description: Account input model.
-    KeywordMetricsResult:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/KeywordMetricsItem'
-          type: array
-          title: Data
-        total:
-          type: integer
-          title: Total
-        branded_keywords:
-          type: integer
-          title: Branded Keywords
-        non_branded_keywords:
-          type: integer
-          title: Non Branded Keywords
-      type: object
-      required:
-      - data
-      - total
-      title: KeywordMetricsResult
     KeywordsWithProductGridPresenceInputModel:
       properties:
         account_id:
@@ -1230,165 +1440,6 @@ components:
       - search_engine
       title: KeywordsWithProductGridPresenceInputModel
       description: Base time range input model.
-    TopSellersTrendChartInputModel:
-      properties:
-        account_id:
-          type: integer
-          title: Account Id
-        domain_id:
-          type: integer
-          title: Domain Id
-        time_frequency:
-          type: string
-          title: Time Frequency
-        compare_time_range:
-          items:
-            type: integer
-          type: array
-          title: Compare Time Range
-        search_engine:
-          items: {}
-          type: array
-          title: Search Engine
-          description: search engine
-        filters:
-          items:
-            items:
-              anyOf:
-              - type: string
-              - items:
-                  type: integer
-                type: array
-              - items: {}
-                type: array
-            type: array
-          type: array
-          title: Filters
-          description: filters
-        pagination:
-          allOf:
-          - $ref: '#/components/schemas/PaginationInput'
-          title: Pagination
-          description: Pagination
-        sort_by:
-          type: string
-          title: Sort By
-          description: Sort by
-        order:
-          type: string
-          title: Order
-          description: Sort order
-        current_domain_filter:
-          type: boolean
-          title: Current Domain Filter
-          description: Current domain filter
-        is_branded:
-          type: boolean
-          title: Is Branded
-          description: If the query should filter by branded keywords.
-        keyword_groups:
-          items:
-            type: integer
-          type: array
-          title: Keyword Groups
-          description: Keyword group
-        presence_filter:
-          items:
-            type: integer
-          type: array
-          title: Presence Filter
-          description: Domain presence filter
-        domain_presence_filter:
-          items:
-            type: integer
-          type: array
-          title: Domain Presence Filter
-          description: Domain presence filter
-        product_grid_presence_filter:
-          type: integer
-          title: Product Grid Presence Filter
-          description: Product grid presence filter
-        time_value:
-          items:
-            type: integer
-          type: array
-          maxItems: 2
-          minItems: 2
-          title: Time Value
-        is_lr_enhancement_enabled:
-          type: boolean
-          title: Is Lr Enhancement Enabled
-          description: Enable LR enhancement features
-          default: false
-        page_num:
-          type: integer
-          title: Page Num
-          description: Page num 1 results
-      type: object
-      required:
-      - account_id
-      - time_frequency
-      - search_engine
-      title: TopSellersTrendChartInputModel
-      description: Input model for top sellers trend chart.
-    GridTypesTrendChartResult:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/GridTypesTrendChartTypeItem'
-          type: array
-          title: Data
-        total:
-          type: integer
-          title: Total
-      type: object
-      required:
-      - data
-      - total
-      title: GridTypesTrendChartResult
-      description: Grid types trend chart result model.
-    KeywordsWithProductGridPresenceItem:
-      properties:
-        time:
-          type: integer
-          title: Time
-        product_grid_presence_number:
-          type: integer
-          title: Product Grid Presence Number
-        clicks:
-          type: integer
-          title: Clicks
-        search_volume:
-          type: integer
-          title: Search Volume
-        tile_rank:
-          type: number
-          title: Tile Rank
-        blended_rank:
-          type: number
-          title: Blended Rank
-        keywords_with_domain_presence:
-          type: integer
-          title: Keywords With Domain Presence
-        avg_top_grid_rank:
-          type: number
-          title: Avg Top Grid Rank
-        avg_grid_count:
-          type: number
-          title: Avg Grid Count
-      type: object
-      required:
-      - time
-      - product_grid_presence_number
-      - clicks
-      - search_volume
-      - tile_rank
-      - blended_rank
-      - keywords_with_domain_presence
-      - avg_top_grid_rank
-      - avg_grid_count
-      title: KeywordsWithProductGridPresenceItem
-      description: Keywords with product grid presence item model.
     KeywordGroupMetricsInputModel:
       properties:
         account_id:
@@ -1497,7 +1548,7 @@ components:
       - search_engine
       title: KeywordGroupMetricsInputModel
       description: Input model for keyword metrics.
-    TopProductsTrendChartResult:
+    TopSellersTrendChartResult:
       properties:
         data:
           items:
@@ -1511,7 +1562,87 @@ components:
       required:
       - data
       - total
-      title: TopProductsTrendChartResult
+      title: TopSellersTrendChartResult
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    KeywordsWithProductGridPresenceItem:
+      properties:
+        time:
+          type: integer
+          title: Time
+        product_grid_presence_number:
+          type: integer
+          title: Product Grid Presence Number
+        clicks:
+          type: integer
+          title: Clicks
+        search_volume:
+          type: integer
+          title: Search Volume
+        tile_rank:
+          type: number
+          title: Tile Rank
+        blended_rank:
+          type: number
+          title: Blended Rank
+        keywords_with_domain_presence:
+          type: integer
+          title: Keywords With Domain Presence
+        avg_top_grid_rank:
+          type: number
+          title: Avg Top Grid Rank
+        avg_grid_count:
+          type: number
+          title: Avg Grid Count
+      type: object
+      required:
+      - time
+      - product_grid_presence_number
+      - clicks
+      - search_volume
+      - tile_rank
+      - blended_rank
+      - keywords_with_domain_presence
+      - avg_top_grid_rank
+      - avg_grid_count
+      title: KeywordsWithProductGridPresenceItem
+      description: Keywords with product grid presence item model.
+    GridTypesTrendChartTypeItem:
+      properties:
+        group_title:
+          type: string
+          title: Group Title
+        results:
+          items:
+            $ref: '#/components/schemas/GridTypesTrendChartTimeItem'
+          type: array
+          title: Results
+      type: object
+      required:
+      - group_title
+      - results
+      title: GridTypesTrendChartTypeItem
+      description: Grid types trend chart type item model.
+    PaginationInput:
+      properties:
+        limit:
+          type: integer
+          title: Limit
+          default: 30000
+        offset:
+          type: integer
+          title: Offset
+          default: 0
+      type: object
+      title: PaginationInput
+      description: Pagination input model.
     TopProductsTrendChartInputModel:
       properties:
         account_id:
@@ -1613,137 +1744,6 @@ components:
       - search_engine
       title: TopProductsTrendChartInputModel
       description: Input model for top products trend chart.
-    KeywordMetricsItem:
-      properties:
-        id:
-          type: integer
-          title: Id
-        keyword:
-          type: string
-          title: Keyword
-        group_titles:
-          items:
-            type: string
-          type: array
-          title: Group Titles
-        stores:
-          items:
-            type: string
-          type: array
-          title: Stores
-        search_volume:
-          type: integer
-          title: Search Volume
-        search_volume_diff:
-          type: integer
-          title: Search Volume Diff
-        search_volume_diffpercent:
-          type: number
-          title: Search Volume Diffpercent
-        clicks:
-          type: integer
-          title: Clicks
-        clicks_diff:
-          type: integer
-          title: Clicks Diff
-        clicks_diffpercent:
-          type: number
-          title: Clicks Diffpercent
-        blended_rank:
-          type: number
-          title: Blended Rank
-        blended_rank_diff:
-          type: number
-          title: Blended Rank Diff
-        blended_rank_diffpercent:
-          type: number
-          title: Blended Rank Diffpercent
-        tile_rank:
-          type: number
-          title: Tile Rank
-        tile_rank_diff:
-          type: number
-          title: Tile Rank Diff
-        tile_rank_diffpercent:
-          type: number
-          title: Tile Rank Diffpercent
-        domain_presence_product_grids_count:
-          type: integer
-          title: Domain Presence Product Grids Count
-        total_product_grid_presence_count:
-          type: integer
-          title: Total Product Grid Presence Count
-        domain_presence_top_grid_rank:
-          type: integer
-          title: Domain Presence Top Grid Rank
-        domain_presence_top_grid_rank_diff:
-          type: integer
-          title: Domain Presence Top Grid Rank Diff
-        domain_presence_top_grid_rank_prev:
-          type: integer
-          title: Domain Presence Top Grid Rank Prev
-        grid_presence_ratio:
-          type: number
-          title: Grid Presence Ratio
-      type: object
-      required:
-      - id
-      - keyword
-      - group_titles
-      - stores
-      - search_volume
-      - search_volume_diff
-      - search_volume_diffpercent
-      - clicks
-      - clicks_diff
-      - clicks_diffpercent
-      - blended_rank
-      - blended_rank_diff
-      - blended_rank_diffpercent
-      - tile_rank
-      - tile_rank_diff
-      - tile_rank_diffpercent
-      - domain_presence_product_grids_count
-      - total_product_grid_presence_count
-      - domain_presence_top_grid_rank
-      - domain_presence_top_grid_rank_diff
-      - domain_presence_top_grid_rank_prev
-      - grid_presence_ratio
-      title: KeywordMetricsItem
-      description: Keyword metrics item model.
-    PresenceTrendChartItem:
-      properties:
-        time:
-          type: integer
-          title: Time
-        product_grid_presence:
-          type: integer
-          title: Product Grid Presence
-        only_product_grid:
-          type: integer
-          title: Only Product Grid
-        regular_presence:
-          type: integer
-          title: Regular Presence
-        all_presence:
-          type: integer
-          title: All Presence
-        absent:
-          type: integer
-          title: Absent
-        total_keywords:
-          type: integer
-          title: Total Keywords
-      type: object
-      required:
-      - time
-      - product_grid_presence
-      - only_product_grid
-      - regular_presence
-      - all_presence
-      - absent
-      title: PresenceTrendChartItem
-      description: Keywords with product grid presence item model.
   securitySchemes:
     http_basic:
       type: http

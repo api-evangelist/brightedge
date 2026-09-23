@@ -1,0 +1,35 @@
+# Front Door AI Index — brightedge — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: brightedge
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.brightedge.com
+  final_host: www.brightedge.com
+  ownership: own
+  owner: brightedge
+  shares_host_with:
+  - brightedge-technologies
+  inherited_from: null
+  verdict: scored
+  score: 94
+  host_score: 94
+  density: 56.42
+  words: 1666
+  tiers:
+    agentic: 11
+    core: 75
+    model: 8
+  ambiguous: 15
+  top_terms:
+    AI: 71
+    ChatGPT: 8
+    agent: 8
+    intelligence: 7
+    AI agent: 5
+    copilot: 3
+    LLMs: 2
+    MCP: 2
+    gen ai: 2
+    AI assistant: 1

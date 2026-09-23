@@ -1,16 +1,16 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: BrightEdge Platform accounts users API
+  title: BrightEdge Platform Users API
   description: This API provides the ability to integrate with BrightEdge Platform
   version: 5.0.0
 tags:
-- name: users
+- name: Users
   description: Operation related to users
 paths:
   /5.0/objects/users/create:
     post:
       tags:
-      - users
+      - Users
       summary: Create a new user
       description: 'Create a new user.
 
@@ -45,7 +45,7 @@ paths:
   /5.0/objects/users/update:
     post:
       tags:
-      - users
+      - Users
       summary: Update user details
       description: 'Update existing user.
 
@@ -80,7 +80,7 @@ paths:
   /5.0/objects/users/{login}:
     delete:
       tags:
-      - users
+      - Users
       summary: Delete a user
       description: 'Delete existing user.
 
@@ -117,7 +117,7 @@ paths:
   /5.0/objects/users/grant_account_access:
     post:
       tags:
-      - users
+      - Users
       summary: Grant account access to user
       description: 'Grant access to multiple accounts for a user.
 
@@ -152,7 +152,7 @@ paths:
   /5.0/objects/users/revoke_account_access:
     post:
       tags:
-      - users
+      - Users
       summary: Revoke account access from user
       description: 'Grant access to multiple accounts for a user.
 
@@ -187,7 +187,7 @@ paths:
   /5.0/objects/users/bulk-create:
     post:
       tags:
-      - users
+      - Users
       summary: Bulk create users
       operationId: bulk_create_users_5_0_objects_users_bulk_create_post
       requestBody:
@@ -218,7 +218,7 @@ paths:
   /5.0/objects/users/bulk-update:
     post:
       tags:
-      - users
+      - Users
       summary: Bulk update users
       operationId: bulk_update_users_5_0_objects_users_bulk_update_post
       requestBody:
@@ -249,7 +249,7 @@ paths:
   /5.0/objects/users/bulk-delete:
     post:
       tags:
-      - users
+      - Users
       summary: Bulk delete users
       operationId: bulk_delete_users_5_0_objects_users_bulk_delete_post
       requestBody:
@@ -280,7 +280,7 @@ paths:
   /latest5/objects/users/create:
     post:
       tags:
-      - users
+      - Users
       summary: Create a new user
       description: 'Create a new user.
 
@@ -315,7 +315,7 @@ paths:
   /latest5/objects/users/update:
     post:
       tags:
-      - users
+      - Users
       summary: Update user details
       description: 'Update existing user.
 
@@ -350,7 +350,7 @@ paths:
   /latest5/objects/users/{login}:
     delete:
       tags:
-      - users
+      - Users
       summary: Delete a user
       description: 'Delete existing user.
 
@@ -387,7 +387,7 @@ paths:
   /latest5/objects/users/grant_account_access:
     post:
       tags:
-      - users
+      - Users
       summary: Grant account access to user
       description: 'Grant access to multiple accounts for a user.
 
@@ -422,7 +422,7 @@ paths:
   /latest5/objects/users/revoke_account_access:
     post:
       tags:
-      - users
+      - Users
       summary: Revoke account access from user
       description: 'Grant access to multiple accounts for a user.
 
@@ -457,7 +457,7 @@ paths:
   /latest5/objects/users/bulk-create:
     post:
       tags:
-      - users
+      - Users
       summary: Bulk create users
       operationId: bulk_create_users_latest5_objects_users_bulk_create_post
       requestBody:
@@ -488,7 +488,7 @@ paths:
   /latest5/objects/users/bulk-update:
     post:
       tags:
-      - users
+      - Users
       summary: Bulk update users
       operationId: bulk_update_users_latest5_objects_users_bulk_update_post
       requestBody:
@@ -519,7 +519,7 @@ paths:
   /latest5/objects/users/bulk-delete:
     post:
       tags:
-      - users
+      - Users
       summary: Bulk delete users
       operationId: bulk_delete_users_latest5_objects_users_bulk_delete_post
       requestBody:
@@ -549,35 +549,58 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    BulkCreateUserRequest:
+    UserDeleteResponse:
       properties:
-        users:
-          items:
-            $ref: '#/components/schemas/CreateUserRequest'
-          type: array
-          title: Users
+        message:
+          type: string
+          title: Message
       type: object
       required:
-      - users
-      title: BulkCreateUserRequest
-    UserAccountAccessRequest:
+      - message
+      title: UserDeleteResponse
+    UpdateUserRequest:
       properties:
         login:
           type: string
           format: email
           title: Login
           description: User login/email
-        account_ids:
-          items:
-            type: integer
-          type: array
-          title: Account Ids
-          description: List of account IDs to change access
+        firstname:
+          type: string
+          title: Firstname
+          description: User's first name
+        lastname:
+          type: string
+          title: Lastname
+          description: User's last name
+        email:
+          type: string
+          format: email
+          title: Email
+          description: User's email
+        title:
+          type: string
+          title: Title
+          description: User's title
+        phone:
+          type: string
+          title: Phone
+          description: User's phone number
+        locale:
+          type: string
+          title: Locale
+          description: User's locale
+        profile:
+          type: integer
+          title: Profile
+          description: Users's profile
+        address:
+          type: string
+          title: Address
       type: object
       required:
       - login
-      - account_ids
-      title: UserAccountAccessRequest
+      title: UpdateUserRequest
     CreateUserRequest:
       properties:
         org_id:
@@ -623,25 +646,47 @@ components:
       - account_id
       - login
       title: CreateUserRequest
-    UserAccountAccessResponse:
+    BulkDeleteUserRequest:
       properties:
-        success:
-          type: boolean
-          title: Success
-        message:
+        logins:
+          items:
+            type: string
+            format: email
+          type: array
+          title: Logins
+      type: object
+      required:
+      - logins
+      title: BulkDeleteUserRequest
+    BulkUpdateUserRequest:
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/UpdateUserRequest'
+          type: array
+          title: Users
+      type: object
+      required:
+      - users
+      title: BulkUpdateUserRequest
+    UserAccountAccessRequest:
+      properties:
+        login:
           type: string
-          title: Message
-        access_modified_account_ids:
+          format: email
+          title: Login
+          description: User login/email
+        account_ids:
           items:
             type: integer
           type: array
-          title: Access Modified Account Ids
-          description: List of account IDs access changed
+          title: Account Ids
+          description: List of account IDs to change access
       type: object
       required:
-      - success
-      - message
-      title: UserAccountAccessResponse
+      - login
+      - account_ids
+      title: UserAccountAccessRequest
     ValidationError:
       properties:
         loc:
@@ -663,103 +708,6 @@ components:
       - msg
       - type
       title: ValidationError
-    UserDeleteResponse:
-      properties:
-        message:
-          type: string
-          title: Message
-      type: object
-      required:
-      - message
-      title: UserDeleteResponse
-    BulkDeleteUserRequest:
-      properties:
-        logins:
-          items:
-            type: string
-            format: email
-          type: array
-          title: Logins
-      type: object
-      required:
-      - logins
-      title: BulkDeleteUserRequest
-    UserCreateResponse:
-      properties:
-        success:
-          type: boolean
-          title: Success
-        message:
-          type: string
-          title: Message
-      type: object
-      required:
-      - success
-      - message
-      title: UserCreateResponse
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    BulkUpdateUserRequest:
-      properties:
-        users:
-          items:
-            $ref: '#/components/schemas/UpdateUserRequest'
-          type: array
-          title: Users
-      type: object
-      required:
-      - users
-      title: BulkUpdateUserRequest
-    UpdateUserRequest:
-      properties:
-        login:
-          type: string
-          format: email
-          title: Login
-          description: User login/email
-        firstname:
-          type: string
-          title: Firstname
-          description: User's first name
-        lastname:
-          type: string
-          title: Lastname
-          description: User's last name
-        email:
-          type: string
-          format: email
-          title: Email
-          description: User's email
-        title:
-          type: string
-          title: Title
-          description: User's title
-        phone:
-          type: string
-          title: Phone
-          description: User's phone number
-        locale:
-          type: string
-          title: Locale
-          description: User's locale
-        profile:
-          type: integer
-          title: Profile
-          description: Users's profile
-        address:
-          type: string
-          title: Address
-      type: object
-      required:
-      - login
-      title: UpdateUserRequest
     UserUpdateResponse:
       properties:
         status:
@@ -773,6 +721,58 @@ components:
       - status
       - message
       title: UserUpdateResponse
+    BulkCreateUserRequest:
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/CreateUserRequest'
+          type: array
+          title: Users
+      type: object
+      required:
+      - users
+      title: BulkCreateUserRequest
+    UserCreateResponse:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+      type: object
+      required:
+      - success
+      - message
+      title: UserCreateResponse
+    UserAccountAccessResponse:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        access_modified_account_ids:
+          items:
+            type: integer
+          type: array
+          title: Access Modified Account Ids
+          description: List of account IDs access changed
+      type: object
+      required:
+      - success
+      - message
+      title: UserAccountAccessResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
   securitySchemes:
     http_basic:
       type: http

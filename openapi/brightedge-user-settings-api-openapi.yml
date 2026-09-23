@@ -1,15 +1,15 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: BrightEdge Platform accounts user_settings API
+  title: BrightEdge Platform User Settings API
   description: This API provides the ability to integrate with BrightEdge Platform
   version: 5.0.0
 tags:
-- name: user_settings
+- name: User Settings
 paths:
   /5.0/user_settings/recommendations/{account_id}:
     get:
       tags:
-      - user_settings
+      - User Settings
       summary: This call return the user settings for recommendations
       operationId: get_siteaudit_settings_5_0_user_settings_recommendations__account_id__get
       parameters:
@@ -41,7 +41,7 @@ paths:
   /5.0/user_settings/seteaudit/{account_id}/{preset_id}:
     get:
       tags:
-      - user_settings
+      - User Settings
       summary: This call return the user settings for site audit
       operationId: get_siteaudit_settings_5_0_user_settings_seteaudit__account_id___preset_id__get
       parameters:
@@ -79,7 +79,7 @@ paths:
   /latest5/user_settings/recommendations/{account_id}:
     get:
       tags:
-      - user_settings
+      - User Settings
       summary: This call return the user settings for recommendations
       operationId: get_siteaudit_settings_latest5_user_settings_recommendations__account_id__get
       parameters:
@@ -111,7 +111,7 @@ paths:
   /latest5/user_settings/seteaudit/{account_id}/{preset_id}:
     get:
       tags:
-      - user_settings
+      - User Settings
       summary: This call return the user settings for site audit
       operationId: get_siteaudit_settings_latest5_user_settings_seteaudit__account_id___preset_id__get
       parameters:

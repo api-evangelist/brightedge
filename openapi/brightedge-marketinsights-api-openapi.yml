@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: BrightEdge Platform accounts marketinsights API
+  title: BrightEdge Platform Marketinsights API
   description: This API provides the ability to integrate with BrightEdge Platform
   version: 5.0.0
 tags:
@@ -11,7 +11,7 @@ paths:
     get:
       tags:
       - marketinsights
-      summary: Returns the list of reports available for downloading.
+      summary: Returns the list of reports available for downloading
       description: Endpoint returns list of documents available for downloading.
       operationId: market_insights_data_request_5_0_organizations_marketinsights_data__date_id__get
       parameters:
@@ -68,7 +68,7 @@ paths:
     get:
       tags:
       - marketinsights
-      summary: Returns market insight report in csv format.
+      summary: Returns market insight report in csv format
       description: 'Endpoint streams chosen csv report file. File chunks will be compressed using gzip
 
         if "gzip" is added to "Accept-Encoding" header of the request.'
@@ -131,7 +131,7 @@ paths:
     get:
       tags:
       - marketinsights
-      summary: Returns the list of reports available for downloading.
+      summary: Returns the list of reports available for downloading
       description: Endpoint returns list of documents available for downloading.
       operationId: market_insights_data_request_latest5_organizations_marketinsights_data__date_id__get
       parameters:
@@ -188,7 +188,7 @@ paths:
     get:
       tags:
       - marketinsights
-      summary: Returns market insight report in csv format.
+      summary: Returns market insight report in csv format
       description: 'Endpoint streams chosen csv report file. File chunks will be compressed using gzip
 
         if "gzip" is added to "Accept-Encoding" header of the request.'

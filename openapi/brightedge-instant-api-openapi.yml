@@ -1,15 +1,15 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: BrightEdge Platform accounts instant API
+  title: BrightEdge Platform Instant API
   description: This API provides the ability to integrate with BrightEdge Platform
   version: 5.0.0
 tags:
-- name: instant
+- name: Instant
 paths:
   /5.0/instant/keywordIdeas/{organization_id}/{request_id}:
     post:
       tags:
-      - instant
+      - Instant
       summary: Get Kw Ideas Result
       description: This endpoint return result
       operationId: get_kw_ideas_result_5_0_instant_keywordIdeas__organization_id___request_id__post
@@ -63,7 +63,7 @@ paths:
   /5.0/instant/keywordIdeas/{organization_id}:
     post:
       tags:
-      - instant
+      - Instant
       summary: Submit Kw For Ideas
       description: This endpoint receive keywords for ideas
       operationId: submit_kw_for_ideas_5_0_instant_keywordIdeas__organization_id__post
@@ -96,7 +96,7 @@ paths:
   /5.0/instant/webhook/{provider}/kw_ideas/{request_id}:
     post:
       tags:
-      - instant
+      - Instant
       summary: Process Webhook
       description: This endpoint handle webhook from oxylabs
       operationId: process_webhook_5_0_instant_webhook__provider__kw_ideas__request_id__post
@@ -135,7 +135,7 @@ paths:
   /latest5/instant/keywordIdeas/{organization_id}/{request_id}:
     post:
       tags:
-      - instant
+      - Instant
       summary: Get Kw Ideas Result
       description: This endpoint return result
       operationId: get_kw_ideas_result_latest5_instant_keywordIdeas__organization_id___request_id__post
@@ -189,7 +189,7 @@ paths:
   /latest5/instant/keywordIdeas/{organization_id}:
     post:
       tags:
-      - instant
+      - Instant
       summary: Submit Kw For Ideas
       description: This endpoint receive keywords for ideas
       operationId: submit_kw_for_ideas_latest5_instant_keywordIdeas__organization_id__post
@@ -222,7 +222,7 @@ paths:
   /latest5/instant/webhook/{provider}/kw_ideas/{request_id}:
     post:
       tags:
-      - instant
+      - Instant
       summary: Process Webhook
       description: This endpoint handle webhook from oxylabs
       operationId: process_webhook_latest5_instant_webhook__provider__kw_ideas__request_id__post
@@ -260,24 +260,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    KwIdeasHistoryOut:
-      properties:
-        total:
-          type: integer
-          title: Total
-        count:
-          type: integer
-          title: Count
-        offset:
-          type: integer
-          title: Offset
-        values:
-          items:
-            $ref: '#/components/schemas/KwValue'
-          type: array
-          title: Values
-      type: object
-      title: KwIdeasHistoryOut
     ValidationError:
       properties:
         loc:
@@ -299,6 +281,24 @@ components:
       - msg
       - type
       title: ValidationError
+    KwIdeasHistoryOut:
+      properties:
+        total:
+          type: integer
+          title: Total
+        count:
+          type: integer
+          title: Count
+        offset:
+          type: integer
+          title: Offset
+        values:
+          items:
+            $ref: '#/components/schemas/KwValue'
+          type: array
+          title: Values
+      type: object
+      title: KwIdeasHistoryOut
     KwValue:
       properties:
         search_volume:

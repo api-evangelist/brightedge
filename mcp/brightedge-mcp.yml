@@ -9,10 +9,11 @@ note: BrightEdge publishes a hosted, remote MCP server. It is OAuth 2.0 protecte
   below. The candidate tool list previously derived from the REST OpenAPI is retained under candidate_tools_from_openapi
   as a derived artifact and MUST NOT be read as the server's real tool set.
 deployment:
-  mode: remote
-  endpoint: https://mcp2.brightedge.com/mcp
-  auth: oauth
-  verified: probed
+  mode: none
+  verified: derived
+  tools: 40
+  checked: '2026-08-12'
+  source: catalog MCP census
 server:
   name: brightedge
   transport: http

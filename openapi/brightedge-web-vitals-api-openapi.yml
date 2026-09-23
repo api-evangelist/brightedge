@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: BrightEdge Platform accounts web_vitals API
+  title: BrightEdge Platform Web Vitals API
   description: This API provides the ability to integrate with BrightEdge Platform
   version: 5.0.0
 tags:
@@ -190,19 +190,6 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    DateRange:
-      properties:
-        start_date:
-          type: string
-          title: Start Date
-        end_date:
-          type: string
-          title: End Date
-      type: object
-      required:
-      - start_date
-      - end_date
-      title: DateRange
     ValidationError:
       properties:
         loc:
@@ -224,15 +211,6 @@ components:
       - msg
       - type
       title: ValidationError
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     GetWebVitalsData:
       properties:
         range:
@@ -244,6 +222,28 @@ components:
       required:
       - domain
       title: GetWebVitalsData
+    DateRange:
+      properties:
+        start_date:
+          type: string
+          title: Start Date
+        end_date:
+          type: string
+          title: End Date
+      type: object
+      required:
+      - start_date
+      - end_date
+      title: DateRange
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
   securitySchemes:
     http_basic:
       type: http

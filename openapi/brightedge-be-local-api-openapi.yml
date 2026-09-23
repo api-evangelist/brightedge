@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: BrightEdge Platform accounts be_local API
+  title: BrightEdge Platform Be Local API
   description: This API provides the ability to integrate with BrightEdge Platform
   version: 5.0.0
 tags:
@@ -539,6 +539,29 @@ paths:
       - bearer_token: []
 components:
   schemas:
+    SaveGMBMultiEdit:
+      properties:
+        be_account_id:
+          type: integer
+          title: Be Account Id
+        changes:
+          items:
+            type: object
+          type: array
+          title: Changes
+        multi_edit_id:
+          type: string
+          title: Multi Edit Id
+        batch_attribute_update:
+          type: boolean
+          title: Batch Attribute Update
+          default: false
+      type: object
+      required:
+      - be_account_id
+      - changes
+      - multi_edit_id
+      title: SaveGMBMultiEdit
     StoreUpdatesConfig:
       properties:
         be_account_id:
@@ -565,93 +588,6 @@ components:
       - be_account_id
       - store_code
       title: StoreUpdatesConfig
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    SaveGMBMultiEdit:
-      properties:
-        be_account_id:
-          type: integer
-          title: Be Account Id
-        changes:
-          items:
-            type: object
-          type: array
-          title: Changes
-        multi_edit_id:
-          type: string
-          title: Multi Edit Id
-        batch_attribute_update:
-          type: boolean
-          title: Batch Attribute Update
-          default: false
-      type: object
-      required:
-      - be_account_id
-      - changes
-      - multi_edit_id
-      title: SaveGMBMultiEdit
-    LocationDetailConfigV2:
-      properties:
-        be_account_id:
-          type: integer
-          title: Be Account Id
-        location_name:
-          type: string
-          title: Location Name
-        column_names:
-          items: {}
-          type: array
-          title: Column Names
-        q:
-          type: string
-          title: Q
-        all:
-          type: boolean
-          title: All
-          default: false
-      type: object
-      required:
-      - be_account_id
-      title: LocationDetailConfigV2
-    GetAllAttributes:
-      properties:
-        language_code:
-          type: string
-          title: Language Code
-          default: en
-        region_code:
-          type: string
-          title: Region Code
-          default: US
-        showAll:
-          type: boolean
-          title: Showall
-          default: true
-        do_live_fallback_call:
-          type: boolean
-          title: Do Live Fallback Call
-          default: true
-      type: object
-      title: GetAllAttributes
     UpdateFieldsGmbConfig:
       properties:
         be_account_id:
@@ -689,36 +625,6 @@ components:
       required:
       - location_name
       title: UpdateFieldsGmbConfig
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    GetAccountsData:
-      properties:
-        account_id:
-          type: integer
-          title: Account Id
-        external_id:
-          type: string
-          title: External Id
-      type: object
-      required:
-      - account_id
-      title: GetAccountsData
-    GetLocationAttributes:
-      properties:
-        location_name:
-          type: string
-          title: Location Name
-      type: object
-      required:
-      - location_name
-      title: GetLocationAttributes
     BELocalResponse:
       properties:
         status:
@@ -735,6 +641,100 @@ components:
       required:
       - status
       title: BELocalResponse
+    LocationDetailConfigV2:
+      properties:
+        be_account_id:
+          type: integer
+          title: Be Account Id
+        location_name:
+          type: string
+          title: Location Name
+        column_names:
+          items: {}
+          type: array
+          title: Column Names
+        q:
+          type: string
+          title: Q
+        all:
+          type: boolean
+          title: All
+          default: false
+      type: object
+      required:
+      - be_account_id
+      title: LocationDetailConfigV2
+    GetAccountsData:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        external_id:
+          type: string
+          title: External Id
+      type: object
+      required:
+      - account_id
+      title: GetAccountsData
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    GetLocationAttributes:
+      properties:
+        location_name:
+          type: string
+          title: Location Name
+      type: object
+      required:
+      - location_name
+      title: GetLocationAttributes
+    GetAllAttributes:
+      properties:
+        language_code:
+          type: string
+          title: Language Code
+          default: en
+        region_code:
+          type: string
+          title: Region Code
+          default: US
+        showAll:
+          type: boolean
+          title: Showall
+          default: true
+        do_live_fallback_call:
+          type: boolean
+          title: Do Live Fallback Call
+          default: true
+      type: object
+      title: GetAllAttributes
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
   securitySchemes:
     http_basic:
       type: http
