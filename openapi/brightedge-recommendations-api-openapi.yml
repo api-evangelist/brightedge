@@ -265,6 +265,46 @@ components:
       - plp_url_id
       - keywords
       title: RecommendationKwChangePriorityRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    RecommendationKwListRequest:
+      properties:
+        page_url:
+          type: string
+          title: Page Url
+        page_url_id:
+          type: integer
+          title: Page Url Id
+      type: object
+      title: RecommendationKwListRequest
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     RecommendationKwListResponse:
       properties:
         page_url_id:
@@ -288,50 +328,6 @@ components:
       - active_keywords
       - inactive_keywords
       title: RecommendationKwListResponse
-    RecommendationKwPriority:
-      properties:
-        keyword_id:
-          type: integer
-          title: Keyword Id
-        position:
-          type: integer
-          title: Position
-      type: object
-      required:
-      - keyword_id
-      - position
-      title: RecommendationKwPriority
-    RecommendationKwListRequest:
-      properties:
-        page_url:
-          type: string
-          title: Page Url
-        page_url_id:
-          type: integer
-          title: Page Url Id
-      type: object
-      title: RecommendationKwListRequest
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     RecommendationKw:
       properties:
         keyword_id:
@@ -360,15 +356,19 @@ components:
       - plp_url
       - plp_url_id
       title: RecommendationKw
-    HTTPValidationError:
+    RecommendationKwPriority:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
+        keyword_id:
+          type: integer
+          title: Keyword Id
+        position:
+          type: integer
+          title: Position
       type: object
-      title: HTTPValidationError
+      required:
+      - keyword_id
+      - position
+      title: RecommendationKwPriority
   securitySchemes:
     http_basic:
       type: http

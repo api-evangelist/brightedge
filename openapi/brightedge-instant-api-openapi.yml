@@ -260,45 +260,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    KwIdeasHistoryOut:
-      properties:
-        total:
-          type: integer
-          title: Total
-        count:
-          type: integer
-          title: Count
-        offset:
-          type: integer
-          title: Offset
-        values:
-          items:
-            $ref: '#/components/schemas/KwValue'
-          type: array
-          title: Values
-      type: object
-      title: KwIdeasHistoryOut
     KwValue:
       properties:
         search_volume:
@@ -321,6 +282,27 @@ components:
       - num_words
       - keyword
       title: KwValue
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     HTTPValidationError:
       properties:
         detail:
@@ -330,6 +312,24 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    KwIdeasHistoryOut:
+      properties:
+        total:
+          type: integer
+          title: Total
+        count:
+          type: integer
+          title: Count
+        offset:
+          type: integer
+          title: Offset
+        values:
+          items:
+            $ref: '#/components/schemas/KwValue'
+          type: array
+          title: Values
+      type: object
+      title: KwIdeasHistoryOut
   securitySchemes:
     http_basic:
       type: http

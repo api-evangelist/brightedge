@@ -189,6 +189,15 @@ paths:
       - bearer_token: []
 components:
   schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -210,19 +219,6 @@ components:
       - msg
       - type
       title: ValidationError
-    KeywordActivityOut:
-      properties:
-        account_id:
-          type: integer
-          title: Account Id
-        keyword_change_rate:
-          type: number
-          title: Keyword Change Rate
-      type: object
-      required:
-      - account_id
-      - keyword_change_rate
-      title: KeywordActivityOut
     KeywordGroupOut:
       properties:
         id:
@@ -236,15 +232,19 @@ components:
       - id
       - name
       title: KeywordGroupOut
-    HTTPValidationError:
+    KeywordActivityOut:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
+        account_id:
+          type: integer
+          title: Account Id
+        keyword_change_rate:
+          type: number
+          title: Keyword Change Rate
       type: object
-      title: HTTPValidationError
+      required:
+      - account_id
+      - keyword_change_rate
+      title: KeywordActivityOut
   securitySchemes:
     http_basic:
       type: http

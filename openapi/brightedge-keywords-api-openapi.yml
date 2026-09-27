@@ -354,19 +354,6 @@ components:
       - name
       - keywords
       title: KeywordGroupDetailOut
-    KeywordOut:
-      properties:
-        id:
-          type: integer
-          title: Id
-        name:
-          type: string
-          title: Name
-      type: object
-      required:
-      - id
-      - name
-      title: KeywordOut
     BrandFiltersOut:
       properties:
         bql_filters:
@@ -409,6 +396,19 @@ components:
       - msg
       - type
       title: ValidationError
+    KeywordOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: KeywordOut
     HTTPValidationError:
       properties:
         detail:

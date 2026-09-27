@@ -147,35 +147,6 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    AutoPilotFoundationsCertificate:
-      properties:
-        certificate:
-          type: string
-          title: Certificate
-        ceritificateKey:
-          type: string
-          title: Ceritificatekey
-      type: object
-      required:
-      - certificate
-      - ceritificateKey
-      title: AutoPilotFoundationsCertificate
-    AutoPilotCacheClearIn:
-      properties:
-        customerId:
-          type: string
-          title: Customerid
-        url:
-          type: string
-          title: Url
-        urlType:
-          type: string
-          title: Urltype
-      type: object
-      required:
-      - customerId
-      - url
-      title: AutoPilotCacheClearIn
     ValidationError:
       properties:
         loc:
@@ -220,6 +191,35 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    AutoPilotCacheClearIn:
+      properties:
+        customerId:
+          type: string
+          title: Customerid
+        url:
+          type: string
+          title: Url
+        urlType:
+          type: string
+          title: Urltype
+      type: object
+      required:
+      - customerId
+      - url
+      title: AutoPilotCacheClearIn
+    AutoPilotFoundationsCertificate:
+      properties:
+        certificate:
+          type: string
+          title: Certificate
+        ceritificateKey:
+          type: string
+          title: Ceritificatekey
+      type: object
+      required:
+      - certificate
+      - ceritificateKey
+      title: AutoPilotFoundationsCertificate
   securitySchemes:
     http_basic:
       type: http

@@ -447,60 +447,15 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    SiteAuditPageGroupIn:
+    SiteAuditDimensionsIn:
       properties:
-        filters:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Filters
-        dimensionOptions:
-          $ref: '#/components/schemas/SiteAuditDimensionsIn'
-        order:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Order
-        offset:
-          items:
-            type: integer
-          type: array
-          title: Offset
+        time:
+          type: string
+          title: Time
       type: object
       required:
-      - filters
-      - dimensionOptions
-      title: SiteAuditPageGroupIn
-    SiteAuditReportOut:
-      properties:
-        total:
-          type: integer
-          title: Total
-        count:
-          type: integer
-          title: Count
-        results:
-          items:
-            $ref: '#/components/schemas/SiteAuditCrawlReportOut'
-          type: array
-          title: Results
-      type: object
-      required:
-      - total
-      - count
-      - results
-      title: SiteAuditReportOut
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
+      - time
+      title: SiteAuditDimensionsIn
     SiteAuditResultsOut:
       properties:
         account_id:
@@ -552,101 +507,41 @@ components:
       - error_code
       - rules
       title: SiteAuditResultsOut
-    ValidationError:
+    RecommendationOut:
       properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
+        account_id:
+          type: integer
+          title: Account Id
+        total_pages:
+          type: integer
+          title: Total Pages
+        rules:
+          items: {}
           type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
+          title: Rules
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    SiteAuditRulesOut:
+      - account_id
+      - total_pages
+      - rules
+      title: RecommendationOut
+    SiteAuditReportIn:
       properties:
-        description:
-          type: string
-          title: Description
-        custom:
-          type: boolean
-          title: Custom
-        value:
-          type: integer
-          title: Value
-      type: object
-      required:
-      - description
-      - custom
-      - value
-      title: SiteAuditRulesOut
-    UserOutput:
-      properties:
-        first_name:
-          type: string
-          title: First Name
-        last_name:
-          type: string
-          title: Last Name
-        email:
-          type: string
-          title: Email
-        accounts:
+        filters:
           items:
-            type: string
+            items: {}
+            type: array
           type: array
-          title: Accounts
+          title: Filters
+        offset:
+          items:
+            type: integer
+          type: array
+          title: Offset
       type: object
       required:
-      - email
-      - accounts
-      title: UserOutput
-    GeogorianTimeTimeStringType:
-      type: string
-      enum:
-      - daily
-      - weekly
-      - monthly
-      - quarterly
-      - yearly
-      title: GeogorianTimeTimeStringType
-      description: An enumeration.
-    OrganizationOut:
-      properties:
-        id:
-          type: integer
-          title: Id
-        name:
-          type: string
-          title: Name
-        created_on:
-          type: string
-          format: date-time
-          title: Created On
-        max_accounts:
-          type: integer
-          title: Max Accounts
-        max_competitors:
-          type: integer
-          title: Max Competitors
-      type: object
-      required:
-      - id
-      - name
-      - created_on
-      - max_accounts
-      - max_competitors
-      title: OrganizationOut
+      - filters
+      title: SiteAuditReportIn
     SiteAuditCrawlReportOut:
       properties:
         account_id:
@@ -694,7 +589,7 @@ components:
       - crawl_status
       - page_details
       title: SiteAuditCrawlReportOut
-    SiteAuditReportIn:
+    SiteAuditPageGroupIn:
       properties:
         filters:
           items:
@@ -702,6 +597,14 @@ components:
             type: array
           type: array
           title: Filters
+        dimensionOptions:
+          $ref: '#/components/schemas/SiteAuditDimensionsIn'
+        order:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Order
         offset:
           items:
             type: integer
@@ -710,40 +613,87 @@ components:
       type: object
       required:
       - filters
-      title: SiteAuditReportIn
-    OrganizationUsersOutput:
+      - dimensionOptions
+      title: SiteAuditPageGroupIn
+    OrgAccountDetailOut:
       properties:
-        total_pages:
+        id:
           type: integer
-          title: Total Pages
-        users:
+          title: Id
+        name:
+          type: string
+          title: Name
+        created_on_date:
+          type: string
+          format: date-time
+          title: Created On Date
+      type: object
+      required:
+      - id
+      - name
+      - created_on_date
+      title: OrgAccountDetailOut
+    ValidationError:
+      properties:
+        loc:
           items:
-            $ref: '#/components/schemas/UserOutput'
+            anyOf:
+            - type: string
+            - type: integer
           type: array
-          title: Users
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
       type: object
       required:
-      - total_pages
-      - users
-      title: OrganizationUsersOutput
-    RecommendationOut:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    GeogorianTimeTimeStringType:
+      type: string
+      enum:
+      - daily
+      - weekly
+      - monthly
+      - quarterly
+      - yearly
+      title: GeogorianTimeTimeStringType
+      description: An enumeration.
+    UserOutput:
       properties:
-        account_id:
-          type: integer
-          title: Account Id
-        total_pages:
-          type: integer
-          title: Total Pages
-        rules:
-          items: {}
+        first_name:
+          type: string
+          title: First Name
+        last_name:
+          type: string
+          title: Last Name
+        email:
+          type: string
+          title: Email
+        accounts:
+          items:
+            type: string
           type: array
-          title: Rules
+          title: Accounts
       type: object
       required:
-      - account_id
-      - total_pages
-      - rules
-      title: RecommendationOut
+      - email
+      - accounts
+      title: UserOutput
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     SiteAuditPageGroupOut:
       properties:
         total:
@@ -763,16 +713,58 @@ components:
       - count
       - results
       title: SiteAuditPageGroupOut
-    SiteAuditDimensionsIn:
+    SiteAuditReportOut:
       properties:
-        time:
-          type: string
-          title: Time
+        total:
+          type: integer
+          title: Total
+        count:
+          type: integer
+          title: Count
+        results:
+          items:
+            $ref: '#/components/schemas/SiteAuditCrawlReportOut'
+          type: array
+          title: Results
       type: object
       required:
-      - time
-      title: SiteAuditDimensionsIn
-    OrgAccountDetailOut:
+      - total
+      - count
+      - results
+      title: SiteAuditReportOut
+    SiteAuditRulesOut:
+      properties:
+        description:
+          type: string
+          title: Description
+        custom:
+          type: boolean
+          title: Custom
+        value:
+          type: integer
+          title: Value
+      type: object
+      required:
+      - description
+      - custom
+      - value
+      title: SiteAuditRulesOut
+    OrganizationUsersOutput:
+      properties:
+        total_pages:
+          type: integer
+          title: Total Pages
+        users:
+          items:
+            $ref: '#/components/schemas/UserOutput'
+          type: array
+          title: Users
+      type: object
+      required:
+      - total_pages
+      - users
+      title: OrganizationUsersOutput
+    OrganizationOut:
       properties:
         id:
           type: integer
@@ -780,16 +772,24 @@ components:
         name:
           type: string
           title: Name
-        created_on_date:
+        created_on:
           type: string
           format: date-time
-          title: Created On Date
+          title: Created On
+        max_accounts:
+          type: integer
+          title: Max Accounts
+        max_competitors:
+          type: integer
+          title: Max Competitors
       type: object
       required:
       - id
       - name
-      - created_on_date
-      title: OrgAccountDetailOut
+      - created_on
+      - max_accounts
+      - max_competitors
+      title: OrganizationOut
   securitySchemes:
     http_basic:
       type: http

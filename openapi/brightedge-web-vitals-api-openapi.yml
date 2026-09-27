@@ -190,6 +190,39 @@ paths:
       - bearer_token: []
 components:
   schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    DateRange:
+      properties:
+        start_date:
+          type: string
+          title: Start Date
+        end_date:
+          type: string
+          title: End Date
+      type: object
+      required:
+      - start_date
+      - end_date
+      title: DateRange
+    GetWebVitalsData:
+      properties:
+        range:
+          $ref: '#/components/schemas/DateRange'
+        domain:
+          type: string
+          title: Domain
+      type: object
+      required:
+      - domain
+      title: GetWebVitalsData
     ValidationError:
       properties:
         loc:
@@ -211,39 +244,6 @@ components:
       - msg
       - type
       title: ValidationError
-    GetWebVitalsData:
-      properties:
-        range:
-          $ref: '#/components/schemas/DateRange'
-        domain:
-          type: string
-          title: Domain
-      type: object
-      required:
-      - domain
-      title: GetWebVitalsData
-    DateRange:
-      properties:
-        start_date:
-          type: string
-          title: Start Date
-        end_date:
-          type: string
-          title: End Date
-      type: object
-      required:
-      - start_date
-      - end_date
-      title: DateRange
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
   securitySchemes:
     http_basic:
       type: http

@@ -88,34 +88,6 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    FeatureName:
-      type: string
-      enum:
-      - platformapi
-      - chromeextension
-      title: FeatureName
-      description: Used to verify feature names for /query feature_name input
     BQLQueryOut:
       properties:
         count:
@@ -147,6 +119,34 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    FeatureName:
+      type: string
+      enum:
+      - platformapi
+      - chromeextension
+      title: FeatureName
+      description: Used to verify feature names for /query feature_name input
   securitySchemes:
     http_basic:
       type: http

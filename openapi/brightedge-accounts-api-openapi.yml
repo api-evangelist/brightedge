@@ -149,6 +149,27 @@ components:
       - name
       - created_on
       title: AccountOut
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     AccountIdOut:
       properties:
         account_name:
@@ -233,36 +254,6 @@ components:
       - number_of_keywords_with_PLPs_default_SE
       - number_of_keywords_with_PLPs_all_tracked_SE
       title: AccountIdOut
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    AccountIdIn:
-      properties:
-        excluded_keyword_group_filter:
-          items:
-            type: string
-          type: array
-          title: Excluded Keyword Group Filter
-      type: object
-      title: AccountIdIn
     HTTPValidationError:
       properties:
         detail:
@@ -272,6 +263,15 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    AccountIdIn:
+      properties:
+        excluded_keyword_group_filter:
+          items:
+            type: string
+          type: array
+          title: Excluded Keyword Group Filter
+      type: object
+      title: AccountIdIn
   securitySchemes:
     http_basic:
       type: http

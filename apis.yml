@@ -59,7 +59,7 @@ tags:
 - AI Search
 apis:
 - aid: brightedge:brightedge-accounts-api
-  name: BrightEdge accounts API
+  name: BrightEdge Accounts API
   description: Operation related to accounts
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -85,7 +85,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-ai-catalyst-api
-  name: BrightEdge ai_catalyst API
+  name: BrightEdge AI Catalyst API
   description: APIs for ai_catalyst dataset
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -110,7 +110,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-autopilot-api
-  name: BrightEdge autopilot API
+  name: BrightEdge Autopilot API
   description: The autopilot API from BrightEdge — 4 operation(s) for autopilot.
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -136,7 +136,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-backlinks-api
-  name: BrightEdge backlinks API
+  name: BrightEdge Backlinks API
   description: Operation related to backlinks
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -162,7 +162,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-be-local-api
-  name: BrightEdge be_local API
+  name: BrightEdge Be Local API
   description: Operation related to BE Local
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -187,7 +187,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-budd-api
-  name: BrightEdge budd API
+  name: BrightEdge Budd API
   description: The budd API from BrightEdge — 2 operation(s) for budd.
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -211,7 +211,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-bulk-export-api
-  name: BrightEdge bulk_export API
+  name: BrightEdge Bulk Export API
   description: The bulk_export API from BrightEdge — 6 operation(s) for bulk_export.
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -237,7 +237,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-chrome-extension-api
-  name: BrightEdge chrome_extension API
+  name: BrightEdge Chrome Extension API
   description: The chrome_extension API from BrightEdge — 12 operation(s) for chrome_extension.
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -263,7 +263,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-core-api
-  name: BrightEdge core API
+  name: BrightEdge Core API
   description: The core API from BrightEdge — 6 operation(s) for core.
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -289,7 +289,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-dataset-api
-  name: BrightEdge dataset API
+  name: BrightEdge Dataset API
   description: APIs for brightedge dataset
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -315,7 +315,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-domains-api
-  name: BrightEdge domains API
+  name: BrightEdge Domains API
   description: Operation related to domains
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -341,7 +341,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-instant-api
-  name: BrightEdge instant API
+  name: BrightEdge Instant API
   description: The instant API from BrightEdge — 6 operation(s) for instant.
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -365,7 +365,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-keywordgroups-api
-  name: BrightEdge keywordgroups API
+  name: BrightEdge Keywordgroups API
   description: Operation related to keyword groups
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -389,7 +389,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-keywords-api
-  name: BrightEdge keywords API
+  name: BrightEdge Keywords API
   description: Operation related to keywords
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -439,7 +439,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-legacy-api
-  name: BrightEdge legacy API
+  name: BrightEdge Legacy API
   description: Operation ported over from legacy API
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -465,7 +465,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-marketinsights-api
-  name: BrightEdge marketinsights API
+  name: BrightEdge Marketinsights API
   description: Operation related to Market Insights
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -491,7 +491,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-marketo-api
-  name: BrightEdge marketo API
+  name: BrightEdge Marketo API
   description: APIs for marketo
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -517,7 +517,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-organizations-api
-  name: BrightEdge organizations API
+  name: BrightEdge Organizations API
   description: Operation related to organizations
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -567,7 +567,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-product-grid-api
-  name: BrightEdge product_grid API
+  name: BrightEdge Product Grid API
   description: APIs for product grid
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -592,7 +592,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-recommendations-api
-  name: BrightEdge recommendations API
+  name: BrightEdge Recommendations API
   description: The recommendations API from BrightEdge — 6 operation(s) for recommendations.
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -618,7 +618,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-searchengines-api
-  name: BrightEdge searchengines API
+  name: BrightEdge Searchengines API
   description: Operation related to search engines
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -668,7 +668,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-time-api
-  name: BrightEdge time API
+  name: BrightEdge Time API
   description: Operation related to time
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -694,7 +694,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-user-settings-api
-  name: BrightEdge user_settings API
+  name: BrightEdge User Settings API
   description: The user_settings API from BrightEdge — 4 operation(s) for user_settings.
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -720,7 +720,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-users-api
-  name: BrightEdge users API
+  name: BrightEdge Users API
   description: Operation related to users
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
@@ -746,7 +746,7 @@ apis:
   - type: AgenticAccess
     url: agentic-access/brightedge-agentic-access.yml
 - aid: brightedge:brightedge-web-vitals-api
-  name: BrightEdge web_vitals API
+  name: BrightEdge Web Vitals API
   description: The web_vitals API from BrightEdge — 4 operation(s) for web_vitals.
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com

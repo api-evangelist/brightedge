@@ -294,6 +294,27 @@ paths:
       - bearer_token: []
 components:
   schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     BulkExportJobCreateRequest:
       properties:
         pod:
@@ -350,6 +371,15 @@ components:
       - user_id
       - path
       title: BulkExportJobCreateRequest
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     BulkExportJobCreateResponse:
       properties:
         jobs:
@@ -370,27 +400,6 @@ components:
       - message
       title: BulkExportJobCreateResponse
       description: Response model for bulk job creation (handles multiple jobs)
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     BulkExportJobResponse:
       properties:
         id:
@@ -467,15 +476,6 @@ components:
       - status
       - job_create_at
       title: BulkExportJobResponse
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
   securitySchemes:
     http_basic:
       type: http
