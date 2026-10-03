@@ -189,15 +189,19 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    HTTPValidationError:
+    KeywordGroupOut:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
       type: object
-      title: HTTPValidationError
+      required:
+      - id
+      - name
+      title: KeywordGroupOut
     ValidationError:
       properties:
         loc:
@@ -219,19 +223,15 @@ components:
       - msg
       - type
       title: ValidationError
-    KeywordGroupOut:
+    HTTPValidationError:
       properties:
-        id:
-          type: integer
-          title: Id
-        name:
-          type: string
-          title: Name
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
       type: object
-      required:
-      - id
-      - name
-      title: KeywordGroupOut
+      title: HTTPValidationError
     KeywordActivityOut:
       properties:
         account_id:

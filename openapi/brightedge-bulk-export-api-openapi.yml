@@ -294,27 +294,6 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     BulkExportJobCreateRequest:
       properties:
         pod:
@@ -371,35 +350,6 @@ components:
       - user_id
       - path
       title: BulkExportJobCreateRequest
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    BulkExportJobCreateResponse:
-      properties:
-        jobs:
-          items:
-            $ref: '#/components/schemas/BulkExportJobResponse'
-          type: array
-          title: Jobs
-        total_jobs_created:
-          type: integer
-          title: Total Jobs Created
-        message:
-          type: string
-          title: Message
-      type: object
-      required:
-      - jobs
-      - total_jobs_created
-      - message
-      title: BulkExportJobCreateResponse
-      description: Response model for bulk job creation (handles multiple jobs)
     BulkExportJobResponse:
       properties:
         id:
@@ -476,6 +426,56 @@ components:
       - status
       - job_create_at
       title: BulkExportJobResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    BulkExportJobCreateResponse:
+      properties:
+        jobs:
+          items:
+            $ref: '#/components/schemas/BulkExportJobResponse'
+          type: array
+          title: Jobs
+        total_jobs_created:
+          type: integer
+          title: Total Jobs Created
+        message:
+          type: string
+          title: Message
+      type: object
+      required:
+      - jobs
+      - total_jobs_created
+      - message
+      title: BulkExportJobCreateResponse
+      description: Response model for bulk job creation (handles multiple jobs)
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
   securitySchemes:
     http_basic:
       type: http

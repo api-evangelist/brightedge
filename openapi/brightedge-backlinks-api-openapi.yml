@@ -121,15 +121,19 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    HTTPValidationError:
+    BacklinksOut:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
+        url:
+          type: string
+          title: Url
+        page_authority:
+          type: string
+          title: Page Authority
       type: object
-      title: HTTPValidationError
+      required:
+      - url
+      - page_authority
+      title: BacklinksOut
     ValidationError:
       properties:
         loc:
@@ -151,19 +155,15 @@ components:
       - msg
       - type
       title: ValidationError
-    BacklinksOut:
+    HTTPValidationError:
       properties:
-        url:
-          type: string
-          title: Url
-        page_authority:
-          type: string
-          title: Page Authority
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
       type: object
-      required:
-      - url
-      - page_authority
-      title: BacklinksOut
+      title: HTTPValidationError
   securitySchemes:
     http_basic:
       type: http

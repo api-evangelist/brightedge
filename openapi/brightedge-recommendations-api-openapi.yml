@@ -250,52 +250,47 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    RecommendationKwChangePriorityRequest:
+    RecommendationKwPriority:
       properties:
+        keyword_id:
+          type: integer
+          title: Keyword Id
+        position:
+          type: integer
+          title: Position
+      type: object
+      required:
+      - keyword_id
+      - position
+      title: RecommendationKwPriority
+    RecommendationKw:
+      properties:
+        keyword_id:
+          type: integer
+          title: Keyword Id
+        name:
+          type: string
+          title: Name
+        search_volume:
+          type: integer
+          title: Search Volume
+        position:
+          type: integer
+          title: Position
+        plp_url:
+          type: string
+          title: Plp Url
         plp_url_id:
           type: string
           title: Plp Url Id
-        keywords:
-          items:
-            $ref: '#/components/schemas/RecommendationKwPriority'
-          type: array
-          title: Keywords
       type: object
       required:
+      - keyword_id
+      - name
+      - position
+      - plp_url
       - plp_url_id
-      - keywords
-      title: RecommendationKwChangePriorityRequest
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    RecommendationKwListRequest:
-      properties:
-        page_url:
-          type: string
-          title: Page Url
-        page_url_id:
-          type: integer
-          title: Page Url Id
-      type: object
-      title: RecommendationKwListRequest
+      title: RecommendationKw
     HTTPValidationError:
       properties:
         detail:
@@ -328,47 +323,52 @@ components:
       - active_keywords
       - inactive_keywords
       title: RecommendationKwListResponse
-    RecommendationKw:
+    RecommendationKwListRequest:
       properties:
-        keyword_id:
-          type: integer
-          title: Keyword Id
-        name:
+        page_url:
           type: string
-          title: Name
-        search_volume:
+          title: Page Url
+        page_url_id:
           type: integer
-          title: Search Volume
-        position:
-          type: integer
-          title: Position
-        plp_url:
+          title: Page Url Id
+      type: object
+      title: RecommendationKwListRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
           type: string
-          title: Plp Url
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    RecommendationKwChangePriorityRequest:
+      properties:
         plp_url_id:
           type: string
           title: Plp Url Id
+        keywords:
+          items:
+            $ref: '#/components/schemas/RecommendationKwPriority'
+          type: array
+          title: Keywords
       type: object
       required:
-      - keyword_id
-      - name
-      - position
-      - plp_url
       - plp_url_id
-      title: RecommendationKw
-    RecommendationKwPriority:
-      properties:
-        keyword_id:
-          type: integer
-          title: Keyword Id
-        position:
-          type: integer
-          title: Position
-      type: object
-      required:
-      - keyword_id
-      - position
-      title: RecommendationKwPriority
+      - keywords
+      title: RecommendationKwChangePriorityRequest
   securitySchemes:
     http_basic:
       type: http

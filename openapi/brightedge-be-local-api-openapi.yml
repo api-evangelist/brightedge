@@ -539,6 +539,165 @@ paths:
       - bearer_token: []
 components:
   schemas:
+    LocationDetailConfigV2:
+      properties:
+        be_account_id:
+          type: integer
+          title: Be Account Id
+        location_name:
+          type: string
+          title: Location Name
+        column_names:
+          items: {}
+          type: array
+          title: Column Names
+        q:
+          type: string
+          title: Q
+        all:
+          type: boolean
+          title: All
+          default: false
+      type: object
+      required:
+      - be_account_id
+      title: LocationDetailConfigV2
+    StoreUpdatesConfig:
+      properties:
+        be_account_id:
+          type: integer
+          title: Be Account Id
+        store_code:
+          type: string
+          title: Store Code
+        before_value:
+          type: object
+          title: Before Value
+        after_value:
+          type: object
+          title: After Value
+        update_mask:
+          type: string
+          title: Update Mask
+        language_code:
+          type: string
+          title: Language Code
+          default: en
+      type: object
+      required:
+      - be_account_id
+      - store_code
+      title: StoreUpdatesConfig
+    GetLocationAttributes:
+      properties:
+        location_name:
+          type: string
+          title: Location Name
+      type: object
+      required:
+      - location_name
+      title: GetLocationAttributes
+    BELocalResponse:
+      properties:
+        status:
+          type: boolean
+          title: Status
+        data:
+          items: {}
+          type: array
+          title: Data
+        message:
+          type: string
+          title: Message
+      type: object
+      required:
+      - status
+      title: BELocalResponse
+    GetAccountsData:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        external_id:
+          type: string
+          title: External Id
+      type: object
+      required:
+      - account_id
+      title: GetAccountsData
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    GetAllAttributes:
+      properties:
+        language_code:
+          type: string
+          title: Language Code
+          default: en
+        region_code:
+          type: string
+          title: Region Code
+          default: US
+        showAll:
+          type: boolean
+          title: Showall
+          default: true
+        do_live_fallback_call:
+          type: boolean
+          title: Do Live Fallback Call
+          default: true
+      type: object
+      title: GetAllAttributes
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    SaveGMBMultiEdit:
+      properties:
+        be_account_id:
+          type: integer
+          title: Be Account Id
+        changes:
+          items:
+            type: object
+          type: array
+          title: Changes
+        multi_edit_id:
+          type: string
+          title: Multi Edit Id
+        batch_attribute_update:
+          type: boolean
+          title: Batch Attribute Update
+          default: false
+      type: object
+      required:
+      - be_account_id
+      - changes
+      - multi_edit_id
+      title: SaveGMBMultiEdit
     UpdateFieldsGmbConfig:
       properties:
         be_account_id:
@@ -576,165 +735,6 @@ components:
       required:
       - location_name
       title: UpdateFieldsGmbConfig
-    BELocalResponse:
-      properties:
-        status:
-          type: boolean
-          title: Status
-        data:
-          items: {}
-          type: array
-          title: Data
-        message:
-          type: string
-          title: Message
-      type: object
-      required:
-      - status
-      title: BELocalResponse
-    GetAccountsData:
-      properties:
-        account_id:
-          type: integer
-          title: Account Id
-        external_id:
-          type: string
-          title: External Id
-      type: object
-      required:
-      - account_id
-      title: GetAccountsData
-    GetLocationAttributes:
-      properties:
-        location_name:
-          type: string
-          title: Location Name
-      type: object
-      required:
-      - location_name
-      title: GetLocationAttributes
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    StoreUpdatesConfig:
-      properties:
-        be_account_id:
-          type: integer
-          title: Be Account Id
-        store_code:
-          type: string
-          title: Store Code
-        before_value:
-          type: object
-          title: Before Value
-        after_value:
-          type: object
-          title: After Value
-        update_mask:
-          type: string
-          title: Update Mask
-        language_code:
-          type: string
-          title: Language Code
-          default: en
-      type: object
-      required:
-      - be_account_id
-      - store_code
-      title: StoreUpdatesConfig
-    SaveGMBMultiEdit:
-      properties:
-        be_account_id:
-          type: integer
-          title: Be Account Id
-        changes:
-          items:
-            type: object
-          type: array
-          title: Changes
-        multi_edit_id:
-          type: string
-          title: Multi Edit Id
-        batch_attribute_update:
-          type: boolean
-          title: Batch Attribute Update
-          default: false
-      type: object
-      required:
-      - be_account_id
-      - changes
-      - multi_edit_id
-      title: SaveGMBMultiEdit
-    LocationDetailConfigV2:
-      properties:
-        be_account_id:
-          type: integer
-          title: Be Account Id
-        location_name:
-          type: string
-          title: Location Name
-        column_names:
-          items: {}
-          type: array
-          title: Column Names
-        q:
-          type: string
-          title: Q
-        all:
-          type: boolean
-          title: All
-          default: false
-      type: object
-      required:
-      - be_account_id
-      title: LocationDetailConfigV2
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    GetAllAttributes:
-      properties:
-        language_code:
-          type: string
-          title: Language Code
-          default: en
-        region_code:
-          type: string
-          title: Region Code
-          default: US
-        showAll:
-          type: boolean
-          title: Showall
-          default: true
-        do_live_fallback_call:
-          type: boolean
-          title: Do Live Fallback Call
-          default: true
-      type: object
-      title: GetAllAttributes
   securitySchemes:
     http_basic:
       type: http

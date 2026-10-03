@@ -147,6 +147,58 @@ paths:
       - bearer_token: []
 components:
   schemas:
+    AutoPilotCacheInvalidateIn:
+      properties:
+        customerId:
+          type: string
+          title: Customerid
+        paths:
+          items:
+            type: string
+          type: array
+          title: Paths
+      type: object
+      required:
+      - customerId
+      title: AutoPilotCacheInvalidateIn
+    AutoPilotCacheClearIn:
+      properties:
+        customerId:
+          type: string
+          title: Customerid
+        url:
+          type: string
+          title: Url
+        urlType:
+          type: string
+          title: Urltype
+      type: object
+      required:
+      - customerId
+      - url
+      title: AutoPilotCacheClearIn
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    AutoPilotFoundationsCertificate:
+      properties:
+        certificate:
+          type: string
+          title: Certificate
+        ceritificateKey:
+          type: string
+          title: Ceritificatekey
+      type: object
+      required:
+      - certificate
+      - ceritificateKey
+      title: AutoPilotFoundationsCertificate
     ValidationError:
       properties:
         loc:
@@ -168,58 +220,6 @@ components:
       - msg
       - type
       title: ValidationError
-    AutoPilotCacheInvalidateIn:
-      properties:
-        customerId:
-          type: string
-          title: Customerid
-        paths:
-          items:
-            type: string
-          type: array
-          title: Paths
-      type: object
-      required:
-      - customerId
-      title: AutoPilotCacheInvalidateIn
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    AutoPilotCacheClearIn:
-      properties:
-        customerId:
-          type: string
-          title: Customerid
-        url:
-          type: string
-          title: Url
-        urlType:
-          type: string
-          title: Urltype
-      type: object
-      required:
-      - customerId
-      - url
-      title: AutoPilotCacheClearIn
-    AutoPilotFoundationsCertificate:
-      properties:
-        certificate:
-          type: string
-          title: Certificate
-        ceritificateKey:
-          type: string
-          title: Ceritificatekey
-      type: object
-      required:
-      - certificate
-      - ceritificateKey
-      title: AutoPilotFoundationsCertificate
   securitySchemes:
     http_basic:
       type: http

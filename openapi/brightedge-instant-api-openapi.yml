@@ -260,28 +260,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    KwValue:
-      properties:
-        search_volume:
-          type: integer
-          title: Search Volume
-        suggested_bid:
-          type: number
-          title: Suggested Bid
-        num_words:
-          type: integer
-          title: Num Words
-        competition:
-          type: string
-          title: Competition
-        keyword:
-          type: string
-          title: Keyword
-      type: object
-      required:
-      - num_words
-      - keyword
-      title: KwValue
     ValidationError:
       properties:
         loc:
@@ -330,6 +308,28 @@ components:
           title: Values
       type: object
       title: KwIdeasHistoryOut
+    KwValue:
+      properties:
+        search_volume:
+          type: integer
+          title: Search Volume
+        suggested_bid:
+          type: number
+          title: Suggested Bid
+        num_words:
+          type: integer
+          title: Num Words
+        competition:
+          type: string
+          title: Competition
+        keyword:
+          type: string
+          title: Keyword
+      type: object
+      required:
+      - num_words
+      - keyword
+      title: KwValue
   securitySchemes:
     http_basic:
       type: http
