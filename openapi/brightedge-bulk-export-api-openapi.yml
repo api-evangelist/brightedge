@@ -294,62 +294,35 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    BulkExportJobCreateRequest:
+    BulkExportJobCreateResponse:
       properties:
-        pod:
+        jobs:
+          items:
+            $ref: '#/components/schemas/BulkExportJobResponse'
+          type: array
+          title: Jobs
+        total_jobs_created:
           type: integer
-          title: Pod
-        account_id:
-          anyOf:
-          - type: integer
-          - items:
-              type: integer
-            type: array
-          title: Account Id
-        time_value:
-          anyOf:
-          - type: string
-          - items:
-              type: string
-            type: array
-          title: Time Value
-        time_cadence:
+          title: Total Jobs Created
+        message:
           type: string
-          title: Time Cadence
-        query_type:
-          type: string
-          title: Query Type
-        user_id:
-          type: integer
-          title: User Id
-        path:
-          type: string
-          title: Path
-        destination:
-          type: string
-          title: Destination
-          default: gcs
-        job_id:
-          type: string
-          title: Job Id
-        device_id:
-          type: string
-          title: Device Id
-          default: '*'
-        group_id:
-          type: string
-          title: Group Id
-          default: '*'
+          title: Message
       type: object
       required:
-      - pod
-      - account_id
-      - time_value
-      - time_cadence
-      - query_type
-      - user_id
-      - path
-      title: BulkExportJobCreateRequest
+      - jobs
+      - total_jobs_created
+      - message
+      title: BulkExportJobCreateResponse
+      description: Response model for bulk job creation (handles multiple jobs)
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     BulkExportJobResponse:
       properties:
         id:
@@ -426,35 +399,62 @@ components:
       - status
       - job_create_at
       title: BulkExportJobResponse
-    HTTPValidationError:
+    BulkExportJobCreateRequest:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    BulkExportJobCreateResponse:
-      properties:
-        jobs:
-          items:
-            $ref: '#/components/schemas/BulkExportJobResponse'
-          type: array
-          title: Jobs
-        total_jobs_created:
+        pod:
           type: integer
-          title: Total Jobs Created
-        message:
+          title: Pod
+        account_id:
+          anyOf:
+          - type: integer
+          - items:
+              type: integer
+            type: array
+          title: Account Id
+        time_value:
+          anyOf:
+          - type: string
+          - items:
+              type: string
+            type: array
+          title: Time Value
+        time_cadence:
           type: string
-          title: Message
+          title: Time Cadence
+        query_type:
+          type: string
+          title: Query Type
+        user_id:
+          type: integer
+          title: User Id
+        path:
+          type: string
+          title: Path
+        destination:
+          type: string
+          title: Destination
+          default: gcs
+        job_id:
+          type: string
+          title: Job Id
+        device_id:
+          type: string
+          title: Device Id
+          default: '*'
+        group_id:
+          type: string
+          title: Group Id
+          default: '*'
       type: object
       required:
-      - jobs
-      - total_jobs_created
-      - message
-      title: BulkExportJobCreateResponse
-      description: Response model for bulk job creation (handles multiple jobs)
+      - pod
+      - account_id
+      - time_value
+      - time_cadence
+      - query_type
+      - user_id
+      - path
+      title: BulkExportJobCreateRequest
     ValidationError:
       properties:
         loc:

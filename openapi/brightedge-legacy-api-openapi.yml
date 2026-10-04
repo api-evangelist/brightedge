@@ -976,55 +976,80 @@ components:
       required:
       - domains
       title: LegacyCompetitorDomainOut
-    LegacyDomainShortOut:
+    HTTPValidationError:
       properties:
-        id:
-          type: string
-          title: Id
-        domain:
-          type: string
-          title: Domain
-      type: object
-      required:
-      - id
-      - domain
-      title: LegacyDomainShortOut
-    LegacyAccountShortOut:
-      properties:
-        id:
-          type: string
-          title: Id
-        account:
-          type: string
-          title: Account
-      type: object
-      required:
-      - id
-      - account
-      title: LegacyAccountShortOut
-    LegacyKeywordOut:
-      properties:
-        count:
-          type: string
-          title: Count
-        total:
-          type: string
-          title: Total
-        offset:
-          type: string
-          title: Offset
-        keywords:
+        detail:
           items:
-            $ref: '#/components/schemas/LegacyKeywordShortOut'
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: Keywords
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    LegacyKeywordGroupDetailOut:
+      properties:
+        keywordgroups:
+          items:
+            $ref: '#/components/schemas/LegacyKeywordGroupDetailShortOut'
+          type: array
+          title: Keywordgroups
       type: object
       required:
-      - count
-      - total
-      - offset
-      - keywords
-      title: LegacyKeywordOut
+      - keywordgroups
+      title: LegacyKeywordGroupDetailOut
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    LegacyAccountsListOut:
+      properties:
+        accounts:
+          items:
+            $ref: '#/components/schemas/LegacyAccountShortOut'
+          type: array
+          title: Accounts
+      type: object
+      required:
+      - accounts
+      title: LegacyAccountsListOut
+    LegacyDatacubeSearchenginesOut:
+      properties:
+        searchengines:
+          items:
+            $ref: '#/components/schemas/LegacyDatacubeSearchenginesShortOut'
+          type: array
+          title: Searchengines
+      type: object
+      required:
+      - searchengines
+      title: LegacyDatacubeSearchenginesOut
+    LegacySearchenginesOut:
+      properties:
+        searchengines:
+          items:
+            $ref: '#/components/schemas/LegacySearchenginesShortOut'
+          type: array
+          title: Searchengines
+      type: object
+      required:
+      - searchengines
+      title: LegacySearchenginesOut
     TimeTimeStringType:
       type: string
       enum:
@@ -1039,78 +1064,6 @@ components:
       - fiscal_yearly
       title: TimeTimeStringType
       description: An enumeration.
-    LegacyKeywordGroupDetailShortOut:
-      properties:
-        id:
-          type: string
-          title: Id
-        keywordgroup:
-          type: string
-          title: Keywordgroup
-        keywords:
-          items:
-            $ref: '#/components/schemas/LegacyKeywordGroupDetailKeywordShortOut'
-          type: array
-          title: Keywords
-      type: object
-      required:
-      - id
-      - keywordgroup
-      - keywords
-      title: LegacyKeywordGroupDetailShortOut
-    LegacyDatacubeSearchenginesOut:
-      properties:
-        searchengines:
-          items:
-            $ref: '#/components/schemas/LegacyDatacubeSearchenginesShortOut'
-          type: array
-          title: Searchengines
-      type: object
-      required:
-      - searchengines
-      title: LegacyDatacubeSearchenginesOut
-    LegacyKeywordGroupOut:
-      properties:
-        keywordgroups:
-          items:
-            $ref: '#/components/schemas/LegacyKeywordGroupShortOut'
-          type: array
-          title: Keywordgroups
-      type: object
-      required:
-      - keywordgroups
-      title: LegacyKeywordGroupOut
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    LegacyAccountsListOut:
-      properties:
-        accounts:
-          items:
-            $ref: '#/components/schemas/LegacyAccountShortOut'
-          type: array
-          title: Accounts
-      type: object
-      required:
-      - accounts
-      title: LegacyAccountsListOut
-    LegacySearchenginesOut:
-      properties:
-        searchengines:
-          items:
-            $ref: '#/components/schemas/LegacySearchenginesShortOut'
-          type: array
-          title: Searchengines
-      type: object
-      required:
-      - searchengines
-      title: LegacySearchenginesOut
     LegacyDatacubeSearchenginesShortOut:
       properties:
         id:
@@ -1148,17 +1101,6 @@ components:
       - device_type_id
       - searchengine_group_id
       title: LegacyDatacubeSearchenginesShortOut
-    LegacyKeywordGroupDetailOut:
-      properties:
-        keywordgroups:
-          items:
-            $ref: '#/components/schemas/LegacyKeywordGroupDetailShortOut'
-          type: array
-          title: Keywordgroups
-      type: object
-      required:
-      - keywordgroups
-      title: LegacyKeywordGroupDetailOut
     LegacyTimeFrequencyOut:
       properties:
         time_value:
@@ -1175,6 +1117,131 @@ components:
       - day_value
       - time_frequency
       title: LegacyTimeFrequencyOut
+    LegacyKeywordGroupOut:
+      properties:
+        keywordgroups:
+          items:
+            $ref: '#/components/schemas/LegacyKeywordGroupShortOut'
+          type: array
+          title: Keywordgroups
+      type: object
+      required:
+      - keywordgroups
+      title: LegacyKeywordGroupOut
+    LegacyKeywordOut:
+      properties:
+        count:
+          type: string
+          title: Count
+        total:
+          type: string
+          title: Total
+        offset:
+          type: string
+          title: Offset
+        keywords:
+          items:
+            $ref: '#/components/schemas/LegacyKeywordShortOut'
+          type: array
+          title: Keywords
+      type: object
+      required:
+      - count
+      - total
+      - offset
+      - keywords
+      title: LegacyKeywordOut
+    LegacyKeywordGroupDetailShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        keywordgroup:
+          type: string
+          title: Keywordgroup
+        keywords:
+          items:
+            $ref: '#/components/schemas/LegacyKeywordGroupDetailKeywordShortOut'
+          type: array
+          title: Keywords
+      type: object
+      required:
+      - id
+      - keywordgroup
+      - keywords
+      title: LegacyKeywordGroupDetailShortOut
+    LegacyKeywordShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        keyword:
+          type: string
+          title: Keyword
+      type: object
+      required:
+      - id
+      - keyword
+      title: LegacyKeywordShortOut
+    LegacySearchenginesShortOut:
+      properties:
+        display_name:
+          type: string
+          title: Display Name
+        country:
+          type: string
+          title: Country
+        searchengine:
+          type: string
+          title: Searchengine
+        location:
+          type: string
+          title: Location
+        device_type:
+          type: string
+          title: Device Type
+        device_type_id:
+          type: string
+          title: Device Type Id
+        searchengine_group_id:
+          type: string
+          title: Searchengine Group Id
+        id:
+          type: string
+          title: Id
+      type: object
+      required:
+      - display_name
+      - country
+      - searchengine
+      - location
+      - device_type
+      - device_type_id
+      - searchengine_group_id
+      - id
+      title: LegacySearchenginesShortOut
+    LegacyAccountIn:
+      properties:
+        excluded_keyword_group_filter:
+          items:
+            type: string
+          type: array
+          title: Excluded Keyword Group Filter
+      type: object
+      title: LegacyAccountIn
+    LegacyKeywordGroupDetailKeywordShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: LegacyKeywordGroupDetailKeywordShortOut
     LegacyAccountOut:
       properties:
         account_name:
@@ -1269,19 +1336,19 @@ components:
       - number_of_page_groups
       - page_group_names
       title: LegacyAccountOut
-    LegacyKeywordGroupDetailKeywordShortOut:
+    LegacyAccountShortOut:
       properties:
         id:
           type: string
           title: Id
-        name:
+        account:
           type: string
-          title: Name
+          title: Account
       type: object
       required:
       - id
-      - name
-      title: LegacyKeywordGroupDetailKeywordShortOut
+      - account
+      title: LegacyAccountShortOut
     LegacyKeywordGroupShortOut:
       properties:
         id:
@@ -1295,86 +1362,19 @@ components:
       - id
       - keywordgroup
       title: LegacyKeywordGroupShortOut
-    LegacyKeywordShortOut:
+    LegacyDomainShortOut:
       properties:
         id:
           type: string
           title: Id
-        keyword:
+        domain:
           type: string
-          title: Keyword
+          title: Domain
       type: object
       required:
       - id
-      - keyword
-      title: LegacyKeywordShortOut
-    LegacyAccountIn:
-      properties:
-        excluded_keyword_group_filter:
-          items:
-            type: string
-          type: array
-          title: Excluded Keyword Group Filter
-      type: object
-      title: LegacyAccountIn
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    LegacySearchenginesShortOut:
-      properties:
-        display_name:
-          type: string
-          title: Display Name
-        country:
-          type: string
-          title: Country
-        searchengine:
-          type: string
-          title: Searchengine
-        location:
-          type: string
-          title: Location
-        device_type:
-          type: string
-          title: Device Type
-        device_type_id:
-          type: string
-          title: Device Type Id
-        searchengine_group_id:
-          type: string
-          title: Searchengine Group Id
-        id:
-          type: string
-          title: Id
-      type: object
-      required:
-      - display_name
-      - country
-      - searchengine
-      - location
-      - device_type
-      - device_type_id
-      - searchengine_group_id
-      - id
-      title: LegacySearchenginesShortOut
+      - domain
+      title: LegacyDomainShortOut
   securitySchemes:
     http_basic:
       type: http

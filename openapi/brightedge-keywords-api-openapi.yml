@@ -335,25 +335,6 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    KeywordGroupDetailOut:
-      properties:
-        id:
-          type: integer
-          title: Id
-        name:
-          type: string
-          title: Name
-        keywords:
-          items:
-            $ref: '#/components/schemas/KeywordOut'
-          type: array
-          title: Keywords
-      type: object
-      required:
-      - id
-      - name
-      - keywords
-      title: KeywordGroupDetailOut
     BrandFiltersOut:
       properties:
         bql_filters:
@@ -375,15 +356,6 @@ components:
       - bql_filters
       - keywords
       title: BrandFiltersOut
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     KeywordOut:
       properties:
         id:
@@ -397,6 +369,34 @@ components:
       - id
       - name
       title: KeywordOut
+    KeywordGroupDetailOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+        keywords:
+          items:
+            $ref: '#/components/schemas/KeywordOut'
+          type: array
+          title: Keywords
+      type: object
+      required:
+      - id
+      - name
+      - keywords
+      title: KeywordGroupDetailOut
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:

@@ -250,19 +250,6 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    RecommendationKwPriority:
-      properties:
-        keyword_id:
-          type: integer
-          title: Keyword Id
-        position:
-          type: integer
-          title: Position
-      type: object
-      required:
-      - keyword_id
-      - position
-      title: RecommendationKwPriority
     RecommendationKw:
       properties:
         keyword_id:
@@ -291,15 +278,6 @@ components:
       - plp_url
       - plp_url_id
       title: RecommendationKw
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     RecommendationKwListResponse:
       properties:
         page_url_id:
@@ -323,6 +301,15 @@ components:
       - active_keywords
       - inactive_keywords
       title: RecommendationKwListResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     RecommendationKwListRequest:
       properties:
         page_url:
@@ -333,6 +320,34 @@ components:
           title: Page Url Id
       type: object
       title: RecommendationKwListRequest
+    RecommendationKwChangePriorityRequest:
+      properties:
+        plp_url_id:
+          type: string
+          title: Plp Url Id
+        keywords:
+          items:
+            $ref: '#/components/schemas/RecommendationKwPriority'
+          type: array
+          title: Keywords
+      type: object
+      required:
+      - plp_url_id
+      - keywords
+      title: RecommendationKwChangePriorityRequest
+    RecommendationKwPriority:
+      properties:
+        keyword_id:
+          type: integer
+          title: Keyword Id
+        position:
+          type: integer
+          title: Position
+      type: object
+      required:
+      - keyword_id
+      - position
+      title: RecommendationKwPriority
     ValidationError:
       properties:
         loc:
@@ -354,21 +369,6 @@ components:
       - msg
       - type
       title: ValidationError
-    RecommendationKwChangePriorityRequest:
-      properties:
-        plp_url_id:
-          type: string
-          title: Plp Url Id
-        keywords:
-          items:
-            $ref: '#/components/schemas/RecommendationKwPriority'
-          type: array
-          title: Keywords
-      type: object
-      required:
-      - plp_url_id
-      - keywords
-      title: RecommendationKwChangePriorityRequest
   securitySchemes:
     http_basic:
       type: http

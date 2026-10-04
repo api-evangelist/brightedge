@@ -413,64 +413,35 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    MarketoPaaResponseData:
+    MarketoTopKeywordsPerDomainResponseData:
       properties:
-        keyword:
-          type: string
-          title: Keyword
-        questions:
+        keywords:
           items:
-            $ref: '#/components/schemas/MarketoPaaResponseDataItem'
+            $ref: '#/components/schemas/MarketoTopKeywordsPerDomainResponseDataItem'
           type: array
-          title: Questions
+          title: Keywords
       type: object
-      title: MarketoPaaResponseData
-    MarketoTopKeywordsPerPageResponseDataItem:
-      properties:
-        keyword:
-          type: string
-          title: Keyword
-        volume:
-          type: integer
-          title: Volume
-        blended_rank:
-          type: integer
-          title: Blended Rank
-      type: object
-      title: MarketoTopKeywordsPerPageResponseDataItem
-    MarketoResponseInfo:
-      properties:
-        version:
-          type: string
-          title: Version
-        timestamp:
-          type: number
-          title: Timestamp
-      type: object
-      required:
-      - version
-      - timestamp
-      title: MarketoResponseInfo
-    MarketoTopKeywordsPerDomainRequest:
+      title: MarketoTopKeywordsPerDomainResponseData
+    MarketoPaaRequest:
       properties:
         collector_id:
           type: integer
           title: Collector Id
           default: 34
-        domain:
+        keyword:
           type: string
           minLength: 1
-          title: Domain
+          title: Keyword
         limit:
           type: integer
-          maximum: 1000.0
+          maximum: 4.0
           exclusiveMinimum: 0.0
           title: Limit
-          default: 100
+          default: 4
       type: object
       required:
-      - domain
-      title: MarketoTopKeywordsPerDomainRequest
+      - keyword
+      title: MarketoPaaRequest
     MarketoTopKeywordsPerDomainResponseDataItem:
       properties:
         keyword:
@@ -499,60 +470,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    MarketoTopKeywordsPerDomainResponseData:
-      properties:
-        keywords:
-          items:
-            $ref: '#/components/schemas/MarketoTopKeywordsPerDomainResponseDataItem'
-          type: array
-          title: Keywords
-      type: object
-      title: MarketoTopKeywordsPerDomainResponseData
-    MarketoCacheRequest:
-      properties:
-        url:
-          type: string
-          minLength: 1
-          title: Url
-      type: object
-      required:
-      - url
-      title: MarketoCacheRequest
-    MarketoTopPagesResponseDataItem:
-      properties:
-        url:
-          type: string
-          title: Url
-        search_vol:
-          type: integer
-          title: Search Vol
-        average_rank:
-          type: integer
-          title: Average Rank
-        est_visits:
-          type: integer
-          title: Est Visits
-      type: object
-      title: MarketoTopPagesResponseDataItem
-    MarketoTopKeywordsPerPageResponse:
-      properties:
-        status:
-          type: boolean
-          title: Status
-        message:
-          type: string
-          title: Message
-        info:
-          $ref: '#/components/schemas/MarketoResponseInfo'
-        data:
-          $ref: '#/components/schemas/MarketoTopKeywordsPerPageResponseData'
-      type: object
-      required:
-      - status
-      - message
-      - info
-      - data
-      title: MarketoTopKeywordsPerPageResponse
     MarketoTopPagesResponseData:
       properties:
         pages:
@@ -562,109 +479,6 @@ components:
           title: Pages
       type: object
       title: MarketoTopPagesResponseData
-    MarketoTopKeywordsPerPageResponseData:
-      properties:
-        keywords:
-          items:
-            $ref: '#/components/schemas/MarketoTopKeywordsPerPageResponseDataItem'
-          type: array
-          title: Keywords
-      type: object
-      title: MarketoTopKeywordsPerPageResponseData
-    MarketoPaaResponse:
-      properties:
-        status:
-          type: boolean
-          title: Status
-        message:
-          type: string
-          title: Message
-        info:
-          $ref: '#/components/schemas/MarketoResponseInfo'
-        data:
-          $ref: '#/components/schemas/MarketoPaaResponseData'
-      type: object
-      required:
-      - status
-      - message
-      - info
-      - data
-      title: MarketoPaaResponse
-    MarketoPaaRequest:
-      properties:
-        collector_id:
-          type: integer
-          title: Collector Id
-          default: 34
-        keyword:
-          type: string
-          minLength: 1
-          title: Keyword
-        limit:
-          type: integer
-          maximum: 4.0
-          exclusiveMinimum: 0.0
-          title: Limit
-          default: 4
-      type: object
-      required:
-      - keyword
-      title: MarketoPaaRequest
-    MarketoTopKeywordsPerPageRequest:
-      properties:
-        collector_id:
-          type: integer
-          title: Collector Id
-          default: 34
-        page:
-          type: string
-          minLength: 1
-          title: Page
-        limit:
-          type: integer
-          maximum: 5.0
-          exclusiveMinimum: 0.0
-          title: Limit
-          default: 5
-      type: object
-      required:
-      - page
-      title: MarketoTopKeywordsPerPageRequest
-    MarketoPaaResponseDataItem:
-      properties:
-        rank:
-          type: integer
-          title: Rank
-        display_title:
-          type: string
-          title: Display Title
-        answer_text:
-          type: string
-          title: Answer Text
-        landing_url:
-          type: string
-          title: Landing Url
-      type: object
-      title: MarketoPaaResponseDataItem
-    MarketoTopKeywordsPerDomainResponse:
-      properties:
-        status:
-          type: boolean
-          title: Status
-        message:
-          type: string
-          title: Message
-        info:
-          $ref: '#/components/schemas/MarketoResponseInfo'
-        data:
-          $ref: '#/components/schemas/MarketoTopKeywordsPerDomainResponseData'
-      type: object
-      required:
-      - status
-      - message
-      - info
-      - data
-      title: MarketoTopKeywordsPerDomainResponse
     ValidationError:
       properties:
         loc:
@@ -686,6 +500,63 @@ components:
       - msg
       - type
       title: ValidationError
+    MarketoResponseInfo:
+      properties:
+        version:
+          type: string
+          title: Version
+        timestamp:
+          type: number
+          title: Timestamp
+      type: object
+      required:
+      - version
+      - timestamp
+      title: MarketoResponseInfo
+    MarketoTopKeywordsPerPageResponseDataItem:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+        volume:
+          type: integer
+          title: Volume
+        blended_rank:
+          type: integer
+          title: Blended Rank
+      type: object
+      title: MarketoTopKeywordsPerPageResponseDataItem
+    MarketoTopKeywordsPerPageResponse:
+      properties:
+        status:
+          type: boolean
+          title: Status
+        message:
+          type: string
+          title: Message
+        info:
+          $ref: '#/components/schemas/MarketoResponseInfo'
+        data:
+          $ref: '#/components/schemas/MarketoTopKeywordsPerPageResponseData'
+      type: object
+      required:
+      - status
+      - message
+      - info
+      - data
+      title: MarketoTopKeywordsPerPageResponse
+    MarketoPaaResponseData:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+        questions:
+          items:
+            $ref: '#/components/schemas/MarketoPaaResponseDataItem'
+          type: array
+          title: Questions
+      type: object
+      title: MarketoPaaResponseData
     MarketoTopPagesResponse:
       properties:
         status:
@@ -705,6 +576,25 @@ components:
       - info
       - data
       title: MarketoTopPagesResponse
+    MarketoTopKeywordsPerDomainResponse:
+      properties:
+        status:
+          type: boolean
+          title: Status
+        message:
+          type: string
+          title: Message
+        info:
+          $ref: '#/components/schemas/MarketoResponseInfo'
+        data:
+          $ref: '#/components/schemas/MarketoTopKeywordsPerDomainResponseData'
+      type: object
+      required:
+      - status
+      - message
+      - info
+      - data
+      title: MarketoTopKeywordsPerDomainResponse
     MarketoTopPagesRequest:
       properties:
         collector_id:
@@ -725,6 +615,116 @@ components:
       required:
       - domain
       title: MarketoTopPagesRequest
+    MarketoCacheRequest:
+      properties:
+        url:
+          type: string
+          minLength: 1
+          title: Url
+      type: object
+      required:
+      - url
+      title: MarketoCacheRequest
+    MarketoTopKeywordsPerPageRequest:
+      properties:
+        collector_id:
+          type: integer
+          title: Collector Id
+          default: 34
+        page:
+          type: string
+          minLength: 1
+          title: Page
+        limit:
+          type: integer
+          maximum: 5.0
+          exclusiveMinimum: 0.0
+          title: Limit
+          default: 5
+      type: object
+      required:
+      - page
+      title: MarketoTopKeywordsPerPageRequest
+    MarketoTopPagesResponseDataItem:
+      properties:
+        url:
+          type: string
+          title: Url
+        search_vol:
+          type: integer
+          title: Search Vol
+        average_rank:
+          type: integer
+          title: Average Rank
+        est_visits:
+          type: integer
+          title: Est Visits
+      type: object
+      title: MarketoTopPagesResponseDataItem
+    MarketoPaaResponse:
+      properties:
+        status:
+          type: boolean
+          title: Status
+        message:
+          type: string
+          title: Message
+        info:
+          $ref: '#/components/schemas/MarketoResponseInfo'
+        data:
+          $ref: '#/components/schemas/MarketoPaaResponseData'
+      type: object
+      required:
+      - status
+      - message
+      - info
+      - data
+      title: MarketoPaaResponse
+    MarketoPaaResponseDataItem:
+      properties:
+        rank:
+          type: integer
+          title: Rank
+        display_title:
+          type: string
+          title: Display Title
+        answer_text:
+          type: string
+          title: Answer Text
+        landing_url:
+          type: string
+          title: Landing Url
+      type: object
+      title: MarketoPaaResponseDataItem
+    MarketoTopKeywordsPerPageResponseData:
+      properties:
+        keywords:
+          items:
+            $ref: '#/components/schemas/MarketoTopKeywordsPerPageResponseDataItem'
+          type: array
+          title: Keywords
+      type: object
+      title: MarketoTopKeywordsPerPageResponseData
+    MarketoTopKeywordsPerDomainRequest:
+      properties:
+        collector_id:
+          type: integer
+          title: Collector Id
+          default: 34
+        domain:
+          type: string
+          minLength: 1
+          title: Domain
+        limit:
+          type: integer
+          maximum: 1000.0
+          exclusiveMinimum: 0.0
+          title: Limit
+          default: 100
+      type: object
+      required:
+      - domain
+      title: MarketoTopKeywordsPerDomainRequest
   securitySchemes:
     http_basic:
       type: http

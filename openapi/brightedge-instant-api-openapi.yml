@@ -260,6 +260,46 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    KwValue:
+      properties:
+        search_volume:
+          type: integer
+          title: Search Volume
+        suggested_bid:
+          type: number
+          title: Suggested Bid
+        num_words:
+          type: integer
+          title: Num Words
+        competition:
+          type: string
+          title: Competition
+        keyword:
+          type: string
+          title: Keyword
+      type: object
+      required:
+      - num_words
+      - keyword
+      title: KwValue
+    KwIdeasHistoryOut:
+      properties:
+        total:
+          type: integer
+          title: Total
+        count:
+          type: integer
+          title: Count
+        offset:
+          type: integer
+          title: Offset
+        values:
+          items:
+            $ref: '#/components/schemas/KwValue'
+          type: array
+          title: Values
+      type: object
+      title: KwIdeasHistoryOut
     ValidationError:
       properties:
         loc:
@@ -290,46 +330,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    KwIdeasHistoryOut:
-      properties:
-        total:
-          type: integer
-          title: Total
-        count:
-          type: integer
-          title: Count
-        offset:
-          type: integer
-          title: Offset
-        values:
-          items:
-            $ref: '#/components/schemas/KwValue'
-          type: array
-          title: Values
-      type: object
-      title: KwIdeasHistoryOut
-    KwValue:
-      properties:
-        search_volume:
-          type: integer
-          title: Search Volume
-        suggested_bid:
-          type: number
-          title: Suggested Bid
-        num_words:
-          type: integer
-          title: Num Words
-        competition:
-          type: string
-          title: Competition
-        keyword:
-          type: string
-          title: Keyword
-      type: object
-      required:
-      - num_words
-      - keyword
-      title: KwValue
   securitySchemes:
     http_basic:
       type: http

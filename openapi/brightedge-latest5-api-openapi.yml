@@ -112,6 +112,30 @@ paths:
       - Latest5
 components:
   schemas:
+    PageDetailsInput:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        url:
+          type: string
+          maxLength: 2083
+          minLength: 1
+          format: uri
+          title: Url
+        title:
+          type: string
+          title: Title
+          default: ''
+        meta_description:
+          type: string
+          title: Meta Description
+          default: ''
+      type: object
+      required:
+      - account_id
+      - url
+      title: PageDetailsInput
     PageDetails:
       properties:
         url:
@@ -151,30 +175,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    PageDetailsInput:
-      properties:
-        account_id:
-          type: integer
-          title: Account Id
-        url:
-          type: string
-          maxLength: 2083
-          minLength: 1
-          format: uri
-          title: Url
-        title:
-          type: string
-          title: Title
-          default: ''
-        meta_description:
-          type: string
-          title: Meta Description
-          default: ''
-      type: object
-      required:
-      - account_id
-      - url
-      title: PageDetailsInput
     PSKeywords:
       properties:
         primary_keyword:

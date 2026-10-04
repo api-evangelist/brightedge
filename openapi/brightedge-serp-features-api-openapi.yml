@@ -265,22 +265,29 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    PeopleAlsoAskQuestionsLive:
+    PeopleAlsoAskLiveIn:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+        collector_id:
+          type: integer
+          title: Collector Id
+        click_depth:
+          type: integer
+          title: Click Depth
+      type: object
+      required:
+      - keyword
+      - collector_id
+      title: PeopleAlsoAskLiveIn
+    PeopleAlsoAskQuestionsChatgpt:
       properties:
         title:
           type: string
           title: Title
-        answer_text:
-          type: string
-          title: Answer Text
-        description:
-          type: string
-          title: Description
-        url:
-          type: string
-          title: Url
       type: object
-      title: PeopleAlsoAskQuestionsLive
+      title: PeopleAlsoAskQuestionsChatgpt
     PeopleAlsoAskOut:
       properties:
         questions_live:
@@ -304,31 +311,6 @@ components:
       - questions_historical
       - questions_chatgpt
       title: PeopleAlsoAskOut
-    PeopleAlsoAskHistoricalIn:
-      properties:
-        keyword:
-          type: string
-          title: Keyword
-        collector_id:
-          type: integer
-          title: Collector Id
-        num_of_weeks_back:
-          type: integer
-          title: Num Of Weeks Back
-      type: object
-      required:
-      - keyword
-      - collector_id
-      title: PeopleAlsoAskHistoricalIn
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     PeopleAlsoAskLiveOut:
       properties:
         questions:
@@ -365,22 +347,40 @@ components:
       - keyword
       - collector_id
       title: PeopleAlsoAskQuestions
-    PeopleAlsoAskLiveIn:
+    PeopleAlsoAskChatgptIn:
       properties:
         keyword:
           type: string
           title: Keyword
-        collector_id:
-          type: integer
-          title: Collector Id
-        click_depth:
-          type: integer
-          title: Click Depth
       type: object
       required:
       - keyword
-      - collector_id
-      title: PeopleAlsoAskLiveIn
+      title: PeopleAlsoAskChatgptIn
+    PeopleAlsoAskQuestionsLive:
+      properties:
+        title:
+          type: string
+          title: Title
+        answer_text:
+          type: string
+          title: Answer Text
+        description:
+          type: string
+          title: Description
+        url:
+          type: string
+          title: Url
+      type: object
+      title: PeopleAlsoAskQuestionsLive
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     PeopleAlsoAskIn:
       properties:
         keyword:
@@ -412,13 +412,17 @@ components:
       - keyword
       - collector_id
       title: PeopleAlsoAskIn
-    PeopleAlsoAskQuestionsChatgpt:
+    PeopleAlsoAskHistoricalOut:
       properties:
-        title:
-          type: string
-          title: Title
+        questions:
+          items:
+            $ref: '#/components/schemas/PeopleAlsoAskQuestions'
+          type: array
+          title: Questions
       type: object
-      title: PeopleAlsoAskQuestionsChatgpt
+      required:
+      - questions
+      title: PeopleAlsoAskHistoricalOut
     ValidationError:
       properties:
         loc:
@@ -440,17 +444,6 @@ components:
       - msg
       - type
       title: ValidationError
-    PeopleAlsoAskHistoricalOut:
-      properties:
-        questions:
-          items:
-            $ref: '#/components/schemas/PeopleAlsoAskQuestions'
-          type: array
-          title: Questions
-      type: object
-      required:
-      - questions
-      title: PeopleAlsoAskHistoricalOut
     PeopleAlsoAskChatgptOut:
       properties:
         questions:
@@ -465,15 +458,22 @@ components:
       required:
       - questions
       title: PeopleAlsoAskChatgptOut
-    PeopleAlsoAskChatgptIn:
+    PeopleAlsoAskHistoricalIn:
       properties:
         keyword:
           type: string
           title: Keyword
+        collector_id:
+          type: integer
+          title: Collector Id
+        num_of_weeks_back:
+          type: integer
+          title: Num Of Weeks Back
       type: object
       required:
       - keyword
-      title: PeopleAlsoAskChatgptIn
+      - collector_id
+      title: PeopleAlsoAskHistoricalIn
   securitySchemes:
     http_basic:
       type: http

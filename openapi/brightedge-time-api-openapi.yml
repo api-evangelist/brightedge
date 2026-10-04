@@ -101,6 +101,20 @@ paths:
       - bearer_token: []
 components:
   schemas:
+    TimeTimeStringType:
+      type: string
+      enum:
+      - daily
+      - weekly
+      - monthly
+      - quarterly
+      - yearly
+      - fiscal_weekly
+      - fiscal_monthly
+      - fiscal_quarterly
+      - fiscal_yearly
+      title: TimeTimeStringType
+      description: An enumeration.
     ValidationError:
       properties:
         loc:
@@ -122,6 +136,15 @@ components:
       - msg
       - type
       title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     TimeFrequencyOut:
       properties:
         time_value:
@@ -138,29 +161,6 @@ components:
       - day_value
       - time_frequency
       title: TimeFrequencyOut
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    TimeTimeStringType:
-      type: string
-      enum:
-      - daily
-      - weekly
-      - monthly
-      - quarterly
-      - yearly
-      - fiscal_weekly
-      - fiscal_monthly
-      - fiscal_quarterly
-      - fiscal_yearly
-      title: TimeTimeStringType
-      description: An enumeration.
   securitySchemes:
     http_basic:
       type: http

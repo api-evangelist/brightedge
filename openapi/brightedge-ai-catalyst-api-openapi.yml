@@ -927,7 +927,122 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    AICatalystPersonas:
+    CollectorInfo:
+      properties:
+        collector_id:
+          type: integer
+          title: Collector Id
+        engine_id:
+          type: integer
+          title: Engine Id
+        locale:
+          type: string
+          title: Locale
+        location:
+          type: string
+          title: Location
+        language:
+          type: string
+          title: Language
+        engine_name:
+          type: string
+          title: Engine Name
+        status:
+          type: integer
+          title: Status
+      type: object
+      required:
+      - collector_id
+      - engine_id
+      - locale
+      - location
+      - language
+      - engine_name
+      - status
+      title: CollectorInfo
+    DimensionOptionsMetadata:
+      properties:
+        time_type:
+          type: string
+          title: Time Type
+        time_value:
+          type: integer
+          title: Time Value
+        collector_ids:
+          items:
+            type: integer
+          type: array
+          title: Collector Ids
+        brand_category_id_list:
+          items:
+            type: integer
+          type: array
+          title: Brand Category Id List
+        personality_id_list:
+          items:
+            type: integer
+          type: array
+          title: Personality Id List
+        topic_id_list:
+          items:
+            type: integer
+          type: array
+          title: Topic Id List
+        brand_domain:
+          type: string
+          title: Brand Domain
+        domain:
+          type: string
+          title: Domain
+        by_domain:
+          type: boolean
+          title: By Domain
+      type: object
+      title: DimensionOptionsMetadata
+      description: Metadata for dimension options applied to the query
+    AICatalystPromptsListOut:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        prompt_groups:
+          items:
+            $ref: '#/components/schemas/AICatalystPromptsList'
+          type: array
+          title: Prompt Groups
+      type: object
+      required:
+      - account_id
+      - success
+      - message
+      - prompt_groups
+      title: AICatalystPromptsListOut
+    AICatalystsPromptGroupPrompts:
+      properties:
+        prompt_group_id:
+          type: integer
+          title: Prompt Group Id
+        prompt_group:
+          type: string
+          title: Prompt Group
+        prompts:
+          items:
+            $ref: '#/components/schemas/AICatalystsPromptGroupPrompt'
+          type: array
+          title: Prompts
+      type: object
+      required:
+      - prompt_group_id
+      - prompt_group
+      - prompts
+      title: AICatalystsPromptGroupPrompts
+    AICatalystEnabledEngines:
       properties:
         success:
           type: boolean
@@ -935,25 +1050,74 @@ components:
         message:
           type: string
           title: Message
-        personas:
+        account_id:
+          type: integer
+          title: Account Id
+        engines:
           items:
-            $ref: '#/components/schemas/AICatalystPersona'
+            type: string
           type: array
-          title: Personas
+          title: Engines
       type: object
       required:
       - success
       - message
-      - personas
-      title: AICatalystPersonas
-    OutputType:
-      type: string
-      enum:
-      - parsed
-      - raw
-      - summary_only
-      title: OutputType
-      description: Output type for data requests
+      - account_id
+      - engines
+      title: AICatalystEnabledEngines
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    AICatalystEnabledCollectorsForAccount:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        account_id:
+          type: integer
+          title: Account Id
+        collectors:
+          items:
+            $ref: '#/components/schemas/CollectorInfo'
+          type: array
+          title: Collectors
+      type: object
+      required:
+      - success
+      - message
+      - account_id
+      - collectors
+      title: AICatalystEnabledCollectorsForAccount
     AICatalystPromptsList:
       properties:
         prompt_id:
@@ -979,45 +1143,24 @@ components:
       - collector_ids
       - intent
       title: AICatalystPromptsList
-    AICatalystsPromptGroup:
+    AICatalystsShareOfDataResponse:
       properties:
-        prompt_group_id:
-          type: integer
-          title: Prompt Group Id
-        prompt_group:
+        success:
+          type: boolean
+          title: Success
+        message:
           type: string
-          title: Prompt Group
-        number_of_prompts:
-          type: integer
-          title: Number Of Prompts
-        created_on:
-          type: string
-          format: date-time
-          title: Created On
-        last_updated_on:
-          type: string
-          format: date-time
-          title: Last Updated On
-        collector_ids:
-          items:
-            type: integer
-          type: array
-          title: Collector Ids
-          default: []
-        personality_ids:
-          items:
-            type: integer
-          type: array
-          title: Personality Ids
-          default: []
+          title: Message
+        dataset:
+          $ref: '#/components/schemas/AIBDatasetType'
+        data:
+          title: Data
       type: object
       required:
-      - prompt_group_id
-      - prompt_group
-      - number_of_prompts
-      - created_on
-      - last_updated_on
-      title: AICatalystsPromptGroup
+      - success
+      - message
+      - dataset
+      title: AICatalystsShareOfDataResponse
     AICatalystsShareOfDataRequest:
       properties:
         dataset:
@@ -1120,243 +1263,6 @@ components:
       - last_name
       - email
       title: AIBUser
-    AICatalystEnabledCollectorsForAccount:
-      properties:
-        success:
-          type: boolean
-          title: Success
-        message:
-          type: string
-          title: Message
-        account_id:
-          type: integer
-          title: Account Id
-        collectors:
-          items:
-            $ref: '#/components/schemas/CollectorInfo'
-          type: array
-          title: Collectors
-      type: object
-      required:
-      - success
-      - message
-      - account_id
-      - collectors
-      title: AICatalystEnabledCollectorsForAccount
-    AICatalystsShareOfDataResponseV2:
-      properties:
-        success:
-          type: boolean
-          title: Success
-        message:
-          type: string
-          title: Message
-        dataset:
-          $ref: '#/components/schemas/AIBDatasetType'
-        metadata:
-          $ref: '#/components/schemas/ResponseMetadata'
-        data:
-          title: Data
-      type: object
-      required:
-      - success
-      - message
-      - dataset
-      title: AICatalystsShareOfDataResponseV2
-      description: V2 response format with metadata
-    AICatalystPresenceBrandCategory:
-      properties:
-        success:
-          type: boolean
-          title: Success
-        message:
-          type: string
-          title: Message
-        data:
-          items:
-            type: object
-          type: array
-          title: Data
-      type: object
-      required:
-      - success
-      - message
-      title: AICatalystPresenceBrandCategory
-    AICatalystsAccountOut:
-      properties:
-        id:
-          type: integer
-          title: Id
-        name:
-          type: string
-          title: Name
-      type: object
-      required:
-      - id
-      - name
-      title: AICatalystsAccountOut
-    AICatalystEnabledCollectors:
-      properties:
-        success:
-          type: boolean
-          title: Success
-        message:
-          type: string
-          title: Message
-        collectors:
-          items:
-            $ref: '#/components/schemas/CollectorInfo'
-          type: array
-          title: Collectors
-      type: object
-      required:
-      - success
-      - message
-      - collectors
-      title: AICatalystEnabledCollectors
-    ResponseMetadata:
-      properties:
-        dimensionOptions:
-          $ref: '#/components/schemas/DimensionOptionsMetadata'
-        dimensions:
-          items:
-            type: string
-          type: array
-          title: Dimensions
-        measures:
-          items:
-            type: string
-          type: array
-          title: Measures
-      type: object
-      title: ResponseMetadata
-      description: Metadata included in V2 response
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    AICatalystsPromptInfo:
-      properties:
-        prompt_id:
-          type: integer
-          title: Prompt Id
-        prompt_name:
-          type: string
-          title: Prompt Name
-        intents:
-          type: string
-          title: Intents
-        prompt_groups:
-          type: string
-          title: Prompt Groups
-        collector_ids:
-          items:
-            type: integer
-          type: array
-          title: Collector Ids
-        country:
-          type: string
-          title: Country
-        created_on:
-          type: string
-          format: date-time
-          title: Created On
-        last_updated_on:
-          type: string
-          format: date-time
-          title: Last Updated On
-      type: object
-      required:
-      - prompt_id
-      - prompt_name
-      - created_on
-      - last_updated_on
-      title: AICatalystsPromptInfo
-    AIBDatasetType:
-      type: string
-      enum:
-      - mentions
-      - citations
-      - prompts
-      title: AIBDatasetType
-      description: Dataset type for AI Brand Presence data requests
-    AICatalystsPromptGroupPrompts:
-      properties:
-        prompt_group_id:
-          type: integer
-          title: Prompt Group Id
-        prompt_group:
-          type: string
-          title: Prompt Group
-        prompts:
-          items:
-            $ref: '#/components/schemas/AICatalystsPromptGroupPrompt'
-          type: array
-          title: Prompts
-      type: object
-      required:
-      - prompt_group_id
-      - prompt_group
-      - prompts
-      title: AICatalystsPromptGroupPrompts
-    AICatalystsPromptGroupOut:
-      properties:
-        account_id:
-          type: integer
-          title: Account Id
-        success:
-          type: boolean
-          title: Success
-        message:
-          type: string
-          title: Message
-        prompt_groups:
-          items:
-            $ref: '#/components/schemas/AICatalystsPromptGroup'
-          type: array
-          title: Prompt Groups
-      type: object
-      required:
-      - account_id
-      - success
-      - message
-      - prompt_groups
-      title: AICatalystsPromptGroupOut
-    AICatalystPersona:
-      properties:
-        persona_id:
-          type: integer
-          title: Persona Id
-        name:
-          type: string
-          title: Name
-        description:
-          type: string
-          title: Description
-        updated_by:
-          $ref: '#/components/schemas/AIBUser'
-        created_at:
-          type: string
-          format: date-time
-          title: Created At
-        is_default:
-          type: boolean
-          title: Is Default
-        date_updated:
-          type: string
-          format: date-time
-          title: Date Updated
-      type: object
-      required:
-      - persona_id
-      - name
-      - description
-      title: AICatalystPersona
     AICatalystsPromptGroupPrompt:
       properties:
         prompt_id:
@@ -1370,29 +1276,6 @@ components:
       - prompt_id
       - prompt
       title: AICatalystsPromptGroupPrompt
-    AICatalystsPromptGroupPromptsOut:
-      properties:
-        account_id:
-          type: integer
-          title: Account Id
-        success:
-          type: boolean
-          title: Success
-        message:
-          type: string
-          title: Message
-        prompt_groups:
-          items:
-            $ref: '#/components/schemas/AICatalystsPromptGroupPrompts'
-          type: array
-          title: Prompt Groups
-      type: object
-      required:
-      - account_id
-      - success
-      - message
-      - prompt_groups
-      title: AICatalystsPromptGroupPromptsOut
     AICatalystBrandCategoryRequest:
       properties:
         account_id:
@@ -1434,47 +1317,196 @@ components:
       - account_id
       - domain
       title: AICatalystBrandCategoryRequest
-    DimensionOptionsMetadata:
+    AICatalystsAccountOut:
       properties:
-        time_type:
-          type: string
-          title: Time Type
-        time_value:
+        id:
           type: integer
-          title: Time Value
+          title: Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: AICatalystsAccountOut
+    AICatalystPresenceBrandCategory:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        data:
+          items:
+            type: object
+          type: array
+          title: Data
+      type: object
+      required:
+      - success
+      - message
+      title: AICatalystPresenceBrandCategory
+    AICatalystsPromptGroupPromptsOut:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        prompt_groups:
+          items:
+            $ref: '#/components/schemas/AICatalystsPromptGroupPrompts'
+          type: array
+          title: Prompt Groups
+      type: object
+      required:
+      - account_id
+      - success
+      - message
+      - prompt_groups
+      title: AICatalystsPromptGroupPromptsOut
+    ResponseMetadata:
+      properties:
+        dimensionOptions:
+          $ref: '#/components/schemas/DimensionOptionsMetadata'
+        dimensions:
+          items:
+            type: string
+          type: array
+          title: Dimensions
+        measures:
+          items:
+            type: string
+          type: array
+          title: Measures
+      type: object
+      title: ResponseMetadata
+      description: Metadata included in V2 response
+    AICatalystPersonas:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        personas:
+          items:
+            $ref: '#/components/schemas/AICatalystPersona'
+          type: array
+          title: Personas
+      type: object
+      required:
+      - success
+      - message
+      - personas
+      title: AICatalystPersonas
+    AICatalystsPromptGroup:
+      properties:
+        prompt_group_id:
+          type: integer
+          title: Prompt Group Id
+        prompt_group:
+          type: string
+          title: Prompt Group
+        number_of_prompts:
+          type: integer
+          title: Number Of Prompts
+        created_on:
+          type: string
+          format: date-time
+          title: Created On
+        last_updated_on:
+          type: string
+          format: date-time
+          title: Last Updated On
         collector_ids:
           items:
             type: integer
           type: array
           title: Collector Ids
-        brand_category_id_list:
+          default: []
+        personality_ids:
           items:
             type: integer
           type: array
-          title: Brand Category Id List
-        personality_id_list:
-          items:
-            type: integer
-          type: array
-          title: Personality Id List
-        topic_id_list:
-          items:
-            type: integer
-          type: array
-          title: Topic Id List
-        brand_domain:
-          type: string
-          title: Brand Domain
-        domain:
-          type: string
-          title: Domain
-        by_domain:
-          type: boolean
-          title: By Domain
+          title: Personality Ids
+          default: []
       type: object
-      title: DimensionOptionsMetadata
-      description: Metadata for dimension options applied to the query
-    AICatalystsShareOfDataResponse:
+      required:
+      - prompt_group_id
+      - prompt_group
+      - number_of_prompts
+      - created_on
+      - last_updated_on
+      title: AICatalystsPromptGroup
+    AICatalystsPromptGroupOut:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        prompt_groups:
+          items:
+            $ref: '#/components/schemas/AICatalystsPromptGroup'
+          type: array
+          title: Prompt Groups
+      type: object
+      required:
+      - account_id
+      - success
+      - message
+      - prompt_groups
+      title: AICatalystsPromptGroupOut
+    AICatalystsPromptInfo:
+      properties:
+        prompt_id:
+          type: integer
+          title: Prompt Id
+        prompt_name:
+          type: string
+          title: Prompt Name
+        intents:
+          type: string
+          title: Intents
+        prompt_groups:
+          type: string
+          title: Prompt Groups
+        collector_ids:
+          items:
+            type: integer
+          type: array
+          title: Collector Ids
+        country:
+          type: string
+          title: Country
+        created_on:
+          type: string
+          format: date-time
+          title: Created On
+        last_updated_on:
+          type: string
+          format: date-time
+          title: Last Updated On
+      type: object
+      required:
+      - prompt_id
+      - prompt_name
+      - created_on
+      - last_updated_on
+      title: AICatalystsPromptInfo
+    AICatalystsShareOfDataResponseV2:
       properties:
         success:
           type: boolean
@@ -1484,6 +1516,8 @@ components:
           title: Message
         dataset:
           $ref: '#/components/schemas/AIBDatasetType'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
         data:
           title: Data
       type: object
@@ -1491,7 +1525,73 @@ components:
       - success
       - message
       - dataset
-      title: AICatalystsShareOfDataResponse
+      title: AICatalystsShareOfDataResponseV2
+      description: V2 response format with metadata
+    OutputType:
+      type: string
+      enum:
+      - parsed
+      - raw
+      - summary_only
+      title: OutputType
+      description: Output type for data requests
+    AICatalystEnabledCollectors:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        collectors:
+          items:
+            $ref: '#/components/schemas/CollectorInfo'
+          type: array
+          title: Collectors
+      type: object
+      required:
+      - success
+      - message
+      - collectors
+      title: AICatalystEnabledCollectors
+    AICatalystPersona:
+      properties:
+        persona_id:
+          type: integer
+          title: Persona Id
+        name:
+          type: string
+          title: Name
+        description:
+          type: string
+          title: Description
+        updated_by:
+          $ref: '#/components/schemas/AIBUser'
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
+        is_default:
+          type: boolean
+          title: Is Default
+        date_updated:
+          type: string
+          format: date-time
+          title: Date Updated
+      type: object
+      required:
+      - persona_id
+      - name
+      - description
+      title: AICatalystPersona
+    AIBDatasetType:
+      type: string
+      enum:
+      - mentions
+      - citations
+      - prompts
+      title: AIBDatasetType
+      description: Dataset type for AI Brand Presence data requests
     AICatalystsShareOfDataRequestV2:
       properties:
         dataset:
@@ -1553,106 +1653,6 @@ components:
       description: 'New V2 request format with dimensions, measures, and filter triplets.
 
         Supports datasets: mentions, citations, prompts'
-    CollectorInfo:
-      properties:
-        collector_id:
-          type: integer
-          title: Collector Id
-        engine_id:
-          type: integer
-          title: Engine Id
-        locale:
-          type: string
-          title: Locale
-        location:
-          type: string
-          title: Location
-        language:
-          type: string
-          title: Language
-        engine_name:
-          type: string
-          title: Engine Name
-        status:
-          type: integer
-          title: Status
-      type: object
-      required:
-      - collector_id
-      - engine_id
-      - locale
-      - location
-      - language
-      - engine_name
-      - status
-      title: CollectorInfo
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    AICatalystEnabledEngines:
-      properties:
-        success:
-          type: boolean
-          title: Success
-        message:
-          type: string
-          title: Message
-        account_id:
-          type: integer
-          title: Account Id
-        engines:
-          items:
-            type: string
-          type: array
-          title: Engines
-      type: object
-      required:
-      - success
-      - message
-      - account_id
-      - engines
-      title: AICatalystEnabledEngines
-    AICatalystPromptsListOut:
-      properties:
-        account_id:
-          type: integer
-          title: Account Id
-        success:
-          type: boolean
-          title: Success
-        message:
-          type: string
-          title: Message
-        prompt_groups:
-          items:
-            $ref: '#/components/schemas/AICatalystPromptsList'
-          type: array
-          title: Prompt Groups
-      type: object
-      required:
-      - account_id
-      - success
-      - message
-      - prompt_groups
-      title: AICatalystPromptsListOut
   securitySchemes:
     http_basic:
       type: http

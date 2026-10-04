@@ -549,6 +549,78 @@ paths:
       - bearer_token: []
 components:
   schemas:
+    UpdateUserRequest:
+      properties:
+        login:
+          type: string
+          format: email
+          title: Login
+          description: User login/email
+        firstname:
+          type: string
+          title: Firstname
+          description: User's first name
+        lastname:
+          type: string
+          title: Lastname
+          description: User's last name
+        email:
+          type: string
+          format: email
+          title: Email
+          description: User's email
+        title:
+          type: string
+          title: Title
+          description: User's title
+        phone:
+          type: string
+          title: Phone
+          description: User's phone number
+        locale:
+          type: string
+          title: Locale
+          description: User's locale
+        profile:
+          type: integer
+          title: Profile
+          description: Users's profile
+        address:
+          type: string
+          title: Address
+      type: object
+      required:
+      - login
+      title: UpdateUserRequest
+    UserAccountAccessRequest:
+      properties:
+        login:
+          type: string
+          format: email
+          title: Login
+          description: User login/email
+        account_ids:
+          items:
+            type: integer
+          type: array
+          title: Account Ids
+          description: List of account IDs to change access
+      type: object
+      required:
+      - login
+      - account_ids
+      title: UserAccountAccessRequest
+    BulkCreateUserRequest:
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/CreateUserRequest'
+          type: array
+          title: Users
+      type: object
+      required:
+      - users
+      title: BulkCreateUserRequest
     CreateUserRequest:
       properties:
         org_id:
@@ -603,6 +675,49 @@ components:
       required:
       - message
       title: UserDeleteResponse
+    UserAccountAccessResponse:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+        access_modified_account_ids:
+          items:
+            type: integer
+          type: array
+          title: Access Modified Account Ids
+          description: List of account IDs access changed
+      type: object
+      required:
+      - success
+      - message
+      title: UserAccountAccessResponse
+    UserCreateResponse:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+      type: object
+      required:
+      - success
+      - message
+      title: UserCreateResponse
+    BulkUpdateUserRequest:
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/UpdateUserRequest'
+          type: array
+          title: Users
+      type: object
+      required:
+      - users
+      title: BulkUpdateUserRequest
     UserUpdateResponse:
       properties:
         status:
@@ -625,67 +740,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    BulkUpdateUserRequest:
-      properties:
-        users:
-          items:
-            $ref: '#/components/schemas/UpdateUserRequest'
-          type: array
-          title: Users
-      type: object
-      required:
-      - users
-      title: BulkUpdateUserRequest
-    UserCreateResponse:
-      properties:
-        success:
-          type: boolean
-          title: Success
-        message:
-          type: string
-          title: Message
-      type: object
-      required:
-      - success
-      - message
-      title: UserCreateResponse
-    UserAccountAccessResponse:
-      properties:
-        success:
-          type: boolean
-          title: Success
-        message:
-          type: string
-          title: Message
-        access_modified_account_ids:
-          items:
-            type: integer
-          type: array
-          title: Access Modified Account Ids
-          description: List of account IDs access changed
-      type: object
-      required:
-      - success
-      - message
-      title: UserAccountAccessResponse
-    UserAccountAccessRequest:
-      properties:
-        login:
-          type: string
-          format: email
-          title: Login
-          description: User login/email
-        account_ids:
-          items:
-            type: integer
-          type: array
-          title: Account Ids
-          description: List of account IDs to change access
-      type: object
-      required:
-      - login
-      - account_ids
-      title: UserAccountAccessRequest
     ValidationError:
       properties:
         loc:
@@ -707,17 +761,6 @@ components:
       - msg
       - type
       title: ValidationError
-    BulkCreateUserRequest:
-      properties:
-        users:
-          items:
-            $ref: '#/components/schemas/CreateUserRequest'
-          type: array
-          title: Users
-      type: object
-      required:
-      - users
-      title: BulkCreateUserRequest
     BulkDeleteUserRequest:
       properties:
         logins:
@@ -730,49 +773,6 @@ components:
       required:
       - logins
       title: BulkDeleteUserRequest
-    UpdateUserRequest:
-      properties:
-        login:
-          type: string
-          format: email
-          title: Login
-          description: User login/email
-        firstname:
-          type: string
-          title: Firstname
-          description: User's first name
-        lastname:
-          type: string
-          title: Lastname
-          description: User's last name
-        email:
-          type: string
-          format: email
-          title: Email
-          description: User's email
-        title:
-          type: string
-          title: Title
-          description: User's title
-        phone:
-          type: string
-          title: Phone
-          description: User's phone number
-        locale:
-          type: string
-          title: Locale
-          description: User's locale
-        profile:
-          type: integer
-          title: Profile
-          description: Users's profile
-        address:
-          type: string
-          title: Address
-      type: object
-      required:
-      - login
-      title: UpdateUserRequest
   securitySchemes:
     http_basic:
       type: http

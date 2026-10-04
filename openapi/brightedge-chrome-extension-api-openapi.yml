@@ -811,6 +811,19 @@ components:
       required:
       - account_id
       title: TrackKeywordsInput
+    KeywordGroupDetail:
+      properties:
+        group_id:
+          type: integer
+          title: Group Id
+        keyword_group_name:
+          type: string
+          title: Keyword Group Name
+      type: object
+      required:
+      - group_id
+      - keyword_group_name
+      title: KeywordGroupDetail
     KeywordGroups:
       properties:
         keyword_groups:
@@ -822,6 +835,73 @@ components:
       required:
       - keyword_groups
       title: KeywordGroups
+    ContentInput:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        se_group_id:
+          type: integer
+          title: Se Group Id
+        url:
+          type: string
+          title: Url
+      type: object
+      required:
+      - account_id
+      - se_group_id
+      - url
+      title: ContentInput
+    Headings:
+      properties:
+        H1:
+          items:
+            type: string
+          type: array
+          title: H1
+          default: []
+        H2:
+          items:
+            type: string
+          type: array
+          title: H2
+          default: []
+      type: object
+      title: Headings
+    ImagesInput:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        se_group_id:
+          type: integer
+          title: Se Group Id
+        url:
+          type: string
+          title: Url
+      type: object
+      required:
+      - account_id
+      - se_group_id
+      - url
+      title: ImagesInput
+    ResearchKeywordsInput:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+        se_group_id:
+          type: string
+          title: Se Group Id
+        account_id:
+          type: integer
+          title: Account Id
+      type: object
+      required:
+      - keyword
+      - se_group_id
+      - account_id
+      title: ResearchKeywordsInput
     Pagination:
       properties:
         offset:
@@ -834,6 +914,27 @@ components:
           default: 25
       type: object
       title: Pagination
+    Content:
+      properties:
+        word_count:
+          type: integer
+          title: Word Count
+        headings:
+          $ref: '#/components/schemas/Headings'
+      type: object
+      required:
+      - word_count
+      - headings
+      title: Content
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     WebVitals:
       properties:
         lcp:
@@ -875,91 +976,6 @@ components:
       - compare_domain
       - se_group_id
       title: DomainComparisonInput
-    ContentInput:
-      properties:
-        account_id:
-          type: integer
-          title: Account Id
-        se_group_id:
-          type: integer
-          title: Se Group Id
-        url:
-          type: string
-          title: Url
-      type: object
-      required:
-      - account_id
-      - se_group_id
-      - url
-      title: ContentInput
-    KeywordGroupDetail:
-      properties:
-        group_id:
-          type: integer
-          title: Group Id
-        keyword_group_name:
-          type: string
-          title: Keyword Group Name
-      type: object
-      required:
-      - group_id
-      - keyword_group_name
-      title: KeywordGroupDetail
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    Content:
-      properties:
-        word_count:
-          type: integer
-          title: Word Count
-        headings:
-          $ref: '#/components/schemas/Headings'
-      type: object
-      required:
-      - word_count
-      - headings
-      title: Content
-    ResearchKeywordsInput:
-      properties:
-        keyword:
-          type: string
-          title: Keyword
-        se_group_id:
-          type: string
-          title: Se Group Id
-        account_id:
-          type: integer
-          title: Account Id
-      type: object
-      required:
-      - keyword
-      - se_group_id
-      - account_id
-      title: ResearchKeywordsInput
-    ImagesInput:
-      properties:
-        account_id:
-          type: integer
-          title: Account Id
-        se_group_id:
-          type: integer
-          title: Se Group Id
-        url:
-          type: string
-          title: Url
-      type: object
-      required:
-      - account_id
-      - se_group_id
-      - url
-      title: ImagesInput
     ValidationError:
       properties:
         loc:
@@ -981,22 +997,6 @@ components:
       - msg
       - type
       title: ValidationError
-    Headings:
-      properties:
-        H1:
-          items:
-            type: string
-          type: array
-          title: H1
-          default: []
-        H2:
-          items:
-            type: string
-          type: array
-          title: H2
-          default: []
-      type: object
-      title: Headings
     KeywordOutWithGroupResp:
       properties:
         total:
@@ -1011,21 +1011,19 @@ components:
       required:
       - keywords
       title: KeywordOutWithGroupResp
-    KeywordGroupOutResp:
+    KeywordGroupOut:
       properties:
-        total:
+        id:
           type: integer
-          title: Total
-        groups:
-          items:
-            $ref: '#/components/schemas/KeywordGroupOut'
-          type: array
-          title: Groups
+          title: Id
+        name:
+          type: string
+          title: Name
       type: object
       required:
-      - total
-      - groups
-      title: KeywordGroupOutResp
+      - id
+      - name
+      title: KeywordGroupOut
     AddRemoveKeywordsToGroupRequest:
       properties:
         keywords:
@@ -1071,19 +1069,21 @@ components:
       required:
       - keyword
       title: KeywordRequestWithGroup
-    KeywordGroupOut:
+    KeywordGroupOutResp:
       properties:
-        id:
+        total:
           type: integer
-          title: Id
-        name:
-          type: string
-          title: Name
+          title: Total
+        groups:
+          items:
+            $ref: '#/components/schemas/KeywordGroupOut'
+          type: array
+          title: Groups
       type: object
       required:
-      - id
-      - name
-      title: KeywordGroupOut
+      - total
+      - groups
+      title: KeywordGroupOutResp
   securitySchemes:
     http_basic:
       type: http

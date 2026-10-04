@@ -539,6 +539,45 @@ paths:
       - bearer_token: []
 components:
   schemas:
+    BELocalResponse:
+      properties:
+        status:
+          type: boolean
+          title: Status
+        data:
+          items: {}
+          type: array
+          title: Data
+        message:
+          type: string
+          title: Message
+      type: object
+      required:
+      - status
+      title: BELocalResponse
+    SaveGMBMultiEdit:
+      properties:
+        be_account_id:
+          type: integer
+          title: Be Account Id
+        changes:
+          items:
+            type: object
+          type: array
+          title: Changes
+        multi_edit_id:
+          type: string
+          title: Multi Edit Id
+        batch_attribute_update:
+          type: boolean
+          title: Batch Attribute Update
+          default: false
+      type: object
+      required:
+      - be_account_id
+      - changes
+      - multi_edit_id
+      title: SaveGMBMultiEdit
     LocationDetailConfigV2:
       properties:
         be_account_id:
@@ -562,57 +601,6 @@ components:
       required:
       - be_account_id
       title: LocationDetailConfigV2
-    StoreUpdatesConfig:
-      properties:
-        be_account_id:
-          type: integer
-          title: Be Account Id
-        store_code:
-          type: string
-          title: Store Code
-        before_value:
-          type: object
-          title: Before Value
-        after_value:
-          type: object
-          title: After Value
-        update_mask:
-          type: string
-          title: Update Mask
-        language_code:
-          type: string
-          title: Language Code
-          default: en
-      type: object
-      required:
-      - be_account_id
-      - store_code
-      title: StoreUpdatesConfig
-    GetLocationAttributes:
-      properties:
-        location_name:
-          type: string
-          title: Location Name
-      type: object
-      required:
-      - location_name
-      title: GetLocationAttributes
-    BELocalResponse:
-      properties:
-        status:
-          type: boolean
-          title: Status
-        data:
-          items: {}
-          type: array
-          title: Data
-        message:
-          type: string
-          title: Message
-      type: object
-      required:
-      - status
-      title: BELocalResponse
     GetAccountsData:
       properties:
         account_id:
@@ -625,6 +613,52 @@ components:
       required:
       - account_id
       title: GetAccountsData
+    GetLocationAttributes:
+      properties:
+        location_name:
+          type: string
+          title: Location Name
+      type: object
+      required:
+      - location_name
+      title: GetLocationAttributes
+    UpdateFieldsGmbConfig:
+      properties:
+        be_account_id:
+          type: integer
+          title: Be Account Id
+        account_name:
+          type: string
+          title: Account Name
+        location_name:
+          type: string
+          title: Location Name
+        before_value:
+          type: object
+          title: Before Value
+        after_value:
+          type: object
+          title: After Value
+        request_body:
+          type: object
+          title: Request Body
+        task_id:
+          type: string
+          title: Task Id
+        update_mask:
+          type: string
+          title: Update Mask
+        attribute_mask:
+          type: string
+          title: Attribute Mask
+        task_status:
+          type: integer
+          title: Task Status
+          default: 2
+      type: object
+      required:
+      - location_name
+      title: UpdateFieldsGmbConfig
     HTTPValidationError:
       properties:
         detail:
@@ -675,66 +709,32 @@ components:
       - msg
       - type
       title: ValidationError
-    SaveGMBMultiEdit:
+    StoreUpdatesConfig:
       properties:
         be_account_id:
           type: integer
           title: Be Account Id
-        changes:
-          items:
-            type: object
-          type: array
-          title: Changes
-        multi_edit_id:
+        store_code:
           type: string
-          title: Multi Edit Id
-        batch_attribute_update:
-          type: boolean
-          title: Batch Attribute Update
-          default: false
-      type: object
-      required:
-      - be_account_id
-      - changes
-      - multi_edit_id
-      title: SaveGMBMultiEdit
-    UpdateFieldsGmbConfig:
-      properties:
-        be_account_id:
-          type: integer
-          title: Be Account Id
-        account_name:
-          type: string
-          title: Account Name
-        location_name:
-          type: string
-          title: Location Name
+          title: Store Code
         before_value:
           type: object
           title: Before Value
         after_value:
           type: object
           title: After Value
-        request_body:
-          type: object
-          title: Request Body
-        task_id:
-          type: string
-          title: Task Id
         update_mask:
           type: string
           title: Update Mask
-        attribute_mask:
+        language_code:
           type: string
-          title: Attribute Mask
-        task_status:
-          type: integer
-          title: Task Status
-          default: 2
+          title: Language Code
+          default: en
       type: object
       required:
-      - location_name
-      title: UpdateFieldsGmbConfig
+      - be_account_id
+      - store_code
+      title: StoreUpdatesConfig
   securitySchemes:
     http_basic:
       type: http

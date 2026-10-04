@@ -131,24 +131,6 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    AccountOut:
-      properties:
-        id:
-          type: integer
-          title: Id
-        name:
-          type: string
-          title: Name
-        created_on:
-          type: string
-          format: date-time
-          title: Created On
-      type: object
-      required:
-      - id
-      - name
-      - created_on
-      title: AccountOut
     AccountIdOut:
       properties:
         account_name:
@@ -242,6 +224,24 @@ components:
           title: Excluded Keyword Group Filter
       type: object
       title: AccountIdIn
+    AccountOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+        created_on:
+          type: string
+          format: date-time
+          title: Created On
+      type: object
+      required:
+      - id
+      - name
+      - created_on
+      title: AccountOut
     HTTPValidationError:
       properties:
         detail:
