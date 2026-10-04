@@ -346,6 +346,8 @@ apis:
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
   tags:
+  - Instant
+  tags_raw:
   - instant
   properties:
   - type: OpenAPI
