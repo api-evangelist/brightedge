@@ -1,0 +1,145 @@
+slug: brightedge
+provider: BrightEdge
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 13
+edges:
+- tag: Backlinks
+  spec_file: brightedge-backlinks-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.85
+  evidence: '"This call returns backlinks url and page authority score for given account id"'
+  reason: Backlink inventory and page-authority scoring are core SEO measurement activities, and the vendor
+    is an "enterprise SEO and content performance platform". Digital Marketing Management explicitly covers
+    web/SEO, making this the clear fit.
+- tag: Keywords
+  spec_file: brightedge-keywords-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.85
+  evidence: '"This call returns a list of keywords of the given account"; "returns a string of bql filters
+    for branded keywords" on an "enterprise SEO and content performance platform"'
+  reason: Keyword inventory and branded-keyword filters are core SEO assets; on this vendor the operations
+    manage the keyword set used for search visibility, which is Digital Marketing (SEO) management.
+- tag: Dataset
+  spec_file: brightedge-dataset-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: '"This API retrieves top N(default 100) keywords for a given domain" and "retrieves top N(default
+    4) PAA questions for a given keyword"'
+  reason: Despite the generic "Dataset" tag, the operations serve keyword rankings, top pages, page crawl/cache
+    and People-Also-Ask data — SEO research data. This realises Digital Marketing Management (SEO); slight
+    ambiguity versus content marketing keeps it below 0.9.
+- tag: Instant
+  spec_file: brightedge-instant-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: POST /5.0/instant/keywordIdeas/{organization_id} "Submit Kw For Ideas" with schema "KwIdeasHistoryOut"
+  reason: The tag is an opaque product name, but the operations submit keywords and retrieve keyword-idea
+    results — keyword research feeding SEO/search marketing. Webhook endpoint is delivery plumbing around
+    the same keyword-ideas function, so the SEO mapping holds.
+- tag: Recommendations
+  spec_file: brightedge-recommendations-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: '"This call returns details of keyword recommendation"; "This endpoint allows change priority
+    of keywords"; "This call returns list of tracked pages"'
+  reason: SEO keyword recommendations and prioritisation for tracked pages — optimisation of organic search
+    presence, i.e. Digital Marketing (SEO).
+- tag: Serp Features
+  spec_file: brightedge-serp-features-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: '"This call returns a list of questions asked for the keyword historically"; "...for the keyword
+    via chatgpt" (PeopleAlsoAsk* schemas)'
+  reason: Search-engine results page features (People Also Ask) per keyword are SEO/search-visibility
+    data used to optimise content for search — Digital Marketing (SEO).
+- tag: chrome extension
+  spec_file: brightedge-chrome-extension-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.78
+  evidence: '"Get Image tags Alt texts"; "Get Web Vitals"; "Track Keywords"; "Research Keywords"; "Compare
+    Domains"'
+  reason: On-page SEO inspection (alt text, web vitals, page content) plus keyword research and domain
+    comparison are SEO activities under Digital Marketing Management.
+- tag: keywordgroups
+  spec_file: brightedge-keywordgroups-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.78
+  evidence: '"This call returns a list of keyword groups of the given account"; "returns list of keyword
+    activities per account"'
+  reason: Organisation of SEO keyword portfolios into groups and their activity history — SEO management
+    within digital marketing.
+- tag: Pages
+  spec_file: brightedge-pages-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.75
+  evidence: '"Get Primary/Secondary Keywords"; "Get Page Details"; "Update Page Details"'
+  reason: Managing tracked web pages and their target keywords on an SEO platform is web/SEO management,
+    a Digital Marketing capability.
+- tag: marketo
+  spec_file: brightedge-marketo-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.72
+  evidence: '"This API retrieves top N(default 100) keywords for a given domain"; "retrieves page html
+    by crawling a given url"; "retrieves top N(default 4) PAA questions for a given keyword"'
+  reason: Despite the partner-integration tag name, the operations serve SEO data — crawled page content,
+    top pages, top keywords and PAA questions — i.e. SEO/search visibility data for digital marketing.
+- tag: Latest5
+  spec_file: brightedge-latest5-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.7
+  evidence: '"Get Primary/Secondary Keywords"; "Get Page Details"; "Update Page Details" (schemas PageDetails,
+    PSKeywords)'
+  reason: Tag is just an API version label, but the operations read/write page SEO details and their primary/secondary
+    keywords — SEO/web management within digital marketing.
+- tag: be_local
+  spec_file: brightedge-be-local-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.7
+  evidence: '"This call fetches all the gmb attributes" / "get_all_gmb_attributes"; "fetches all the entity
+    data for all location of an account"; SaveGMBMultiEdit'
+  reason: Manages Google Business Profile (GMB) location listings and attributes — local search/listings
+    optimisation, a digital marketing (local SEO) capability.
+- tag: product_grid
+  spec_file: brightedge-product-grid-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.7
+  evidence: '"Get keyword metrics data"; "Get keywords with product grid presence info"; "Get keyword
+    top products trend chart"'
+  reason: Measures keyword-level presence of products in search-result product grids with trend charts
+    and CSV exports — SEO/search visibility analytics, a digital marketing capability.
