@@ -539,6 +539,38 @@ paths:
       - bearer_token: []
 components:
   schemas:
+    LocationDetailConfigV2:
+      properties:
+        be_account_id:
+          type: integer
+          title: Be Account Id
+        location_name:
+          type: string
+          title: Location Name
+        column_names:
+          items: {}
+          type: array
+          title: Column Names
+        q:
+          type: string
+          title: Q
+        all:
+          type: boolean
+          title: All
+          default: false
+      type: object
+      required:
+      - be_account_id
+      title: LocationDetailConfigV2
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     BELocalResponse:
       properties:
         status:
@@ -578,50 +610,6 @@ components:
       - changes
       - multi_edit_id
       title: SaveGMBMultiEdit
-    LocationDetailConfigV2:
-      properties:
-        be_account_id:
-          type: integer
-          title: Be Account Id
-        location_name:
-          type: string
-          title: Location Name
-        column_names:
-          items: {}
-          type: array
-          title: Column Names
-        q:
-          type: string
-          title: Q
-        all:
-          type: boolean
-          title: All
-          default: false
-      type: object
-      required:
-      - be_account_id
-      title: LocationDetailConfigV2
-    GetAccountsData:
-      properties:
-        account_id:
-          type: integer
-          title: Account Id
-        external_id:
-          type: string
-          title: External Id
-      type: object
-      required:
-      - account_id
-      title: GetAccountsData
-    GetLocationAttributes:
-      properties:
-        location_name:
-          type: string
-          title: Location Name
-      type: object
-      required:
-      - location_name
-      title: GetLocationAttributes
     UpdateFieldsGmbConfig:
       properties:
         be_account_id:
@@ -659,15 +647,15 @@ components:
       required:
       - location_name
       title: UpdateFieldsGmbConfig
-    HTTPValidationError:
+    GetLocationAttributes:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
+        location_name:
+          type: string
+          title: Location Name
       type: object
-      title: HTTPValidationError
+      required:
+      - location_name
+      title: GetLocationAttributes
     GetAllAttributes:
       properties:
         language_code:
@@ -735,6 +723,18 @@ components:
       - be_account_id
       - store_code
       title: StoreUpdatesConfig
+    GetAccountsData:
+      properties:
+        account_id:
+          type: integer
+          title: Account Id
+        external_id:
+          type: string
+          title: External Id
+      type: object
+      required:
+      - account_id
+      title: GetAccountsData
   securitySchemes:
     http_basic:
       type: http

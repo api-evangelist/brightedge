@@ -965,37 +965,19 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    LegacyCompetitorDomainOut:
+    LegacyKeywordGroupDetailKeywordShortOut:
       properties:
-        domains:
-          items:
-            $ref: '#/components/schemas/LegacyDomainShortOut'
-          type: array
-          title: Domains
+        id:
+          type: string
+          title: Id
+        name:
+          type: string
+          title: Name
       type: object
       required:
-      - domains
-      title: LegacyCompetitorDomainOut
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    LegacyKeywordGroupDetailOut:
-      properties:
-        keywordgroups:
-          items:
-            $ref: '#/components/schemas/LegacyKeywordGroupDetailShortOut'
-          type: array
-          title: Keywordgroups
-      type: object
-      required:
-      - keywordgroups
-      title: LegacyKeywordGroupDetailOut
+      - id
+      - name
+      title: LegacyKeywordGroupDetailKeywordShortOut
     ValidationError:
       properties:
         loc:
@@ -1028,17 +1010,6 @@ components:
       required:
       - accounts
       title: LegacyAccountsListOut
-    LegacyDatacubeSearchenginesOut:
-      properties:
-        searchengines:
-          items:
-            $ref: '#/components/schemas/LegacyDatacubeSearchenginesShortOut'
-          type: array
-          title: Searchengines
-      type: object
-      required:
-      - searchengines
-      title: LegacyDatacubeSearchenginesOut
     LegacySearchenginesOut:
       properties:
         searchengines:
@@ -1064,6 +1035,19 @@ components:
       - fiscal_yearly
       title: TimeTimeStringType
       description: An enumeration.
+    LegacyKeywordGroupShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        keywordgroup:
+          type: string
+          title: Keywordgroup
+      type: object
+      required:
+      - id
+      - keywordgroup
+      title: LegacyKeywordGroupShortOut
     LegacyDatacubeSearchenginesShortOut:
       properties:
         id:
@@ -1101,6 +1085,65 @@ components:
       - device_type_id
       - searchengine_group_id
       title: LegacyDatacubeSearchenginesShortOut
+    LegacyKeywordShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        keyword:
+          type: string
+          title: Keyword
+      type: object
+      required:
+      - id
+      - keyword
+      title: LegacyKeywordShortOut
+    LegacyAccountShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        account:
+          type: string
+          title: Account
+      type: object
+      required:
+      - id
+      - account
+      title: LegacyAccountShortOut
+    LegacyDatacubeSearchenginesOut:
+      properties:
+        searchengines:
+          items:
+            $ref: '#/components/schemas/LegacyDatacubeSearchenginesShortOut'
+          type: array
+          title: Searchengines
+      type: object
+      required:
+      - searchengines
+      title: LegacyDatacubeSearchenginesOut
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    LegacyDomainShortOut:
+      properties:
+        id:
+          type: string
+          title: Id
+        domain:
+          type: string
+          title: Domain
+      type: object
+      required:
+      - id
+      - domain
+      title: LegacyDomainShortOut
     LegacyTimeFrequencyOut:
       properties:
         time_value:
@@ -1117,17 +1160,6 @@ components:
       - day_value
       - time_frequency
       title: LegacyTimeFrequencyOut
-    LegacyKeywordGroupOut:
-      properties:
-        keywordgroups:
-          items:
-            $ref: '#/components/schemas/LegacyKeywordGroupShortOut'
-          type: array
-          title: Keywordgroups
-      type: object
-      required:
-      - keywordgroups
-      title: LegacyKeywordGroupOut
     LegacyKeywordOut:
       properties:
         count:
@@ -1151,38 +1183,15 @@ components:
       - offset
       - keywords
       title: LegacyKeywordOut
-    LegacyKeywordGroupDetailShortOut:
+    LegacyAccountIn:
       properties:
-        id:
-          type: string
-          title: Id
-        keywordgroup:
-          type: string
-          title: Keywordgroup
-        keywords:
+        excluded_keyword_group_filter:
           items:
-            $ref: '#/components/schemas/LegacyKeywordGroupDetailKeywordShortOut'
+            type: string
           type: array
-          title: Keywords
+          title: Excluded Keyword Group Filter
       type: object
-      required:
-      - id
-      - keywordgroup
-      - keywords
-      title: LegacyKeywordGroupDetailShortOut
-    LegacyKeywordShortOut:
-      properties:
-        id:
-          type: string
-          title: Id
-        keyword:
-          type: string
-          title: Keyword
-      type: object
-      required:
-      - id
-      - keyword
-      title: LegacyKeywordShortOut
+      title: LegacyAccountIn
     LegacySearchenginesShortOut:
       properties:
         display_name:
@@ -1220,28 +1229,39 @@ components:
       - searchengine_group_id
       - id
       title: LegacySearchenginesShortOut
-    LegacyAccountIn:
+    LegacyCompetitorDomainOut:
       properties:
-        excluded_keyword_group_filter:
+        domains:
           items:
-            type: string
+            $ref: '#/components/schemas/LegacyDomainShortOut'
           type: array
-          title: Excluded Keyword Group Filter
-      type: object
-      title: LegacyAccountIn
-    LegacyKeywordGroupDetailKeywordShortOut:
-      properties:
-        id:
-          type: string
-          title: Id
-        name:
-          type: string
-          title: Name
+          title: Domains
       type: object
       required:
-      - id
-      - name
-      title: LegacyKeywordGroupDetailKeywordShortOut
+      - domains
+      title: LegacyCompetitorDomainOut
+    LegacyKeywordGroupDetailOut:
+      properties:
+        keywordgroups:
+          items:
+            $ref: '#/components/schemas/LegacyKeywordGroupDetailShortOut'
+          type: array
+          title: Keywordgroups
+      type: object
+      required:
+      - keywordgroups
+      title: LegacyKeywordGroupDetailOut
+    LegacyKeywordGroupOut:
+      properties:
+        keywordgroups:
+          items:
+            $ref: '#/components/schemas/LegacyKeywordGroupShortOut'
+          type: array
+          title: Keywordgroups
+      type: object
+      required:
+      - keywordgroups
+      title: LegacyKeywordGroupOut
     LegacyAccountOut:
       properties:
         account_name:
@@ -1336,20 +1356,7 @@ components:
       - number_of_page_groups
       - page_group_names
       title: LegacyAccountOut
-    LegacyAccountShortOut:
-      properties:
-        id:
-          type: string
-          title: Id
-        account:
-          type: string
-          title: Account
-      type: object
-      required:
-      - id
-      - account
-      title: LegacyAccountShortOut
-    LegacyKeywordGroupShortOut:
+    LegacyKeywordGroupDetailShortOut:
       properties:
         id:
           type: string
@@ -1357,24 +1364,17 @@ components:
         keywordgroup:
           type: string
           title: Keywordgroup
+        keywords:
+          items:
+            $ref: '#/components/schemas/LegacyKeywordGroupDetailKeywordShortOut'
+          type: array
+          title: Keywords
       type: object
       required:
       - id
       - keywordgroup
-      title: LegacyKeywordGroupShortOut
-    LegacyDomainShortOut:
-      properties:
-        id:
-          type: string
-          title: Id
-        domain:
-          type: string
-          title: Domain
-      type: object
-      required:
-      - id
-      - domain
-      title: LegacyDomainShortOut
+      - keywords
+      title: LegacyKeywordGroupDetailShortOut
   securitySchemes:
     http_basic:
       type: http

@@ -112,6 +112,15 @@ paths:
       - Pages
 components:
   schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     PageDetailsInput:
       properties:
         account_id:
@@ -136,45 +145,6 @@ components:
       - account_id
       - url
       title: PageDetailsInput
-    PageDetails:
-      properties:
-        url:
-          type: string
-          maxLength: 2083
-          minLength: 1
-          format: uri
-          title: Url
-        canonical_url:
-          type: string
-          maxLength: 2083
-          minLength: 1
-          format: uri
-          title: Canonical Url
-        title:
-          type: string
-          title: Title
-        meta_description:
-          type: string
-          title: Meta Description
-        yearweek:
-          type: integer
-          title: Yearweek
-      type: object
-      required:
-      - url
-      - canonical_url
-      - title
-      - yearweek
-      title: PageDetails
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     PSKeywords:
       properties:
         primary_keyword:
@@ -206,6 +176,36 @@ components:
       - msg
       - type
       title: ValidationError
+    PageDetails:
+      properties:
+        url:
+          type: string
+          maxLength: 2083
+          minLength: 1
+          format: uri
+          title: Url
+        canonical_url:
+          type: string
+          maxLength: 2083
+          minLength: 1
+          format: uri
+          title: Canonical Url
+        title:
+          type: string
+          title: Title
+        meta_description:
+          type: string
+          title: Meta Description
+        yearweek:
+          type: integer
+          title: Yearweek
+      type: object
+      required:
+      - url
+      - canonical_url
+      - title
+      - yearweek
+      title: PageDetails
   securitySchemes:
     http_basic:
       type: http

@@ -161,6 +161,28 @@ components:
       required:
       - customerId
       title: AutoPilotCacheInvalidateIn
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    AutoPilotFoundationsCertificate:
+      properties:
+        certificate:
+          type: string
+          title: Certificate
+        ceritificateKey:
+          type: string
+          title: Ceritificatekey
+      type: object
+      required:
+      - certificate
+      - ceritificateKey
+      title: AutoPilotFoundationsCertificate
     AutoPilotCacheClearIn:
       properties:
         customerId:
@@ -177,28 +199,6 @@ components:
       - customerId
       - url
       title: AutoPilotCacheClearIn
-    AutoPilotFoundationsCertificate:
-      properties:
-        certificate:
-          type: string
-          title: Certificate
-        ceritificateKey:
-          type: string
-          title: Ceritificatekey
-      type: object
-      required:
-      - certificate
-      - ceritificateKey
-      title: AutoPilotFoundationsCertificate
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     ValidationError:
       properties:
         loc:

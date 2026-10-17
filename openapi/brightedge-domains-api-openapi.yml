@@ -193,6 +193,36 @@ paths:
       - bearer_token: []
 components:
   schemas:
+    CompetitorOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: CompetitorOut
+    DomainOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        account_id:
+          type: integer
+          title: Account Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - account_id
+      - name
+      title: DomainOut
     HTTPValidationError:
       properties:
         detail:
@@ -223,36 +253,6 @@ components:
       - msg
       - type
       title: ValidationError
-    DomainOut:
-      properties:
-        id:
-          type: integer
-          title: Id
-        account_id:
-          type: integer
-          title: Account Id
-        name:
-          type: string
-          title: Name
-      type: object
-      required:
-      - id
-      - account_id
-      - name
-      title: DomainOut
-    CompetitorOut:
-      properties:
-        id:
-          type: integer
-          title: Id
-        name:
-          type: string
-          title: Name
-      type: object
-      required:
-      - id
-      - name
-      title: CompetitorOut
   securitySchemes:
     http_basic:
       type: http

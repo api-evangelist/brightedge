@@ -549,78 +549,6 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    UpdateUserRequest:
-      properties:
-        login:
-          type: string
-          format: email
-          title: Login
-          description: User login/email
-        firstname:
-          type: string
-          title: Firstname
-          description: User's first name
-        lastname:
-          type: string
-          title: Lastname
-          description: User's last name
-        email:
-          type: string
-          format: email
-          title: Email
-          description: User's email
-        title:
-          type: string
-          title: Title
-          description: User's title
-        phone:
-          type: string
-          title: Phone
-          description: User's phone number
-        locale:
-          type: string
-          title: Locale
-          description: User's locale
-        profile:
-          type: integer
-          title: Profile
-          description: Users's profile
-        address:
-          type: string
-          title: Address
-      type: object
-      required:
-      - login
-      title: UpdateUserRequest
-    UserAccountAccessRequest:
-      properties:
-        login:
-          type: string
-          format: email
-          title: Login
-          description: User login/email
-        account_ids:
-          items:
-            type: integer
-          type: array
-          title: Account Ids
-          description: List of account IDs to change access
-      type: object
-      required:
-      - login
-      - account_ids
-      title: UserAccountAccessRequest
-    BulkCreateUserRequest:
-      properties:
-        users:
-          items:
-            $ref: '#/components/schemas/CreateUserRequest'
-          type: array
-          title: Users
-      type: object
-      required:
-      - users
-      title: BulkCreateUserRequest
     CreateUserRequest:
       properties:
         org_id:
@@ -666,6 +594,19 @@ components:
       - account_id
       - login
       title: CreateUserRequest
+    UserCreateResponse:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        message:
+          type: string
+          title: Message
+      type: object
+      required:
+      - success
+      - message
+      title: UserCreateResponse
     UserDeleteResponse:
       properties:
         message:
@@ -675,6 +616,58 @@ components:
       required:
       - message
       title: UserDeleteResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    UpdateUserRequest:
+      properties:
+        login:
+          type: string
+          format: email
+          title: Login
+          description: User login/email
+        firstname:
+          type: string
+          title: Firstname
+          description: User's first name
+        lastname:
+          type: string
+          title: Lastname
+          description: User's last name
+        email:
+          type: string
+          format: email
+          title: Email
+          description: User's email
+        title:
+          type: string
+          title: Title
+          description: User's title
+        phone:
+          type: string
+          title: Phone
+          description: User's phone number
+        locale:
+          type: string
+          title: Locale
+          description: User's locale
+        profile:
+          type: integer
+          title: Profile
+          description: Users's profile
+        address:
+          type: string
+          title: Address
+      type: object
+      required:
+      - login
+      title: UpdateUserRequest
     UserAccountAccessResponse:
       properties:
         success:
@@ -694,30 +687,6 @@ components:
       - success
       - message
       title: UserAccountAccessResponse
-    UserCreateResponse:
-      properties:
-        success:
-          type: boolean
-          title: Success
-        message:
-          type: string
-          title: Message
-      type: object
-      required:
-      - success
-      - message
-      title: UserCreateResponse
-    BulkUpdateUserRequest:
-      properties:
-        users:
-          items:
-            $ref: '#/components/schemas/UpdateUserRequest'
-          type: array
-          title: Users
-      type: object
-      required:
-      - users
-      title: BulkUpdateUserRequest
     UserUpdateResponse:
       properties:
         status:
@@ -731,15 +700,40 @@ components:
       - status
       - message
       title: UserUpdateResponse
-    HTTPValidationError:
+    BulkDeleteUserRequest:
       properties:
-        detail:
+        logins:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            type: string
+            format: email
           type: array
-          title: Detail
+          title: Logins
       type: object
-      title: HTTPValidationError
+      required:
+      - logins
+      title: BulkDeleteUserRequest
+    BulkUpdateUserRequest:
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/UpdateUserRequest'
+          type: array
+          title: Users
+      type: object
+      required:
+      - users
+      title: BulkUpdateUserRequest
+    BulkCreateUserRequest:
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/CreateUserRequest'
+          type: array
+          title: Users
+      type: object
+      required:
+      - users
+      title: BulkCreateUserRequest
     ValidationError:
       properties:
         loc:
@@ -761,18 +755,24 @@ components:
       - msg
       - type
       title: ValidationError
-    BulkDeleteUserRequest:
+    UserAccountAccessRequest:
       properties:
-        logins:
+        login:
+          type: string
+          format: email
+          title: Login
+          description: User login/email
+        account_ids:
           items:
-            type: string
-            format: email
+            type: integer
           type: array
-          title: Logins
+          title: Account Ids
+          description: List of account IDs to change access
       type: object
       required:
-      - logins
-      title: BulkDeleteUserRequest
+      - login
+      - account_ids
+      title: UserAccountAccessRequest
   securitySchemes:
     http_basic:
       type: http

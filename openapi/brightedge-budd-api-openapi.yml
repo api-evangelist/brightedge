@@ -97,6 +97,13 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    FeatureName:
+      type: string
+      enum:
+      - platformapi
+      - chromeextension
+      title: FeatureName
+      description: Used to verify feature names for /query feature_name input
     BQLQueryOut:
       properties:
         count:
@@ -140,13 +147,6 @@ components:
       - msg
       - type
       title: ValidationError
-    FeatureName:
-      type: string
-      enum:
-      - platformapi
-      - chromeextension
-      title: FeatureName
-      description: Used to verify feature names for /query feature_name input
   securitySchemes:
     http_basic:
       type: http

@@ -265,63 +265,6 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    PeopleAlsoAskLiveIn:
-      properties:
-        keyword:
-          type: string
-          title: Keyword
-        collector_id:
-          type: integer
-          title: Collector Id
-        click_depth:
-          type: integer
-          title: Click Depth
-      type: object
-      required:
-      - keyword
-      - collector_id
-      title: PeopleAlsoAskLiveIn
-    PeopleAlsoAskQuestionsChatgpt:
-      properties:
-        title:
-          type: string
-          title: Title
-      type: object
-      title: PeopleAlsoAskQuestionsChatgpt
-    PeopleAlsoAskOut:
-      properties:
-        questions_live:
-          items:
-            $ref: '#/components/schemas/PeopleAlsoAskQuestionsLive'
-          type: array
-          title: Questions Live
-        questions_historical:
-          items:
-            $ref: '#/components/schemas/PeopleAlsoAskQuestionsLive'
-          type: array
-          title: Questions Historical
-        questions_chatgpt:
-          items:
-            $ref: '#/components/schemas/PeopleAlsoAskQuestionsChatgpt'
-          type: array
-          title: Questions Chatgpt
-      type: object
-      required:
-      - questions_live
-      - questions_historical
-      - questions_chatgpt
-      title: PeopleAlsoAskOut
-    PeopleAlsoAskLiveOut:
-      properties:
-        questions:
-          items:
-            $ref: '#/components/schemas/PeopleAlsoAskQuestionsLive'
-          type: array
-          title: Questions
-      type: object
-      required:
-      - questions
-      title: PeopleAlsoAskLiveOut
     PeopleAlsoAskQuestions:
       properties:
         keyword:
@@ -347,31 +290,13 @@ components:
       - keyword
       - collector_id
       title: PeopleAlsoAskQuestions
-    PeopleAlsoAskChatgptIn:
-      properties:
-        keyword:
-          type: string
-          title: Keyword
-      type: object
-      required:
-      - keyword
-      title: PeopleAlsoAskChatgptIn
-    PeopleAlsoAskQuestionsLive:
+    PeopleAlsoAskQuestionsChatgpt:
       properties:
         title:
           type: string
           title: Title
-        answer_text:
-          type: string
-          title: Answer Text
-        description:
-          type: string
-          title: Description
-        url:
-          type: string
-          title: Url
       type: object
-      title: PeopleAlsoAskQuestionsLive
+      title: PeopleAlsoAskQuestionsChatgpt
     HTTPValidationError:
       properties:
         detail:
@@ -381,6 +306,29 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    PeopleAlsoAskOut:
+      properties:
+        questions_live:
+          items:
+            $ref: '#/components/schemas/PeopleAlsoAskQuestionsLive'
+          type: array
+          title: Questions Live
+        questions_historical:
+          items:
+            $ref: '#/components/schemas/PeopleAlsoAskQuestionsLive'
+          type: array
+          title: Questions Historical
+        questions_chatgpt:
+          items:
+            $ref: '#/components/schemas/PeopleAlsoAskQuestionsChatgpt'
+          type: array
+          title: Questions Chatgpt
+      type: object
+      required:
+      - questions_live
+      - questions_historical
+      - questions_chatgpt
+      title: PeopleAlsoAskOut
     PeopleAlsoAskIn:
       properties:
         keyword:
@@ -412,17 +360,29 @@ components:
       - keyword
       - collector_id
       title: PeopleAlsoAskIn
-    PeopleAlsoAskHistoricalOut:
+    PeopleAlsoAskChatgptOut:
       properties:
         questions:
           items:
-            $ref: '#/components/schemas/PeopleAlsoAskQuestions'
+            $ref: '#/components/schemas/PeopleAlsoAskQuestionsChatgpt'
           type: array
           title: Questions
+        assistant:
+          type: string
+          title: Assistant
       type: object
       required:
       - questions
-      title: PeopleAlsoAskHistoricalOut
+      title: PeopleAlsoAskChatgptOut
+    PeopleAlsoAskChatgptIn:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+      type: object
+      required:
+      - keyword
+      title: PeopleAlsoAskChatgptIn
     ValidationError:
       properties:
         loc:
@@ -444,20 +404,60 @@ components:
       - msg
       - type
       title: ValidationError
-    PeopleAlsoAskChatgptOut:
+    PeopleAlsoAskLiveOut:
       properties:
         questions:
           items:
-            $ref: '#/components/schemas/PeopleAlsoAskQuestionsChatgpt'
+            $ref: '#/components/schemas/PeopleAlsoAskQuestionsLive'
           type: array
           title: Questions
-        assistant:
-          type: string
-          title: Assistant
       type: object
       required:
       - questions
-      title: PeopleAlsoAskChatgptOut
+      title: PeopleAlsoAskLiveOut
+    PeopleAlsoAskHistoricalOut:
+      properties:
+        questions:
+          items:
+            $ref: '#/components/schemas/PeopleAlsoAskQuestions'
+          type: array
+          title: Questions
+      type: object
+      required:
+      - questions
+      title: PeopleAlsoAskHistoricalOut
+    PeopleAlsoAskLiveIn:
+      properties:
+        keyword:
+          type: string
+          title: Keyword
+        collector_id:
+          type: integer
+          title: Collector Id
+        click_depth:
+          type: integer
+          title: Click Depth
+      type: object
+      required:
+      - keyword
+      - collector_id
+      title: PeopleAlsoAskLiveIn
+    PeopleAlsoAskQuestionsLive:
+      properties:
+        title:
+          type: string
+          title: Title
+        answer_text:
+          type: string
+          title: Answer Text
+        description:
+          type: string
+          title: Description
+        url:
+          type: string
+          title: Url
+      type: object
+      title: PeopleAlsoAskQuestionsLive
     PeopleAlsoAskHistoricalIn:
       properties:
         keyword:

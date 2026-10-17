@@ -190,15 +190,17 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    HTTPValidationError:
+    GetWebVitalsData:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
+        range:
+          $ref: '#/components/schemas/DateRange'
+        domain:
+          type: string
+          title: Domain
       type: object
-      title: HTTPValidationError
+      required:
+      - domain
+      title: GetWebVitalsData
     DateRange:
       properties:
         start_date:
@@ -212,17 +214,15 @@ components:
       - start_date
       - end_date
       title: DateRange
-    GetWebVitalsData:
+    HTTPValidationError:
       properties:
-        range:
-          $ref: '#/components/schemas/DateRange'
-        domain:
-          type: string
-          title: Domain
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
       type: object
-      required:
-      - domain
-      title: GetWebVitalsData
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:

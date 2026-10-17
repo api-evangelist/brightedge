@@ -130,6 +130,19 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    BacklinksOut:
+      properties:
+        url:
+          type: string
+          title: Url
+        page_authority:
+          type: string
+          title: Page Authority
+      type: object
+      required:
+      - url
+      - page_authority
+      title: BacklinksOut
     ValidationError:
       properties:
         loc:
@@ -151,19 +164,6 @@ components:
       - msg
       - type
       title: ValidationError
-    BacklinksOut:
-      properties:
-        url:
-          type: string
-          title: Url
-        page_authority:
-          type: string
-          title: Page Authority
-      type: object
-      required:
-      - url
-      - page_authority
-      title: BacklinksOut
   securitySchemes:
     http_basic:
       type: http

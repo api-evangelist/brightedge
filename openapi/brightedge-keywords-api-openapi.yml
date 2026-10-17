@@ -335,40 +335,6 @@ paths:
       - bearer_token: []
 components:
   schemas:
-    BrandFiltersOut:
-      properties:
-        bql_filters:
-          type: string
-          title: Bql Filters
-        keywords:
-          items:
-            additionalProperties:
-              anyOf:
-              - type: string
-              - type: integer
-              - type: string
-                format: date-time
-            type: object
-          type: array
-          title: Keywords
-      type: object
-      required:
-      - bql_filters
-      - keywords
-      title: BrandFiltersOut
-    KeywordOut:
-      properties:
-        id:
-          type: integer
-          title: Id
-        name:
-          type: string
-          title: Name
-      type: object
-      required:
-      - id
-      - name
-      title: KeywordOut
     KeywordGroupDetailOut:
       properties:
         id:
@@ -397,6 +363,40 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    KeywordOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: KeywordOut
+    BrandFiltersOut:
+      properties:
+        bql_filters:
+          type: string
+          title: Bql Filters
+        keywords:
+          items:
+            additionalProperties:
+              anyOf:
+              - type: string
+              - type: integer
+              - type: string
+                format: date-time
+            type: object
+          type: array
+          title: Keywords
+      type: object
+      required:
+      - bql_filters
+      - keywords
+      title: BrandFiltersOut
     ValidationError:
       properties:
         loc:

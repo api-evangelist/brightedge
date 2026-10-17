@@ -294,6 +294,15 @@ paths:
       - bearer_token: []
 components:
   schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     BulkExportJobCreateResponse:
       properties:
         jobs:
@@ -314,91 +323,6 @@ components:
       - message
       title: BulkExportJobCreateResponse
       description: Response model for bulk job creation (handles multiple jobs)
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    BulkExportJobResponse:
-      properties:
-        id:
-          type: string
-          title: Id
-        job_id:
-          type: string
-          title: Job Id
-        pod:
-          type: integer
-          title: Pod
-        account_id:
-          type: integer
-          title: Account Id
-        time_value:
-          type: string
-          title: Time Value
-        time_cadence:
-          type: string
-          title: Time Cadence
-        query_type:
-          type: string
-          title: Query Type
-        user_id:
-          type: integer
-          title: User Id
-        status:
-          type: integer
-          title: Status
-        job_create_at:
-          type: string
-          format: date-time
-          title: Job Create At
-        job_start_at:
-          type: string
-          format: date-time
-          title: Job Start At
-        job_finish_at:
-          type: string
-          format: date-time
-          title: Job Finish At
-        job_exception:
-          type: string
-          title: Job Exception
-        path:
-          type: string
-          title: Path
-        retry_count:
-          type: integer
-          title: Retry Count
-          default: 0
-        destination:
-          type: string
-          title: Destination
-          default: gcs
-        device_id:
-          type: string
-          title: Device Id
-          default: '*'
-        group_id:
-          type: string
-          title: Group Id
-          default: '*'
-      type: object
-      required:
-      - id
-      - job_id
-      - pod
-      - account_id
-      - time_value
-      - time_cadence
-      - query_type
-      - user_id
-      - status
-      - job_create_at
-      title: BulkExportJobResponse
     BulkExportJobCreateRequest:
       properties:
         pod:
@@ -476,6 +400,82 @@ components:
       - msg
       - type
       title: ValidationError
+    BulkExportJobResponse:
+      properties:
+        id:
+          type: string
+          title: Id
+        job_id:
+          type: string
+          title: Job Id
+        pod:
+          type: integer
+          title: Pod
+        account_id:
+          type: integer
+          title: Account Id
+        time_value:
+          type: string
+          title: Time Value
+        time_cadence:
+          type: string
+          title: Time Cadence
+        query_type:
+          type: string
+          title: Query Type
+        user_id:
+          type: integer
+          title: User Id
+        status:
+          type: integer
+          title: Status
+        job_create_at:
+          type: string
+          format: date-time
+          title: Job Create At
+        job_start_at:
+          type: string
+          format: date-time
+          title: Job Start At
+        job_finish_at:
+          type: string
+          format: date-time
+          title: Job Finish At
+        job_exception:
+          type: string
+          title: Job Exception
+        path:
+          type: string
+          title: Path
+        retry_count:
+          type: integer
+          title: Retry Count
+          default: 0
+        destination:
+          type: string
+          title: Destination
+          default: gcs
+        device_id:
+          type: string
+          title: Device Id
+          default: '*'
+        group_id:
+          type: string
+          title: Group Id
+          default: '*'
+      type: object
+      required:
+      - id
+      - job_id
+      - pod
+      - account_id
+      - time_value
+      - time_cadence
+      - query_type
+      - user_id
+      - status
+      - job_create_at
+      title: BulkExportJobResponse
   securitySchemes:
     http_basic:
       type: http
