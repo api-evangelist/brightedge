@@ -788,12 +788,13 @@ apis:
   - MCP
   - Agents
   - SEO
-  - AEO
+  - Answer Engine Optimization
   tags_raw:
   - mcp
   - agents
   - seo
   - aeo
+  - AEO
   properties:
   - type: MCPServer
     url: mcp/brightedge-mcp.yml
