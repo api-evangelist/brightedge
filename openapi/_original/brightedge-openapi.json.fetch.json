@@ -1,0 +1,12 @@
+{
+ "url": "https://mcp2.brightedge.com/openapi.json",
+ "final": "https://mcp2.brightedge.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 13559,
+ "sha256": "6405d8efa57167b4c424327bbae1664aa48574fd105071ea8a63a1c6ad1cda86",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "re-archived: the provider's current document replaced a stale archive (roadmap#793); the old files are in openapi/_superseded/2026-10-19-stale"
+}

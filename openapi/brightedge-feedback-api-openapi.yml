@@ -1,0 +1,171 @@
+openapi: 3.2.0
+info:
+  title: BrightEdge MCP Server Feedback API
+  description: MCP server wrapped with FastAPI for BrightEdge APIs
+  version: '2.35'
+tags:
+- name: Feedback
+paths:
+  /feedback/style.css:
+    get:
+      summary: Feedback Style
+      operationId: feedback_style_feedback_style_css_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - Feedback
+  /feedback/script.js:
+    get:
+      summary: Feedback Script
+      operationId: feedback_script_feedback_script_js_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - Feedback
+  /feedback:
+    get:
+      summary: Collect Feedback
+      description: Record a like/dislike feedback and show a details form for dislike.
+      operationId: collect_feedback_feedback_get
+      parameters:
+      - name: id
+        in: query
+        required: true
+        schema:
+          type: string
+          description: Unique feedback ID generated per tool call
+          title: Id
+        description: Unique feedback ID generated per tool call
+      - name: u
+        in: query
+        required: false
+        schema:
+          type: integer
+          description: User ID
+          title: U
+        description: User ID
+      - name: a
+        in: query
+        required: false
+        schema:
+          type: integer
+          description: Account ID
+          title: A
+        description: Account ID
+      - name: t
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Tool name
+          default: ''
+          title: T
+        description: Tool name
+      - name: s
+        in: query
+        required: false
+        schema:
+          type: string
+          description: LLM source
+          default: ''
+          title: S
+        description: LLM source
+      - name: sid
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Session ID
+          default: ''
+          title: Sid
+        description: Session ID
+      - name: pid
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Prompt ID (matches prompts_log.prompt_id)
+          default: ''
+          title: Pid
+        description: Prompt ID (matches prompts_log.prompt_id)
+      - name: r
+        in: query
+        required: false
+        schema:
+          type: string
+          description: 'Feedback: like or dislike'
+          default: ''
+          title: R
+        description: 'Feedback: like or dislike'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Feedback
+  /feedback/details:
+    post:
+      summary: Save Feedback Details Endpoint
+      description: Persist the user's free-text follow-up to a dislike feedback.
+      operationId: save_feedback_details_endpoint_feedback_details_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - Feedback
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

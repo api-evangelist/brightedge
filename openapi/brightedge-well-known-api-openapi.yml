@@ -1,0 +1,171 @@
+openapi: 3.2.0
+info:
+  title: BrightEdge MCP Server .well Known API
+  description: MCP server wrapped with FastAPI for BrightEdge APIs
+  version: '2.35'
+tags:
+- name: .well Known
+paths:
+  /.well-known/openid-configuration:
+    get:
+      summary: Oidc Discovery
+      operationId: oidc_discovery__well_known_openid_configuration_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - .well Known
+  /.well-known/openid-configuration/{subpath}:
+    get:
+      summary: Oidc Discovery Path
+      operationId: oidc_discovery_path__well_known_openid_configuration__subpath__get
+      parameters:
+      - name: subpath
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Subpath
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - .well Known
+  /.well-known/oauth-protected-resource:
+    get:
+      summary: Oauth Protected Resource
+      description: RFC 9728 — required by the MCP 2025-03-26 spec so clients can discover the auth server.
+      operationId: oauth_protected_resource__well_known_oauth_protected_resource_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - .well Known
+  /.well-known/oauth-protected-resource/{subpath}:
+    get:
+      summary: Oauth Protected Resource Path
+      operationId: oauth_protected_resource_path__well_known_oauth_protected_resource__subpath__get
+      parameters:
+      - name: subpath
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Subpath
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - .well Known
+  /.well-known/oauth-authorization-server:
+    get:
+      summary: Oauth Authorization Server Metadata
+      description: RFC 8414 — OAuth 2.0 Authorization Server Metadata, pointing to our auth proxy endpoints.
+      operationId: oauth_authorization_server_metadata__well_known_oauth_authorization_server_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - .well Known
+  /.well-known/oauth-authorization-server/{subpath}:
+    get:
+      summary: Oauth Authorization Server Metadata Path
+      operationId: oauth_authorization_server_metadata_path__well_known_oauth_authorization_server__subpath__get
+      parameters:
+      - name: subpath
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Subpath
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - .well Known
+  /.well-known/openai-apps-challenge:
+    get:
+      summary: Openai Apps Challenge
+      operationId: openai_apps_challenge__well_known_openai_apps_challenge_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            text/plain:
+              schema:
+                type: string
+      tags:
+      - .well Known
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

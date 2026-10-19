@@ -1,0 +1,32 @@
+openapi: 3.2.0
+info:
+  title: BrightEdge MCP Server SSO API
+  description: MCP server wrapped with FastAPI for BrightEdge APIs
+  version: '2.35'
+tags:
+- name: SSO
+paths:
+  /sso/picker:
+    get:
+      summary: Sso Picker
+      operationId: sso_picker_sso_picker_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - SSO
+  /sso/picker/resolve:
+    get:
+      summary: Sso Picker Resolve
+      operationId: sso_picker_resolve_sso_picker_resolve_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - SSO

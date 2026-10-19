@@ -1,0 +1,134 @@
+openapi: 3.2.0
+info:
+  title: BrightEdge MCP Server Auth API
+  description: MCP server wrapped with FastAPI for BrightEdge APIs
+  version: '2.35'
+tags:
+- name: Auth
+paths:
+  /auth/login:
+    get:
+      summary: Auth Login
+      description: 'Step 1 — call this to get a one-time Auth0 login URL.
+
+        Open the returned login_url in a browser, sign in with your BrightEdge
+
+        credentials, and /auth/callback will display your token as JSON.
+
+        The URL is valid for 10 minutes.'
+      operationId: auth_login_auth_login_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - Auth
+  /auth/callback:
+    get:
+      summary: Auth Callback
+      description: 'Auth0 redirects here after the user logs in.
+
+        The response body contains the access_token — copy it from the browser.'
+      operationId: auth_callback_auth_callback_get
+      parameters:
+      - name: code
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+          title: Code
+      - name: state
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+          title: State
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Auth
+  /auth/refresh:
+    post:
+      summary: Auth Refresh
+      description: Exchange a refresh_token for a new access_token.
+      operationId: auth_refresh_auth_refresh_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/_RefreshRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Auth
+components:
+  schemas:
+    _RefreshRequest:
+      properties:
+        refresh_token:
+          type: string
+          title: Refresh Token
+      type: object
+      required:
+      - refresh_token
+      title: _RefreshRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

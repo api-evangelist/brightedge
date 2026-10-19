@@ -1,0 +1,124 @@
+openapi: 3.2.0
+info:
+  title: BrightEdge MCP Server SAML API
+  description: MCP server wrapped with FastAPI for BrightEdge APIs
+  version: '2.35'
+tags:
+- name: Saml
+paths:
+  /saml/azure/login:
+    get:
+      summary: Azure Oauth Login
+      description: 'Step 1 for the Azure AD (Microsoft Entra ID) test flow — builds the Auth0
+
+        /authorize URL for the dedicated Azure-linked Auth0 application.
+
+
+        Includes `audience` so Auth0 mints a signed JWT access token scoped to our
+
+        resource server — omitting it silently downgrades the access_token to an
+
+        encrypted, ID-token-shaped JWE that our verifier can''t parse. Also passes
+
+        a `connection` hint (if configured) so Auth0 skips its IdP picker and goes
+
+        straight to the Azure AD enterprise connection.
+
+
+        Note: This is only for manual testing of the Azure SSO flow. The production flow is handled by the SPA app and the /authorize proxy.'
+      operationId: azure_oauth_login_saml_azure_login_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - Saml
+  /saml/azure/callback:
+    get:
+      summary: Azure Oauth Callback
+      description: 'Callback for the Azure AD (Microsoft Entra ID) login flow, backed by a separate
+
+        Auth0 application with a fixed redirect_uri registered in Azure — no PKCE state
+
+        to verify here, Azure calls back with the code directly.
+
+        The response body contains the access_token — copy it from the browser.
+
+
+        Note: Same here, this is only for manual testing of the Azure SSO flow. The production flow is handled by the SPA app and the /authorize proxy.'
+      operationId: azure_oauth_callback_saml_azure_callback_get
+      parameters:
+      - name: code
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+          title: Code
+      - name: error
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+          title: Error
+      - name: error_description
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+          title: Error Description
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Saml
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
