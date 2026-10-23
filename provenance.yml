@@ -9,57 +9,60 @@ artifacts:
   authentication/brightedge-authentication.yml:
     method: searched
     evidence: declared in the artifact
+  capabilities/brightedge-capability-edges.yml:
+    method: unknown
+    evidence: no authorship recorded
   changelog/brightedge-changelog.yml:
     method: searched
     evidence: declared in the artifact
   collections/brightedge-accounts-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-accounts-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-accounts-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-accounts-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-ai-catalyst-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-ai-catalyst-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-ai-catalyst-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-ai-catalyst-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-autopilot-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-autopilot-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-autopilot-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-autopilot-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-backlinks-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-backlinks-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-backlinks-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-backlinks-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-be-local-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-be-local-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-be-local-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-be-local-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-budd-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-budd-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-budd-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-budd-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-bulk-export-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-bulk-export-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-bulk-export-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-bulk-export-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-chrome-extension-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-chrome-extension-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-chrome-extension-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-chrome-extension-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-chrome-extension-keywords-api.opencollection.json:
     method: unknown
     evidence: no authorship recorded
@@ -85,11 +88,11 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   collections/brightedge-core-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-core-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-core-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-core-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-datacube-searchengines-api.opencollection.json:
     method: unknown
     evidence: no authorship recorded
@@ -97,65 +100,65 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   collections/brightedge-dataset-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-dataset-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-dataset-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-dataset-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-domains-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-domains-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-domains-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-domains-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-instant-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-instant-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-instant-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-instant-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-keywordgroups-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-keywordgroups-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-keywordgroups-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-keywordgroups-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-keywords-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-keywords-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-keywords-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-keywords-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-latest5-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-latest5-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-latest5-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-latest5-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-legacy-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-legacy-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-legacy-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-legacy-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-marketinsights-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-marketinsights-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-marketinsights-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-marketinsights-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-marketo-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-marketo-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-marketo-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-marketo-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-organizations-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-organizations-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-organizations-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-organizations-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-paa-per-keyword-api.opencollection.json:
     method: unknown
     evidence: no authorship recorded
@@ -175,11 +178,11 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   collections/brightedge-pages-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-pages-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-pages-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-pages-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-people-also-ask-api.opencollection.json:
     method: unknown
     evidence: no authorship recorded
@@ -187,17 +190,17 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   collections/brightedge-ping-api.opencollection.json:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: openapi/brightedge-ping-api
   collections/brightedge-ping-api.postman_collection.json:
+    method: derived
+    evidence: openapi/brightedge-ping-api
+  collections/brightedge-product-grid-api.opencollection.json:
     method: unknown
     evidence: no authorship recorded
-  collections/brightedge-product-grid-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-product-grid-api
   collections/brightedge-product-grid-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-product-grid-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-qa-api.opencollection.json:
     method: unknown
     evidence: no authorship recorded
@@ -211,29 +214,29 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   collections/brightedge-recommendations-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-recommendations-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-recommendations-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-recommendations-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-searchengines-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-searchengines-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-searchengines-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-searchengines-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-serp-features-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-serp-features-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-serp-features-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-serp-features-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-time-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-time-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-time-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-time-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-top-keywords-for-a-domain-api.opencollection.json:
     method: unknown
     evidence: no authorship recorded
@@ -253,23 +256,23 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   collections/brightedge-user-settings-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-user-settings-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-user-settings-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-user-settings-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-users-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-users-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-users-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-users-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-web-vitals-api.opencollection.json:
-    method: derived
-    evidence: openapi/brightedge-web-vitals-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-web-vitals-api.postman_collection.json:
-    method: derived
-    evidence: openapi/brightedge-web-vitals-api
+    method: unknown
+    evidence: no authorship recorded
   collections/brightedge-webhook-api.opencollection.json:
     method: unknown
     evidence: no authorship recorded
@@ -291,127 +294,13 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-09-24T161608.yml:
+  integrations/_index.yml:
     method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T125852.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T133943.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T143147.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T154045.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-26T215308.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T094438.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T103455.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T123021.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T132314.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T140727.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-28T221322.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-29T213958.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-29T230545.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-30T203505.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-30T220315.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-31T223420.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T063623.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T210448.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T222808.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-02T211804.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-02T224043.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-03T161828.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-03T174231.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T062714.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T212454.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T224856.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T055819.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T072335.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T144739.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T195450.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T211839.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T011047.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T211804.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T224210.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-07T200636.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-07T213054.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-08T214843.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-08T232836.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-10T204815.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-10T222408.yml:
+    evidence: carries an API Evangelist house phrase
+  integrations/brightedge-integration-edges.yml:
+    method: searched
+    evidence: declared in the artifact
+  kin/checks-2026-10-11T110117.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-12T062655.yml:
@@ -495,6 +384,21 @@ artifacts:
   kin/score-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T210408.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T232841.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T000835.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T024842.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-11T110117.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   lifecycle/brightedge-lifecycle.yml:
     method: searched
     evidence: declared in the artifact
@@ -510,97 +414,40 @@ artifacts:
   mcp/brightedge-tool-crosswalk.yml:
     method: derived
     evidence: declared in the artifact
-  openapi/_original/brightedge-platform-openapi-original.json:
+  openapi/_original/brightedge-openapi.json:
     method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
-  openapi/brightedge-accounts-api-openapi.yml:
+    evidence: byte-identical to https://mcp2.brightedge.com/openapi.json (sha256 6405d8efa571, fetched
+      2026-10-19)
+  openapi/brightedge-auth-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-ai-catalyst-api-openapi.yml:
+  openapi/brightedge-authorize-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-autopilot-api-openapi.yml:
+  openapi/brightedge-feedback-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-backlinks-api-openapi.yml:
+  openapi/brightedge-oauth-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-be-local-api-openapi.yml:
+  openapi/brightedge-ping-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-budd-api-openapi.yml:
+  openapi/brightedge-saml-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-bulk-export-api-openapi.yml:
+  openapi/brightedge-sso-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-chrome-extension-api-openapi.yml:
+  openapi/brightedge-token-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-core-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-dataset-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-domains-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-instant-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-keywordgroups-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-keywords-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-latest5-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-legacy-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-marketinsights-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-marketo-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-organizations-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-pages-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-product-grid-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-recommendations-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-searchengines-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-serp-features-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-time-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-user-settings-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-users-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/brightedge-web-vitals-api-openapi.yml:
+  openapi/brightedge-well-known-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   overlays/brightedge-platform-overlay.yaml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
   packages/brightedge-packages.yml:
     method: searched
     evidence: declared in the artifact
