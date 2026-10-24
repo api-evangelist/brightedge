@@ -102,6 +102,8 @@ apis:
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
@@ -174,6 +176,8 @@ apis:
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
   tags:
+  - Authentication
+  tags_raw:
   - Oauth
   properties:
   - type: OpenAPI
@@ -222,6 +226,8 @@ apis:
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
   tags:
+  - SAML
+  tags_raw:
   - Saml
   properties:
   - type: OpenAPI
@@ -246,6 +252,8 @@ apis:
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
   tags:
+  - SSO
+  tags_raw:
   - Sso
   properties:
   - type: OpenAPI
@@ -270,6 +278,8 @@ apis:
   humanURL: https://api.brightedge.com/portal
   baseURL: https://api.brightedge.com
   tags:
+  - Tokens
+  tags_raw:
   - Token
   properties:
   - type: OpenAPI
