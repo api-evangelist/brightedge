@@ -64,6 +64,195 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-BrightEdge is a company surfaced as a portfolio company of insight-partners and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+BrightEdge is an enterprise SEO and content performance platform, founded in 2007 and headquartered in Silicon Valley, used by thousands of brands and a majority of the Fortune 100. Its products include the DataCube keyword and content data repository, ContentIQ site auditing, Autopilot, Copilot, and the DataMind AI engine plus AI Catalyst for generative-search visibility. The BrightEdge Platform API (v5.0) is a REST API published at api.brightedge.com that exposes accounts, keywords, keyword groups, competitors, domains, pages, backlinks, the DataCube dataset, recommendations, People-Also-Ask, SERP features, Core Web Vitals, bulk export, and user/organization management, so teams can integrate BrightEdge search and content intelligence into their own reporting, analytics, and data-warehouse workflows.
 
-Backed by: insight-partners — http://www.brightedge.com/
+**Areas:** Company · SEO · Search · Content · Marketing · Analytics · Keywords · Enterprise · AI Search
+
+## BrightEdge on APIs.io
+
+Everything profiled for BrightEdge is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/brightedge/](https://apis.io/providers/brightedge/)** — or go straight to one of the APIs or properties below.
+
+### APIs (29)
+
+- [BrightEdge Accounts API](https://apis.io/apis/brightedge/brightedge-accounts-api/) — Operation related to accounts
+- [BrightEdge AI Catalyst API](https://apis.io/apis/brightedge/brightedge-ai-catalyst-api/) — APIs for ai_catalyst dataset
+- [BrightEdge Autopilot API](https://apis.io/apis/brightedge/brightedge-autopilot-api/) — The autopilot API from BrightEdge — 4 operation(s) for autopilot.
+- [BrightEdge Backlinks API](https://apis.io/apis/brightedge/brightedge-backlinks-api/) — Operation related to backlinks
+- [BrightEdge Be Local API](https://apis.io/apis/brightedge/brightedge-be-local-api/) — Operation related to BE Local
+- [BrightEdge Budd API](https://apis.io/apis/brightedge/brightedge-budd-api/) — The budd API from BrightEdge — 2 operation(s) for budd.
+- [BrightEdge Bulk Export API](https://apis.io/apis/brightedge/brightedge-bulk-export-api/) — The bulk_export API from BrightEdge — 6 operation(s) for bulk_export.
+- [BrightEdge Chrome Extension API](https://apis.io/apis/brightedge/brightedge-chrome-extension-api/) — The chrome_extension API from BrightEdge — 12 operation(s) for chrome_extension.
+- [BrightEdge Core API](https://apis.io/apis/brightedge/brightedge-core-api/) — The core API from BrightEdge — 6 operation(s) for core.
+- [BrightEdge Dataset API](https://apis.io/apis/brightedge/brightedge-dataset-api/) — APIs for brightedge dataset
+- [BrightEdge Domains API](https://apis.io/apis/brightedge/brightedge-domains-api/) — Operation related to domains
+- [BrightEdge Instant API](https://apis.io/apis/brightedge/brightedge-instant-api/) — The instant API from BrightEdge — 6 operation(s) for instant.
+- [BrightEdge Keywordgroups API](https://apis.io/apis/brightedge/brightedge-keywordgroups-api/) — Operation related to keyword groups
+- [BrightEdge Keywords API](https://apis.io/apis/brightedge/brightedge-keywords-api/) — Operation related to keywords
+- [BrightEdge Latest5 API](https://apis.io/apis/brightedge/brightedge-latest5-api/) — The Latest5 API from BrightEdge — 2 operation(s) for latest5.
+- [BrightEdge Legacy API](https://apis.io/apis/brightedge/brightedge-legacy-api/) — Operation ported over from legacy API
+- [BrightEdge Marketinsights API](https://apis.io/apis/brightedge/brightedge-marketinsights-api/) — Operation related to Market Insights
+- [BrightEdge Marketo API](https://apis.io/apis/brightedge/brightedge-marketo-api/) — APIs for marketo
+- [BrightEdge Organizations API](https://apis.io/apis/brightedge/brightedge-organizations-api/) — Operation related to organizations
+- [BrightEdge Pages API](https://apis.io/apis/brightedge/brightedge-pages-api/) — The Pages API from BrightEdge — 2 operation(s) for pages.
+- [BrightEdge Product Grid API](https://apis.io/apis/brightedge/brightedge-product-grid-api/) — APIs for product grid
+- [BrightEdge Recommendations API](https://apis.io/apis/brightedge/brightedge-recommendations-api/) — The recommendations API from BrightEdge — 6 operation(s) for recommendations.
+- [BrightEdge Searchengines API](https://apis.io/apis/brightedge/brightedge-searchengines-api/) — Operation related to search engines
+- [BrightEdge Serp Features API](https://apis.io/apis/brightedge/brightedge-serp-features-api/) — Operation related to Serp features like People Also Ask etc
+- [BrightEdge Time API](https://apis.io/apis/brightedge/brightedge-time-api/) — Operation related to time
+- [BrightEdge User Settings API](https://apis.io/apis/brightedge/brightedge-user-settings-api/) — The user_settings API from BrightEdge — 4 operation(s) for user_settings.
+- [BrightEdge Users API](https://apis.io/apis/brightedge/brightedge-users-api/) — Operation related to users
+- [BrightEdge Web Vitals API](https://apis.io/apis/brightedge/brightedge-web-vitals-api/) — The web_vitals API from BrightEdge — 4 operation(s) for web_vitals.
+- [BrightEdge MCP Server](https://apis.io/apis/brightedge/brightedge-mcp-server/) — BrightEdge's hosted, remote Model Context Protocol server. An MCP client POSTs to https://mcp2.brightedge.com/mcp (or the SSE endpoint…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (2)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [brightedge](https://apis.io/servers/brightedge/brightedge/)
+- [BrightEdge MCP product page](https://apis.io/servers/brightedge/brightedge-mcp-product-page/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Brightedge Agentic Access](https://apis.io/agentic-access/brightedge/brightedge-agentic-access/)
+
+#### Collections (44)
+
+Postman and Open Collection request collections.
+
+- [BrightEdge Platform accounts API](https://apis.io/collections/brightedge/open-brightedge-accounts-api/)
+- [BrightEdge Platform accounts ai_catalyst API](https://apis.io/collections/brightedge/open-brightedge-ai-catalyst-api/)
+- [BrightEdge Platform accounts autopilot API](https://apis.io/collections/brightedge/open-brightedge-autopilot-api/)
+- [BrightEdge Platform accounts backlinks API](https://apis.io/collections/brightedge/open-brightedge-backlinks-api/)
+- [BrightEdge Platform accounts be_local API](https://apis.io/collections/brightedge/open-brightedge-be-local-api/)
+- [BrightEdge Platform accounts budd API](https://apis.io/collections/brightedge/open-brightedge-budd-api/)
+- [BrightEdge Platform accounts bulk_export API](https://apis.io/collections/brightedge/open-brightedge-bulk-export-api/)
+- [BrightEdge Platform accounts chrome_extension API](https://apis.io/collections/brightedge/open-brightedge-chrome-extension-api/)
+- [BrightEdge Platform accounts Chrome Extension Keywords API](https://apis.io/collections/brightedge/open-brightedge-chrome-extension-keywords-api/)
+- [BrightEdge Platform accounts Chrome Extension Overview API](https://apis.io/collections/brightedge/open-brightedge-chrome-extension-overview-api/)
+- [BrightEdge Platform accounts chromeextension API](https://apis.io/collections/brightedge/open-brightedge-chromeextension-api/)
+- [BrightEdge Platform accounts competitors API](https://apis.io/collections/brightedge/open-brightedge-competitors-api/)
+- [BrightEdge Platform accounts core API](https://apis.io/collections/brightedge/open-brightedge-core-api/)
+- [BrightEdge Platform accounts datacube_searchengines API](https://apis.io/collections/brightedge/open-brightedge-datacube-searchengines-api/)
+- [BrightEdge Platform accounts dataset API](https://apis.io/collections/brightedge/open-brightedge-dataset-api/)
+- [BrightEdge Platform accounts domains API](https://apis.io/collections/brightedge/open-brightedge-domains-api/)
+- [BrightEdge Platform accounts instant API](https://apis.io/collections/brightedge/open-brightedge-instant-api/)
+- [BrightEdge Platform accounts keywordgroups API](https://apis.io/collections/brightedge/open-brightedge-keywordgroups-api/)
+- [BrightEdge Platform accounts keywords API](https://apis.io/collections/brightedge/open-brightedge-keywords-api/)
+- [BrightEdge Platform accounts Latest5 API](https://apis.io/collections/brightedge/open-brightedge-latest5-api/)
+- [BrightEdge Platform accounts legacy API](https://apis.io/collections/brightedge/open-brightedge-legacy-api/)
+- [BrightEdge Platform accounts marketinsights API](https://apis.io/collections/brightedge/open-brightedge-marketinsights-api/)
+- [BrightEdge Platform accounts marketo API](https://apis.io/collections/brightedge/open-brightedge-marketo-api/)
+- [BrightEdge Platform accounts organizations API](https://apis.io/collections/brightedge/open-brightedge-organizations-api/)
+- [BrightEdge Platform accounts paa per keyword API](https://apis.io/collections/brightedge/open-brightedge-paa-per-keyword-api/)
+- …and 19 more published on APIs.io
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Brightedge Platform Overlay](https://apis.io/overlays/brightedge/brightedge-platform-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Brightedge Authentication](https://apis.io/security/brightedge/brightedge-authentication/)
+- [Brightedge Domain Security](https://apis.io/security/brightedge/brightedge-domain-security/)
+- [Brightedge Trust Center](https://apis.io/security/brightedge/brightedge-trust-center/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Brightedge Scopes](https://apis.io/scopes/brightedge/brightedge-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Brightedge Plans Pricing](https://apis.io/plans/brightedge/brightedge-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Brightedge Rate Limits](https://apis.io/rate-limits/brightedge/brightedge-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](http://www.brightedge.com/)
+- [Documentation](https://api.brightedge.com/portal)
+- [Getting started](https://www.brightedge.com/brightedge-mcp)
+- [API reference](https://api.brightedge.com/portal)
+- [Pricing](https://www.brightedge.com/products/product-pricing)
+- [Sign up](https://www.brightedge.com/secure/login)
+- [Support](https://support.brightedge.com/)
+- [Changelog](https://www.brightedge.com/resources/product-releases)
+- [Blog](https://www.brightedge.com/blog)
+- [Compliance](https://www.brightedge.com/trust)
+- [Terms of service](https://www.brightedge.com/legal)
+- [Privacy policy](https://www.brightedge.com/privacy)
+- [GitHub](https://github.com/brightedge-seo)
+
+## API Evangelist rating
+
+**Kin Score 50.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 36.3 |
+| Contract governance | 18.2 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 58.9 |
+| Access clarity | 60.5 |
+
+**Agent readiness 39.6** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 39.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/brightedge/](https://apis.io/providers/brightedge/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for BrightEdge: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/brightedge/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
